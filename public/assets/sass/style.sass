@@ -1,0 +1,43 @@
+@import "libs/libs"
+
+$color-red: #FB481C
+$color-green: #15E014
+$color-blue: #0343FA
+$color-background: #F8F8FA
+$color-black: #333
+$color-gray: #AAA
+
+$font-family-header: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+$font-family-body: "Helvetica Neue", "Helvetica", "Arial", "proxima-nova", "Proxima Nova", sans-serif
+
+$media-mobile: new-breakpoint(max-width 700px 4)
+
+html, body
+    padding: 0
+    margin: 0
+    height: 100%
+    font-family: $font-family-body
+    text-rendering: optimizeLegibility
+    -webkit-font-smoothing: antialiased
+
+    p, li, a, blockquote, em, strong
+        font-size: 0.875rem
+        line-height: 1.3125rem
+
+    a, a:visited
+        color: $color-black
+
+    a:hover, a:active
+        color: $color-red
+
+
+::selection
+    background: $color-blue
+    color: #ffffff
+
+::-moz-selection
+    background: $color-blue
+    color: #ffffff
+
+@import "parts/angle", "parts/content", "parts/copier", "parts/footer", "parts/header", "parts/hero", "parts/post_widgets"
+@import "pages/build_index", "pages/contact", "pages/home", "pages/open", "pages/build_post"

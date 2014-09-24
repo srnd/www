@@ -1,0 +1,32 @@
+{% set nav = [
+    {
+        "id": "contact",
+        "name": "Contact",
+        "url": "/contact"
+    },
+    {
+        "id": "build",
+        "name": "Build",
+        "url": "/build"
+    }
+] %}
+
+<header>
+    <section class="content">
+        <h1><a href="/">StudentRND</a></h1>
+        <nav>
+            <ul>
+                {% for nav_item in nav %}
+                    <li
+                            {% if nav_item.id == section %}
+                        class="active"
+                            {% endif %}>
+                        <a href="{{ nav_item.url }}">
+                            {{ nav_item.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </section>
+</header>

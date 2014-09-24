@@ -1,0 +1,55 @@
+body > footer
+    margin-top: -1rem
+    @include outer-container
+
+    @include media($media-mobile)
+        padding:
+            left: 1rem
+            right: 1rem
+
+    section
+        p, input.copier, li, a
+            font-size: 0.9rem
+            color: $color-gray
+            line-height: 1.6
+
+        h2
+            font-size: 1rem
+
+        ul
+            padding: 0
+            li
+                list-style-type: none
+
+    section.about
+        @include span-columns(5)
+        margin-right: flex-grid(3, 12) + flex-gutter(12)
+        @include media($media-mobile)
+            @include span-columns(4)
+            @include omega
+            margin-right: 0
+        header
+            h2
+                font:
+                    family: "Helvetica", "Arial", $font-family-header
+                    size: 2rem
+                    weight: 200
+                margin: 0
+            h3
+                font-size: 1rem
+
+    section.company
+        @include span-columns(2)
+        @include media($media-mobile)
+            @include span-columns(2)
+
+    section.programs
+        @include span-columns(2)
+        @include omega()
+
+        @include media($media-mobile)
+            @include span-columns(2)
+            @include omega
+
+    section.social
+        @include span-columns(12)

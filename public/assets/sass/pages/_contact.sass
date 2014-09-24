@@ -1,0 +1,35 @@
+body.contact.contact
+    section.contacts
+
+        section
+            @include span-columns(3)
+            @include media($media-mobile)
+                @include span-columns(2)
+                &:nth-child(2n)
+                    @include omega
+
+            h4
+                text-align: left
+                font:
+                    family: $font-family-header
+                    size: 1.3rem
+                    weight: 500
+                margin-bottom: 0
+
+
+            ul
+                padding: 0
+                li
+                    list-style-type: none
+                    a, span.name
+                        font-weight: 700
+                        color: $color-black
+                        text-decoration: none
+
+                    span.name
+                        display: block
+                        margin-top: 1rem
+
+                    span.address
+                        span
+                            display: block

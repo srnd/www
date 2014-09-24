@@ -1,0 +1,145 @@
+{% extends "template.twig" %}
+{% block section %}home{% endblock %}
+{% block page %}index{% endblock %}
+{% block hero %}
+    <section class="hero">
+        <article>
+            <div class="map"></div>
+            <section class="info">
+                <p class="mission">We make students fall in love with coding nationwide.</p>
+                <p class="scale">Tens of thousands of students &middot; 30+ cities across the US</p>
+            </section>
+        </article>
+    </section>
+{% endblock %}
+{% block content %}
+    <section class="programs">
+        <header>
+            <h2>Our programs support students throughout their lives.</h2>
+            <p>It's not just about the events. Our programs build up a community which allows us to
+               support students in the long-term.</p>
+        </header>
+
+        <ul>
+            <li><a href="https://codeday.org/">
+                <img src="/assets/img/codeday-square.png" alt="CodeDay Square Logo"/>
+                <h3>CodeDay</h3>
+                <p>A high-energy, 24-hour event encouraging interest in coding.</p>
+            </a></li>
+            <li><a href="#">
+                <img src="/assets/img/codex-square.png" alt="CodeX Square Logo"/>
+                <h3>CodeX</h3>
+                <p>The next program from StudentRND. Stay tuned.</p>
+            </a></li>
+            <li><a href="https://labs.studentrnd.org/">
+                <img src="/assets/img/labs-square.png" alt="StudentRND Labs Square Logo"/>
+                <h3>Labs</h3>
+                <p>A three-week summer program for students who love to make things.</p>
+            </a></li>
+            <li><a href="https://www.facebook.com/groups/studentrnd/">
+                <img src="/assets/img/community-square.png" alt="StudentRND Community Square Logo"/>
+                <h3>Community</h3>
+                <p>The largest active community for students interested in technology.</p>
+            </a></li>
+        </ul>
+    </section>
+
+    <section class="featured">
+        <h2>You may have seen our programs in:</h2>
+        <ul>
+            <li class="all-things-considered"><a href="http://www.npr.org/blogs/alltechconsidered/2014/01/25/266162832/computers-are-the-future-but-does-everyone-need-to-code">All Things Considered</a></li>
+            <li class="techcrunch"><a href="http://techcrunch.com/2013/01/18/the-weekly-good-the-problems-of-today-will-be-solved-by-the-minds-of-tomorrow/">TechCrunch</a></li>
+            <li class="npr"><a href="http://blogs.kqed.org/mindshift/2012/04/watch-out-silicon-valley-here-come-the-tinkering-teens/">NPR</a></li>
+            <li class="readwrite"><a href="http://readwrite.com/2013/10/18/kids-learn-code-programming">Readwrite</a></li>
+            <li class="king5"><a href="http://www.king5.com/news/Students-in-code-heaven-at-Code-Day-193177871.html">King5</a></li>
+            <li class="geekwire"><a href="http://www.geekwire.com/2013/watch-young-entrepreneurs-studentrnd-pitch-startup-ideas/">Geekwire</a></li>
+        </ul>
+    </section>
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript">
+        (function(){
+            var previous_width = null;
+            var redraw_map = function(){
+                var path = d3.geo.path();
+
+                if ($('body > .hero .map').width() === previous_width) {
+                    {# Window width hasn't changed, no need to redraw #}
+                    return;
+                } else {
+                    previous_width = $('body > .hero .map').width();
+                }
+
+                var map = $('body > .hero .map').html('<svg></svg>');
+                var width = map.width();
+                var height = map.width() * 0.6;
+
+                var projection = d3.geo.albersUsa()
+                        .scale((width * 1.2))
+                        .translate([width / 2, height / 2]);
+
+                var path = d3.geo.path()
+                        .projection(projection);
+
+                var svg = d3.select("body > .hero .map svg")
+                        .attr("width", width)
+                        .attr("height", height);
+
+                d3.json("/assets/topo/us.json", function(error, us) {
+                    svg.insert("path", ".graticule")
+                            .datum(topojson.feature(us, us.objects.land))
+                            .attr("class", "land")
+                            .attr("d", path);
+
+                    svg.insert("clipPath")
+                            .attr("id", "landclip")
+                            .append("path", ".graticule")
+                            .datum(topojson.feature(us, us.objects.land))
+                            .attr("d", path);
+
+
+                    svg.insert("path", ".graticule")
+                            .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+                            .attr("class", "state-boundary")
+                            .attr("d", path);
+
+                    var regions = {% include "parts/regions.twig" %};
+
+                    svg.selectAll("circle.footprint")
+                            .data(regions)
+                            .enter()
+                            .append("circle")
+                            .attr("cx", function(d) { return projection([d.lng, d.lat])[0]; })
+                            .attr("cy", function(d) { return projection([d.lng, d.lat])[1]; })
+                            .attr("r", Math.min(49, (width/12.5)))
+                            .attr("clip-path", "url(#landclip)")
+                            .attr("class", "footprint");
+
+                    svg.selectAll("circle.outline")
+                            .data(regions)
+                            .enter()
+                            .append("circle")
+                            .attr("cx", function(d) { return projection([d.lng, d.lat])[0]; })
+                            .attr("cy", function(d) { return projection([d.lng, d.lat])[1]; })
+                            .attr("r", Math.min(21, (width/10)))
+                            .attr("clip-path", "url(#landclip)")
+                            .attr("class", "outline");
+
+                    svg.selectAll("circle.city")
+                            .data(regions)
+                            .enter()
+                            .append("circle")
+                            .attr("cx", function(d) { return projection([d.lng, d.lat])[0]; })
+                            .attr("cy", function(d) { return projection([d.lng, d.lat])[1]; })
+                            .attr("r", Math.min(7, (width/100)))
+                            .attr("class", "city");
+                });
+
+                d3.select(self.frameElement).style("height", height + "px");
+            };
+
+            redraw_map();
+            $(window).on('resize', redraw_map);
+        })();
+    </script>
+{% endblock %}

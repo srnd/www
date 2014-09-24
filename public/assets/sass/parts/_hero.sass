@@ -1,0 +1,93 @@
+body.home.index > section.hero
+    height: 80%
+    width: 100%
+    min-height: 30rem
+    margin-top: -5rem
+    padding-top: 5rem
+    position: relative
+    z-index: -1
+    background:
+        image: url(../img/splash.jpg)
+        color: $color-blue
+        size: cover
+        position: 50% 50%
+        repeat: no-repeat
+
+
+
+    @include media($media-mobile)
+        height: 110%
+
+
+    &::selection
+        background: #ffffff
+        color: $color-blue
+
+    &::-moz-selection
+        background: #ffffff
+        color: $color-blue
+
+    article
+        @include outer-container
+        clear: both
+
+        position: absolute
+        left: 0
+        right: 0
+        top: 25%
+        padding-bottom: 150px
+
+        .map
+            @include span-columns(7)
+            min-height: 2.1rem
+            margin-top: -2rem
+
+            @include media($media-mobile)
+                @include span-columns(4)
+                @include omega
+
+            .land
+                fill: none
+                stroke: rgba(255, 255, 255, 0.6)
+
+            .state-boundary
+                fill: none
+                stroke: rgba(255, 255, 255, 0.3)
+
+            .city
+                fill: #fff
+
+            .footprint
+                fill: rgba(255, 255, 255, 0.075)
+
+            .outline
+                fill: rgba(255, 255, 255, 0.075)
+
+
+        .info
+            @include span-columns(5)
+            margin-top: 2.5rem
+
+            @include media($media-mobile)
+                @include span-columns(4)
+                @include omega
+                text-align: center
+
+            .mission
+                font:
+                    family: $font-family-header
+                    weight: 100
+                    style: italic
+                    size: 3.3rem
+                color: #ffffff
+                line-height: 3.4rem
+                margin:
+                    bottom: 0
+                    top: 0
+
+            .scale
+                font:
+                    family: $font-family-header
+                    size: 0.75rem
+                color: lighten($color-blue, 30)
+                text-transform: uppercase

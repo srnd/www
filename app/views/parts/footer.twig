@@ -1,0 +1,62 @@
+<div class="angle bottom"></div>
+<footer>
+    <section class="about">
+        <header>
+            <h2>StudentRND</h2>
+            <h3>We make students fall in love with coding.</h3>
+        </header>
+        <p>StudentRND is a 501(c)(3) public-charity registered in Washington.
+           Our EIN is <input type="text" readonly value="26-4742589" class="ein copier" />
+           (<a href="/assets/pdf/w9.pdf">W-9</a>).</p>
+    </section>
+    <section class="company">
+        <h2>Company</h2>
+        <ul>
+            <li><a href="/open">Records</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </section>
+    <section class="programs">
+        <h2>Programs</h2>
+        <ul>
+            <li><a href="https://codeday.org/">CodeDay</a></li>
+            <li><a href="https://labs.studentrnd.org/">Labs</a></li>
+            <li><a href="https://www.facebook.com/groups/studentrnd/">Community</a></li>
+            <li><a href="/build">Build</a></li>
+        </ul>
+    </section>
+</footer>
+
+<span itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="StudentRND" />
+    <meta itemprop="legalName" content="Student Research and Development" />
+    <meta itemprop="logo" content="https://studentrnd.org/assets/img/press/assets/brand/studentrnd_logo.png" />
+    <meta itemprop="foundingDate" content="2009-04-17" />
+    <meta itemprop="email" content="contact@studentrnd.org" />
+    <meta itemprop="telephone" content="(425) 780-7901" />
+    <meta itemprop="address" content="Seattle, Washington" />
+    <meta itemprop="taxID" content="26-4742589" />
+    <meta itemprop="isicV4" content="8549" />
+    <meta itemprop="naics" content="611420" />
+</span>
+
+{% set script_urls = [
+    'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js',
+    'https://cdnjs.cloudflare.com/ajax/libs/topojson/1.1.0/topojson.min.js',
+    'https://use.typekit.net/wck5lid.js'
+] %}
+{% for script_url in script_urls %}
+    <script type="text/javascript" src="{{ script_url }}"></script>
+{% endfor %}
+
+<script type="text/javascript">
+    (function(){
+        try{Typekit.load();}catch(e){}
+        $('.copier').click(function(){
+            this.setSelectionRange(0, this.value.length);
+        });
+    })();
+</script>
+
+{{ scripts|raw }}
