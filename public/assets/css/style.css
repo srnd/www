@@ -855,7 +855,7 @@ body.build.post .text {
   width: 65.88078%; }
   body.build.post .text:last-child {
     margin-right: 0; }
-  body.build.post .text > p:first-child {
+  body.build.post .text > p:first-child, body.build.post .text > p:first-child a, body.build.post .text > p:first-child em, body.build.post .text > p:first-child strong {
     font-size: 2rem;
     line-height: 2.2rem; }
   body.build.post .text p, body.build.post .text em, body.build.post .text strong, body.build.post .text li, body.build.post .text a, body.build.post .text blockquote {
@@ -865,6 +865,11 @@ body.build.post .text {
       body.build.post .text p, body.build.post .text em, body.build.post .text strong, body.build.post .text li, body.build.post .text a, body.build.post .text blockquote {
         font-size: 0.875rem;
         line-height: 1.3125rem; } }
+  body.build.post .text blockquote:not(.alignleft):not(.alignright):not(.aligncenter) {
+    font-style: italic;
+    font-weight: 300;
+    border-left: 1px solid #668dfd;
+    padding-left: 2.35765%; }
   body.build.post .text .primary-video {
     width: 100%; }
   body.build.post .text hr {
