@@ -1,0 +1,54 @@
+body.press
+    h4
+        text-align: left
+        font:
+            family: $font-family-header
+            size: 1.3rem
+            weight: 500
+        margin-bottom: 0
+
+    .information
+        +span-columns(4)
+        ul
+            padding: 0
+            li
+                list-style-type: none
+                a, span.name
+                    font-weight: 700
+                    color: $color-black
+                    text-decoration: none
+
+                span.name
+                    display: block
+                    margin-top: 1rem
+
+                span.address
+                    span
+                        display: block
+
+    .resources
+        +span-columns(8)
+        ul.assets
+            +row
+            padding: 0
+            & > li
+                +span-columns(4)
+                list-style-type: none
+                margin:
+                    top: 0
+                    bottom: +flex-gutter(12)
+
+                img
+                    width: 100%
+                    height: auto
+                ul
+                    padding: 0
+                    width: 100%
+                    text-align: center
+                    li
+                        list-style-type: none
+                        display: inline
+            &.small li
+                +span-columns(2)
+                &:nth-child(6n)
+                    +omega

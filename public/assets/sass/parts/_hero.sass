@@ -37,6 +37,10 @@ body.home.index > section.hero
         top: 25%
         padding-bottom: 150px
 
+        @include media($media-mobile)
+            position: initial
+            top: initial
+
         .map
             @include span-columns(7)
             min-height: 2.1rem
@@ -45,6 +49,7 @@ body.home.index > section.hero
             @include media($media-mobile)
                 @include span-columns(4)
                 @include omega
+                margin-top: 2rem
 
             .land
                 fill: none

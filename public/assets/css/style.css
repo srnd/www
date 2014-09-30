@@ -343,6 +343,10 @@ body.home.index > section.hero {
       content: "";
       display: table;
       clear: both; }
+    @media screen and (max-width: 700px) {
+      body.home.index > section.hero article {
+        position: initial;
+        top: initial; } }
     body.home.index > section.hero article .map {
       float: left;
       display: block;
@@ -358,7 +362,8 @@ body.home.index > section.hero {
           display: block;
           margin-right: 7.42297%;
           width: 100%;
-          margin-right: 0; }
+          margin-right: 0;
+          margin-top: 2rem; }
           body.home.index > section.hero article .map:last-child {
             margin-right: 0; } }
       body.home.index > section.hero article .map .land {
@@ -932,3 +937,93 @@ body.build.post > .hero.with-image {
       font-weight: 700;
       color: rgba(255, 255, 255, 0.9);
       text-transform: uppercase; }
+
+body.code-of-conduct .code {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  padding-left: 14.70196%;
+  padding-right: 14.70196%; }
+  body.code-of-conduct .code:last-child {
+    margin-right: 0; }
+  body.code-of-conduct .code > p:first-child, body.code-of-conduct .code > p:first-child a, body.code-of-conduct .code > p:first-child em, body.code-of-conduct .code > p:first-child strong {
+    font-size: 2rem;
+    line-height: 2.2rem; }
+  body.code-of-conduct .code p, body.code-of-conduct .code em, body.code-of-conduct .code strong, body.code-of-conduct .code li, body.code-of-conduct .code a, body.code-of-conduct .code blockquote {
+    font-size: 1.1rem;
+    line-height: 1.7rem; }
+    @media screen and (max-width: 700px) {
+      body.code-of-conduct .code p, body.code-of-conduct .code em, body.code-of-conduct .code strong, body.code-of-conduct .code li, body.code-of-conduct .code a, body.code-of-conduct .code blockquote {
+        font-size: 0.875rem;
+        line-height: 1.3125rem; } }
+
+body.press h4 {
+  text-align: left;
+  font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 0; }
+body.press .information {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  body.press .information:last-child {
+    margin-right: 0; }
+  body.press .information ul {
+    padding: 0; }
+    body.press .information ul li {
+      list-style-type: none; }
+      body.press .information ul li a, body.press .information ul li span.name {
+        font-weight: 700;
+        color: #333333;
+        text-decoration: none; }
+      body.press .information ul li span.name {
+        display: block;
+        margin-top: 1rem; }
+      body.press .information ul li span.address span {
+        display: block; }
+body.press .resources {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%; }
+  body.press .resources:last-child {
+    margin-right: 0; }
+  body.press .resources ul.assets {
+    display: block;
+    padding: 0; }
+    body.press .resources ul.assets:after {
+      content: "";
+      display: table;
+      clear: both; }
+    body.press .resources ul.assets > li {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      list-style-type: none;
+      margin-top: 0;
+      margin-bottom: 2.35765%; }
+      body.press .resources ul.assets > li:last-child {
+        margin-right: 0; }
+      body.press .resources ul.assets > li img {
+        width: 100%;
+        height: auto; }
+      body.press .resources ul.assets > li ul {
+        padding: 0;
+        width: 100%;
+        text-align: center; }
+        body.press .resources ul.assets > li ul li {
+          list-style-type: none;
+          display: inline; }
+    body.press .resources ul.assets.small li {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 14.70196%; }
+      body.press .resources ul.assets.small li:last-child {
+        margin-right: 0; }
+      body.press .resources ul.assets.small li:nth-child(6n) {
+        margin-right: 0; }
