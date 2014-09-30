@@ -322,7 +322,8 @@ body.home.index > section.hero {
   background-repeat: no-repeat; }
   @media screen and (max-width: 700px) {
     body.home.index > section.hero {
-      height: 110%; } }
+      height: initial;
+      min-height: 110%; } }
   body.home.index > section.hero::selection {
     background: white;
     color: #0343fa; }
