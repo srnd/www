@@ -1,7 +1,7 @@
 {% extends "template.twig" %}
 {% block section %}build{% endblock %}
 {% block page %}post{% endblock %}
-{% block title %}Build{% endblock %}
+{% block title %}{{ post.title }} | Build{% endblock %}
 {% block page_tagline %}News for students building awesome things{% endblock %}
 {% block fullimage %}{{ post.thumbnail.src('large') }}{% endblock %}
 {% block fb_title %}{{ social.fb_title }}{% endblock %}
