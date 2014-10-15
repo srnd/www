@@ -1,0 +1,125 @@
+{% extends "template.twig" %}
+{% block section %}live{% endblock %}
+{% block page %}live{% endblock %}
+{% block title %}Live: {{ event.name }}{% endblock %}
+{% block page_tagline %}Live: {{ event.name }}{% endblock %}
+{% block fullimage %}https://studentrnd.org/assets/img/og_live.jpg{% endblock %}
+{% block content %}
+    {% if event.description %}
+        <section class="description">
+            {{ event.description|raw }}
+        </section>
+    {% endif %}
+
+    {% if event.starts_at.isFuture %}
+        <section class="countdown" id="time-remaining-text">
+            {{ event.starts_at.timestamp|date('l, M jS, g:ia') }} &middot;
+            <span class="weeks" id="time-remaining-weeks">{{ ((event.starts_at.diffInDays)/7)|round(0, 'floor') }} weeks</span>
+            <span class="days" id="time-remaining-days">{{ (event.starts_at.diffInDays)%7 }} days</span>
+            <span class="hours" id="time-remaining-hours">{{ (event.starts_at.diffInHours)%24 }} hours</span>
+            <span class="minutes" id="time-remaining-minutes">{{ (event.starts_at.diffInMinutes)%60 }} minutes</span>
+            <span class="seconds" id="time-remaining-seconds">{{ (event.starts_at.diffInSeconds)%60 }} seconds</span>
+        </section>
+    {% endif %}
+
+    <section class="video">
+        {% if (event.stream_id|length) > 15 %}
+            {{ event.stream_id|raw }}
+        {% else %}
+            <iframe width="640" height="360" src="//www.youtube.com/embed/{{ event.stream_id }}?feature=player_embedded&autoplay=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+        {% endif %}
+    </section>
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript">
+        (function(){
+            var hash = "{{ hash|escape('js') }}";
+            setInterval(function(){
+                $.ajax({
+                    'url': '/live-hash',
+                    'type': 'GET',
+                    'dataType': 'json',
+                    success: function(data){
+                        if (data.hash !== hash) {
+                            window.history.go(0);
+                        }
+                    }
+                });
+            }, 10000);
+        })();
+    </script>
+    <script type="text/javascript">
+        (function(){
+            var countdown_clock = {
+                die_at: {{ event.starts_at.timestamp }} * 1000,
+                has_started: false,
+                get_remaining_seconds: function () {
+                    return Math.floor((this.die_at - (+new Date())) / 1000);
+                },
+                get_countdown_component_simple: function (div, mod) {
+                    return Math.floor((this.get_remaining_seconds() / div) % mod);
+                },
+                get_countdown: function () {
+                    return {
+                        weeks: Math.floor((this.get_remaining_seconds() / (60 * 60 * 24 * 7))),
+                        days: this.get_countdown_component_simple(60 * 60 * 24, 7),
+                        hours: this.get_countdown_component_simple(60 * 60, 24),
+                        minutes: this.get_countdown_component_simple(60, 60),
+                        seconds: this.get_countdown_component_simple(1, 60)
+                    };
+                },
+                is_leap_year: function (year) {
+                    return !((year % 4) || (!(year % 100) && (year % 400)));
+                },
+                days_in_year: function (year) {
+                    return this.is_leap_year(year) ? 366 : 365;
+                },
+                tick: function () {
+                    var countdown = countdown_clock.get_countdown();
+
+                    if (countdown_clock.get_remaining_seconds() > 0) {
+                        var weeks = countdown.weeks > 0 ? countdown.weeks + ' week' + (countdown.weeks != 1 ? 's' : '') : '';
+                        var days = countdown.days > 0 ? countdown.days + ' day' + (countdown.days != 1 ? 's' : '') : '';
+                        var hours = countdown.hours > 0 ? countdown.hours + ' hour' + (countdown.hours != 1 ? 's' : '') : '';
+                        var minutes = countdown.minutes > 0 ? countdown.minutes + ' minute' + (countdown.minutes != 1 ? 's' : '') : '';
+                        var seconds = countdown.seconds ? countdown.seconds + ' second' + (countdown.seconds != 1 ? 's' : '') : '';
+
+                        document.getElementById('time-remaining-weeks').textContent = weeks + (weeks && (days || hours || minutes || seconds) ? ',' : '');
+                        document.getElementById('time-remaining-days').textContent = days + (days && (hours || minutes || seconds) ? ',' : '');
+                        document.getElementById('time-remaining-hours').textContent = hours + (hours && (minutes || seconds) ? ',' : '');
+                        document.getElementById('time-remaining-minutes').textContent = minutes + (minutes && (seconds) ? ',' : '');
+                        document.getElementById('time-remaining-seconds').textContent = seconds;
+                    } else {
+                        document.getElementById('time-remaining-text').style.display = 'none';
+                    }
+                },
+                start: function () {
+                    if (this.has_started) return;
+                    this.has_started = true;
+
+                    var animator = null;
+                    if (typeof(window['requestAnimationFrame']) !== 'undefined') {
+                        animator = window['requestAnimationFrame'];
+                    } else if (typeof(window['mozRequestAnimationFrame']) !== 'undefined') {
+                        animator = window['mozRequestAnimationFrame'];
+                    } else if (typeof(window['webkitRequestAnimationFrame']) !== 'undefined') {
+                        animator = window['webkitRequestAnimationFrame'];
+                    } else {
+                        animator = function (lambda) {
+                            lambda();
+                        }
+                    }
+
+                    setInterval(function () {
+                        animator(countdown_clock.tick);
+                    }, 1000);
+
+                    animator(function () {
+                        countdown_clock.tick();
+                    });
+                }
+            };
+            countdown_clock.start();
+        })();
+    </script>
+{% endblock %}

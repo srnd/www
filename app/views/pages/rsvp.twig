@@ -1,0 +1,160 @@
+{% extends "template.twig" %}
+{% block section %}rsvp{% endblock %}
+{% block page %}rsvp{% endblock %}
+{% block title %}RSVP: {{ event.name }}{% endblock %}
+{% block page_tagline %}{{ event.name }}{% endblock %}
+{% block content %}
+    {% if event.description %}
+        <section class="description">
+            {{ event.description|raw }}
+        </section>
+    {% endif %}
+    
+    <section class="details">
+        <div class="map" id="location-map"></div>
+        <div class="address">{{ event.address }}</div>
+        <div class="date">
+            {% if event.arrive_at %}
+                {{ event.arrive_at.timestamp|date('l, M jS, g:ia') }}
+            {% else %}
+                {{ event.starts_at.timestamp|date('l, M jS, g:ia') }}
+            {% endif %}
+            {% if event.ends_at %}
+                to {{ event.ends_at.timestamp|date('g:ia') }}
+            {% endif %}
+        </div>
+        {% if (event.arrive_at and event.arrive_at.isFuture) or event.starts_at.isFuture %}
+            <div class="countdown" id="time-remaining-text">
+                <span class="weeks" id="time-remaining-weeks">{{ ((event.starts_at.diffInDays)/7)|round(0, 'floor') }} weeks</span>
+                <span class="days" id="time-remaining-days">{{ (event.starts_at.diffInDays)%7 }} days</span>
+                <span class="hours" id="time-remaining-hours">{{ (event.starts_at.diffInHours)%24 }} hours</span>
+                <span class="minutes" id="time-remaining-minutes">{{ (event.starts_at.diffInMinutes)%60 }} minutes</span>
+                <span class="seconds" id="time-remaining-seconds">{{ (event.starts_at.diffInSeconds)%60 }} seconds</span>
+            </div>
+        {% endif %}
+    </section>
+
+    <section class="rsvp">
+        <h3>RSVP</h3>
+        <form method="post" {% if event.allow_plus_ones %}class="allows-plus-ones"{% endif %}>
+            <input type="text" name="first_name" id="first_name" placeholder="First Name" required />
+            <input type="text" name="last_name" id="last_name" placeholder="Last Name" required />
+            <input type="email" name="email" id="email" placeholder="Email" required />
+            {% if event.allow_plus_ones %}
+                <span class="plus-ones">
+                    <label for="plus_ones">+1s</label>
+                    <input type="number" name="plus_ones" id="plus_ones" min="0" max="5" value="0" />
+                </span>
+            {% endif %}
+            <input type="submit" value="RSVP" />
+        </form>
+    </section>
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript">
+        (function(){
+            var countdown_clock = {
+                die_at: {% if event.arrive_at %}{{ event.arrive_at.timestamp }}{% else %}{{ event.starts_at.timestamp }}{% endif %} * 1000,
+                has_started: false,
+                get_remaining_seconds: function () {
+                    return Math.floor((this.die_at - (+new Date())) / 1000);
+                },
+                get_countdown_component_simple: function (div, mod) {
+                    return Math.floor((this.get_remaining_seconds() / div) % mod);
+                },
+                get_countdown: function () {
+                    return {
+                        weeks: Math.floor((this.get_remaining_seconds() / (60 * 60 * 24 * 7))),
+                        days: this.get_countdown_component_simple(60 * 60 * 24, 7),
+                        hours: this.get_countdown_component_simple(60 * 60, 24),
+                        minutes: this.get_countdown_component_simple(60, 60),
+                        seconds: this.get_countdown_component_simple(1, 60)
+                    };
+                },
+                is_leap_year: function (year) {
+                    return !((year % 4) || (!(year % 100) && (year % 400)));
+                },
+                days_in_year: function (year) {
+                    return this.is_leap_year(year) ? 366 : 365;
+                },
+                tick: function () {
+                    var countdown = countdown_clock.get_countdown();
+
+                    if (countdown_clock.get_remaining_seconds() > 0) {
+                        var weeks = countdown.weeks > 0 ? countdown.weeks + ' week' + (countdown.weeks != 1 ? 's' : '') : '';
+                        var days = countdown.days > 0 ? countdown.days + ' day' + (countdown.days != 1 ? 's' : '') : '';
+                        var hours = countdown.hours > 0 ? countdown.hours + ' hour' + (countdown.hours != 1 ? 's' : '') : '';
+                        var minutes = countdown.minutes > 0 ? countdown.minutes + ' minute' + (countdown.minutes != 1 ? 's' : '') : '';
+                        var seconds = countdown.seconds ? countdown.seconds + ' second' + (countdown.seconds != 1 ? 's' : '') : '';
+
+                        document.getElementById('time-remaining-weeks').textContent = weeks + (weeks && (days || hours || minutes || seconds) ? ',' : '');
+                        document.getElementById('time-remaining-days').textContent = days + (days && (hours || minutes || seconds) ? ',' : '');
+                        document.getElementById('time-remaining-hours').textContent = hours + (hours && (minutes || seconds) ? ',' : '');
+                        document.getElementById('time-remaining-minutes').textContent = minutes + (minutes && (seconds) ? ',' : '');
+                        document.getElementById('time-remaining-seconds').textContent = seconds;
+                    } else {
+                        document.getElementById('time-remaining-text').style.display = 'none';
+                    }
+                },
+                start: function () {
+                    if (this.has_started) return;
+                    this.has_started = true;
+
+                    var animator = null;
+                    if (typeof(window['requestAnimationFrame']) !== 'undefined') {
+                        animator = window['requestAnimationFrame'];
+                    } else if (typeof(window['mozRequestAnimationFrame']) !== 'undefined') {
+                        animator = window['mozRequestAnimationFrame'];
+                    } else if (typeof(window['webkitRequestAnimationFrame']) !== 'undefined') {
+                        animator = window['webkitRequestAnimationFrame'];
+                    } else {
+                        animator = function (lambda) {
+                            lambda();
+                        }
+                    }
+
+                    setInterval(function () {
+                        animator(countdown_clock.tick);
+                    }, 1000);
+
+                    animator(function () {
+                        countdown_clock.tick();
+                    });
+                }
+            };
+            countdown_clock.start();
+        })();
+    </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCVggXa9btjGmzqgUim-1HjmnMtbF3UNms&sensor=false&libraries=visualization"></script>
+    <script type="text/javascript">
+        function initialize() {
+            var geocoder = new google.maps.Geocoder();
+            geocoder.geocode({
+                'address': '{{ event.address|escape('js') }}'
+            }, function(results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    var mapElem = document.getElementById('location-map');
+                    var styles = [{"stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"geometry","stylers":[{"visibility":"on"},{"color":"#ced8df"}]},{"featureType":"road.arterial","elementType": "geometry.fill","stylers":[{"visibility":"on"},{"color":"#F1C40F"}]},{"featureType":"road.highway","elementType": "geometry.fill","stylers":[{"visibility":"on"},{"color":"#F1C40F"}]},{"featureType":"landscape","stylers":[{"visibility":"on"},{"color":"#f3f4f4"}]},{"featureType":"water","stylers":[{"visibility":"on"},{"color":"#9bcae9"}]},{},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#7ad1bf"}]},{"elementType":"labels","stylers":[{"visibility":"on"}]},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"weight":0.9},{"visibility":"on"}]}];
+                    var map = new google.maps.Map(mapElem, {
+                        zoom: 14,
+                        center: results[0].geometry.location,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                        disableDefaultUI: true,
+                        scrollwheel: false,
+                        mapTypeControl:false,
+                        styles: styles
+                    });
+
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                    google.maps.event.addListener(marker, "click", function() {
+                        window.open('https://www.google.com/maps/search/{{ loaded_event.venue.address_url|escape('url') }}');
+                    });
+                }
+            });
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+{% endblock %}

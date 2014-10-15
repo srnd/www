@@ -1,0 +1,87 @@
+body.rsvp.rsvp
+
+    section.description
+        +span-columns(12)
+        +omega
+        text-align: center
+
+        &, p, em, strong, li, a, blockquote
+            font:
+                size: 2rem
+                weight: 300
+            line-height: 2.2rem
+
+        margin-bottom: 4rem
+
+
+        padding:
+            left: +flex-grid(2, 12)
+            right: +flex-grid(2, 12)
+
+    section.details
+        +span-columns(5)
+        +media($media-mobile)
+            +span-columns(4)
+            +omega
+            margin-bottom: 4rem
+
+        .map
+            background-color: $color-blue
+            height: 13.9rem
+
+        .address, .date, .countdown
+            text-align: center
+            padding:
+                top: 0.3rem
+            font:
+                family: $font-family-header
+                size: 1rem
+                weight: 200
+
+            &.address
+                padding-bottom: 1rem
+
+    section.rsvp
+        +span-columns(7)
+        +media($media-mobile)
+            +span-columns(4)
+            +omega
+
+        +omega
+
+        h3
+            display: none
+
+        form
+            width: 100%
+            input
+                padding: 1rem
+                font:
+                    family: $font-family-header
+                    size: 1.5rem
+                    weight: 200
+
+            & > input, & > .plus-ones
+                +span-columns(12)
+
+                &#first_name, &#last_name
+                    +span-columns(6)
+                    &#last_name
+                        +omega
+
+                &#email
+                    +span-columns(12)
+
+                &#email, &.plus-ones, &[type="submit"]
+                    margin-top: +flex-gutter(12)
+
+                &.plus-ones
+                    +span-columns(3)
+                    +omega
+                    #plus_ones
+                        +span-columns(9)
+                    label
+                        +span-columns(3)
+                        margin-top: 1.5rem
+            &.allows-plus-ones input#email
+                +span-columns(9)

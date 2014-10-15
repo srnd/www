@@ -1,0 +1,33 @@
+body.live.live
+
+    section.content
+        text-align: center
+
+    section.description
+        +span-columns(12)
+        +omega
+        text-align: center
+
+        &, p, em, strong, li, a, blockquote
+            font:
+                size: 2rem
+                weight: 300
+            line-height: 2.2rem
+
+        padding:
+            left: +flex-grid(2, 12)
+            right: +flex-grid(2, 12)
+
+    section.countdown
+        margin:
+            top: 0
+            bottom: 0
+        font:
+            family: $font-family-header
+            size: 1rem
+            weight: 200
+        text-align: center
+
+    iframe
+        margin:
+            top: 2rem

@@ -1,0 +1,34 @@
+{% extends "template.twig" %}
+{% block section %}admin{% endblock %}
+{% block page %}events{% endblock %}
+{% block title %}Event Admin{% endblock %}
+{% block page_tagline %}Host something amazing in <strike>24 hours</strike> a few minutes.{% endblock %}
+{% block content %}
+    <h3>All Events</h3>
+    <ul class="events">
+        {% for event in events %}
+            <li {% if event.is_loaded %}class="loaded"{% endif %}>
+                <a class="edit" href="/admin/events/e/{{ event.id }}">
+                    <span class="month">{{ event.starts_at.timestamp|date('F') }}</span>
+                    <span class="year">{{ event.starts_at.timestamp|date('Y') }}</span>
+                    <span class="day">{{ event.starts_at.timestamp|date('d') }}</span>
+                    <span class="name">{{ event.name }}</span>
+                </a>
+            </li>
+        {% endfor %}
+        <li class="new">
+            <a href="/admin/events/new">New</a>
+        </li>
+    </ul>
+
+    <h3>Loaded Event</h3>
+    <form action="/admin/events/load" method="post" class="small">
+        <select name="event_id" id="event_id">
+            <option value="">(none)</option>
+            {% for event in events %}
+                <option value="{{ event.id }}" {% if event.is_loaded %}selected{% endif %}>{{ event.name }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Set Loaded Event" />
+    </form>
+{% endblock %}
