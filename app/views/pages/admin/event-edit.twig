@@ -28,8 +28,8 @@
             <input type="checkbox" name="is_stream_enabled" id="is_stream_enabled" value="1" {% if event.is_stream_enabled %}checked{% endif %}/>
         </div>
         <div class="field">
-            <label for="stream_id">YT Stream ID</label>
-            <input type="text" name="stream_id" id="stream_id" value="{{ event.stream_id }}" />
+            <label for="stream_id">Stream (YT id or code)</label>
+            <textarea type="text" name="stream_id" id="stream_id">{{ event.stream_id }}</textarea>
         </div>
 
         <h3>In-Person Event Settings</h3>
