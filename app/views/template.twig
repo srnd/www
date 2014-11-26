@@ -57,21 +57,23 @@
     {{ block('endhead') }}
 </head>
 <body class="{{ block('section') }} {{ block('page') }}">
-    {% include "parts/header.twig" with {"section": block('section')} %}
+    {% block header %}
+        {% include "parts/header.twig" with {"section": block('section')} %}
+    {% endblock %}
 
-    {% if block('hero') %}
-        {{ block('hero') }}
-    {% elseif block('title') or block('page_tagline') %}
-        <section class="title">
-            <article>
-                {% if block('page_tagline') %}
-                    <h2>{{ block('page_tagline') }}</h2>
-                {% else %}
-                    <h2>{{ block('title') }}</h2>
-                {% endif %}
-            </article>
-        </section>
-    {% endif %}
+    {% block hero %}
+        {% if block('title') or block('page_tagline') %}
+            <section class="title">
+                <article>
+                    {% if block('page_tagline') %}
+                        <h2>{{ block('page_tagline') }}</h2>
+                    {% else %}
+                        <h2>{{ block('title') }}</h2>
+                    {% endif %}
+                </article>
+            </section>
+        {% endif %}
+    {% endblock %}
 
     {% if block('content') %}
         <section class="wrap">

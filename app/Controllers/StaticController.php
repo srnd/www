@@ -6,7 +6,9 @@ use \Www\Models;
 class StaticController extends \Controller {
     public function getIndex()
     {
-        return \View::make('pages/index');
+        return \View::make('pages/index', [
+            'fundraising' => \Config::get('app.fundraising')
+        ]);
     }
 
     public function getCodeOfConduct()

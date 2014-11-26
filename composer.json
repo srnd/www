@@ -13,6 +13,10 @@
                 "php": ">=5.5.0",
                 "laravel/framework": "4.2.*",
                 "rcrowe/twigbridge": "0.6.*@dev",
+                "stripe/stripe-php": "dev-master",
+                "dwolla/dwolla-php": "dev-master",
+                "mixpanel/mixpanel-php" : "2.*",
+                "userscape/customerio": "dev-master",
                 "studentrnd/s5api": "dev-master"
         },
         "autoload": {

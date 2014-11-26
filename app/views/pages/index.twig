@@ -4,11 +4,34 @@
 {% block hero %}
     <section class="hero">
         <article>
-            <div class="map"></div>
-            <section class="info">
-                <p class="mission">We make students fall in love with coding nationwide.</p>
-                <p class="scale">Tens of thousands of students &middot; 30+ cities across the US</p>
-            </section>
+            {% if fundraising %}
+                <section class="fundraise-ask">
+                    <p class="mission">Help us build the future of StudentRND.</p>
+                    <p class="scale">Donate today to support tens of thousands of students</p>
+                </section>
+                <section class="fundraise-form">
+                    <form action="/donate" method="post">
+                        <div class="amount-selector">
+                            <label for="amount">Amount</label><div class="select-styler">
+                                <select name="amount" id="amount">
+                                    <option value="50O">$50</option>
+                                    <option value="100" selected>$100</option>
+                                    <option value="500">$500</option>
+                                    <option value="1000">$1,000</option>
+                                </select>
+                            </div>
+                        </div>{#
+                        #}<input type="submit" value="Contribute"/>
+                        <span class="learn-more">Or <a href="/donate">learn more</a></span>
+                    </form>
+                </section>
+            {% else %}
+                <div class="map"></div>
+                <section class="info">
+                    <p class="mission">We make students fall in love with coding nationwide.</p>
+                    <p class="scale">Tens of thousands of students &middot; 30+ cities across the US</p>
+                </section>
+            {% endif %}
         </article>
     </section>
 {% endblock %}

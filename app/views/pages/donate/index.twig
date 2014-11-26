@@ -1,0 +1,184 @@
+{% extends "template.twig" %}
+{% block section %}donate{% endblock %}
+{% block page %}donate{% endblock %}
+{% block title %}Donate{% endblock %}
+{% block header %}
+    <header>
+        <section class="content">
+            <h1><a href="/">StudentRND</a></h1>
+            <nav><ul></ul></nav>
+        </section>
+    </header>
+{% endblock %}
+{% block hero %}
+    <section class="title">
+        <article>
+            <h2>Help us build the future of StudentRND</h2>
+        </article>
+    </section>
+{% endblock %}
+{% block content %}
+    {% if errors and errors|length > 0 %}
+        <section class="error">
+            {% for error in errors %}
+                {{ error }}{% if errors|length > 0 %}<br />{% endif %}
+            {% endfor %}
+        </section>
+    {% endif %}
+    <form class="contribution-info" id="donate-form" method="post">
+        <section class="donation">
+            <h2>Donation</h2>
+
+            <div class="amount">
+                {% set donation_options = [10, 25, 50, 100, 250, 500, 1000] %}
+                {% if amount %}
+                    {% set default_donation = amount %}
+                {% else %}
+                    {% set default_donation = 100 %}
+                {% endif %}
+                {% for donation_option in donation_options %}
+                    <input type="radio" name="amount" id="amount_{{ donation_option }}" value="{{ donation_option }}"
+                           {% if default_donation == donation_option %}checked{% endif %} />
+                    <label for="amount_{{ donation_option }}">${{ donation_option|number_format(0) }}</label>
+                {% endfor %}
+                <input type="text" name="amount" id="amount_custom" placeholder="Custom"
+                       format="[0-9]*"
+                        {% if not (default_donation in donation_options) %}value="{{ amount }}" class="checked"{% endif %}/>
+            </div>
+        </section>
+
+        <section class="donor">
+            <h2>Donor Information</h2>
+
+            <div class="name">
+                <input type="text" name="first_name" id="first_name" placeholder="First Name" value="{{ first_name }}" required/>
+                <input type="text" name="last_name" id="last_name" placeholder="Last Name" value="{{ last_name }}" required/>
+            </div>
+            <input type="email" name="email" id="email" placeholder="Email" value="{{ email }}" required/>
+
+            <div class="address">
+                <input type="text" name="address_1" id="address_1" placeholder="Address" value="{{ address_1 }}" required />
+                <input type="text" name="address_2" id="address_2" placeholder="Address (continued)" value="{{ address_2 }}" />
+
+                <div class="units">
+                    <input type="text" name="city" id="city" placeholder="City" value="{{ city }}" required />
+                    <input type="text" name="state" id="state" placeholder="State" value="{{ state }}" required />
+                    <input type="text" name="zip" id="zip" placeholder="Postal Code" value="{{ zip }}" required />
+                </div>
+            </div>
+
+            <div class="option">
+                <input type="checkbox" name="is_anonymous" id="is_anonymous" value="1" {% if is_anonymous %}checked{% endif %} />
+                <label for="is_anonymous">Keep this donation anonymous. (The above information is still required for tax purposes.)</label>
+            </div>
+            {% if show_opt_out or opt_out %}
+                <div class="option">
+                    <input type="checkbox" name="opt_out" id="opt_out" value="1" {% if opt_out %}checked{% endif %} />
+                    <label for="opt_out">Please don't ask me to donate again</label>
+                </div>
+            {% endif %}
+        </section>
+
+        <section class="payment">
+            <h2>Payment Information</h2>
+            <div class="onsite-gateway">
+                <div class="card">
+                    <input type="text" id="card_number" placeholder="Card Number" data-stripe="number" />
+                    <div class="exp">
+                        <label for="exp">EXP</label>
+                        <input type="text" id="exp" placeholder="MM/YYYY" />
+                    </div>
+                </div>
+                <button type="submit" name="payment_method" value="stripe">Pay with Credit Card</button>
+            </div>
+            <div class="alternate-gateways">
+                <p>Or</p>
+                <button type="submit" name="payment_method" id="dwolla" value="dwolla" class="gateway-dwolla">Pay with Dwolla</button>
+            </div>
+            <div class="mail">
+                <p>You can also donate by mailing a check to <strong>505 Broadway E, Box 141, Seattle WA 98102</strong>.</p>
+                <p>Want to make a large donation or donate stocks? Contact us at <a href="mailto:donors@studentrnd.org">donors@studentrnd.org</a>.</p>
+            </div>
+        </section>
+    </form>
+
+    <section class="details">
+        <img src="/assets/img/donate-why.jpg" alt="Why Donate?"/>
+        <div class="why">
+            <p>Your donation inspires students nationwide to love coding.</p>
+            <p>StudentRND is a 501(c)(3) non-profit. All donations are tax-deductible.</p>
+        </div>
+    </section>
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.0.2/jquery.payment.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.amount input[type="radio"]').on('change', function(){
+                $('#amount_custom').val('').removeClass('checked');
+            });
+            var last_checked_radio = null;
+            $('#amount_custom').on('click', function(){
+                $(this).addClass('checked');
+                var checked_radio = $('.amount input[type="radio"]:checked');
+                if (checked_radio.length) {
+                    last_checked_radio = checked_radio;
+                    last_checked_radio.prop('checked', false);
+                }
+            });
+            $('#amount_custom').on('blur', function(){
+                if (!$(this).val()) {
+                    $(this).val('').removeClass('checked');
+                    last_checked_radio.prop('checked', true);
+                }
+            });
+
+            $('#card_number').payment('formatCardNumber');
+            $('#exp').payment('formatCardExpiry');
+
+            Stripe.setPublishableKey('{{ stripe_public|escape('js') }}');
+            $('#donate-form').submit(function(event) {
+                var $form = $(this);
+
+                if (!$('#amount_custom').val()) {
+                    $('#amount_custom').attr('name', '');
+                } else {
+                    $('#amount_custom').attr('name', 'amount');
+                }
+
+                if ($('input[name="amount"]').last().val() < 1) {
+                    alert('Donation must be at least $1');
+                    return false;
+                }
+
+                if (event.originalEvent.explicitOriginalTarget.id == 'dwolla') {
+                    $form.append($('<input type="hidden" name="payment_method" />').val('dwolla'));
+                    return true;
+                } else {
+                    event.preventDefault();
+                    $form.find('button').prop('disabled', true);
+
+                    var exp = $("#exp").payment("cardExpiryVal");
+                    $form.append($('<input type="hidden" data-stripe="exp_month" />').val(exp.month));
+                    $form.append($('<input type="hidden" data-stripe="exp_year" />').val(exp.year));
+
+                    Stripe.card.createToken($form, function (status, response) {
+                        if (response.error) {
+                            alert(response.error.message);
+                            $form.find('button').prop('disabled', false);
+                        } else {
+                            var token = response.id;
+                            $form.append($('<input type="hidden" name="stripe_token" />').val(token));
+                            $form.append($('<input type="hidden" name="payment_method" />').val('stripe'));
+                            $form.get(0).submit();
+                        }
+                    });
+
+                    return false;
+                }
+            });
+
+        });
+    </script>
+{% endblock %}
