@@ -86,6 +86,8 @@
                     <label for="opt_out">Please don't ask me to donate again</label>
                 </div>
             {% endif %}
+
+            <a class="next-step" href="#" data-for="payment">Next</a>
         </section>
 
         <section class="payment" style="display: none">
@@ -139,7 +141,7 @@
                 for_elem.show(1000);
             };
 
-            $('nav.steps ul li a').on('click', function(e) {
+            $('nav.steps ul li a, .next-step').on('click', function(e) {
                 e.preventDefault();
 
                 var $this = $(this);
@@ -176,6 +178,9 @@
             $('.amount input[type="radio"]').on('change', function(){
                 $('#amount_custom').val('').removeClass('checked');
                 updateDonateLabels($(this).val());
+                switchToStep($('#donate-form section.donor'));
+            });
+            $('.amount label').on('click', function(){
                 switchToStep($('#donate-form section.donor'));
             });
             var last_checked_radio = null;

@@ -1545,6 +1545,23 @@ body.donate.donate .contribution-info {
     font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-size: 1.3rem;
     font-weight: 500; }
+  body.donate.donate .contribution-info .next-step {
+    display: inline-block;
+    text-align: center;
+    float: right;
+    background-color: #0343FA;
+    padding: 0.5rem 5rem;
+    margin: 0px;
+    position: relative;
+    border-radius: 5px;
+    border: none;
+    overflow: hidden;
+    text-decoration: none !important;
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFF;
+    text-decoration: none !important;
+    text-shadow: 0px -1px 0px #022895; }
   body.donate.donate .contribution-info input[type="text"], body.donate.donate .contribution-info input[type="email"], body.donate.donate .contribution-info input[type="number"], body.donate.donate .contribution-info .donation .amount label {
     float: left;
     display: block;
