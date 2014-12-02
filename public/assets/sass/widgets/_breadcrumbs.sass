@@ -1,0 +1,64 @@
+%breadcrumbs
+    $breadcrumb-border-color: $color-gray
+    $breadcrumb-border: 1px solid $breadcrumb-border-color
+    $breadcrumb-height: 3rem
+    $breadcrumb-arrow-color: $breadcrumb-border-color
+    $breadcrumb-background: $color-background
+    $breadcrumb-inactive-hover-color: $breadcrumb-background
+    $breadcrumb-color: $color-black
+    $breadcrumb-color-hover: $color-blue
+    $breadcrumb-color-active: $color-blue
+    display: inline-block
+    text-align: left
+    margin-bottom: 1rem
+    & > li:first-child a, & > a:first-child
+        padding-left: $breadcrumb-height / 2
+        border-top-left-radius: 2px
+        border-bottom-left-radius: 2px
+    & > li:last-child a, & > a:last-child
+        background-color: $breadcrumb-background
+        border-bottom-right-radius: 2px
+        border-top-right-radius: 2px
+        padding-right: $breadcrumb-height / 2
+
+    & > li:last-child a:after, & > a:last-child:after,
+    & > li:last-child a:before, & > a:last-child:before
+        border: none
+
+    & > li:not(.active) a:hover, & > a:hover:not(.active)
+        color: $breadcrumb-color-hover
+
+    & > li.active a, & > a.active
+        color: $breadcrumb-color-active
+    a
+        display: inline-block
+        background-color: $breadcrumb-background
+        border: $breadcrumb-border
+        color: $breadcrumb-color
+        line-height: $breadcrumb-height
+        margin-right: -5px
+        padding: 0 $breadcrumb-height / 4 0 $breadcrumb-height / 2
+        position: relative
+        text-decoration: none
+        margin-bottom: 2px
+        font:
+            family: $font-family-header
+            size: 0.875rem
+            weight: 500
+
+        &:after,
+        &:before
+            +position(absolute, 0px auto 0px 100%)
+            border-bottom: $breadcrumb-height / 2 solid transparent
+            border-left: $breadcrumb-height / 4 solid transparent
+            border-top: $breadcrumb-height / 2 solid transparent
+            content: ''
+            display: block
+            margin: auto
+            z-index: 2
+        &:before
+            border-left-color: $breadcrumb-arrow-color
+            margin-left: 1px
+            z-index: 1
+        &:after
+            border-left-color: $breadcrumb-background

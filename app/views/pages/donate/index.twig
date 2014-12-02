@@ -26,8 +26,16 @@
         </section>
     {% endif %}
     <form class="contribution-info" id="donate-form" method="post">
-        <section class="donation">
-            <h2>Donation</h2>
+        <nav class="steps">
+            <ul>
+                <li {% if not amount %}class="active"{% endif %}><a href="#" data-for="donation">1. Donation Amount</a></li>
+                <li {% if amount %}class="active"{% endif %}><a href="#" data-for="donor">2. Donor Information</a></li>
+                <li><a href="#" data-for="payment">3. Complete Donation</a></li>
+            </ul>
+        </nav>
+
+        <section class="donation" {% if amount %}style="display: none"{% endif %}>
+            <h2>Donation Amount</h2>
 
             <div class="amount">
                 {% set donation_options = [10, 25, 50, 100, 250, 500, 1000] %}
@@ -43,11 +51,12 @@
                 {% endfor %}
                 <input type="text" name="amount" id="amount_custom" placeholder="Custom"
                        format="[0-9]*"
+                       oninvalid="setCustomValidity('Please enter a number')"
                         {% if not (default_donation in donation_options) %}value="{{ amount }}" class="checked"{% endif %}/>
             </div>
         </section>
 
-        <section class="donor">
+        <section class="donor" {% if not amount %}style="display: none"{% endif %}>
             <h2>Donor Information</h2>
 
             <div class="name">
@@ -79,7 +88,7 @@
             {% endif %}
         </section>
 
-        <section class="payment">
+        <section class="payment" style="display: none">
             <h2>Payment Information</h2>
             <div class="onsite-gateway">
                 <div class="card">
@@ -89,11 +98,11 @@
                         <input type="text" id="exp" placeholder="MM/YYYY" />
                     </div>
                 </div>
-                <button type="submit" name="payment_method" value="stripe">Pay with Credit Card</button>
+                <button type="submit" name="payment_method" id="card" value="stripe">Donate ${{ default_donation|number_format(0) }} by card</button>
             </div>
             <div class="alternate-gateways">
                 <p>Or</p>
-                <button type="submit" name="payment_method" id="dwolla" value="dwolla" class="gateway-dwolla">Pay with Dwolla</button>
+                <button type="submit" name="payment_method" id="dwolla" value="dwolla" class="gateway-dwolla">Donate ${{ default_donation|number_format(0) }} with Dwolla</button>
             </div>
             <div class="mail">
                 <p>You can also donate by mailing a check to <strong>505 Broadway E, Box 141, Seattle WA 98102</strong>.</p>
@@ -115,8 +124,59 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.0.2/jquery.payment.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
+            var switchToStep = function(for_elem) {
+                $form = $('#donate-form');
+                var visible_elem = $form.children('section:visible').first();
+
+                if (for_elem[0] == visible_elem[0]) {
+                    return;
+                }
+
+                $form.find('nav li').removeClass('active');
+                $form.find('nav li a[data-for="'+for_elem.attr('class')+'"]').parent().addClass('active');
+
+                visible_elem.hide(1000);
+                for_elem.show(1000);
+            };
+
+            $('nav.steps ul li a').on('click', function(e) {
+                e.preventDefault();
+
+                var $this = $(this);
+                var $form = $this.parents('form');
+
+                switchToStep($form.children('.'+$this.attr('data-for')).first());
+
+                return false;
+            });
+
+            $('#donate-form input').on('invalid', function(){
+                var $this = $(this);
+
+                switchToStep($this.parents('section').first())
+            });
+
+            var formatMoney = function(n, decPlaces, thouSeparator, decSeparator) {
+                var decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
+                    decSeparator = decSeparator == undefined ? "." : decSeparator,
+                    thouSeparator = thouSeparator == undefined ? "," : thouSeparator,
+                    sign = n < 0 ? "-" : "",
+                    i = parseInt(n = Math.abs(+n || 0).toFixed(decPlaces)) + "",
+                    j = (j = i.length) > 3 ? j % 3 : 0;
+                return sign + (j ? i.substr(0, j) + thouSeparator : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thouSeparator) + (decPlaces ? decSeparator + Math.abs(n - i).toFixed(decPlaces).slice(2) : "");
+            };
+
+            var updateDonateLabels = function(new_amount){
+                $('#card').text('Donate $'+formatMoney(new_amount, 0)+' by card');
+                $('#dwolla').text('Donate $'+formatMoney(new_amount, 0)+' with Dwolla');
+            };
+
+
+
             $('.amount input[type="radio"]').on('change', function(){
                 $('#amount_custom').val('').removeClass('checked');
+                updateDonateLabels($(this).val());
+                switchToStep($('#donate-form section.donor'));
             });
             var last_checked_radio = null;
             $('#amount_custom').on('click', function(){
@@ -128,9 +188,12 @@
                 }
             });
             $('#amount_custom').on('blur', function(){
-                if (!$(this).val()) {
+                if (!$(this).val() || isNaN($(this).val())) {
                     $(this).val('').removeClass('checked');
                     last_checked_radio.prop('checked', true);
+                } else {
+                    updateDonateLabels($(this).val());
+                    switchToStep($('#donate-form section.donor'));
                 }
             });
 
@@ -138,7 +201,7 @@
             $('#exp').payment('formatCardExpiry');
 
             Stripe.setPublishableKey('{{ stripe_public|escape('js') }}');
-            $('#donate-form').submit(function(event) {
+            $('#donate-form').submit(function(e) {
                 var $form = $(this);
 
                 if (!$('#amount_custom').val()) {
@@ -152,11 +215,11 @@
                     return false;
                 }
 
-                if (event.originalEvent.explicitOriginalTarget.id == 'dwolla') {
+                if (e.originalEvent.explicitOriginalTarget.id == 'dwolla') {
                     $form.append($('<input type="hidden" name="payment_method" />').val('dwolla'));
                     return true;
                 } else {
-                    event.preventDefault();
+                    e.preventDefault();
                     $form.find('button').prop('disabled', true);
 
                     var exp = $("#exp").payment("cardExpiryVal");

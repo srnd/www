@@ -8,6 +8,9 @@ class DonateController extends \Controller {
 
     public function getIndex()
     {
+        if (\Input::has('utm_campaign')) {
+            \Session::set('donate_campaign', \Input::get('utm_campaign'));
+        }
         return $this->makeDonationPage();
     }
 
@@ -202,7 +205,8 @@ class DonateController extends \Controller {
         ]);
         $mp->track('donated', [
             'amount'            => $user['amount'],
-            'is_anonymous'      => $user['is_anonymous']
+            'is_anonymous'      => $user['is_anonymous'],
+            'campaign'          => \Session::get('donation_campaign')
         ]);
         $mp->people->setOnce($user['email'], [
             'source'            => 'donate'
@@ -220,7 +224,8 @@ class DonateController extends \Controller {
         ]);
         $cio->fireEvent($user['email'], 'donated', [
             'amount'            => $user['amount'],
-            'is_anonymous'      => $user['is_anonymous']
+            'is_anonymous'      => $user['is_anonymous'],
+            'campaign'          => \Session::get('donation_campaign')
         ]);
     }
 

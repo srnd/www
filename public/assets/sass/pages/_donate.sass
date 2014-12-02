@@ -23,6 +23,13 @@ body.donate
             & > section
                 margin-bottom: 3rem
 
+            & > nav ul
+                padding: 0
+                @extend %breadcrumbs
+                li
+                    list-style-type: none
+                    display: inline
+
             h2
                 font:
                     family: $font-family-header
@@ -49,8 +56,6 @@ body.donate
                     outline: medium none
 
             .donation
-                h2
-                    display: none
                 .amount
                     margin-bottom: 1rem
                     +row
