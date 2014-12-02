@@ -1578,7 +1578,9 @@ body.donate.donate .contribution-info {
       float: none;
       display: inline; }
       body.donate.donate .contribution-info .payment .alternate-gateways button.gateway-dwolla {
-        background: -moz-linear-gradient(center top, #E98F02 0px, #DE6D01 100%) repeat scroll 0% 0% transparent;
+        background-color: #DE6D01;
+        background-image: -webkit-linear-gradient(bottom, #DE6D01, #E98F02);
+        background-image: linear-gradient(to top,#DE6D01, #E98F02);
         padding: 0px;
         margin: 0px;
         height: 38px;
