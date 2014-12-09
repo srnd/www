@@ -38,8 +38,9 @@ class DonateController extends \Controller {
      */
     public function stripeCheckout()
     {
-        if (!$this->containsAllRequired(['stripe_token'])) {
-            return $this->makeDonationPage(['All fields are required.']);
+        $requirements_check = $this->containsAllRequired(['stripe_token']);
+        if (!$requirements_check->success) {
+            return $this->makeDonationPage($requirements_check->errors);
         }
 
         $user = $this->getDonationInfo();
@@ -89,8 +90,9 @@ class DonateController extends \Controller {
      */
     public function dwollaCheckout()
     {
-        if (!$this->containsAllRequired()) {
-            return $this->makeDonationPage(['All fields except card information are required.']);
+        $requirements_check = $this->containsAllRequired();
+        if (!$requirements_check->success) {
+            return $this->makeDonationPage($requirements_check->errors);
         }
 
         $user = $this->getDonationInfo();
@@ -289,17 +291,31 @@ class DonateController extends \Controller {
         $input[] = 'state';
         $input[] = 'zip';
 
+        $errors = [];
         foreach ($input as $required) {
             if (!\Input::has($required)) {
-                return false;
+                $errors[] = ucwords(str_replace('_', ' ', $required)).' is required.';
             }
         }
 
-        if (intval(\Input::get('amount')) < 1) {
-            return false;
+        if (count($errors) > 0) {
+            return (object)[
+                'success' => false,
+                'errors' => $errors
+            ];
         }
 
-        return true;
+        if (intval(\Input::get('amount')) < 1) {
+            return (object)[
+                'success' => false,
+                'errors' => ['Amount must be greater than $1. ($'.\Input::get('amount').' provided.)']
+            ];
+        }
+
+        return (object)[
+            'success' => true,
+            'errors' => []
+        ];
     }
 
     /**
