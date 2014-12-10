@@ -54,7 +54,7 @@ class DonateController extends \Controller {
                 "currency" => "usd",
                 "card"  => $user['stripe_token'],
                 "description" => 'Online donation',
-                "statement_description" => "SRND DONATION"
+                "statement_description" => "DONATION"
             ]);
         }  catch(\Stripe_CardError $e) {
             return $this->makeDonationPage(['Your card was declined.']);
