@@ -38,6 +38,8 @@ body.home.index
                         list-style-type: none
                         text-align: center
                         padding: 0 flex-grid(1, 12)/4
+                        &:last-child
+                            +omega
 
                         @include media($media-mobile)
                             @include span-columns(2)
@@ -57,6 +59,30 @@ body.home.index
                             p
                                 font-size: 0.9rem
                                 line-height: 1.4rem
+
+                .fundraising-ask
+                    +span-columns(12)
+                    +omega
+                    margin-top: 3rem
+                    a
+                        display: block
+                        width: 40%
+
+                        padding: 1rem
+                        margin: 0 auto
+
+                        text-align: center
+                        background-color: $color-blue
+                        position: relative
+                        border-radius: 5px
+                        border: none
+                        font:
+                            family: $font-family-header
+                            weight: 300
+                            size: 1.4rem
+                        color: #FFF
+                        text-decoration: none
+                        text-shadow: 0px -1px 0px darken($color-blue, 20)
 
             section.featured
                 &:before

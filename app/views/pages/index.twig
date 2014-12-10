@@ -6,7 +6,7 @@
         <article>
             {% if fundraising %}
                 <section class="fundraise-ask">
-                    <p class="mission">Help us build the future of StudentRND.</p>
+                    <p class="mission">Help build the future of StudentRND.</p>
                     <p class="scale">Donate today to support tens of thousands of students</p>
                 </section>
                 <section class="fundraise-form">
@@ -65,6 +65,12 @@
                 <p>The largest active community for students interested in technology.</p>
             </a></li>
         </ul>
+
+        {% if fundraising %}
+            <section class="fundraising-ask">
+                <a href="/donate">Support these programs</a>
+            </section>
+        {% endif %}
     </section>
 
     <section class="featured">

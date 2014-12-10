@@ -120,6 +120,54 @@
             <p>StudentRND is a 501(c)(3) non-profit. Your donation is tax-deductible.</p>
         </div>
     </section>
+
+    <section class="people">
+        <h2>Your contribution helps students such as...</h2>
+        <ul>
+            <li>
+                <div class="picture" style="background-image:url(/assets/img/donate/people/naomi.jpg)"></div>
+                <p><span class="name">Naomi</span>&thinsp;&mdash;&thinsp;Naiomi's experiences encouraged her to pursue a
+                    degree in computer science at the University of Washington, and helped her secure internships at
+                    Intel and Google.</p>
+            </li>
+            <li>
+                <div class="picture" style="background-image:url(/assets/img/donate/people/zaq.jpg)"></div>
+                <p><span class="name">Zaq</span>&thinsp;&mdash;&thinsp;CodeDay helped Zaq go from high school dropout
+                    to full-time software engineer.</p>
+            </li>
+            <li>
+                <div class="picture" style="background-image:url(/assets/img/donate/people/fisher.jpg)"></div>
+                <p><span class="name">Fisher</span>&thinsp;&mdash;&thinsp;By organizing CodeDay Chicago multiple times,
+                Fisher has built a strong community of young coders in Chicago.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="big-impact">
+        <header>
+            <h2>A Few Dollars Can Go a Long Way</h2>
+            <p>Your contribution makes a big impact on communities in over 30 cities nationwide:</p>
+        </header>
+        <div class="map"></div>
+        <section class="activities">
+            <ul>
+                <li>
+                    <h3>More Students In Your Community</h3>
+                    <p>Your support allows more students attend CodeDay with more scholarships and increased capacity.</p>
+                </li>
+                <li>
+                    <h3>Increased Access</h3>
+                    <p>Contributions help bring events to new cities, helping reach students without access to tech
+                       programs.</p>
+                </li>
+                <li>
+                    <h3>New Programs</h3>
+                    <p>Help us launch new programs, giving students new ways to learn, and giving beginners additional
+                       opportunities to get involved.</p>
+                </li>
+            </ul>
+        </section>
+    </section>
 {% endblock %}
 {% block scripts %}
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
@@ -287,5 +335,90 @@
             });
 
         });
+    </script>
+    <script type="text/javascript">
+        (function(){
+            var previous_width = null;
+            var redraw_map = function(){
+                var path = d3.geo.path();
+
+                if ($('.map').width() === previous_width) {
+                    {# Window width hasn't changed, no need to redraw #}
+                    return;
+                } else {
+                    previous_width = $('body > .hero .map').width();
+                }
+
+                var map = $('.map').html('<svg></svg>');
+                var width = map.width();
+                var height = map.width() * 0.6;
+
+                var projection = d3.geo.albersUsa()
+                        .scale((width * 1.2))
+                        .translate([width / 2, height / 2]);
+
+                var path = d3.geo.path()
+                        .projection(projection);
+
+                var svg = d3.select(".map svg")
+                        .attr("width", width)
+                        .attr("height", height);
+
+                d3.json("/assets/topo/us.json", function(error, us) {
+                    svg.insert("path", ".graticule")
+                            .datum(topojson.feature(us, us.objects.land))
+                            .attr("class", "land")
+                            .attr("d", path);
+
+                    svg.insert("clipPath")
+                            .attr("id", "landclip")
+                            .append("path", ".graticule")
+                            .datum(topojson.feature(us, us.objects.land))
+                            .attr("d", path);
+
+
+                    svg.insert("path", ".graticule")
+                            .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+                            .attr("class", "state-boundary")
+                            .attr("d", path);
+
+                    var regions = {% include "parts/regions.twig" %};
+
+                    svg.selectAll("circle.footprint")
+                            .data(regions)
+                            .enter()
+                            .append("circle")
+                            .attr("cx", function(d) { return projection([d.lng, d.lat])[0]; })
+                            .attr("cy", function(d) { return projection([d.lng, d.lat])[1]; })
+                            .attr("r", Math.min(49, (width/12.5)))
+                            .attr("clip-path", "url(#landclip)")
+                            .attr("class", "footprint");
+
+                    svg.selectAll("circle.outline")
+                            .data(regions)
+                            .enter()
+                            .append("circle")
+                            .attr("cx", function(d) { return projection([d.lng, d.lat])[0]; })
+                            .attr("cy", function(d) { return projection([d.lng, d.lat])[1]; })
+                            .attr("r", Math.min(21, (width/10)))
+                            .attr("clip-path", "url(#landclip)")
+                            .attr("class", "outline");
+
+                    svg.selectAll("circle.city")
+                            .data(regions)
+                            .enter()
+                            .append("circle")
+                            .attr("cx", function(d) { return projection([d.lng, d.lat])[0]; })
+                            .attr("cy", function(d) { return projection([d.lng, d.lat])[1]; })
+                            .attr("r", Math.min(7, (width/100)))
+                            .attr("class", "city");
+                });
+
+                d3.select(self.frameElement).style("height", height + "px");
+            };
+
+            redraw_map();
+            $(window).on('resize', redraw_map);
+        })();
     </script>
 {% endblock %}

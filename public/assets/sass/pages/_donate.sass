@@ -182,11 +182,10 @@ body.donate
                         border-radius: 5px
                         border: none
                         overflow: hidden
-                        text-decoration: none !important
                         font-size: 13px
                         font-weight: bold
                         color: #FFF
-                        text-decoration: none !important
+                        text-decoration: none
                         text-shadow: 0px -1px 0px darken($color-blue, 20)
 
                 .mail
@@ -211,9 +210,10 @@ body.donate
 
         .details
             @include media($media-mobile)
-                @include span-columns(4)
-                @include omega
+                +span-columns(4)
+                +omega
             +span-columns(4)
+            +omega
             h2
                 font:
                     family: $font-family-header
@@ -226,6 +226,124 @@ body.donate
                 text-align: center
                 p:first-child
                     font-weight: bold
+
+        .people, .big-impact
+            +span-columns(12)
+            +omega
+            h2
+                margin:
+                    top: 0
+                    bottom: 0
+                font:
+                    family: $font-family-header
+                    size: 3rem
+                    weight: 200
+                text-align: center
+            header
+                margin-bottom: 3rem
+                p
+                    margin-top: 0
+                    color: #bbb
+                    font:
+                        family: $font-family-header
+                        size: 1rem
+                    text-align: center
+
+        .people
+            margin-top: 4rem
+            ul
+                padding: 0
+                li
+                    +span-columns(4)
+                    list-style-type: none
+                    div.picture
+                        width: 100%
+                        height: 10rem
+                        background:
+                            size: cover
+                            repeat: no-repeat
+                            position: 50% 50%
+                    p
+                        font:
+                            family: $font-family-header
+                            size: 0.9rem
+                        span.name
+                            text-transform: uppercase
+                            font:
+                                weight: 700
+
+        .big-impact
+            &:before
+                margin:
+                    top: 4rem
+                    bottom: 4rem
+                content: ""
+                display: block
+                border-top: 1px solid $color-gray
+            .activities
+                +span-columns(5)
+                ul
+                    padding: 0
+                    li
+                        list-style-type: none
+                        margin-bottom: 1rem
+                        h3
+                            font:
+                                family: $font-family-header
+                                size: 1.3rem
+                                weight: 500
+                            margin-bottom: 0
+                        p
+                            margin-top: 0.5rem
+                            font:
+                                family: $font-family-header
+                                size: 0.9rem
+            .map
+                +span-columns(7)
+                .land
+                    fill: none
+                    stroke: transparentize($color-blue, 0.6)
+
+                .state-boundary
+                    fill: none
+                    stroke: transparentize($color-blue, 0.8)
+
+                .city
+                    fill: $color-blue
+
+                .footprint
+                    fill: transparentize($color-blue, 0.95)
+
+                .outline
+                    fill: transparentize($color-blue, 0.95)
+
+        .why-contribute
+            ul
+                padding: 0
+                li
+                    @include span-columns(3)
+                    list-style-type: none
+                    text-align: center
+                    padding: 0 flex-grid(1, 12)/4
+
+                    @include media($media-mobile)
+                        @include span-columns(2)
+                        padding: 0
+
+                        &:nth-child(2n)
+                            @include omega
+
+                    a
+                        color: $color-black
+                        text-decoration: none
+
+                        img
+                            width: 50%
+                            height: auto
+
+                        p
+                            font-size: 0.9rem
+                            line-height: 1.4rem
 
     &.receipt
         .thanks
