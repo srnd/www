@@ -59,7 +59,7 @@ class DonateController extends \Controller {
         }  catch(\Stripe_CardError $e) {
             return $this->makeDonationPage(['Your card was declined.']);
         } catch (\Exception $e) {
-            return $this->makeDonationPage(['Sorry, our payment gateway reported an error. Please try again.']);
+            return $this->makeDonationPage(['Sorry, our payment gateway reported an error. Please try again. Details:', $e->getMessage()]);
         }
 
         // Create the transaction record

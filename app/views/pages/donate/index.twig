@@ -127,7 +127,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
             var switchToStep = function(for_elem) {
-                $form = $('#donate-form');
+                var $form = $('#donate-form');
                 var visible_elem = $form.children('section:visible').first();
 
                 if (for_elem[0] == visible_elem[0]) {
@@ -206,9 +206,9 @@
             $('#exp').payment('formatCardExpiry');
 
             Stripe.setPublishableKey('{{ stripe_public|escape('js') }}');
-            $('#donate-form').submit(function(e) {
-                var $form = $(this);
 
+            var prepareAmountForPostback = function()
+            {
                 if (!$('#amount_custom').val()) {
                     $('#amount_custom').attr('name', '');
                 } else {
@@ -218,31 +218,70 @@
                 if ($('input[name="amount"]').last().val() < 1) {
                     alert('Donation must be at least $1');
                     return false;
+                } else {
+                    return true;
+                }
+            }
+
+            var checkoutWithStripe = function()
+            {
+                var $form = $('#donate-form');
+                $form.find('button').prop('disabled', true);
+
+                var exp = $("#exp").payment("cardExpiryVal");
+                $form.append($('<input type="hidden" data-stripe="exp_month" />').val(exp.month));
+                $form.append($('<input type="hidden" data-stripe="exp_year" />').val(exp.year));
+
+                Stripe.card.createToken($form, function (status, response) {
+                    if (response.error) {
+                        alert(response.error.message);
+                        $form.find('button').prop('disabled', false);
+                    } else {
+                        var token = response.id;
+                        $form.append($('<input type="hidden" name="stripe_token" />').val(token));
+                        $form.append($('<input type="hidden" name="payment_method" />').val('stripe'));
+                        $form.get(0).submit();
+                    }
+                });
+            }
+
+            var checkoutWithDwolla = function()
+            {
+                var $form = $('#donate-form');
+                $form.append($('<input type="hidden" name="payment_method" />').val('dwolla'));
+            }
+
+            $('#dwolla').on('click', function(e) {
+                if (!prepareAmountForPostback()) {
+                    e.preventDefault();
+                    return false;
+                }
+
+                checkoutWithDwolla();
+                return true;
+            });
+
+            $('#card').on('click', function(e) {
+                e.preventDefault();
+                if (prepareAmountForPostback()) {
+                    checkoutWithStripe();
+                }
+            });
+
+            $('#donate-form').submit(function(e) {
+                var $form = $(this);
+
+                if (!prepareAmountForPostback()) {
+                    e.preventDefault();
+                    return false;
                 }
 
                 if (e.originalEvent.explicitOriginalTarget.id == 'dwolla') {
-                    $form.append($('<input type="hidden" name="payment_method" />').val('dwolla'));
+                    checkoutWithDwolla();
                     return true;
                 } else {
                     e.preventDefault();
-                    $form.find('button').prop('disabled', true);
-
-                    var exp = $("#exp").payment("cardExpiryVal");
-                    $form.append($('<input type="hidden" data-stripe="exp_month" />').val(exp.month));
-                    $form.append($('<input type="hidden" data-stripe="exp_year" />').val(exp.year));
-
-                    Stripe.card.createToken($form, function (status, response) {
-                        if (response.error) {
-                            alert(response.error.message);
-                            $form.find('button').prop('disabled', false);
-                        } else {
-                            var token = response.id;
-                            $form.append($('<input type="hidden" name="stripe_token" />').val(token));
-                            $form.append($('<input type="hidden" name="payment_method" />').val('stripe'));
-                            $form.get(0).submit();
-                        }
-                    });
-
+                    checkoutWithStripe();
                     return false;
                 }
             });
