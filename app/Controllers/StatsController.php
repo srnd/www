@@ -66,7 +66,7 @@ class StatsController extends \Controller {
                     array_reduce($donations_campaign,
                         function($a, $b) {
                             return (object)['amount' => $a->amount + $b->amount];
-                        }, (object)['amount' => 0])->amount
+                        }, (object)['amount' => 0])->amount/1000
                 ),
 
                 $this->getBulletChartForPeriod(
