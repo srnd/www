@@ -7,7 +7,7 @@ class StaticController extends \Controller {
     public function getIndex()
     {
         return \View::make('pages/index', [
-            'fundraising' => \Config::get('app.fundraising')
+            'fundraising' => \Config::get('fundraising')
         ]);
     }
 

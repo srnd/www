@@ -9,7 +9,7 @@ return [
     'locale' => 'en',
     'fallback_locale' => 'en',
     'key' => $config['app']['key'],
-    'fundraising' => $config['app']['fundraising'],
+    'stats_secret' => $config['app']['stats_secret'],
     'manifest' => storage_path().'/meta',
     'providers' => [
         'Illuminate\Foundation\Providers\ArtisanServiceProvider',
