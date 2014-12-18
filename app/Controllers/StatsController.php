@@ -36,7 +36,7 @@ class StatsController extends \Controller {
             ->get());
 
         return json_encode((object)[
-            'orientation' => 'horizontal',
+            'orientation' => 'vertical',
             'item' => [
                 $this->getBulletChartForPeriod(
                     'Rev ('.ucfirst($period).')',
@@ -59,7 +59,7 @@ class StatsController extends \Controller {
 
 
                 $this->getBulletChartForPeriod(
-                    'Rev (Campaign)',
+                    'Rev',
                     'U.S. $ (1000s)',
                     $period,
                     $campaign_goal/1000,
@@ -70,7 +70,7 @@ class StatsController extends \Controller {
                 ),
 
                 $this->getBulletChartForPeriod(
-                    'Median (Campaign)',
+                    'Median',
                     'U.S. $',
                     $period,
                     floor($campaign_goal/$campaign_expected_donors),
