@@ -35,7 +35,6 @@ class StatsController extends \Controller {
             ->where('created_at', '<', Carbon::createFromTimestamp($campaign_ends_at))
             ->get());
 
-
         return json_encode((object)[
             'orientation' => 'horizontal',
             'item' => [
@@ -75,7 +74,8 @@ class StatsController extends \Controller {
                     'U.S. $',
                     $period,
                     floor($campaign_goal/$campaign_expected_donors),
-                    $this->getMedian(array_map(function ($a) { return $a->amount; }, $donations_campaign))
+                    $this->getMedian(array_map(function ($a) { return $a->amount; }, $donations_campaign)),
+                    false
                 ),
             ]
         ]);
@@ -84,7 +84,7 @@ class StatsController extends \Controller {
     private function getBulletChartForPeriod($title, $units, $period,  $goal, $value, $do_forecast = true, $time = null)
     {
         $forecast = $this->getNaiveDeltaForecast($period, $value, $time);
-        $max = ceil(max($value, $goal, $forecast));
+        $max = ceil(max($value, $goal, $forecast)) * 1.1;
 
 
         $measure = [
