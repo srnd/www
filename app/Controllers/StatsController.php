@@ -39,7 +39,7 @@ class StatsController extends \Controller {
             'orientation' => 'vertical',
             'item' => [
                 $this->getBulletChartForPeriod(
-                    'Rev ('.ucfirst($period).')',
+                    'Revenue ('.ucfirst($period).')',
                     'U.S. $ (1000s)',
                     $period,
                     (($campaign_goal / $campaign_duration) * $period_info->duration)/1000,
@@ -59,7 +59,7 @@ class StatsController extends \Controller {
 
 
                 $this->getBulletChartForPeriod(
-                    'Rev',
+                    'Revenue (Campaign)',
                     'U.S. $ (1000s)',
                     $period,
                     $campaign_goal/1000,
@@ -70,7 +70,7 @@ class StatsController extends \Controller {
                 ),
 
                 $this->getBulletChartForPeriod(
-                    'Median',
+                    'Median (Campaign)',
                     'U.S. $',
                     $period,
                     floor($campaign_goal/$campaign_expected_donors),
