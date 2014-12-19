@@ -145,6 +145,14 @@ class StatsController extends \Controller {
         $forecast = $this->getNaiveDeltaForecast($period, $value, $time);
         $max = ceil(max($value, $goal, $forecast)) * 1.1;
 
+        $round_precision = 0;
+        if ($max < 1) {
+            $round_precision = 3;
+        } elseif ($max < 5) {
+            $round_precision = 2;
+        } elseif ($max < 10) {
+            $round_precision = 1;
+        }
 
         $measure = [
             'current' => (object)[
@@ -167,20 +175,21 @@ class StatsController extends \Controller {
                 'point' => $goal
             ],
             'axis' => (object)[
-                'point' => [0, round($max/6, 1), round($max/6, 1) * 2, round($max/6, 1) * 3,
-                            round($max/6, 1) * 4, round($max/6, 1) * 5, round($max/6, 1) * 6]
+                'point' => [0, round($max/6, $round_precision), round($max/6, $round_precision) * 2,
+                            round($max/6, $round_precision) * 3, round($max/6, $round_precision) * 4,
+                            round($max/6, $round_precision) * 5, round($max/6, $round_precision) * 6]
             ],
             'range' => (object)[
                 'red' => (object)[
                     'start' => 0,
-                    'end' => round($max/3, 3)
+                    'end' => round($max/3, $round_precision)
                 ],
                 'amber' => (object)[
-                    'start' => round($max/3, 3),
-                    'end' => round($max/3, 3) * 2
+                    'start' => round($max/3, $round_precision),
+                    'end' => round($max/3, $round_precision) * 2
                 ],
                 'green' => (object)[
-                    'start' => round($max/3, 3) * 2,
+                    'start' => round($max/3, $round_precision) * 2,
                     'end' => $max
                 ]
             ]
