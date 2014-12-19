@@ -7,6 +7,15 @@ class Donation extends \Eloquent {
     protected $table = 'donations';
     public $incrementing = false;
 
+    public function getDisplayNameAttribute()
+    {
+        if ($this->is_anonymous) {
+            return 'Anonymous';
+        } else {
+            return $this->first_name.' '.$this->last_name;
+        }
+    }
+
     protected static function boot()
     {
         parent::boot();

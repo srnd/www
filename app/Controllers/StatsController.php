@@ -13,6 +13,67 @@ class StatsController extends \Controller {
         }
     }
 
+    public function getDonationsAmount()
+    {
+        $campaign_starts_at = strtotime(\Config::get('fundraising.starting'));
+        $campaign_ends_at = strtotime(\Config::get('fundraising.by'));
+        $donations_campaign = iterator_to_array(Models\Donation
+            ::where('created_at', '>', Carbon::createFromTimestamp($campaign_starts_at))
+            ->where('created_at', '<', Carbon::createFromTimestamp($campaign_ends_at))
+            ->get());
+
+        return json_encode((object)[
+            'item' => [
+                (object)[
+                    'text' => 'Donations Raised',
+                    'value' => array_reduce($donations_campaign,
+                        function($a, $b) {
+                            return (object)['amount' => $a->amount + $b->amount];
+                        }, (object)['amount' => 0])->amount,
+                    'prefix' => '$'
+                ]
+            ]
+        ]);
+    }
+
+    public function getDonorsList()
+    {
+        $campaign_starts_at = strtotime(\Config::get('fundraising.starting'));
+        $campaign_ends_at = strtotime(\Config::get('fundraising.by'));
+
+        if (\Input::get('leaderboard')) {
+            $donations_campaign = iterator_to_array(Models\Donation
+                ::where('created_at', '>', Carbon::createFromTimestamp($campaign_starts_at))
+                ->where('created_at', '<', Carbon::createFromTimestamp($campaign_ends_at))
+                ->orderBy('amount', 'DESC')
+                ->get());
+            return json_encode((object)[
+                'items' => array_map(function($a) {
+                    return (object)[
+                        'label' => $a->display_name,
+                        'value' => '$'.number_format($a->amount, 0)
+                    ];
+                }, $donations_campaign)
+            ]);
+        } else {
+            $donations_campaign = iterator_to_array(Models\Donation
+                ::where('created_at', '>', Carbon::createFromTimestamp($campaign_starts_at))
+                ->where('created_at', '<', Carbon::createFromTimestamp($campaign_ends_at))
+                ->orderBy('created_at', 'DESC')
+                ->get());
+            return json_encode((object)[
+                'items' => array_map(function($a) {
+                    return (object)[
+                        'title' => (object)[
+                            'text' => $a->display_name
+                        ],
+                        'description' => '$'.number_format($a->amount, 0)
+                    ];
+                }, $donations_campaign)
+            ]);
+        }
+    }
+
     public function getDonationsBullet()
     {
         $period = in_array(\Input::get('period'), ['day', 'week', 'month', 'year']) ? \Input::get('period') : 'month';
