@@ -61,16 +61,14 @@ class StatsController extends \Controller {
                 ->where('created_at', '<', Carbon::createFromTimestamp($campaign_ends_at))
                 ->orderBy('created_at', 'DESC')
                 ->get());
-            return json_encode((object)[
-                'items' => array_map(function($a) {
-                    return (object)[
-                        'title' => (object)[
+            return json_encode(array_map(function($a) {
+                return (object)[
+                    'title' => (object)[
                             'text' => $a->display_name
                         ],
-                        'description' => '$'.number_format($a->amount, 0)
-                    ];
-                }, $donations_campaign)
-            ]);
+                    'description' => '$'.number_format($a->amount, 0)
+                ];
+            }, $donations_campaign));
         }
     }
 
