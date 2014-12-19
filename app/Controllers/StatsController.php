@@ -167,20 +167,20 @@ class StatsController extends \Controller {
                 'point' => $goal
             ],
             'axis' => (object)[
-                'point' => [0, round($max/6), round($max/6) * 2, round($max/6) * 3,
-                            round($max/6) * 4, round($max/6) * 5, round($max/6) * 6]
+                'point' => [0, round($max/6, 1), round($max/6, 1) * 2, round($max/6, 1) * 3,
+                            round($max/6, 1) * 4, round($max/6, 1) * 5, round($max/6, 1) * 6]
             ],
             'range' => (object)[
                 'red' => (object)[
                     'start' => 0,
-                    'end' => round($max/3)
+                    'end' => round($max/3, 3)
                 ],
                 'amber' => (object)[
-                    'start' => round($max/3),
-                    'end' => round($max/3) * 2
+                    'start' => round($max/3, 3),
+                    'end' => round($max/3, 3) * 2
                 ],
                 'green' => (object)[
-                    'start' => round($max/3) * 2,
+                    'start' => round($max/3, 3) * 2,
                     'end' => $max
                 ]
             ]
