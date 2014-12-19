@@ -168,7 +168,7 @@ class StatsController extends \Controller {
             ],
             'axis' => (object)[
                 'point' => [0, round($max/6), round($max/6) * 2, round($max/6) * 3,
-                            round($max/6) * 4, round($max/6) * 5, $max]
+                            round($max/6) * 4, round($max/6) * 5, round($max/6) * 6]
             ],
             'range' => (object)[
                 'red' => (object)[
