@@ -112,7 +112,7 @@ class StatsController extends \Controller {
                     'Count ('.ucfirst($period).')',
                     'Absolute #',
                     $period,
-                    ($campaign_expected_donors / $campaign_duration) * $period_info->duration,
+                    $campaign_expected_donors * ($period_info->duration / $campaign_duration),
                     count($donations_period)
                 ),
 
@@ -143,7 +143,7 @@ class StatsController extends \Controller {
     private function getBulletChartForPeriod($title, $units, $period,  $goal, $value, $do_forecast = true, $time = null)
     {
         $forecast = $this->getNaiveDeltaForecast($period, $value, $time);
-        $max = ceil(max($value, $goal, $forecast)) * 1.1;
+        $max = max($value, $goal, $forecast) * 1.1;
 
         $round_precision = 0;
         if ($max < 1) {
