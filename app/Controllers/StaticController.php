@@ -11,6 +11,16 @@ class StaticController extends \Controller {
         ]);
     }
 
+    public function getPrivacy()
+    {
+        return \View::make('pages/privacy');
+    }
+
+    public function getReturns()
+    {
+        return \View::make('pages/returns');
+    }
+
     public function getCodeOfConduct()
     {
         return \View::make('pages/code-of-conduct');

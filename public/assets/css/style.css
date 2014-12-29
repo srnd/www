@@ -224,7 +224,7 @@ body > footer {
     body > footer {
       padding-left: 1rem;
       padding-right: 1rem; } }
-  body > footer section p, body > footer section input.copier, body > footer section li, body > footer section a {
+  body > footer section p, body > footer section input.copier, body > footer section li, body > footer section a, body > footer section a:visited, body > footer section h2 {
     font-size: 0.9rem;
     color: #AAA;
     line-height: 1.6; }
@@ -274,22 +274,22 @@ body > footer {
         width: 46.28851%; }
         body > footer section.company:last-child {
           margin-right: 0; } }
-  body > footer section.programs {
+  body > footer section.policies {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 14.70196%;
     margin-right: 0; }
-    body > footer section.programs:last-child {
+    body > footer section.policies:last-child {
       margin-right: 0; }
     @media screen and (max-width: 700px) {
-      body > footer section.programs {
+      body > footer section.policies {
         float: left;
         display: block;
         margin-right: 7.42297%;
         width: 46.28851%;
         margin-right: 0; }
-        body > footer section.programs:last-child {
+        body > footer section.policies:last-child {
           margin-right: 0; } }
   body > footer section.social {
     float: left;
@@ -905,6 +905,46 @@ body.build.index > .wrap > .content .primary .posts, body.build.archive > .wrap 
       width: 100%; }
       body.build.index > .wrap > .content .primary .posts:last-child, body.build.archive > .wrap > .content .primary .posts:last-child {
         margin-right: 0; } }
+
+body.privacy section.content section {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  margin-right: 0;
+  padding-left: 23.23176%;
+  padding-right: 23.23176%; }
+  body.privacy section.content section:last-child {
+    margin-right: 0; }
+  body.privacy section.content section h2 {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 200;
+    text-align: center; }
+  body.privacy section.content section ul {
+    padding-left: 1rem; }
+
+body.returns section.content section {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  margin-right: 0;
+  padding-left: 23.23176%;
+  padding-right: 23.23176%; }
+  body.returns section.content section:last-child {
+    margin-right: 0; }
+  body.returns section.content section h2 {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 200;
+    text-align: center; }
+  body.returns section.content section ul {
+    padding-left: 1rem; }
 
 body.contact.contact section.contacts section {
   float: left;
