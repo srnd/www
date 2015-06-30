@@ -300,6 +300,7 @@ body > footer {
       margin-right: 0; }
 
 body > header {
+  padding: 0 5px;
   width: 100%;
   height: 4rem;
   z-index: 1000;
@@ -321,6 +322,9 @@ body > header {
         font-size: 2rem;
         font-weight: 300;
         color: #ffffff; }
+        @media (max-width: 480px) {
+          body > header .content h1 a {
+            font-size: 0.8em; } }
     body > header .content nav ul {
       padding-left: 0;
       padding-top: 0.2rem; }
@@ -547,7 +551,7 @@ body.home.index > section.hero {
         font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
         font-weight: 100;
         font-style: italic;
-        font-size: 3.3rem;
+        font-size: 2.5rem;
         color: #ffffff;
         line-height: 3.4rem;
         margin-bottom: 0;
@@ -987,93 +991,111 @@ body.home.index > header h1 a {
   color: #ffffff; }
 body.home.index > header nav ul li a {
   color: #98b3fe; }
+body.home.index > .wrap > section.content section.impact,
 body.home.index > .wrap > section.content section.programs {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 100%; }
+  body.home.index > .wrap > section.content section.impact:last-child,
   body.home.index > .wrap > section.content section.programs:last-child {
     margin-right: 0; }
+  body.home.index > .wrap > section.content section.impact header,
   body.home.index > .wrap > section.content section.programs header {
     margin-bottom: 3rem; }
+    body.home.index > .wrap > section.content section.impact header h2,
     body.home.index > .wrap > section.content section.programs header h2 {
       margin-top: 0;
       margin-bottom: 0;
       font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: 200;
       text-align: center; }
+    body.home.index > .wrap > section.content section.impact header p,
     body.home.index > .wrap > section.content section.programs header p {
       margin-top: 0;
       color: #bbb;
       font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
       font-size: 1rem;
       text-align: center; }
-  body.home.index > .wrap > section.content section.programs ul {
-    padding: 0; }
-    body.home.index > .wrap > section.content section.programs ul li {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 23.23176%;
-      list-style-type: none;
-      text-align: center;
-      padding: 0 1.54304%; }
-      body.home.index > .wrap > section.content section.programs ul li:last-child {
-        margin-right: 0; }
-      body.home.index > .wrap > section.content section.programs ul li:last-child {
-        margin-right: 0; }
-      @media screen and (max-width: 700px) {
-        body.home.index > .wrap > section.content section.programs ul li {
-          float: left;
-          display: block;
-          margin-right: 7.42297%;
-          width: 46.28851%;
-          padding: 0; }
-          body.home.index > .wrap > section.content section.programs ul li:last-child {
-            margin-right: 0; }
-          body.home.index > .wrap > section.content section.programs ul li:nth-child(2n) {
-            margin-right: 0; } }
-      body.home.index > .wrap > section.content section.programs ul li a {
-        color: #333;
-        text-decoration: none; }
-        body.home.index > .wrap > section.content section.programs ul li a img {
-          width: 50%;
-          height: auto; }
-        body.home.index > .wrap > section.content section.programs ul li a p {
-          font-size: 0.9rem;
-          line-height: 1.4rem; }
-  body.home.index > .wrap > section.content section.programs .fundraising-ask {
+body.home.index > .wrap > section.content section.impact ul {
+  padding: 0; }
+  body.home.index > .wrap > section.content section.impact ul li {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 100%;
-    margin-right: 0;
-    margin-top: 3rem; }
-    body.home.index > .wrap > section.content section.programs .fundraising-ask:last-child {
+    width: 48.82117%;
+    vertical-align: top;
+    list-style-type: none; }
+    body.home.index > .wrap > section.content section.impact ul li:last-child {
       margin-right: 0; }
-    body.home.index > .wrap > section.content section.programs .fundraising-ask a {
-      display: block;
-      width: 40%;
-      padding: 1rem;
+    body.home.index > .wrap > section.content section.impact ul li:nth-child(2n) {
+      margin-right: 0; }
+    body.home.index > .wrap > section.content section.impact ul li:last-child {
+      float: none;
       margin: 0 auto;
-      text-align: center;
-      background-color: #0343FA;
-      position: relative;
-      border-radius: 5px;
-      border: none;
-      font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-      font-weight: 300;
-      font-size: 1.4rem;
-      color: #FFF;
-      text-decoration: none;
-      text-shadow: 0px -1px 0px #022895; }
+      padding-top: 2.5rem;
+      clear: both; }
+    @media screen and (max-width: 700px) {
+      body.home.index > .wrap > section.content section.impact ul li {
+        float: left;
+        display: block;
+        margin-right: 7.42297%;
+        width: 100%;
+        margin-right: 0; }
+        body.home.index > .wrap > section.content section.impact ul li:last-child {
+          margin-right: 0; }
+        body.home.index > .wrap > section.content section.impact ul li:not(:first-child) {
+          padding-top: 2.5rem; } }
+    body.home.index > .wrap > section.content section.impact ul li h3 {
+      margin-top: 0; }
+    body.home.index > .wrap > section.content section.impact ul li img {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 40.29137%; }
+      body.home.index > .wrap > section.content section.impact ul li img:last-child {
+        margin-right: 0; }
+body.home.index > .wrap > section.content section.programs ul {
+  padding: 0; }
+  body.home.index > .wrap > section.content section.programs ul li {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 23.23176%;
+    list-style-type: none;
+    text-align: center;
+    padding: 0 1.54304%; }
+    body.home.index > .wrap > section.content section.programs ul li:last-child {
+      margin-right: 0; }
+    body.home.index > .wrap > section.content section.programs ul li:last-child {
+      margin-right: 0; }
+    @media screen and (max-width: 700px) {
+      body.home.index > .wrap > section.content section.programs ul li {
+        float: left;
+        display: block;
+        margin-right: 7.42297%;
+        width: 46.28851%;
+        padding: 0; }
+        body.home.index > .wrap > section.content section.programs ul li:last-child {
+          margin-right: 0; }
+        body.home.index > .wrap > section.content section.programs ul li:nth-child(2n) {
+          margin-right: 0; } }
+    body.home.index > .wrap > section.content section.programs ul li a {
+      color: #333;
+      text-decoration: none; }
+      body.home.index > .wrap > section.content section.programs ul li a img {
+        width: 50%;
+        height: auto; }
+      body.home.index > .wrap > section.content section.programs ul li a p {
+        font-size: 0.9rem;
+        line-height: 1.4rem; }
 body.home.index > .wrap > section.content section.featured {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 100%; }
-  body.home.index > .wrap > section.content section.featured:before {
+  body.home.index > .wrap > section.content section.featured:before, body.home.index > .wrap > section.content section.featured:after {
     margin-top: 4rem;
     margin-bottom: 4rem;
     content: "";
@@ -1082,7 +1104,7 @@ body.home.index > .wrap > section.content section.featured {
   body.home.index > .wrap > section.content section.featured:last-child {
     margin-right: 0; }
   body.home.index > .wrap > section.content section.featured h2 {
-    margin-top: 0;
+    margin-top: -1rem;
     margin-bottom: 1rem;
     color: #AAA;
     font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -1091,6 +1113,10 @@ body.home.index > .wrap > section.content section.featured {
     text-align: center; }
   body.home.index > .wrap > section.content section.featured ul {
     padding: 0; }
+    body.home.index > .wrap > section.content section.featured ul:after {
+      content: "";
+      display: block;
+      clear: both; }
     body.home.index > .wrap > section.content section.featured ul li {
       float: left;
       display: block;
@@ -1133,6 +1159,8 @@ body.home.index > .wrap > section.content section.featured {
         background-image: url(../img/press/geekwire.png); }
       body.home.index > .wrap > section.content section.featured ul li.king5 a {
         background-image: url(../img/press/king5.png); }
+      body.home.index > .wrap > section.content section.featured ul li.univision a {
+        background-image: url("../img/press/univision.png"); }
 
 body.open.index section.docs, body.open.index section.minutes {
   float: left;

@@ -28,19 +28,62 @@
             {% else %}
                 <div class="map"></div>
                 <section class="info">
-                    <p class="mission">We make students fall in love with coding nationwide.</p>
-                    <p class="scale">Tens of thousands of students &middot; 30+ cities across the US</p>
+                    <p class="mission">Through our programs, students get interested in coding, and stay interested in coding.</p>
+                    <p class="scale">Tens of thousands of students &middot; 38 cities across the US</p>
                 </section>
             {% endif %}
         </article>
     </section>
 {% endblock %}
 {% block content %}
+    <section class="impact">
+        <header>
+            <h2>The strongest engagement with under-represented students.</h2>
+            <p>Through years of experience and refinement, we've developed a model which is proven to get
+               girls, minorities, and students of low socioeconomic status to get interested in coding, and
+               stay interested in coding.</p>
+        </header>
+
+        <ul>
+            <li>
+                <img src="/assets/img/girls.jpg" />
+                <h3>The most diverse tech programs.</h3>
+                <p>43% of our participants are girls, 38% are from Title I schools, and 21% are from a
+                   under-represented ethnic group.</p>
+            </li>
+            <li>
+                <img src="/assets/img/press/assets/codeday/01.jpg" />
+                <h3>Measurable changes in behavior.</h3>
+                <p>We target high school students with no prior interest or experience in coding.
+                   80% of these students are still coding three months later.</p>
+            </li>
+            <li>
+                <img src="/assets/img/fisher.jpg" />
+                <h3>Refined through years of experience.</h3>
+                <p>Since 2009, StudentRND has been improving our programs while scaling to almost 40 cities
+                   and supporting tens of thousands of students.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="featured">
+        <h2>You may have heard about us in:</h2>
+        <ul>
+            <li class="npr"><a href="http://blogs.kqed.org/mindshift/2012/04/watch-out-silicon-valley-here-come-the-tinkering-teens/">NPR</a></li>
+            <li class="all-things-considered"><a href="http://www.npr.org/blogs/alltechconsidered/2014/01/25/266162832/computers-are-the-future-but-does-everyone-need-to-code">All Things Considered</a></li>
+            <li class="univision"><a href="http://www.kunstv.com/noticias/video/Un-chico-con-buenas-ideas-para-los-demas-jovenes-304649881.html">Univision</a></li>
+            <li class="techcrunch"><a href="http://techcrunch.com/2013/01/18/the-weekly-good-the-problems-of-today-will-be-solved-by-the-minds-of-tomorrow/">TechCrunch</a></li>
+            <li class="readwrite"><a href="http://readwrite.com/2013/10/18/kids-learn-code-programming">Readwrite</a></li>
+            <li class="king5"><a href="http://www.king5.com/news/Students-in-code-heaven-at-Code-Day-193177871.html">King5</a></li>
+        </ul>
+    </section>
+
     <section class="programs">
         <header>
-            <h2>Our programs support students throughout their lives.</h2>
-            <p>It's not just about the events. Our programs build up a community which allows us to
-               support students in the long-term.</p>
+            <h2>Programs that support students throughout their lives.</h2>
+            <p>Writing the first line of code is only the start of a long journey for disadvantaged and
+                under-represented students, which is why our programs create a life-long community to
+                support students through school and into employment.</p>
         </header>
 
         <ul>
@@ -52,12 +95,12 @@
             <li><a href="/build/a-glimpse-at-the-future-of-studentrnd">
                 <img src="/assets/img/codex-square.png" alt="CodeX Square Logo"/>
                 <h3>CodeX</h3>
-                <p>CodeTalk, CodeBlitz, PreCode. A better local coding community.</p>
+                <p>Providing year-round resources to beginning coders.</p>
             </a></li>
             <li><a href="https://labs.studentrnd.org/">
                 <img src="/assets/img/labs-square.png" alt="StudentRND Labs Square Logo"/>
                 <h3>Labs</h3>
-                <p>A three-week summer program for students who love to make things.</p>
+                <p>A three-week summer program for students to gain job experience.</p>
             </a></li>
             <li><a href="https://www.facebook.com/groups/studentrnd/">
                 <img src="/assets/img/community-square.png" alt="StudentRND Community Square Logo"/>
@@ -65,25 +108,8 @@
                 <p>The largest active community for students interested in technology.</p>
             </a></li>
         </ul>
-
-        {% if fundraising.active %}
-            <section class="fundraising-ask">
-                <a href="/donate">Support these programs</a>
-            </section>
-        {% endif %}
     </section>
 
-    <section class="featured">
-        <h2>You may have seen our programs in:</h2>
-        <ul>
-            <li class="all-things-considered"><a href="http://www.npr.org/blogs/alltechconsidered/2014/01/25/266162832/computers-are-the-future-but-does-everyone-need-to-code">All Things Considered</a></li>
-            <li class="techcrunch"><a href="http://techcrunch.com/2013/01/18/the-weekly-good-the-problems-of-today-will-be-solved-by-the-minds-of-tomorrow/">TechCrunch</a></li>
-            <li class="npr"><a href="http://blogs.kqed.org/mindshift/2012/04/watch-out-silicon-valley-here-come-the-tinkering-teens/">NPR</a></li>
-            <li class="readwrite"><a href="http://readwrite.com/2013/10/18/kids-learn-code-programming">Readwrite</a></li>
-            <li class="king5"><a href="http://www.king5.com/news/Students-in-code-heaven-at-Code-Day-193177871.html">King5</a></li>
-            <li class="geekwire"><a href="http://www.geekwire.com/2013/watch-young-entrepreneurs-studentrnd-pitch-startup-ideas/">Geekwire</a></li>
-        </ul>
-    </section>
 {% endblock %}
 {% block scripts %}
     <script type="text/javascript">
