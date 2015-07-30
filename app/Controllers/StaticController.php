@@ -16,6 +16,11 @@ class StaticController extends \Controller {
         return \View::make('pages/privacy');
     }
 
+    public function getTerms()
+    {
+        return \View::make('pages/terms-of-service');
+    }
+
     public function getReturns()
     {
         return \View::make('pages/returns');
