@@ -13,7 +13,7 @@
 {% block hero %}
     <section class="title">
         <article>
-            <h2>Help us build the future of StudentRND</h2>
+            <h2>Help us continue to bring programs to your community.</h2>
         </article>
     </section>
 {% endblock %}
@@ -45,7 +45,7 @@
                 {% if amount %}
                     {% set default_donation = amount %}
                 {% else %}
-                    {% set default_donation = 100 %}
+                    {% set default_donation = 25 %}
                 {% endif %}
                 {% for donation_option in donation_options %}
                     <input type="radio" name="amount" id="amount_{{ donation_option }}" value="{{ donation_option }}"
@@ -57,6 +57,17 @@
                        oninvalid="setCustomValidity('Please enter a number')"
                         {% if not (default_donation in donation_options) %}value="{{ amount }}" class="checked"{% endif %}/>
             </div>
+
+            <div class="frequency">
+                <input type="radio" name="frequency" id="frequency_monthly" value="monthly" checked />
+                <label for="frequency_monthly">Monthly</label>
+
+                <input type="radio" name="frequency" id="frequency_onetime" value="onetime" />
+                <label for="frequency_onetime">One-Time</label>
+            </div>
+
+            <a class="next-step" href="#" data-for="donor">Next</a>
+
         </section>
 
         <section class="donor" {% if not amount %}style="display: none"{% endif %}>
@@ -68,34 +79,22 @@
             </div>
             <input type="email" name="email" id="email" placeholder="Email" value="{{ email }}" required/>
 
-            <div class="address">
-                <input type="text" name="address_1" id="address_1" placeholder="Address" value="{{ address_1 }}" required />
-                <input type="text" name="address_2" id="address_2" placeholder="Address (continued)" value="{{ address_2 }}" />
-
-                <div class="units">
-                    <input type="text" name="city" id="city" placeholder="City" value="{{ city }}" required />
-                    <input type="text" name="state" id="state" placeholder="State" value="{{ state }}" required />
-                    <input type="text" name="zip" id="zip" placeholder="Postal Code" value="{{ zip }}" required />
-                </div>
-            </div>
-
             <div class="option">
                 <input type="checkbox" name="is_anonymous" id="is_anonymous" value="1" {% if is_anonymous %}checked{% endif %} />
-                <label for="is_anonymous">Keep this donation anonymous. (The above information is still required for tax purposes.)</label>
+                <label for="is_anonymous">Keep this donation anonymous.</label>
             </div>
-            {% if show_opt_out or opt_out %}
-                <div class="option">
-                    <input type="checkbox" name="opt_out" id="opt_out" value="1" {% if opt_out %}checked{% endif %} />
-                    <label for="opt_out">Please don't ask me to donate again</label>
-                </div>
-            {% endif %}
+
+            <div class="for">
+                <p>If you are requesting this donation be used for a specific city, please specify here:</p>
+                <input type="text" name="for" id="for" value="{{ for }}" placeholder="City (optional)" />
+            </div>
 
             <a class="next-step" href="#" data-for="payment">Next</a>
         </section>
 
         <section class="payment" style="display: none">
             <h2>Payment Information</h2>
-            <div class="onsite-gateway">
+            <div class="onsite-gateway only">
                 <div class="card">
                     <input type="text" id="card_number" placeholder="Card Number" data-stripe="number" />
                     <div class="exp">
@@ -105,7 +104,7 @@
                 </div>
                 <button type="submit" name="payment_method" id="card" value="stripe">Donate ${{ default_donation|number_format(0) }} by card</button>
             </div>
-            <div class="alternate-gateways">
+            <div class="alternate-gateways" style="display: none">
                 <p>Or</p>
                 <button type="submit" name="payment_method" id="dwolla" value="dwolla" class="gateway-dwolla">Donate ${{ default_donation|number_format(0) }} with Dwolla</button>
             </div>
@@ -119,8 +118,10 @@
     <section class="details">
         <img src="/assets/img/donate-why.jpg" alt="Why Donate?"/>
         <div class="why">
-            <p>Your donation inspires students nationwide to love coding. <a href="https://studentrnd.org/build/eoy-donation-drive">Learn how.</a></p>
-            <p>StudentRND is a 501(c)(3) non-profit. Your donation is tax-deductible.</p>
+            <p>It costs us $36 per participant to bring our events to cities like yours, and we fund that primarily
+                through donations.</p>
+            <p>Donating helps ensure we're able to continue to bring our high-impact tech education to your community.
+                Your donation is tax-deductible.</p>
         </div>
     </section>
 
@@ -177,6 +178,8 @@
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.payment/1.0.2/jquery.payment.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
+            // # Multi-Page Donation Form
+
             var switchToStep = function(for_elem) {
                 var $form = $('#donate-form');
                 var visible_elem = $form.children('section:visible').first();
@@ -209,6 +212,8 @@
                 switchToStep($this.parents('section').first())
             });
 
+            // # Donation Amount
+
             var formatMoney = function(n, decPlaces, thouSeparator, decSeparator) {
                 var decPlaces = isNaN(decPlaces = Math.abs(decPlaces)) ? 2 : decPlaces,
                     decSeparator = decSeparator == undefined ? "." : decSeparator,
@@ -219,23 +224,43 @@
                 return sign + (j ? i.substr(0, j) + thouSeparator : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thouSeparator) + (decPlaces ? decSeparator + Math.abs(n - i).toFixed(decPlaces).slice(2) : "");
             };
 
-            var updateDonateLabels = function(new_amount){
-                $('#card').text('Donate $'+formatMoney(new_amount, 0)+' by card');
-                $('#dwolla').text('Donate $'+formatMoney(new_amount, 0)+' with Dwolla');
+
+            var updateDonateLabels = function(){
+
+                var amountDefaultSelected = $('input[name="amount"]:checked').first();
+                var customAmount = $('#amount_custom');
+                var amount = 0;
+
+                if (amountDefaultSelected.length > 0) {
+                    amount = formatMoney(amountDefaultSelected.val());
+                } else {
+                    amount = customAmount.val();
+                }
+
+                var frequency = $('input[name="frequency"]:checked').val();
+
+                if (frequency === 'onetime') {
+                    $('.onsite-gateway').removeClass('only');
+                    $('.alternate-gateways').css('display', 'block');
+                    $('#card').text('Donate $'+amount+' by card');
+                    $('#dwolla').text('Donate $'+amount+' with Dwolla');
+                } else {
+                    $('.onsite-gateway').addClass('only');
+                    $('.alternate-gateways').css('display', 'none');
+                    $('#card').text('Start monthly donation of $'+amount);
+                }
             };
 
 
-
+            // ## Update donation amounts when the user selects a default
             $('.amount input[type="radio"]').on('change', function(){
                 $('#amount_custom').val('').removeClass('checked');
-                updateDonateLabels($(this).val());
-                switchToStep($('#donate-form section.donor'));
+                updateDonateLabels();
             });
-            $('.amount label').on('click', function(){
-                switchToStep($('#donate-form section.donor'));
-            });
+
+            // ## Deal with the custom amount option
             var last_checked_radio = null;
-            $('#amount_custom').on('click', function(){
+            $('#amount_custom').on('click', function(){ // Select the custom amount when the user selects it
                 $(this).addClass('checked');
                 var checked_radio = $('.amount input[type="radio"]:checked');
                 if (checked_radio.length) {
@@ -243,19 +268,30 @@
                     last_checked_radio.prop('checked', false);
                 }
             });
-            $('#amount_custom').on('blur', function(){
+            $('#amount_custom').on('blur', function(){ // De-select the custom amount if it's invalid.
                 if (!$(this).val() || isNaN($(this).val())) {
                     $(this).val('').removeClass('checked');
                     last_checked_radio.prop('checked', true);
                 } else {
-                    updateDonateLabels($(this).val());
-                    switchToStep($('#donate-form section.donor'));
+                    updateDonateLabels();
                 }
             });
 
+            // ## Frequency options
+            $('input[name="frequency"]').on('change', function() {
+                updateDonateLabels();
+            });
+
+            // ## Do first-run update
+            updateDonateLabels();
+
+            // # Payment Info
+
+            // ## Auto format the card number
             $('#card_number').payment('formatCardNumber');
             $('#exp').payment('formatCardExpiry');
 
+            // ## Set up Stripe
             Stripe.setPublishableKey('{{ stripe_public|escape('js') }}');
 
             var prepareAmountForPostback = function()

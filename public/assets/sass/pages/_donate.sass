@@ -5,7 +5,8 @@ body.donate
                 image: url(../img/girlscolored.jpg)
                 position: 50% 50%
                 size: cover
-            padding-bottom: 9rem
+            padding-bottom: 6rem
+            padding-top: 6rem
 
         .error
             +span-columns(12)
@@ -94,6 +95,10 @@ body.donate
                         text-align: center
                         color: $color-black
                         transition: background-color 300ms ease-out 0s, border-color 300ms ease-out 0s
+                .frequency
+                    text-align: center
+                    margin-top: -0.75rem
+                    margin-bottom: 1rem
 
             .donor
                 .name
@@ -149,6 +154,9 @@ body.donate
                             text-shadow: 0px -1px 0px #BC5C00
                 .onsite-gateway
                     +span-columns(8)
+                    &.only
+                        +span-columns(12)
+                        border-right: none
                     text-align: center
                     border-right: 1px solid $color-gray
                     padding: 1rem 2rem 1rem 1rem
@@ -396,3 +404,28 @@ body.donate
 
         .legal
             text-align: center
+            width: 50%
+            border: 1px solid $color-black
+            margin: 0 auto
+            p
+                font-size: 0.7rem
+                line-height: 0.9rem
+
+        .recurring
+            text-align: center
+            form
+                margin-top: -1rem
+                input[type="submit"]
+                    display: inline
+                    float: none
+                    width: auto
+                    margin: 0
+                    padding: 0
+                    border: 0
+                    font-size: 0.875rem
+                    font-weight: 500
+                    color: $color-black
+                    text-decoration: underline
+                    &:hover
+                        background-color: transparent
+                        color: $color-black

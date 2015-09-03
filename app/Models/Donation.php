@@ -16,6 +16,11 @@ class Donation extends \Eloquent {
         }
     }
 
+    public function getDates()
+    {
+        return ['created_at', 'updated_at', 'cancelled_at'];
+    }
+
     protected static function boot()
     {
         parent::boot();

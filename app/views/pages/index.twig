@@ -34,11 +34,17 @@
             {% endif %}
         </article>
     </section>
+    {% if not fundraising.active %}
+        <a class="donate" href="/donate">
+            We are funded by donations, and spend $36 per participant to bring tech education to your city.
+            <span class="link">Please donate now.</span>
+        </a>
+    {% endif %}
 {% endblock %}
 {% block content %}
     <section class="impact">
         <header>
-            <h2>The strongest engagement with under-represented students.</h2>
+            <h2>The strongest engagement with students who need it.</h2>
             <p>Through years of experience and refinement, we've developed a model which is proven to get
                girls, minorities, and students of low socioeconomic status to get interested in coding, and
                stay interested in coding.</p>
@@ -57,12 +63,6 @@
                 <p>We target high school students with no prior interest or experience in coding.
                    80% of these students are still coding three months later.</p>
             </li>
-            <li>
-                <img src="/assets/img/fisher.jpg" />
-                <h3>Refined through years of experience.</h3>
-                <p>Since 2009, StudentRND has been improving our programs while scaling to almost 40 cities
-                   and supporting tens of thousands of students.</p>
-            </li>
         </ul>
     </section>
 
@@ -78,36 +78,30 @@
         </ul>
     </section>
 
-    <section class="programs">
+    <section class="codeday">
         <header>
-            <h2>Programs that support students throughout their lives.</h2>
-            <p>Writing the first line of code is only the start of a long journey for disadvantaged and
-                under-represented students, which is why our programs create a life-long community to
-                support students through school and into employment.</p>
+            <h2>CodeDay: A proven program for getting students started.</h2>
+            <p>Plenty of programs support students who want to learn to code, but most students aren't yet interested.
+                Our flagship program, CodeDay, is focused on getting students to take the first step: trying out coding.
+                Since 2009 we've convinced tens of thousands to do just that.</p>
         </header>
 
-        <ul>
-            <li><a href="https://codeday.org/">
-                <img src="/assets/img/codeday-square.png" alt="CodeDay Square Logo"/>
-                <h3>CodeDay</h3>
-                <p>A high-energy, 24-hour event encouraging interest in coding.</p>
-            </a></li>
-            <li><a href="/build/a-glimpse-at-the-future-of-studentrnd">
-                <img src="/assets/img/codex-square.png" alt="CodeX Square Logo"/>
-                <h3>CodeX</h3>
-                <p>Providing year-round resources to beginning coders.</p>
-            </a></li>
-            <li><a href="https://labs.studentrnd.org/">
-                <img src="/assets/img/labs-square.png" alt="StudentRND Labs Square Logo"/>
-                <h3>Labs</h3>
-                <p>A three-week summer program for students to gain job experience.</p>
-            </a></li>
-            <li><a href="https://www.facebook.com/groups/studentrnd/">
-                <img src="/assets/img/community-square.png" alt="StudentRND Community Square Logo"/>
-                <h3>Community</h3>
-                <p>The largest active community for students interested in technology.</p>
-            </a></li>
-        </ul>
+        <div class="video">
+            <iframe src="//fast.wistia.net/embed/iframe/r4avh9mp2g?videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" id="splash-video" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
+            <script src="//fast.wistia.net/assets/external/iframe-api-v1.js"></script>
+        </div>
+
+        <div class="details">
+            <p>CodeDay targets students with no prior coding experience, and offers them an opportunity to code
+                something which interests them individually, rather than a standard assignment.</p>
+            <p>At CodeDay, students pitch ideas for apps or games they want to see exist, then spend the next 24 hours
+                creating them while learning more about code, with the help our of staff and mentors.</p>
+            <p>Showing students the creative side of code convinces most to pursue coding further.</p>
+            <p>Students regularly tell us CodeDay is one of the most meaningful things they've done. Over 80% of our
+                attendees continue to code after attending; strengthening the local tech community and empowering
+                low-income students and minority groups.</p>
+            <p>For more information, visit <a href="https://codeday.org/">CodeDay.org.</a></p>
+        </div>
     </section>
 
 {% endblock %}

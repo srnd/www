@@ -10,7 +10,7 @@ body.home.index
 
         & > section.content
             section.impact,
-            section.programs
+            section.codeday
                 @include span-columns(12)
                 header
                     margin-bottom: 3rem
@@ -41,11 +41,6 @@ body.home.index
                         list-style-type: none
                         &:nth-child(2n)
                             +omega
-                        &:last-child
-                            float: none
-                            margin: 0 auto
-                            padding-top: 2.5rem
-                            clear: both
 
                         @include media($media-mobile)
                             @include span-columns(4)
@@ -59,35 +54,14 @@ body.home.index
                             +span-columns(5)
 
 
-            section.programs
-                ul
-                    padding: 0
-                    li
-                        @include span-columns(3)
-                        list-style-type: none
-                        text-align: center
-                        padding: 0 flex-grid(1, 12)/4
-                        &:last-child
-                            +omega
-
-                        @include media($media-mobile)
-                            @include span-columns(2)
-                            padding: 0
-
-                            &:nth-child(2n)
-                                @include omega
-
-                        a
-                            color: $color-black
-                            text-decoration: none
-
-                            img
-                                width: 50%
-                                height: auto
-
-                            p
-                                font-size: 0.9rem
-                                line-height: 1.4rem
+            section.codeday
+                .video
+                    +span-columns(6)
+                .details
+                    +span-columns(6)
+                    +omega
+                    p:first-child
+                        font-weight: bold
 
             section.featured
                 &:before,

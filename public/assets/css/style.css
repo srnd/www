@@ -562,6 +562,18 @@ body.home.index > section.hero {
         color: #98b3fe;
         text-transform: uppercase; }
 
+body.home.index > .donate {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0.25rem 0.25rem 1.25rem;
+  background-color: #15E014;
+  color: #fff;
+  text-decoration: none; }
+  body.home.index > .donate .link {
+    text-decoration: underline; }
+
 body.build.post > .wrap > .content > article > .text blockquote.alignleft, body.build.post > .wrap > .content > article > .text blockquote.alignright, body.build.post > .wrap > .content > article > .text blockquote.aligncenter,
 body.build.post > .wrap > .content > article > .text blockquote.alignleft p, body.build.post > .wrap > .content > article > .text blockquote.alignright p, body.build.post > .wrap > .content > article > .text blockquote.aligncenter p {
   width: 250px !important; }
@@ -992,19 +1004,19 @@ body.home.index > header h1 a {
 body.home.index > header nav ul li a {
   color: #98b3fe; }
 body.home.index > .wrap > section.content section.impact,
-body.home.index > .wrap > section.content section.programs {
+body.home.index > .wrap > section.content section.codeday {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 100%; }
   body.home.index > .wrap > section.content section.impact:last-child,
-  body.home.index > .wrap > section.content section.programs:last-child {
+  body.home.index > .wrap > section.content section.codeday:last-child {
     margin-right: 0; }
   body.home.index > .wrap > section.content section.impact header,
-  body.home.index > .wrap > section.content section.programs header {
+  body.home.index > .wrap > section.content section.codeday header {
     margin-bottom: 3rem; }
     body.home.index > .wrap > section.content section.impact header h2,
-    body.home.index > .wrap > section.content section.programs header h2 {
+    body.home.index > .wrap > section.content section.codeday header h2 {
       margin-top: 0;
       margin-bottom: 0;
       font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -1012,7 +1024,7 @@ body.home.index > .wrap > section.content section.programs {
       font-weight: 200;
       text-align: center; }
     body.home.index > .wrap > section.content section.impact header p,
-    body.home.index > .wrap > section.content section.programs header p {
+    body.home.index > .wrap > section.content section.codeday header p {
       margin-top: 0;
       color: #bbb;
       font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -1031,11 +1043,6 @@ body.home.index > .wrap > section.content section.impact ul {
       margin-right: 0; }
     body.home.index > .wrap > section.content section.impact ul li:nth-child(2n) {
       margin-right: 0; }
-    body.home.index > .wrap > section.content section.impact ul li:last-child {
-      float: none;
-      margin: 0 auto;
-      padding-top: 2.5rem;
-      clear: both; }
     @media screen and (max-width: 700px) {
       body.home.index > .wrap > section.content section.impact ul li {
         float: left;
@@ -1056,40 +1063,23 @@ body.home.index > .wrap > section.content section.impact ul {
       width: 40.29137%; }
       body.home.index > .wrap > section.content section.impact ul li img:last-child {
         margin-right: 0; }
-body.home.index > .wrap > section.content section.programs ul {
-  padding: 0; }
-  body.home.index > .wrap > section.content section.programs ul li {
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 23.23176%;
-    list-style-type: none;
-    text-align: center;
-    padding: 0 1.54304%; }
-    body.home.index > .wrap > section.content section.programs ul li:last-child {
-      margin-right: 0; }
-    body.home.index > .wrap > section.content section.programs ul li:last-child {
-      margin-right: 0; }
-    @media screen and (max-width: 700px) {
-      body.home.index > .wrap > section.content section.programs ul li {
-        float: left;
-        display: block;
-        margin-right: 7.42297%;
-        width: 46.28851%;
-        padding: 0; }
-        body.home.index > .wrap > section.content section.programs ul li:last-child {
-          margin-right: 0; }
-        body.home.index > .wrap > section.content section.programs ul li:nth-child(2n) {
-          margin-right: 0; } }
-    body.home.index > .wrap > section.content section.programs ul li a {
-      color: #333;
-      text-decoration: none; }
-      body.home.index > .wrap > section.content section.programs ul li a img {
-        width: 50%;
-        height: auto; }
-      body.home.index > .wrap > section.content section.programs ul li a p {
-        font-size: 0.9rem;
-        line-height: 1.4rem; }
+body.home.index > .wrap > section.content section.codeday .video {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  body.home.index > .wrap > section.content section.codeday .video:last-child {
+    margin-right: 0; }
+body.home.index > .wrap > section.content section.codeday .details {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-right: 0; }
+  body.home.index > .wrap > section.content section.codeday .details:last-child {
+    margin-right: 0; }
+  body.home.index > .wrap > section.content section.codeday .details p:first-child {
+    font-weight: bold; }
 body.home.index > .wrap > section.content section.featured {
   float: left;
   display: block;
@@ -1601,7 +1591,8 @@ body.donate.donate > section.title {
   background-image: url(../img/girlscolored.jpg);
   background-position: 50% 50%;
   background-size: cover;
-  padding-bottom: 9rem; }
+  padding-bottom: 6rem;
+  padding-top: 6rem; }
 body.donate.donate .error {
   float: left;
   display: block;
@@ -1706,6 +1697,10 @@ body.donate.donate .contribution-info {
         margin-right: 0; }
       body.donate.donate .contribution-info .donation .amount label:nth-child(8n), body.donate.donate .contribution-info .donation .amount input[type="text"]:nth-child(8n) {
         margin-right: 0; }
+  body.donate.donate .contribution-info .donation .frequency {
+    text-align: center;
+    margin-top: -0.75rem;
+    margin-bottom: 1rem; }
   body.donate.donate .contribution-info .donor .name {
     display: block; }
     body.donate.donate .contribution-info .donor .name:after {
@@ -1777,6 +1772,14 @@ body.donate.donate .contribution-info {
     padding: 1rem 2rem 1rem 1rem; }
     body.donate.donate .contribution-info .payment .onsite-gateway:last-child {
       margin-right: 0; }
+    body.donate.donate .contribution-info .payment .onsite-gateway.only {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 100%;
+      border-right: none; }
+      body.donate.donate .contribution-info .payment .onsite-gateway.only:last-child {
+        margin-right: 0; }
     body.donate.donate .contribution-info .payment .onsite-gateway .card {
       background-image: url(../img/card-front-background.png);
       background-size: cover;
@@ -2065,6 +2068,30 @@ body.donate.receipt .receipt {
     body.donate.receipt .receipt .donated-by span.address span, body.donate.receipt .receipt .donated-to span.address span {
       display: block; }
 body.donate.receipt .legal {
+  text-align: center;
+  width: 50%;
+  border: 1px solid #333;
+  margin: 0 auto; }
+  body.donate.receipt .legal p {
+    font-size: 0.7rem;
+    line-height: 0.9rem; }
+body.donate.receipt .recurring {
   text-align: center; }
+  body.donate.receipt .recurring form {
+    margin-top: -1rem; }
+    body.donate.receipt .recurring form input[type="submit"] {
+      display: inline;
+      float: none;
+      width: auto;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #333;
+      text-decoration: underline; }
+      body.donate.receipt .recurring form input[type="submit"]:hover {
+        background-color: transparent;
+        color: #333; }
 
 /*# sourceMappingURL=style.css.map */

@@ -8,6 +8,17 @@
         <section class="thanks">
             <p>Your donation was successfully processed! Please print or bookmark this page for your records.</p>
         </section>
+    {% elseif just_subscribed %}
+        <section class="thanks">
+            <p>Your first monthly donation was successfully processed. Please print or bookmark this page for your
+                records.</p>
+            <p>A ${{ donation.amount|number_format(0) }} donation will automatically be deducted at this time each
+                month. You can cancel your donation from any donation receipt.</p>
+        </section>
+    {% elseif just_cancelled %}
+        <section class="thanks">
+            <p>Your monthly donation was just cancelled.</p>
+        </section>
     {% endif %}
     <section class="receipt">
         <section class="donation">
@@ -24,13 +35,6 @@
             <p>
                 <span class="name">{{ donation.first_name }} {{ donation.last_name }}</span>
                 <span class="email">{{ donation.email }}</span>
-                <span class="address">
-                    <span class="street">{{ donation.address_1 }}</span>
-                    {% if donation.address_2 %}
-                        <span class="street">{{ donation.address_2 }}</span>
-                    {% endif %}
-                    <span class="delivery">{{ donation.city }}, {{ donation.state }} {{ donation.zip }}</span>
-                </span>
             </p>
         </section>
 
@@ -47,9 +51,16 @@
         </section>
     </section>
     <section class="legal">
-        <p>No goods or services were provided in exchange for this donation.</p>
-        <p>StudentRND is a not-for-profit corporation which is tax-exempt under IRC &sect; 501(c)(3).
-            Our EIN is 26-4742589.</p>
-        <p>Please keep this receipt for your records.</p>
+        <p>No goods or services were provided in exchange for this donation. StudentRND is a not-for-profit corporation
+            which is tax-exempt under IRC &sect; 501(c)(3). Our EIN is 26-4742589. Please keep this receipt for your
+            records.</p>
     </section>
+    {% if donation.transaction_subscription_id and not donation.cancelled_at %}
+        <section class="recurring">
+            <p>This donation was part of an ongoing monthly donation.</p>
+            <form method="post" action="/donate/cancel/{{ donation.id }}">
+                <input type="submit" value="Cancel this recurring donation." />
+            </form>
+        </section>
+    {% endif %}
 {% endblock %}

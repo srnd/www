@@ -1,6 +1,7 @@
 <?php
 namespace Www\Controllers;
 
+use \Carbon\Carbon;
 use \Www\Models;
 
 class DonateController extends \Controller {
@@ -16,9 +17,11 @@ class DonateController extends \Controller {
 
     public function postIndex()
     {
-        if (\Input::get('payment_method') === 'stripe') {
-            return $this->stripeCheckout();
-        } else if (\Input::get('payment_method') === 'dwolla') {
+        if (\Input::get('payment_method') === 'stripe' && \Input::get('frequency') === 'monthly') {
+            return $this->stripeCheckoutRecurring();
+        } else if (\Input::get('payment_method') === 'stripe' && \Input::get('frequency') === 'onetime') {
+            return $this->stripeCheckoutOneTime();
+        } else if (\Input::get('payment_method') === 'dwolla' && \Input::get('frequency') !== 'monthly') {
             return $this->dwollaCheckout();
         } else {
             return $this->makeDonationPage();
@@ -29,14 +32,137 @@ class DonateController extends \Controller {
     {
         return \View::make('pages/donate/receipt', [
             'donation' => \Route::input('donation'),
-            'just_donated' => \Session::get('just_donated', false)
+            'just_donated' => \Session::get('just_donated', false),
+            'just_subscribed' => \Session::get('just_subscribed', false),
+            'just_cancelled' => \Session::get('just_cancelled', false)
         ]);
+    }
+
+    public function postStripeIncoming()
+    {
+        \Stripe::setApiKey(\Config::get('stripe.secret'));
+        $event = json_decode(file_get_contents('php://input'));
+        //\Stripe_Event::retrieve($event->id); // Validate event
+
+        if ($event->type !== 'invoice.payment_succeeded') return 'Incorrect event type.';
+
+        $invoice = $event->data->object;
+        $previous_customer_id = $invoice->customer;
+
+        $otherDonation = Models\Donation::where('transaction_subscription_id', '=', $previous_customer_id)->first();
+        $user = [
+            'first_name' => $otherDonation->first_name,
+            'last_name' => $otherDonation->last_name,
+            'email' => $otherDonation->email,
+            'amount' => $otherDonation->amount,
+            'is_recurring' => false,
+            'is_anonymous' => $otherDonation->is_anonymous,
+            'for' => $otherDonation->for
+        ];
+
+        $donation = $this->createDonationRecord('stripe', $invoice->charge, $previous_customer_id, $user);
+        $this->mailDonationReceipt($donation, true);
+    }
+
+    public function postCancelSubscription()
+    {
+        $donation = \Route::input('donation');
+
+        \Stripe::setApiKey(\Config::get('stripe.secret'));
+        $customer = \Stripe_Customer::retrieve($donation->transaction_subscription_id);
+        $customer->delete();
+
+        // Mark all donations as having their subscription cancelled
+        $previousDonations = Models\Donation
+            ::where('transaction_subscription_id', '=', $donation->transaction_subscription_id)->get();
+        foreach ($previousDonations as $previousDonation) {
+            $previousDonation->cancelled_at = Carbon::now();
+            $previousDonation->save();
+        }
+
+        \Session::flash('just_cancelled', true);
+        return \Redirect::to('/donate/receipt/'.$donation->id);
+    }
+
+    // ====== STRIPE ======
+
+    public function stripeCheckoutRecurring()
+    {
+        $requirements_check = $this->containsAllRequired(['stripe_token']);
+        if (!$requirements_check->success) {
+            return $this->makeDonationPage($requirements_check->errors);
+        }
+
+        $user = $this->getDonationInfo();
+
+        // Set up the payment profile and start collecting monthly donations
+        \Stripe::setApiKey(\Config::get('stripe.secret'));
+
+        try {
+            // Get a plan for the recurring billing
+            $plan = 'donation_monthly_'.$user['amount'];
+            try {
+                \Stripe_Plan::retrieve($plan);
+            } catch (\Stripe_Error $e) {
+                \Stripe_Plan::create([
+                    "amount" => $user['amount'] * 100, // in cents
+                    "currency" => "usd",
+                    "interval" => "month",
+                    "id" => $plan,
+                    "name" => '$'.$user['amount'].' monthly donation'
+                ]);
+            }
+
+            // Create a subscription
+            $nextBill = Carbon::now()->addMonth();
+            $cust = \Stripe_Customer::create([
+                'description' => '$'.$user['amount'].'/mo donation for '.$user['first_name'].' '.$user['last_name'],
+                'source' => $user['stripe_token'],
+                'plan' => $plan,
+                'email' => $user['email'],
+                'trial_end' => $nextBill->timestamp
+            ]);
+
+            // Create the first charge
+            $charge = \Stripe_Charge::create([
+                "amount" => $user['amount'] * 100, // in cents
+                "currency" => "usd",
+                "customer" => $cust,
+                "description" => 'Online donation',
+                "statement_description" => "DONATION"
+            ]);
+
+        } catch (\Stripe_CardError $e) {
+            return $this->makeDonationPage(['Your card was declined.']);
+        } catch (\Exception $e) {
+            return $this->makeDonationPage(['Sorry, our payment gateway reported an error. Please try again. Details:', $e->getMessage()]);
+        }
+
+        // Create the transaction record
+        try {
+            $donation_record = $this->createDonationRecord('stripe', $charge->id, $cust->id);
+        } catch (\Exception $ex) {
+            $charge->refunds->create();
+            return $this->makeDonationPage(["Something went wrong on our side; we're looking into it. Your card was not charged."]);
+        }
+
+        // Try to track events and send the email
+        $this->optionalStep(function() {
+            $this->trackDonateEvents();
+        });
+        $this->optionalStep(function() use ($donation_record) {
+            $this->mailDonationReceipt($donation_record);
+        });
+
+        // Redirect to the transaction complete page
+        \Session::flash('just_subscribed', true);
+        return \Redirect::to('/donate/receipt/'.$donation_record->id);
     }
 
     /**
      * Processes the Stripe transaction and redirects the user to the receipt page.
      */
-    public function stripeCheckout()
+    public function stripeCheckoutOneTime()
     {
         $requirements_check = $this->containsAllRequired(['stripe_token']);
         if (!$requirements_check->success) {
@@ -202,8 +328,7 @@ class DonateController extends \Controller {
         $mp->people->set($user['email'], [
             '$first_name'       => $user['first_name'],
             '$last_name'        => $user['last_name'],
-            '$email'            => $user['email'],
-            'donation_opt_out'  => $user['opt_out']
+            '$email'            => $user['email']
         ]);
         $mp->track('donated', [
             'amount'            => $user['amount'],
@@ -221,8 +346,7 @@ class DonateController extends \Controller {
             new \Customerio\Request);
         $cio->createCustomer($user['email'], $user['email'], [
             'first_name'        => $user['first_name'],
-            'last_name'         => $user['last_name'],
-            'donation_opt_out'  => $user['opt_out']
+            'last_name'         => $user['last_name']
         ]);
         $cio->fireEvent($user['email'], 'donated', [
             'amount'            => $user['amount'],
@@ -236,11 +360,14 @@ class DonateController extends \Controller {
      *
      * @param $transaction_source The payment gateway, one of: [stripe, paypal, dwolla]
      * @param $transaction_id The payment gateway's transaction ID
+     * @param $transaction_subscription_id The subscription ID of the payment, if any
      * @return Models\Donation The donation record in the database
      */
-    private function createDonationRecord($transaction_source, $transaction_id)
+    private function createDonationRecord($transaction_source, $transaction_id, $transaction_subscription_id = null, $user = null)
     {
-        $user = $this->getDonationInfo();
+        if (!$user) {
+            $user = $this->getDonationInfo();
+        }
 
         $donation = new Models\Donation;
         $donation->amount = $user['amount'];
@@ -248,16 +375,12 @@ class DonateController extends \Controller {
         $donation->first_name = $user['first_name'];
         $donation->last_name = $user['last_name'];
         $donation->email = $user['email'];
-        $donation->address_1 = $user['address_1'];
-        $donation->address_2 = $user['address_2'];
-        $donation->city = $user['city'];
-        $donation->state = $user['state'];
-        $donation->zip = $user['zip'];
         $donation->is_anonymous = $user['is_anonymous'];
-        $donation->opt_out = $user['opt_out'];
+        $donation->for = $user['for'];
 
         $donation->transaction_source = $transaction_source;
         $donation->transaction_id = $transaction_id;
+        $donation->transaction_subscription_id = $transaction_subscription_id;
 
         $donation->save();
         return $donation;
@@ -268,9 +391,16 @@ class DonateController extends \Controller {
      *
      * @param Models\Donation $donation_record The record of the donation
      */
-    private function mailDonationReceipt(Models\Donation $donation_record)
+    private function mailDonationReceipt(Models\Donation $donation_record, $isSubscriptionGenerated = false)
     {
-        // TODO
+        \Mail::send(
+            ['html' => $isSubscriptionGenerated ? 'emails/donation_thanks_recurring' : 'emails/donation_thanks'],
+            [ 'donation' => $donation_record ],
+            function($email) use ($donation_record, $isSubscriptionGenerated) {
+                $email->from('donate@studentrnd.org', 'StudentRND');
+                $email->to($donation_record->email, $donation_record->first_name);
+                $email->subject('Receipt for Your '.($isSubscriptionGenerated?'Recurring ':'').'Donation');
+            });
     }
 
     /**
@@ -286,10 +416,7 @@ class DonateController extends \Controller {
         $input[] = 'first_name';
         $input[] = 'last_name';
         $input[] = 'email';
-        $input[] = 'address_1';
-        $input[] = 'city';
-        $input[] = 'state';
-        $input[] = 'zip';
+        $input[] = 'frequency';
 
         $errors = [];
         foreach ($input as $required) {
@@ -339,14 +466,9 @@ class DonateController extends \Controller {
             'first_name' => \Input::get('first_name'),
             'last_name' => \Input::get('last_name'),
             'email' => \Input::get('email'),
-            'address_1' => \Input::get('address_1'),
-            'address_2' => \Input::get('address_2'),
-            'city' => \Input::get('city'),
-            'state' => \Input::get('state'),
-            'zip' => \Input::get('zip'),
             'stripe_token' => \Input::get('stripe_token'),
             'is_anonymous' => \Input::get('is_anonymous') ? true : false,
-            'opt_out' => \Input::get('opt_out') ? true : false
+            'for' => \Input::get('for')
         ];
     }
 

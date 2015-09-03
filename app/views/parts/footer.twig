@@ -8,7 +8,7 @@
         <p>StudentRND is a 501(c)(3) public-charity registered in Washington.
            Our EIN is <input type="text" readonly value="26-4742589" class="ein copier" />
            (<a href="/assets/pdf/open/w9.pdf">W-9</a>).</p>
-        <p><a href="https://mixpanel.com/f/partner"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a></p>
+        <p style="display:none"><a href="https://mixpanel.com/f/partner"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a></p>
     </section>
     <section class="company">
         <h2>Company</h2>
@@ -45,8 +45,7 @@
     'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js',
     'https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js',
     'https://cdnjs.cloudflare.com/ajax/libs/topojson/1.1.0/topojson.min.js',
-    'https://use.typekit.net/wck5lid.js',
-    'https://cdn.optimizely.com/js/2231930397.js'
+    'https://use.typekit.net/wck5lid.js'
 ] %}
 {% for script_url in script_urls %}
     <script type="text/javascript" src="{{ script_url }}"></script>
