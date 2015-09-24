@@ -1,6 +1,5 @@
 body.contact.contact
     section.contacts
-
         section
             @include span-columns(3)
             @include media($media-mobile)
@@ -32,4 +31,59 @@ body.contact.contact
 
                     span.address
                         span
+                            display: block
+
+    section.team
+        header
+            margin-bottom: 3rem
+            h3
+                margin:
+                    top: 0
+                    bottom: 0
+                font:
+                    family: $font-family-header
+                    size: 2.5rem
+                    weight: 200
+                text-align: center
+
+            p
+                margin-top: 0
+                color: #bbb
+                font:
+                    family: $font-family-header
+                    size: 1rem
+                text-align: center
+
+        .key.people
+            ul
+                padding: 0
+                li
+                    list-style-type: none
+                    display: block
+                    margin-bottom: 4rem
+                    +span-columns(6)
+                    &:nth-child(2n)
+                        +omega
+                    &:nth-child(2n + 1)
+                        clear: both
+                    .picture
+                        +span-columns(4)
+                        text-align: center
+                        padding: 0 1rem
+                        img
+                            width: 100%
+                            height: auto
+
+                    article
+                        +span-columns(8)
+                        +omega
+                        .name
+                            @extend h2
+                            margin: 0
+                            display: block
+                        .title
+                            font-size: 0.8rem
+                            color: $color-gray
+                            font-weight: 300
+                            margin: 0
                             display: block
