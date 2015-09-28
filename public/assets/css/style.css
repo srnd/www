@@ -224,11 +224,11 @@ body > footer {
     body > footer {
       padding-left: 1rem;
       padding-right: 1rem; } }
-  body > footer section p, body > footer section input.copier, body > footer section li, body > footer section a, body > footer section a:visited, body > footer section h2, body > footer body.contact.contact section.team .key.people ul li article .name, body.contact.contact body > footer section.team .key.people ul li article .name {
+  body > footer section p, body > footer section input.copier, body > footer section li, body > footer section a, body > footer section a:visited, body > footer section h2, body > footer body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap body > footer section.team .key.people ul li article .name {
     font-size: 0.9rem;
     color: #AAA;
     line-height: 1.6; }
-  body > footer section h2, body > footer body.contact.contact section.team .key.people ul li article .name, body.contact.contact body > footer section.team .key.people ul li article .name {
+  body > footer section h2, body > footer body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap body > footer section.team .key.people ul li article .name {
     font-size: 1rem; }
   body > footer section ul {
     padding: 0; }
@@ -252,7 +252,7 @@ body > footer {
         margin-right: 0; }
         body > footer section.about:last-child {
           margin-right: 0; } }
-    body > footer section.about header h2, body > footer section.about header body.contact.contact section.team .key.people ul li article .name, body.contact.contact section.team .key.people ul li article body > footer section.about header .name {
+    body > footer section.about header h2, body > footer section.about header body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li article body > footer section.about header .name {
       font-family: "Helvetica", "Arial", "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
       font-size: 2rem;
       font-weight: 200;
@@ -355,7 +355,7 @@ body > .title {
       content: "";
       display: table;
       clear: both; }
-    body > .title article h2, body > .title body.contact.contact section.team .key.people ul li article .name, body.contact.contact section.team .key.people ul li body > .title article .name {
+    body > .title article h2, body > .title body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li body > .title article .name {
       text-align: center;
       font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
       font-weight: 100;
@@ -562,7 +562,7 @@ body.home.index > section.hero {
         color: #98b3fe;
         text-transform: uppercase; }
 
-body.home.index > .donate {
+body > a.donate {
   display: block;
   width: 100%;
   text-align: center;
@@ -571,7 +571,7 @@ body.home.index > .donate {
   background-color: #15E014;
   color: #fff;
   text-decoration: none; }
-  body.home.index > .donate .link {
+  body > a.donate .link {
     text-decoration: underline; }
 
 body.build.post > .wrap > .content > article > .text blockquote.alignleft, body.build.post > .wrap > .content > article > .text blockquote.alignright, body.build.post > .wrap > .content > article > .text blockquote.aligncenter,
@@ -794,16 +794,16 @@ body.build.index > .wrap > .content article, body.build.archive > .wrap > .conte
     @media screen and (max-width: 700px) {
       body.build.index > .wrap > .content article .preview, body.build.archive > .wrap > .content article .preview {
         height: 100px; } }
-    body.build.index > .wrap > .content article .preview h2, body.build.index > .wrap > .content body.contact.contact section.team .key.people ul li article .preview .name, body.contact.contact section.team .key.people ul li body.build.index > .wrap > .content article .preview .name, body.build.archive > .wrap > .content article .preview h2, body.build.archive > .wrap > .content body.contact.contact section.team .key.people ul li article .preview .name, body.contact.contact section.team .key.people ul li body.build.archive > .wrap > .content article .preview .name {
+    body.build.index > .wrap > .content article .preview h2, body.about.about body.build.index > .wrap > .content section.team .key.people ul li article .preview .name, body.build.archive > .wrap > .content article .preview h2, body.about.about body.build.archive > .wrap > .content section.team .key.people ul li article .preview .name {
       margin-top: 0; }
-      body.build.index > .wrap > .content article .preview h2 a, body.build.index > .wrap > .content body.contact.contact section.team .key.people ul li article .preview .name a, body.contact.contact section.team .key.people ul li body.build.index > .wrap > .content article .preview .name a, body.build.archive > .wrap > .content article .preview h2 a, body.build.archive > .wrap > .content body.contact.contact section.team .key.people ul li article .preview .name a, body.contact.contact section.team .key.people ul li body.build.archive > .wrap > .content article .preview .name a {
+      body.build.index > .wrap > .content article .preview h2 a, body.about.about body.build.index > .wrap > .content section.team .key.people ul li article .preview .name a, body.build.archive > .wrap > .content article .preview h2 a, body.about.about body.build.archive > .wrap > .content section.team .key.people ul li article .preview .name a {
         font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
         font-size: 2rem;
         font-weight: 300;
         line-height: 2.2rem;
         text-decoration: none; }
         @media screen and (max-width: 700px) {
-          body.build.index > .wrap > .content article .preview h2 a, body.build.index > .wrap > .content body.contact.contact section.team .key.people ul li article .preview .name a, body.contact.contact section.team .key.people ul li body.build.index > .wrap > .content article .preview .name a, body.build.archive > .wrap > .content article .preview h2 a, body.build.archive > .wrap > .content body.contact.contact section.team .key.people ul li article .preview .name a, body.contact.contact section.team .key.people ul li body.build.archive > .wrap > .content article .preview .name a {
+          body.build.index > .wrap > .content article .preview h2 a, body.about.about body.build.index > .wrap > .content section.team .key.people ul li article .preview .name a, body.build.archive > .wrap > .content article .preview h2 a, body.about.about body.build.archive > .wrap > .content section.team .key.people ul li article .preview .name a {
             font-size: 1.4rem; } }
     body.build.index > .wrap > .content article .preview .excerpt, body.build.archive > .wrap > .content article .preview .excerpt {
       font-size: 0.875rem;
@@ -932,7 +932,7 @@ body.privacy section.content section {
   padding-right: 23.23176%; }
   body.privacy section.content section:last-child {
     margin-right: 0; }
-  body.privacy section.content section h2, body.privacy section.content body.contact.contact section.team .key.people ul li article .name, body.contact.contact body.privacy section.content section.team .key.people ul li article .name {
+  body.privacy section.content section h2, body.privacy section.content body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap body.privacy section.content section.team .key.people ul li article .name {
     margin-top: 4rem;
     margin-bottom: 3rem;
     font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -952,7 +952,7 @@ body.returns section.content section {
   padding-right: 23.23176%; }
   body.returns section.content section:last-child {
     margin-right: 0; }
-  body.returns section.content section h2, body.returns section.content body.contact.contact section.team .key.people ul li article .name, body.contact.contact body.returns section.content section.team .key.people ul li article .name {
+  body.returns section.content section h2, body.returns section.content body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap body.returns section.content section.team .key.people ul li article .name {
     margin-top: 4rem;
     margin-bottom: 3rem;
     font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -998,66 +998,6 @@ body.contact.contact section.contacts section {
         margin-top: 1rem; }
       body.contact.contact section.contacts section ul li span.address span {
         display: block; }
-body.contact.contact section.team header {
-  margin-bottom: 3rem; }
-  body.contact.contact section.team header h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    font-size: 2.5rem;
-    font-weight: 200;
-    text-align: center; }
-  body.contact.contact section.team header p {
-    margin-top: 0;
-    color: #bbb;
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    font-size: 1rem;
-    text-align: center; }
-body.contact.contact section.team .key.people ul {
-  padding: 0; }
-  body.contact.contact section.team .key.people ul li {
-    list-style-type: none;
-    display: block;
-    margin-bottom: 4rem;
-    float: left;
-    display: block;
-    margin-right: 2.35765%;
-    width: 48.82117%; }
-    body.contact.contact section.team .key.people ul li:last-child {
-      margin-right: 0; }
-    body.contact.contact section.team .key.people ul li:nth-child(2n) {
-      margin-right: 0; }
-    body.contact.contact section.team .key.people ul li:nth-child(2n + 1) {
-      clear: both; }
-    body.contact.contact section.team .key.people ul li .picture {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 31.76157%;
-      text-align: center;
-      padding: 0 1rem; }
-      body.contact.contact section.team .key.people ul li .picture:last-child {
-        margin-right: 0; }
-      body.contact.contact section.team .key.people ul li .picture img {
-        width: 100%;
-        height: auto; }
-    body.contact.contact section.team .key.people ul li article {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 65.88078%;
-      margin-right: 0; }
-      body.contact.contact section.team .key.people ul li article:last-child {
-        margin-right: 0; }
-      body.contact.contact section.team .key.people ul li article .name {
-        margin: 0;
-        display: block; }
-      body.contact.contact section.team .key.people ul li article .title {
-        font-size: 0.8rem;
-        color: #AAA;
-        font-weight: 300;
-        margin: 0;
-        display: block; }
 
 body.home.index > header h1 a {
   color: #ffffff; }
@@ -1075,10 +1015,10 @@ body.home.index > .wrap > section.content section.codeday {
   body.home.index > .wrap > section.content section.impact header,
   body.home.index > .wrap > section.content section.codeday header {
     margin-bottom: 3rem; }
-    body.home.index > .wrap > section.content section.impact header h2, body.home.index > .wrap > section.content section.impact header body.contact.contact section.team .key.people ul li article .name, body.contact.contact section.team .key.people ul li article body.home.index > .wrap > section.content section.impact header .name,
+    body.home.index > .wrap > section.content section.impact header h2, body.about.about body.home.index > .wrap > section.content section.impact header section.team .key.people ul li article .name, body.about.about body.home.index > .wrap > section.content section.team .key.people ul li article section.impact header .name,
     body.home.index > .wrap > section.content section.codeday header h2,
-    body.home.index > .wrap > section.content section.codeday header body.contact.contact section.team .key.people ul li article .name,
-    body.contact.contact section.team .key.people ul li article body.home.index > .wrap > section.content section.codeday header .name {
+    body.about.about body.home.index > .wrap > section.content section.codeday header section.team .key.people ul li article .name,
+    body.about.about body.home.index > .wrap > section.content section.team .key.people ul li article section.codeday header .name {
       margin-top: 0;
       margin-bottom: 0;
       font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -1155,7 +1095,7 @@ body.home.index > .wrap > section.content section.featured {
     border-top: 1px solid #AAA; }
   body.home.index > .wrap > section.content section.featured:last-child {
     margin-right: 0; }
-  body.home.index > .wrap > section.content section.featured h2, body.home.index > .wrap > section.content section.featured body.contact.contact section.team .key.people ul li article .name, body.contact.contact section.team .key.people ul li article body.home.index > .wrap > section.content section.featured .name {
+  body.home.index > .wrap > section.content section.featured h2, body.about.about body.home.index > .wrap > section.content section.featured section.team .key.people ul li article .name, body.about.about body.home.index > .wrap > section.content section.team .key.people ul li article section.featured .name {
     margin-top: -1rem;
     margin-bottom: 1rem;
     color: #AAA;
@@ -1324,7 +1264,7 @@ body.build.post > .hero.with-image {
         bottom: 7rem;
         left: 0;
         padding: 0; } }
-    body.build.post > .hero.with-image article h2 a, body.build.post > .hero.with-image body.contact.contact section.team .key.people ul li article .name a, body.contact.contact section.team .key.people ul li body.build.post > .hero.with-image article .name a {
+    body.build.post > .hero.with-image article h2 a, body.build.post > .hero.with-image body.about.about .wrap section.team .key.people ul li article .name a, body.about.about .wrap section.team .key.people ul li body.build.post > .hero.with-image article .name a {
       font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
       font-weight: 700;
       font-style: italic;
@@ -1335,7 +1275,7 @@ body.build.post > .hero.with-image {
       margin-bottom: 0;
       margin-top: 0; }
       @media screen and (max-width: 700px) {
-        body.build.post > .hero.with-image article h2 a, body.build.post > .hero.with-image body.contact.contact section.team .key.people ul li article .name a, body.contact.contact section.team .key.people ul li body.build.post > .hero.with-image article .name a {
+        body.build.post > .hero.with-image article h2 a, body.build.post > .hero.with-image body.about.about .wrap section.team .key.people ul li article .name a, body.about.about .wrap section.team .key.people ul li body.build.post > .hero.with-image article .name a {
           font-size: 2rem;
           line-height: 2.2rem; } }
     body.build.post > .hero.with-image article h3, body.build.post > .hero.with-image article h3 a {
@@ -1689,7 +1629,7 @@ body.donate.donate .contribution-info {
     body.donate.donate .contribution-info > nav ul li {
       list-style-type: none;
       display: inline; }
-  body.donate.donate .contribution-info h2, body.donate.donate .contribution-info body.contact.contact section.team .key.people ul li article .name, body.contact.contact section.team .key.people ul li article body.donate.donate .contribution-info .name {
+  body.donate.donate .contribution-info h2, body.donate.donate .contribution-info body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li article body.donate.donate .contribution-info .name {
     font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-size: 1.3rem;
     font-weight: 500; }
@@ -1934,7 +1874,7 @@ body.donate.donate .details {
         margin-right: 0; } }
   body.donate.donate .details:last-child {
     margin-right: 0; }
-  body.donate.donate .details h2, body.donate.donate .details body.contact.contact section.team .key.people ul li article .name, body.contact.contact section.team .key.people ul li article body.donate.donate .details .name {
+  body.donate.donate .details h2, body.donate.donate .details body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li article body.donate.donate .details .name {
     font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-size: 1.3rem;
     font-weight: 500; }
@@ -1953,7 +1893,7 @@ body.donate.donate .people, body.donate.donate .big-impact {
   margin-right: 0; }
   body.donate.donate .people:last-child, body.donate.donate .big-impact:last-child {
     margin-right: 0; }
-  body.donate.donate .people h2, body.donate.donate body.contact.contact section.team .key.people ul li article .name, body.contact.contact section.team body.donate.donate .key.people ul li article .name, body.donate.donate .big-impact h2, body.donate.donate .big-impact body.contact.contact section.team .key.people ul li article .name, body.contact.contact section.team .key.people ul li article body.donate.donate .big-impact .name {
+  body.donate.donate .people h2, body.donate.donate body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team body.donate.donate .key.people ul li article .name, body.donate.donate .big-impact h2, body.donate.donate .big-impact body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li article body.donate.donate .big-impact .name {
     margin-top: 0;
     margin-bottom: 0;
     font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -1992,52 +1932,58 @@ body.donate.donate .people {
         body.donate.donate .people ul li p span.name {
           text-transform: uppercase;
           font-weight: 700; }
-body.donate.donate .big-impact:before {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-  content: "";
-  display: block;
-  border-top: 1px solid #AAA; }
-body.donate.donate .big-impact .activities {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 40.29137%; }
-  body.donate.donate .big-impact .activities:last-child {
-    margin-right: 0; }
-  body.donate.donate .big-impact .activities ul {
-    padding: 0; }
-    body.donate.donate .big-impact .activities ul li {
-      list-style-type: none;
-      margin-bottom: 1rem; }
-      body.donate.donate .big-impact .activities ul li h3 {
-        font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-        font-size: 1.3rem;
-        font-weight: 500;
-        margin-bottom: 0; }
-      body.donate.donate .big-impact .activities ul li p {
-        margin-top: 0.5rem;
-        font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-        font-size: 0.9rem; }
-body.donate.donate .big-impact .map {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 57.35098%; }
-  body.donate.donate .big-impact .map:last-child {
-    margin-right: 0; }
-  body.donate.donate .big-impact .map .land {
-    fill: none;
-    stroke: rgba(3, 67, 250, 0.4); }
-  body.donate.donate .big-impact .map .state-boundary {
-    fill: none;
-    stroke: rgba(3, 67, 250, 0.2); }
-  body.donate.donate .big-impact .map .city {
-    fill: #0343FA; }
-  body.donate.donate .big-impact .map .footprint {
-    fill: rgba(3, 67, 250, 0.05); }
-  body.donate.donate .big-impact .map .outline {
-    fill: rgba(3, 67, 250, 0.05); }
+body.donate.donate .big-impact {
+  display: block; }
+  body.donate.donate .big-impact:after {
+    content: "";
+    display: table;
+    clear: both; }
+  body.donate.donate .big-impact:before {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    content: "";
+    display: block;
+    border-top: 1px solid #AAA; }
+  body.donate.donate .big-impact .activities {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 40.29137%; }
+    body.donate.donate .big-impact .activities:last-child {
+      margin-right: 0; }
+    body.donate.donate .big-impact .activities ul {
+      padding: 0; }
+      body.donate.donate .big-impact .activities ul li {
+        list-style-type: none;
+        margin-bottom: 1rem; }
+        body.donate.donate .big-impact .activities ul li h3 {
+          font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+          font-size: 1.3rem;
+          font-weight: 500;
+          margin-bottom: 0; }
+        body.donate.donate .big-impact .activities ul li p {
+          margin-top: 0.5rem;
+          font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+          font-size: 0.9rem; }
+  body.donate.donate .big-impact .map {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 57.35098%; }
+    body.donate.donate .big-impact .map:last-child {
+      margin-right: 0; }
+    body.donate.donate .big-impact .map .land {
+      fill: none;
+      stroke: rgba(3, 67, 250, 0.4); }
+    body.donate.donate .big-impact .map .state-boundary {
+      fill: none;
+      stroke: rgba(3, 67, 250, 0.2); }
+    body.donate.donate .big-impact .map .city {
+      fill: #0343FA; }
+    body.donate.donate .big-impact .map .footprint {
+      fill: rgba(3, 67, 250, 0.05); }
+    body.donate.donate .big-impact .map .outline {
+      fill: rgba(3, 67, 250, 0.05); }
 body.donate.donate .why-contribute ul {
   padding: 0; }
   body.donate.donate .why-contribute ul li {
@@ -2115,7 +2061,7 @@ body.donate.receipt .receipt {
     width: 23.23176%; }
     body.donate.receipt .receipt .donated-by:last-child, body.donate.receipt .receipt .donated-to:last-child {
       margin-right: 0; }
-    body.donate.receipt .receipt .donated-by h2, body.donate.receipt .receipt .donated-by body.contact.contact section.team .key.people ul li article .name, body.contact.contact section.team .key.people ul li article body.donate.receipt .receipt .donated-by .name, body.donate.receipt .receipt .donated-to h2, body.donate.receipt .receipt .donated-to body.contact.contact section.team .key.people ul li article .name, body.contact.contact section.team .key.people ul li article body.donate.receipt .receipt .donated-to .name {
+    body.donate.receipt .receipt .donated-by h2, body.donate.receipt .receipt .donated-by body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li article body.donate.receipt .receipt .donated-by .name, body.donate.receipt .receipt .donated-to h2, body.donate.receipt .receipt .donated-to body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li article body.donate.receipt .receipt .donated-to .name {
       line-height: 0;
       padding-top: 0.5rem;
       font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
@@ -2155,5 +2101,181 @@ body.donate.receipt .recurring {
       body.donate.receipt .recurring form input[type="submit"]:hover {
         background-color: transparent;
         color: #333; }
+
+body.about.about .wrap section > header {
+  margin-bottom: 3rem; }
+  body.about.about .wrap section > header h2, body.about.about .wrap section > header section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li article section > header .name {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 200;
+    text-align: center; }
+  body.about.about .wrap section > header p {
+    margin-top: 0;
+    color: #bbb;
+    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 1rem;
+    text-align: center; }
+body.about.about .wrap section.mission article {
+  max-width: 40rem;
+  margin: -1rem auto 4rem; }
+  body.about.about .wrap section.mission article p {
+    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size: 1rem; }
+body.about.about .wrap section.mission ul.principles {
+  padding: 0; }
+  body.about.about .wrap section.mission ul.principles li {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    vertical-align: top;
+    list-style-type: none;
+    margin-bottom: 2rem; }
+    body.about.about .wrap section.mission ul.principles li:last-child {
+      margin-right: 0; }
+    body.about.about .wrap section.mission ul.principles li:nth-child(2n) {
+      margin-right: 0; }
+    body.about.about .wrap section.mission ul.principles li:nth-child(2n+1) {
+      clear: both; }
+    @media screen and (max-width: 700px) {
+      body.about.about .wrap section.mission ul.principles li {
+        float: left;
+        display: block;
+        margin-right: 7.42297%;
+        width: 100%;
+        margin-right: 0; }
+        body.about.about .wrap section.mission ul.principles li:last-child {
+          margin-right: 0; }
+        body.about.about .wrap section.mission ul.principles li:not(:first-child) {
+          padding-top: 2.5rem; } }
+    body.about.about .wrap section.mission ul.principles li h3 {
+      margin-top: 0; }
+    body.about.about .wrap section.mission ul.principles li img {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 40.29137%; }
+      body.about.about .wrap section.mission ul.principles li img:last-child {
+        margin-right: 0; }
+body.about.about .wrap section.results:before, body.about.about .wrap section.results:after {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  content: "";
+  display: block;
+  border-top: 1px solid #AAA;
+  clear: both; }
+body.about.about .wrap section.results article {
+  margin-bottom: 4rem;
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 31.76157%; }
+  body.about.about .wrap section.results article:last-child {
+    margin-right: 0; }
+  body.about.about .wrap section.results article.outcomes {
+    margin-right: 0; }
+  body.about.about .wrap section.results article h3 {
+    text-align: center; }
+  body.about.about .wrap section.results article ul {
+    padding: 0; }
+    body.about.about .wrap section.results article ul li {
+      list-style-type: none;
+      margin: 0; }
+      body.about.about .wrap section.results article ul li .pie {
+        margin-right: 1rem;
+        color: #F8F8FA; }
+body.about.about .wrap section.nation:after {
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  content: "";
+  display: block;
+  border-top: 1px solid #AAA;
+  clear: both; }
+body.about.about .wrap section.nation .map {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 57.35098%; }
+  body.about.about .wrap section.nation .map:last-child {
+    margin-right: 0; }
+  body.about.about .wrap section.nation .map .land {
+    fill: none;
+    stroke: #AAA; }
+  body.about.about .wrap section.nation .map .state-boundary {
+    fill: none;
+    stroke: rgba(170, 170, 170, 0.3); }
+  body.about.about .wrap section.nation .map .city {
+    fill: #15E014; }
+  body.about.about .wrap section.nation .map .footprint {
+    fill: rgba(21, 224, 20, 0.05); }
+  body.about.about .wrap section.nation .map .outline {
+    fill: rgba(21, 224, 20, 0.05); }
+body.about.about .wrap section.nation .cities {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 40.29137%;
+  padding-top: 3rem; }
+  body.about.about .wrap section.nation .cities:last-child {
+    margin-right: 0; }
+  body.about.about .wrap section.nation .cities ul {
+    padding: 0; }
+    body.about.about .wrap section.nation .cities ul li {
+      list-style-type: none;
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%; }
+      body.about.about .wrap section.nation .cities ul li:last-child {
+        margin-right: 0; }
+      body.about.about .wrap section.nation .cities ul li:nth-child(3n) {
+        margin-right: 0; }
+body.about.about .wrap section.team .key.people ul {
+  padding: 0; }
+  body.about.about .wrap section.team .key.people ul li {
+    list-style-type: none;
+    display: block;
+    margin-bottom: 4rem;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    body.about.about .wrap section.team .key.people ul li:last-child {
+      margin-right: 0; }
+    body.about.about .wrap section.team .key.people ul li:nth-child(2n) {
+      margin-right: 0; }
+    body.about.about .wrap section.team .key.people ul li:nth-child(2n + 1) {
+      clear: both; }
+    body.about.about .wrap section.team .key.people ul li .picture {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 31.76157%;
+      text-align: center;
+      padding: 0 1rem; }
+      body.about.about .wrap section.team .key.people ul li .picture:last-child {
+        margin-right: 0; }
+      body.about.about .wrap section.team .key.people ul li .picture img {
+        width: 100%;
+        height: auto; }
+    body.about.about .wrap section.team .key.people ul li article {
+      float: left;
+      display: block;
+      margin-right: 2.35765%;
+      width: 65.88078%;
+      margin-right: 0; }
+      body.about.about .wrap section.team .key.people ul li article:last-child {
+        margin-right: 0; }
+      body.about.about .wrap section.team .key.people ul li article .name {
+        margin: 0;
+        display: block; }
+      body.about.about .wrap section.team .key.people ul li article .title {
+        font-size: 0.8rem;
+        color: #AAA;
+        font-weight: 300;
+        margin: 0;
+        display: block; }
 
 /*# sourceMappingURL=style.css.map */

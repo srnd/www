@@ -41,6 +41,11 @@ class StaticController extends \Controller {
         return \View::make('pages/contact');
     }
 
+    public function getAbout()
+    {
+        return \View::make('pages/about');
+    }
+
     public function getTeam()
     {
         return \View::make('pages/team');
