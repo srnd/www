@@ -4,34 +4,11 @@
 {% block hero %}
     <section class="hero">
         <article>
-            {% if fundraising.active %}
-                <section class="fundraise-ask">
-                    <p class="mission">Help build the future of StudentRND.</p>
-                    <p class="scale">Donate today to support tens of thousands of students</p>
-                </section>
-                <section class="fundraise-form">
-                    <form action="/donate" method="post">
-                        <div class="amount-selector">
-                            <label for="amount">Amount</label><div class="select-styler">
-                                <select name="amount" id="amount">
-                                    <option value="50O">$50</option>
-                                    <option value="100" selected>$100</option>
-                                    <option value="500">$500</option>
-                                    <option value="1000">$1,000</option>
-                                </select>
-                            </div>
-                        </div>{#
-                        #}<input type="submit" value="Contribute"/>
-                        <span class="learn-more">Or <a href="/donate">learn more</a></span>
-                    </form>
-                </section>
-            {% else %}
-                <div class="map"></div>
-                <section class="info">
-                    <p class="mission">Through our programs, students get interested in coding, and stay interested in coding.</p>
-                    <p class="scale">Tens of thousands of students &middot; 38 cities across the US</p>
-                </section>
-            {% endif %}
+            <div class="map"></div>
+            <section class="info">
+                <p class="mission">Coding shows students they can change the world.</p>
+                <p class="what">StudentRND gets hesitant students to take the first step.</p>
+            </section>
         </article>
     </section>
     {% if not fundraising.active %}
@@ -59,9 +36,9 @@
             </li>
             <li>
                 <img src="/assets/img/press/assets/codeday/01.jpg" />
-                <h3>Measurable changes in behavior.</h3>
-                <p>We target high school students with no prior interest or experience in coding.
-                   80% of these students are still coding three months later.</p>
+                <h3>Low cost, high return.</h3>
+                <p>We inspire students with no prior interest in coding. After attending an event, 80% of these students
+                   are still pursuing coding three months later.</p>
             </li>
         </ul>
     </section>

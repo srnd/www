@@ -556,11 +556,10 @@ body.home.index > section.hero {
         line-height: 3.4rem;
         margin-bottom: 0;
         margin-top: 0; }
-      body.home.index > section.hero article .info .scale, body.home.index > section.hero article .fundraise-ask .scale {
+      body.home.index > section.hero article .info .what, body.home.index > section.hero article .fundraise-ask .what {
         font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-        font-size: 0.75rem;
-        color: #98b3fe;
-        text-transform: uppercase; }
+        font-size: 1rem;
+        color: #98b3fe; }
 
 body > a.donate {
   display: block;
