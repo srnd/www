@@ -5,16 +5,9 @@
 
     RewriteEngine On
 
-    RewriteRule ^blog$ /build [L,R=302]
-    RewriteRule ^blog/(.*)$ /build/$1 [L,R=302]
-
-    RewriteCond %{REQUEST_FILENAME} !-f
+    # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^build/(.*)$ /build/index.php [L]
-
-
-    # Redirect Trailing Slashes...
-    #RewriteRule ^(.*)/$ /$1 [L,R=301]
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
 
     # Handle Front Controller...
     RewriteCond %{REQUEST_FILENAME} !-d

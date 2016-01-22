@@ -1,5 +1,5 @@
 <?php
-namespace Www\Models;
+namespace StudentRND\Models;
 
 use \Carbon\Carbon;
 
@@ -9,7 +9,7 @@ class Event extends \Eloquent {
 
     public function attendees()
     {
-        return $this->hasMany('\Www\Models\EventAttendee', 'event_id', 'id');
+        return $this->hasMany('\StudentRND\Models\EventAttendee', 'event_id', 'id');
     }
 
     public static function Loaded()

@@ -1,3 +1,2 @@
 User-agent: *
-Disallow: /rsvp
-Disallow: /admin
+Disallow:

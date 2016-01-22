@@ -2074,7 +2074,12 @@ body.donate.receipt .receipt {
       margin-top: 1rem; }
     body.donate.receipt .receipt .donated-by span.address span, body.donate.receipt .receipt .donated-to span.address span {
       display: block; }
+body.donate.receipt .in-kind {
+  width: 50%;
+  margin: 0 auto 1rem;
+  padding: 1rem; }
 body.donate.receipt .legal {
+  clear: both;
   text-align: center;
   width: 50%;
   border: 1px solid #333;
@@ -2276,5 +2281,40 @@ body.about.about .wrap section.team .key.people ul {
         font-weight: 300;
         margin: 0;
         display: block; }
+
+body.admin.donations section.info {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  body.admin.donations section.info:last-child {
+    margin-right: 0; }
+  body.admin.donations section.info table tr:nth-child(2n) td {
+    background-color: #ddd; }
+  body.admin.donations section.info table td, body.admin.donations section.info table th {
+    padding: 0.2rem 0.5rem; }
+body.admin.donations section.tools {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%; }
+  body.admin.donations section.tools:last-child {
+    margin-right: 0; }
+  body.admin.donations section.tools form input[type='submit'] {
+    display: block;
+    float: none; }
+  body.admin.donations section.tools form input[name='first_name'], body.admin.donations section.tools form input[name='last_name'] {
+    width: 40%; }
+  body.admin.donations section.tools form input[name='email'] {
+    width: 100%; }
+  body.admin.donations section.tools form input[name='address_1'], body.admin.donations section.tools form input[name='address_2'] {
+    width: 100%; }
+  body.admin.donations section.tools form input[name='city'], body.admin.donations section.tools form input[name='zip'] {
+    with: 40%; }
+  body.admin.donations section.tools form input[name='state'] {
+    width: 20%; }
+  body.admin.donations section.tools form textarea {
+    width: 100%;
+    height: 10rem; }
 
 /*# sourceMappingURL=style.css.map */

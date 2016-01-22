@@ -1,5 +1,5 @@
 <?php
-namespace Www\Models;
+namespace StudentRND\Models;
 
 use \Carbon\Carbon;
 
