@@ -11,7 +11,7 @@
     if (class_exists('Timber')) {
         Timber::$locations = implode(DIRECTORY_SEPARATOR, [
             dirname(dirname(dirname(dirname(dirname(dirname(__FILE__)))))),
-            'app',
+            'resources',
             'views'
         ]);
     }
