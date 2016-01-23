@@ -396,8 +396,7 @@ body.home.index > section.hero {
     position: absolute;
     left: 0;
     right: 0;
-    top: 25%;
-    padding-bottom: 150px; }
+    top: 25%; }
     body.home.index > section.hero article:after {
       content: "";
       display: table;
