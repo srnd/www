@@ -1,54 +1,118 @@
 body.press
-    h4
-        text-align: left
+    h3
         font:
             family: $font-family-header
             size: 1.3rem
             weight: 500
+    h4
+        text-align: left
+        font:
+            family: $font-family-header
+            size: 1.1rem
+            weight: 300
         margin-bottom: 0
 
-    .information
+    .overview
         +span-columns(4)
-        ul
-            padding: 0
-            li
-                list-style-type: none
-                a, span.name
-                    font-weight: 700
-                    color: $color-black
-                    text-decoration: none
+        +omega
+        & > section
+            margin-bottom: 2rem
+        .press
+            ul
+                padding: 0
+                li
+                    list-style-type: none
+                    a, span.name
+                        font-weight: 700
+                        color: $color-black
+                        text-decoration: none
 
-                span.name
-                    display: block
-                    margin-top: 1rem
-
-                span.address
-                    span
+                    span.name
                         display: block
+                        margin-top: 1rem
 
-    .resources
+                    span.address
+                        span
+                            display: block
+        .at-a-glance
+            ul
+                padding: 0 1rem
+                li
+                    margin-bottom: 0.5rem
+
+        .resource-preview
+            .more
+                text-align: right
+            ul
+                margin-bottom: 0
+
+    .details
         +span-columns(8)
-        ul.assets
+        section
+            margin-bottom: 3rem
+
+    .about
+        p:nth-child(2)
+            font:
+                family: $font-family-header
+                size: 1.3rem
+                weight: 300
+            line-height: 1.55rem
+
+    .content > .more
+        +span-columns(8)
+        margin: 0 auto !important
+        clear: both
+        float: none !important
+
+    .faq
+        ul
             +row
             padding: 0
-            & > li
-                +span-columns(4)
-                list-style-type: none
-                margin:
-                    top: 0
-                    bottom: +flex-gutter(12)
-
-                img
-                    width: 100%
-                    height: auto
-                ul
-                    padding: 0
-                    width: 100%
-                    text-align: center
-                    li
-                        list-style-type: none
-                        display: inline
-            &.small li
-                +span-columns(2)
-                &:nth-child(6n)
+            li
+                +span-columns(6)
+                &:nth-child(2n)
                     +omega
+                margin-bottom: 1rem
+                display: block
+                list-style-type: none
+                .q
+                    font:
+                        family: $font-family-header
+                        size: 1rem
+                        weight: 300
+                    margin-bottom: 0
+
+        &:before, &:after
+            content: ""
+            display: block
+            width: 40%
+            margin: 3rem auto
+            border-top: 1px solid $color-gray
+
+    ul.assets
+        +row
+        padding: 0
+        & > li
+            +span-columns(4)
+            list-style-type: none
+            margin:
+                top: 0
+                bottom: +flex-gutter(12)
+
+            img
+                width: 100%
+                height: auto
+            ul
+                padding: 0
+                width: 100%
+                text-align: center
+                li
+                    list-style-type: none
+                    display: inline
+        &.small li
+            +span-columns(2)
+            &:nth-child(6n)
+                +omega
+
+

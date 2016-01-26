@@ -1303,75 +1303,137 @@ body.code-of-conduct .code {
         font-size: 0.875rem;
         line-height: 1.3125rem; } }
 
+body.press h3 {
+  font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 500; }
 body.press h4 {
   text-align: left;
   font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  font-size: 1.3rem;
-  font-weight: 500;
+  font-size: 1.1rem;
+  font-weight: 300;
   margin-bottom: 0; }
-body.press .information {
+body.press .overview {
   float: left;
   display: block;
   margin-right: 2.35765%;
-  width: 31.76157%; }
-  body.press .information:last-child {
+  width: 31.76157%;
+  margin-right: 0; }
+  body.press .overview:last-child {
     margin-right: 0; }
-  body.press .information ul {
+  body.press .overview > section {
+    margin-bottom: 2rem; }
+  body.press .overview .press ul {
     padding: 0; }
-    body.press .information ul li {
+    body.press .overview .press ul li {
       list-style-type: none; }
-      body.press .information ul li a, body.press .information ul li span.name {
+      body.press .overview .press ul li a, body.press .overview .press ul li span.name {
         font-weight: 700;
         color: #333;
         text-decoration: none; }
-      body.press .information ul li span.name {
+      body.press .overview .press ul li span.name {
         display: block;
         margin-top: 1rem; }
-      body.press .information ul li span.address span {
+      body.press .overview .press ul li span.address span {
         display: block; }
-body.press .resources {
+  body.press .overview .at-a-glance ul {
+    padding: 0 1rem; }
+    body.press .overview .at-a-glance ul li {
+      margin-bottom: 0.5rem; }
+  body.press .overview .resource-preview .more {
+    text-align: right; }
+  body.press .overview .resource-preview ul {
+    margin-bottom: 0; }
+body.press .details {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 65.88078%; }
-  body.press .resources:last-child {
+  body.press .details:last-child {
     margin-right: 0; }
-  body.press .resources ul.assets {
+  body.press .details section {
+    margin-bottom: 3rem; }
+body.press .about p:nth-child(2) {
+  font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 300;
+  line-height: 1.55rem; }
+body.press .content > .more {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin: 0 auto !important;
+  clear: both;
+  float: none !important; }
+  body.press .content > .more:last-child {
+    margin-right: 0; }
+body.press .faq ul {
+  display: block;
+  padding: 0; }
+  body.press .faq ul:after {
+    content: "";
+    display: table;
+    clear: both; }
+  body.press .faq ul li {
+    float: left;
     display: block;
-    padding: 0; }
-    body.press .resources ul.assets:after {
-      content: "";
-      display: table;
-      clear: both; }
-    body.press .resources ul.assets > li {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 31.76157%;
-      list-style-type: none;
-      margin-top: 0;
-      margin-bottom: 2.35765%; }
-      body.press .resources ul.assets > li:last-child {
-        margin-right: 0; }
-      body.press .resources ul.assets > li img {
-        width: 100%;
-        height: auto; }
-      body.press .resources ul.assets > li ul {
-        padding: 0;
-        width: 100%;
-        text-align: center; }
-        body.press .resources ul.assets > li ul li {
-          list-style-type: none;
-          display: inline; }
-    body.press .resources ul.assets.small li {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 14.70196%; }
-      body.press .resources ul.assets.small li:last-child {
-        margin-right: 0; }
-      body.press .resources ul.assets.small li:nth-child(6n) {
-        margin-right: 0; }
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    margin-bottom: 1rem;
+    display: block;
+    list-style-type: none; }
+    body.press .faq ul li:last-child {
+      margin-right: 0; }
+    body.press .faq ul li:nth-child(2n) {
+      margin-right: 0; }
+    body.press .faq ul li .q {
+      font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      margin-bottom: 0; }
+body.press .faq:before, body.press .faq:after {
+  content: "";
+  display: block;
+  width: 40%;
+  margin: 3rem auto;
+  border-top: 1px solid #AAA; }
+body.press ul.assets {
+  display: block;
+  padding: 0; }
+  body.press ul.assets:after {
+    content: "";
+    display: table;
+    clear: both; }
+  body.press ul.assets > li {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%;
+    list-style-type: none;
+    margin-top: 0;
+    margin-bottom: 2.35765%; }
+    body.press ul.assets > li:last-child {
+      margin-right: 0; }
+    body.press ul.assets > li img {
+      width: 100%;
+      height: auto; }
+    body.press ul.assets > li ul {
+      padding: 0;
+      width: 100%;
+      text-align: center; }
+      body.press ul.assets > li ul li {
+        list-style-type: none;
+        display: inline; }
+  body.press ul.assets.small li {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 14.70196%; }
+    body.press ul.assets.small li:last-child {
+      margin-right: 0; }
+    body.press ul.assets.small li:nth-child(6n) {
+      margin-right: 0; }
 
 body.admin.events ul.events {
   padding: 0; }
