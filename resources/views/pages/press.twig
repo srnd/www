@@ -264,5 +264,18 @@
                 </li>
             </ul>
         </section>
+
+        {% if releases and releases|length > 0 %}
+            <section class="releases">
+                <h3>Recent News</h3>
+                <ul>
+                    {% for release in releases %}
+                        <li><a href="/press/release/{{ release.id }}">
+                                {{ release.created_at.timestamp|date('F j, Y') }}: {{ release.title }}
+                        </a></li>
+                    {% endfor %}
+                </ul>
+            </section>
+        {% endif %}
     </section>
 {% endblock %}

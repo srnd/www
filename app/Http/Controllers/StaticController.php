@@ -31,9 +31,18 @@ class StaticController extends \StudentRND\Http\Controller {
         return \View::make('pages/code-of-conduct');
     }
 
+    public function getPressRelease()
+    {
+        return \View::make('pages/press-release', ['release' => \Route::input('release')]);
+    }
+
     public function getPress()
     {
-        return \View::make('pages/press');
+        return \View::make('pages/press', ['releases' => Models\PressRelease
+            ::where('hidden', '=', false)
+            ->orderBy('created_at', 'DESC')
+            ->limit(15)
+            ->get()]);
     }
 
     public function getContact()

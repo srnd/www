@@ -115,4 +115,17 @@ body.press
             &:nth-child(6n)
                 +omega
 
+    .releases
+        &:before
+            content: ""
+            display: block
+            width: 40%
+            margin: 3rem auto
+            border-top: 1px solid $color-gray
 
+    &.release
+        .meta
+            text-align: center
+        .release
+            h3
+                text-align: center

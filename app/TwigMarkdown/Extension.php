@@ -1,6 +1,6 @@
 <?php
 
-namespace TwigMarkdown;
+namespace StudentRND\TwigMarkdown;
 
 if (!defined('ENT_SUBSTITUTE')) {
     define('ENT_SUBSTITUTE', 8);

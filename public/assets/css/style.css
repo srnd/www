@@ -1434,6 +1434,16 @@ body.press ul.assets {
       margin-right: 0; }
     body.press ul.assets.small li:nth-child(6n) {
       margin-right: 0; }
+body.press .releases:before {
+  content: "";
+  display: block;
+  width: 40%;
+  margin: 3rem auto;
+  border-top: 1px solid #AAA; }
+body.press.release .meta {
+  text-align: center; }
+body.press.release .release h3 {
+  text-align: center; }
 
 body.admin.events ul.events {
   padding: 0; }

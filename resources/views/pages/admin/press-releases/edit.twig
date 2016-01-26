@@ -1,0 +1,32 @@
+{% extends "template.twig" %}
+{% block section %}admin{% endblock %}
+{% block page %}events{% endblock %}
+{% block title %}Press Admin{% endblock %}
+{% block page_tagline %}{% if release %}Editing {{ release.title }}{% else %}New Release{% endif %}{% endblock %}
+{% block content %}
+    {% if release %}<a href="/press/release/{{ release.id }}">Web Link</a>{% endif %}
+    <form method="post">
+        <div class="field">
+            <label for="name">Title</label>
+            <input type="text" name="title" id="title" value="{{ release.title }}" required />
+        </div>
+        <div class="field">
+            <label for="content">Content</label>
+            <textarea name="content" id="content">{{ release.content }}</textarea>
+        </div>
+        <div class="field">
+            <label for="at_a_glance">At-a-glance</label>
+            <textarea name="at_a_glance" id="at_a_glance">{{ release.at_a_glance }}</textarea>
+        </div>
+        <div class="field">
+            <label for="hidden">Hidden</label>
+            <input type="checkbox" name="hidden" id="hidden" value="1" />
+        </div>
+        <input type="submit" value="{% if release %}Edit{% else %}Create{% endif %}" />
+    </form>
+
+    {% if release %}
+    <h4>Other Options</h4>
+        <form action="/admin/press-releases/{{ release.id }}/delete"><input type="submit" value="Delete"></form>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "template.twig" %}
+{% block section %}press{% endblock %}
+{% block page %}press release{% endblock %}
+{% block title %}Press{% endblock %}
+{% block hero %}
+    <section class="title">
+        <article>
+            <h2>{{ release.title }}</h2>
+        </article>
+    </section>
+{% endblock %}
+{% block content %}
+    <section class="details">
+        <section class="meta">
+            <p>
+                For Immediate Release<br />
+                {{ release.created_at.timestamp|date('F j, Y') }}<br />
+                Contact: <a href="mailto:tylermenezes@studentrnd.org">Tyler Menezes</a>&thinsp;&mdash;&thinsp;(888) 382-2377
+            </p>
+        </section>
+        <section class="release">
+            <h3>{{ release.title }}</h3>
+
+            {{ release.content|markdown|raw }}
+        </section>
+        <section class="general">
+            <h4>About StudentRND/CodeDay</h4>
+            <p>CodeDay is a nationwide event where students design and code games and apps in only 24 hours. Hosted 3
+                times a year in up to 38 cities simultaneously, CodeDay sparks an interest in Computer Science by showing
+                high school and college students how creative and empowering coding can be.</p>
+            <p>Many organizations exist to teach students to code, but StudentRND&thinsp;&mdash;&thinsp;the non-profit
+                which runs CodeDay&thinsp;&mdash;&thinsp;designed its flagship program to generate excitement for coding
+                in students with no existing interest through an unusually creative and fun event format.</p>
+        </section>
+    </section>
+
+    <section class="overview">
+        <section class="presskit">
+            <h3>Press Kit</h3>
+            <p>More information, including photos and videos for press use, at <a href="/press">https://studentrnd.org/press</a>.</p>
+        </section>
+        <section class="at-a-glance">
+            <h3>At-a-glance</h3>
+            {{ release.at_a_glance|markdown|raw }}
+        </section>
+    </section>
+{% endblock %}
