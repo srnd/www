@@ -1434,6 +1434,8 @@ body.press ul.assets {
       margin-right: 0; }
     body.press ul.assets.small li:nth-child(6n) {
       margin-right: 0; }
+  body.press ul.assets.video li:nth-child(3n) {
+    margin-right: 0; }
 body.press .releases:before {
   content: "";
   display: block;
