@@ -7,6 +7,11 @@ class PressRelease extends \Eloquent {
     protected $table = 'press_releases';
     public $incrementing = false;
 
+    public function getDates()
+    {
+        return ['created_at', 'updated_at', 'published_at'];
+    }
+
     protected static function boot()
     {
         parent::boot();

@@ -15,6 +15,10 @@
             <input type="text" name="teaser" id="teaser" value="{{ release.teaser }}" required />
         </div>
         <div class="field">
+            <label for="published_at">Date</label>
+            <input type="date" name="published_at" id="published_at" value="{{ release.published_at.timestamp|date('Y-m-d') }}" required />
+        </div>
+        <div class="field">
             <label for="content">Content</label>
             <textarea name="content" id="content">{{ release.content }}</textarea>
         </div>

@@ -40,7 +40,7 @@ class StaticController extends \StudentRND\Http\Controller {
     {
         return \View::make('pages/press', ['releases' => Models\PressRelease
             ::where('hidden', '=', false)
-            ->orderBy('created_at', 'DESC')
+            ->orderBy('published_at', 'DESC')
             ->limit(15)
             ->get()]);
     }

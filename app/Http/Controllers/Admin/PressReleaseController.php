@@ -6,7 +6,7 @@ use \StudentRND\Models;
 class PressReleaseController extends \StudentRND\Http\Controller {
     public function getIndex()
     {
-        return \View::make('pages/admin/press-releases/index', ['releases' => Models\PressRelease::orderBy('created_at', 'DESC')->get()]);
+        return \View::make('pages/admin/press-releases/index', ['releases' => Models\PressRelease::orderBy('published_at', 'DESC')->get()]);
     }
 
     public function getNew()
@@ -46,6 +46,7 @@ class PressReleaseController extends \StudentRND\Http\Controller {
         $release->teaser = \Input::get('teaser') ? \Input::get('teaser') : null;
         $release->content = \Input::get('content');
         $release->at_a_glance = \Input::get('at_a_glance');
+        $release->published_at = strtotime(\Input::get('published_at'));
         $release->hidden = \Input::get('hidden') ? true : false;
 
         $release->save();
