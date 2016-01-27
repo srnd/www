@@ -30,7 +30,7 @@ class PressReleaseController extends \StudentRND\Http\Controller {
     {
         $release = \Route::input('release');
         $this->save($release);
-        return \Redirect::to('/admin/press-releases');
+        return \Redirect::to('/admin/press-releases/'.$release->id.'/edit');
     }
 
     public function postDelete()

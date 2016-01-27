@@ -28,7 +28,7 @@
         </div>
         <div class="field">
             <label for="hidden">Hidden</label>
-            <input type="checkbox" name="hidden" id="hidden" value="1" />
+            <input type="checkbox" name="hidden" id="hidden" value="1" {% if release.hidden %}checked{% endif %} />
         </div>
         <input type="submit" value="{% if release %}Save{% else %}Create{% endif %}" />
     </form>
