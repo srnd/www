@@ -1344,6 +1344,9 @@ body.press .overview {
     text-align: right; }
   body.press .overview .resource-preview ul {
     margin-bottom: 0; }
+  @media screen and (max-width: 700px) {
+    body.press .overview {
+      display: none; } }
 body.press .details {
   float: left;
   display: block;
@@ -1353,6 +1356,14 @@ body.press .details {
     margin-right: 0; }
   body.press .details section {
     margin-bottom: 3rem; }
+  @media screen and (max-width: 700px) {
+    body.press .details {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 100%; }
+      body.press .details:last-child {
+        margin-right: 0; } }
 body.press .about p:nth-child(2) {
   font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 1.3rem;
@@ -1368,6 +1379,14 @@ body.press .content > .more {
   float: none !important; }
   body.press .content > .more:last-child {
     margin-right: 0; }
+  @media screen and (max-width: 700px) {
+    body.press .content > .more {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 100%; }
+      body.press .content > .more:last-child {
+        margin-right: 0; } }
 body.press .faq ul {
   display: block;
   padding: 0; }
@@ -1387,6 +1406,14 @@ body.press .faq ul {
       margin-right: 0; }
     body.press .faq ul li:nth-child(2n) {
       margin-right: 0; }
+    @media screen and (max-width: 700px) {
+      body.press .faq ul li {
+        float: left;
+        display: block;
+        margin-right: 7.42297%;
+        width: 100%; }
+        body.press .faq ul li:last-child {
+          margin-right: 0; } }
     body.press .faq ul li .q {
       font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
       font-size: 1rem;
@@ -1442,10 +1469,82 @@ body.press .releases:before {
   width: 40%;
   margin: 3rem auto;
   border-top: 1px solid #AAA; }
+body.press .releases ul {
+  padding: 0; }
+  body.press .releases ul li {
+    list-style-type: none;
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    body.press .releases ul li:last-child {
+      margin-right: 0; }
+    body.press .releases ul li:nth-child(2n) {
+      margin-right: 0; }
+    @media screen and (max-width: 700px) {
+      body.press .releases ul li {
+        float: left;
+        display: block;
+        margin-right: 7.42297%;
+        width: 100%; }
+        body.press .releases ul li:last-child {
+          margin-right: 0; } }
+    body.press .releases ul li a {
+      display: block;
+      text-decoration: none;
+      color: #333;
+      height: 6rem;
+      overflow: hidden; }
+    body.press .releases ul li .title {
+      display: block;
+      font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-size: 1rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem; }
 body.press.release .meta {
-  text-align: center; }
-body.press.release .release h3 {
-  text-align: center; }
+  padding-bottom: 5rem;
+  font-size: 0.875rem;
+  line-height: 1.3125rem;
+  font-family: "Helvetica Neue", "Helvetica", "Arial", "proxima-nova", "Proxima Nova", sans-serif; }
+  body.press.release .meta .contact {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%; }
+    body.press.release .meta .contact:last-child {
+      margin-right: 0; }
+  body.press.release .meta .date {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    margin-right: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: right; }
+    body.press.release .meta .date:last-child {
+      margin-right: 0; }
+body.press.release .release {
+  clear: both; }
+  body.press.release .release h3 {
+    text-align: center; }
+  body.press.release .release .teaser {
+    display: block;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-weight: 300;
+    font-style: italic; }
+body.press.release .overview {
+  padding-left: 2rem; }
+  body.press.release .overview, body.press.release .overview a {
+    color: #AAA; }
+  body.press.release .overview .presskit h3 {
+    margin-top: 0; }
+  @media screen and (max-width: 700px) {
+    body.press.release .overview {
+      display: none; } }
 
 body.admin.events ul.events {
   padding: 0; }

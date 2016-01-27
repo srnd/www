@@ -45,11 +45,15 @@ body.press
                 text-align: right
             ul
                 margin-bottom: 0
+        +media($media-mobile)
+            display: none
 
     .details
         +span-columns(8)
         section
             margin-bottom: 3rem
+        +media($media-mobile)
+            +span-columns(4)
 
     .about
         p:nth-child(2)
@@ -64,6 +68,8 @@ body.press
         margin: 0 auto !important
         clear: both
         float: none !important
+        +media($media-mobile)
+            +span-columns(4)
 
     .faq
         ul
@@ -73,6 +79,8 @@ body.press
                 +span-columns(6)
                 &:nth-child(2n)
                     +omega
+                +media($media-mobile)
+                    +span-columns(4)
                 margin-bottom: 1rem
                 display: block
                 list-style-type: none
@@ -125,10 +133,63 @@ body.press
             width: 40%
             margin: 3rem auto
             border-top: 1px solid $color-gray
+        ul
+            padding: 0
+            li
+                list-style-type: none
+                +span-columns(6)
+                &:nth-child(2n)
+                    +omega()
+                +media($media-mobile)
+                    +span-columns(4)
+                a
+                    display: block
+                    text-decoration: none
+                    color: $color-black
+                    height: 6rem
+                    overflow: hidden
+                .title
+                    display: block
+                    font:
+                        family: $font-family-header
+                        size: 1rem
+                        weight: 300
+                    margin-bottom: 0.5rem
+
 
     &.release
         .meta
-            text-align: center
+            padding-bottom: 5rem
+            font-size: 0.875rem
+            line-height: 1.3125rem
+            font-family: $font-family-body
+            .contact
+                +span-columns(6)
+
+            .date
+                +span-columns(6)
+                +omega()
+                font-weight: bold
+                text-transform: uppercase
+                text-align: right
         .release
+            clear: both
             h3
                 text-align: center
+            .teaser
+                display: block
+                margin-top: -1rem
+                margin-bottom: 2rem
+                text-align: center
+                font:
+                    family: $font-family-header
+                    weight: 300
+                    style: italic
+        .overview
+            padding-left: 2rem
+            &, a
+                color: $color-gray
+            .presskit h3
+                margin-top: 0
+            +media($media-mobile)
+                display: none

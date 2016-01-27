@@ -12,25 +12,29 @@
 {% block content %}
     <section class="details">
         <section class="meta">
-            <p>
-                For Immediate Release<br />
-                {{ release.created_at.timestamp|date('F j, Y') }}<br />
-                Contact: <a href="mailto:tylermenezes@studentrnd.org">Tyler Menezes</a>&thinsp;&mdash;&thinsp;(888) 382-2377
-            </p>
+            <div class="contact">
+                Tyler Menezes<br />
+                StudentRND<br />
+                (888) 382-2377<br />
+                <a href="mailto:tylermenezes@studentrnd.org">tylermenezes@studentrnd.org</a>
+            </div>
+            <div class="date">
+                For Immediate Release: {{ release.created_at.timestamp|date('m/d/y') }}
+            </div>
         </section>
         <section class="release">
             <h3>{{ release.title }}</h3>
+            {% if release.teaser %}<span class="teaser">{{ release.teaser }}</span>{% endif %}
 
             {{ release.content|markdown|raw }}
         </section>
         <section class="general">
-            <h4>About StudentRND/CodeDay</h4>
-            <p>CodeDay is a nationwide event where students design and code games and apps in only 24 hours. Hosted 3
+            <p><strong>About StudentRND/CodeDay: </strong>
+                CodeDay is a nationwide event where students design and code games and apps in only 24 hours. Hosted 3
                 times a year in up to 38 cities simultaneously, CodeDay sparks an interest in Computer Science by showing
-                high school and college students how creative and empowering coding can be.</p>
-            <p>Many organizations exist to teach students to code, but StudentRND&thinsp;&mdash;&thinsp;the non-profit
-                which runs CodeDay&thinsp;&mdash;&thinsp;designed its flagship program to generate excitement for coding
-                in students with no existing interest through an unusually creative and fun event format.</p>
+                high school and college students how creative and empowering coding can be. CodeDay is run by the
+                non-profit StudentRND, which works to generate interest in Computer Science among students with no
+                prior experience.</p>
         </section>
     </section>
 

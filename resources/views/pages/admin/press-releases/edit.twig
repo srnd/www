@@ -7,8 +7,12 @@
     {% if release %}<a href="/press/release/{{ release.id }}">Web Link</a>{% endif %}
     <form method="post">
         <div class="field">
-            <label for="name">Title</label>
+            <label for="title">Title</label>
             <input type="text" name="title" id="title" value="{{ release.title }}" required />
+        </div>
+        <div class="field">
+            <label for="teaser">Teaser</label>
+            <input type="text" name="teaser" id="teaser" value="{{ release.teaser }}" required />
         </div>
         <div class="field">
             <label for="content">Content</label>
@@ -22,11 +26,10 @@
             <label for="hidden">Hidden</label>
             <input type="checkbox" name="hidden" id="hidden" value="1" />
         </div>
-        <input type="submit" value="{% if release %}Edit{% else %}Create{% endif %}" />
+        <input type="submit" value="{% if release %}Save{% else %}Create{% endif %}" />
     </form>
 
     {% if release %}
-    <h4>Other Options</h4>
         <form action="/admin/press-releases/{{ release.id }}/delete"><input type="submit" value="Delete"></form>
     {% endif %}
 {% endblock %}

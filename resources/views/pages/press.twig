@@ -384,8 +384,9 @@
                 <ul>
                     {% for release in releases %}
                         <li><a href="/press/release/{{ release.id }}">
-                                {{ release.created_at.timestamp|date('F j, Y') }}: {{ release.title }}
-                        </a></li>
+                                <span class="title">{{ release.created_at.timestamp|date('m/d/y') }}: {{ release.title }}</span>
+                                <span class="teaser">{{ release.teaser }}</span>
+                            </a></li>
                     {% endfor %}
                 </ul>
             </section>

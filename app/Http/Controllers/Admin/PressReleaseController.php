@@ -43,6 +43,7 @@ class PressReleaseController extends \StudentRND\Http\Controller {
     private function save(Models\PressRelease $release)
     {
         $release->title = \Input::get('title');
+        $release->teaser = \Input::get('teaser') ? \Input::get('teaser') : null;
         $release->content = \Input::get('content');
         $release->at_a_glance = \Input::get('at_a_glance');
         $release->hidden = \Input::get('hidden') ? true : false;
