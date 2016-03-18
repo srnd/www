@@ -98,14 +98,14 @@ html, body {
   html a, html a:visited, body a, body a:visited {
     color: #333; }
   html a:hover, html a:active, body a:hover, body a:active {
-    color: #FB481C; }
+    color: #cb7972; }
 
 ::selection {
-  background: #0343FA;
+  background: #466D98;
   color: #ffffff; }
 
 ::-moz-selection {
-  background: #0343FA;
+  background: #466D98;
   color: #ffffff; }
 
 body.donate.donate .contribution-info > nav ul {
@@ -124,9 +124,9 @@ body.donate.donate .contribution-info > nav ul {
   body.donate.donate .contribution-info > nav ul > li:last-child a:after, body.donate.donate .contribution-info > nav ul > a:last-child:after, body.donate.donate .contribution-info > nav ul > li:last-child a:before, body.donate.donate .contribution-info > nav ul > a:last-child:before {
     border: none; }
   body.donate.donate .contribution-info > nav ul > li:not(.active) a:hover, body.donate.donate .contribution-info > nav ul > a:hover:not(.active) {
-    color: #0343FA; }
+    color: #466D98; }
   body.donate.donate .contribution-info > nav ul > li.active a, body.donate.donate .contribution-info > nav ul > a.active {
-    color: #0343FA; }
+    color: #466D98; }
   body.donate.donate .contribution-info > nav ul a {
     display: inline-block;
     background-color: #F8F8FA;
@@ -341,7 +341,7 @@ body > header {
           text-transform: uppercase;
           color: #ffffff; }
 body > .title {
-  background-color: #0343FA;
+  background-color: #466D98;
   margin-top: -5rem;
   position: relative;
   z-index: -1;
@@ -373,21 +373,23 @@ body.home.index > section.hero {
   margin-top: -5rem;
   padding-top: 5rem;
   position: relative;
-  background-image: url(../img/splash.jpg);
-  background-color: #0343FA;
+  background-image: url(../img/wider.jpg);
+  background-color: #466D98;
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: 50% 40%;
   background-repeat: no-repeat; }
   @media screen and (max-width: 700px) {
     body.home.index > section.hero {
       height: initial;
-      min-height: 110%; } }
+      min-height: 80%;
+      background-image: url(../img/widermo.jpg);
+      background-position: 50% 50%; } }
   body.home.index > section.hero::selection {
     background: #ffffff;
-    color: #0343FA; }
+    color: #466D98; }
   body.home.index > section.hero::-moz-selection {
     background: #ffffff;
-    color: #0343FA; }
+    color: #466D98; }
   body.home.index > section.hero article {
     max-width: 68em;
     margin-left: auto;
@@ -405,135 +407,14 @@ body.home.index > section.hero {
       body.home.index > section.hero article {
         position: initial;
         top: initial; } }
-    body.home.index > section.hero article .map {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 57.35098%;
-      min-height: 2.1rem;
-      margin-top: -2rem; }
-      body.home.index > section.hero article .map:last-child {
-        margin-right: 0; }
-      @media screen and (max-width: 700px) {
-        body.home.index > section.hero article .map {
-          float: left;
-          display: block;
-          margin-right: 7.42297%;
-          width: 100%;
-          margin-right: 0;
-          margin-top: 2rem; }
-          body.home.index > section.hero article .map:last-child {
-            margin-right: 0; } }
-      body.home.index > section.hero article .map .land {
-        fill: none;
-        stroke: rgba(255, 255, 255, 0.6); }
-      body.home.index > section.hero article .map .state-boundary {
-        fill: none;
-        stroke: rgba(255, 255, 255, 0.3); }
-      body.home.index > section.hero article .map .city {
-        fill: #fff; }
-      body.home.index > section.hero article .map .footprint {
-        fill: rgba(255, 255, 255, 0.075); }
-      body.home.index > section.hero article .map .outline {
-        fill: rgba(255, 255, 255, 0.075); }
-    body.home.index > section.hero article .fundraise-form {
-      float: left;
-      display: block;
-      margin-right: 2.35765%;
-      width: 57.35098%;
-      margin-top: 2.5rem;
-      text-align: center;
-      padding: 2rem 1rem 0 1rem; }
-      body.home.index > section.hero article .fundraise-form:last-child {
-        margin-right: 0; }
-      @media screen and (max-width: 700px) {
-        body.home.index > section.hero article .fundraise-form {
-          float: left;
-          display: block;
-          margin-right: 7.42297%;
-          width: 100%;
-          margin-right: 0;
-          text-align: center; }
-          body.home.index > section.hero article .fundraise-form:last-child {
-            margin-right: 0; } }
-      body.home.index > section.hero article .fundraise-form label, body.home.index > section.hero article .fundraise-form input {
-        text-align: center;
-        display: block; }
-      body.home.index > section.hero article .fundraise-form label, body.home.index > section.hero article .fundraise-form .learn-more, body.home.index > section.hero article .fundraise-form .learn-more a {
-        font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-        font-size: 0.75rem;
-        color: #98b3fe;
-        text-transform: uppercase; }
-      body.home.index > section.hero article .fundraise-form .amount-selector {
-        display: inline-block;
-        width: 50%; }
-        body.home.index > section.hero article .fundraise-form .amount-selector .select-styler {
-          width: 100%;
-          height: 5rem;
-          overflow: hidden;
-          border: 1px solid #fff;
-          border-right: none;
-          display: inline-block;
-          white-space: nowrap; }
-          body.home.index > section.hero article .fundraise-form .amount-selector .select-styler select {
-            background: transparent;
-            width: 130%;
-            height: 100%;
-            padding: 1.17883%;
-            line-height: 1;
-            border: 0;
-            border-radius: 0;
-            -webkit-appearance: none;
-            color: #fff;
-            display: inline-block;
-            font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-            font-weight: 100;
-            font-style: italic;
-            font-size: 3.2rem; }
-            body.home.index > section.hero article .fundraise-form .amount-selector .select-styler select option {
-              background-color: #0343FA; }
-            @media screen and (max-width: 700px) {
-              body.home.index > section.hero article .fundraise-form .amount-selector .select-styler select {
-                font-size: 1.5rem; } }
-          body.home.index > section.hero article .fundraise-form .amount-selector .select-styler:after {
-            content: "∨";
-            position: relative;
-            pointer-events: none;
-            left: -45%;
-            top: -0.5rem;
-            color: #fff;
-            font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-            font-weight: 100;
-            font-size: 2rem; }
-            @media screen and (max-width: 700px) {
-              body.home.index > section.hero article .fundraise-form .amount-selector .select-styler:after {
-                top: -0.1rem;
-                font-size: 1.5rem; } }
-      body.home.index > section.hero article .fundraise-form input[type="submit"] {
-        display: inline-block;
-        height: 5rem;
-        margin: 1rem 0 0;
-        border: 1px solid #fff;
-        color: #fff;
-        background-color: transparent;
-        float: none;
-        vertical-align: top;
-        width: 50%;
-        font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-        font-weight: 100;
-        font-style: italic;
-        font-size: 2.2rem; }
-        @media screen and (max-width: 700px) {
-          body.home.index > section.hero article .fundraise-form input[type="submit"] {
-            font-size: 1.5rem; } }
-      body.home.index > section.hero article .fundraise-form .learn-more {
-        display: block; }
     body.home.index > section.hero article .info, body.home.index > section.hero article .fundraise-ask {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 40.29137%;
-      margin-top: 2.5rem; }
+      margin-left: 59.70863%;
+      margin-top: 2.5rem;
+      text-align: right; }
       body.home.index > section.hero article .info:last-child, body.home.index > section.hero article .fundraise-ask:last-child {
         margin-right: 0; }
       @media screen and (max-width: 700px) {
@@ -543,22 +424,24 @@ body.home.index > section.hero {
           margin-right: 7.42297%;
           width: 100%;
           margin-right: 0;
-          text-align: center; }
+          margin-left: 0%;
+          text-align: center;
+          margin-top: 0; }
           body.home.index > section.hero article .info:last-child, body.home.index > section.hero article .fundraise-ask:last-child {
             margin-right: 0; } }
       body.home.index > section.hero article .info .mission, body.home.index > section.hero article .fundraise-ask .mission {
         font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
         font-weight: 100;
         font-style: italic;
-        font-size: 2.5rem;
-        color: #ffffff;
+        font-size: 2rem;
+        color: #333;
         line-height: 3.4rem;
         margin-bottom: 0;
         margin-top: 0; }
       body.home.index > section.hero article .info .what, body.home.index > section.hero article .fundraise-ask .what {
         font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
         font-size: 1rem;
-        color: #98b3fe; }
+        color: gray; }
 
 body > a.donate {
   display: block;
@@ -566,7 +449,7 @@ body > a.donate {
   text-align: center;
   margin: 0;
   padding: 0.25rem 0.25rem 1.25rem;
-  background-color: #15E014;
+  background-color: #72CB99;
   color: #fff;
   text-decoration: none; }
   body > a.donate .link {
@@ -588,8 +471,8 @@ body.build.post > .wrap > .content > article > .text blockquote.alignleft p, bod
     text-transform: uppercase;
     font-size: 1.5rem;
     line-height: 1.9rem;
-    color: #0343FA;
-    background: -webkit-linear-gradient(top, #4d7afd 0, #0235c8 100%);
+    color: #466D98;
+    background: -webkit-linear-gradient(top, #6e93bc 0, #365475 100%);
     background: -o-linear-gradient(transparent, transparent);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; }
@@ -738,8 +621,8 @@ form div.field {
     form div.field input[type="datetime-local"]:focus,
     form div.field textarea:focus,
     form div.field select:focus {
-      border-color: #0343FA;
-      color: #0343FA; }
+      border-color: #466D98;
+      color: #466D98; }
   form div.field textarea {
     border-right: 1px solid #333;
     height: 10rem; }
@@ -765,7 +648,7 @@ body.build.index > .wrap > .content article, body.build.archive > .wrap > .conte
     text-decoration: none;
     color: #333;
     text-transform: uppercase;
-    border-bottom: 3px solid #0343FA;
+    border-bottom: 3px solid #466D98;
     position: relative; }
   body.build.index > .wrap > .content article a .feature-image, body.build.archive > .wrap > .content article a .feature-image {
     float: left;
@@ -872,7 +755,7 @@ body.build.index > .wrap > .content .primary .sidebar, body.build.archive > .wra
   margin-right: 2.35765%;
   width: 23.23176%;
   margin-right: 0;
-  border-left-color: #cbd8fe; }
+  border-left-color: #c5d4e5; }
   body.build.index > .wrap > .content .primary .sidebar:last-child, body.build.archive > .wrap > .content .primary .sidebar:last-child {
     margin-right: 0; }
   @media screen and (max-width: 700px) {
@@ -997,10 +880,46 @@ body.contact.contact section.contacts section {
       body.contact.contact section.contacts section ul li span.address span {
         display: block; }
 
-body.home.index > header h1 a {
-  color: #ffffff; }
-body.home.index > header nav ul li a {
-  color: #98b3fe; }
+body.home.index > a.donate {
+  background-color: #466D98; }
+body.home.index > section.hero {
+  background-color: #fff; }
+body.home.index > header h1 a, body.home.index > header nav ul li a {
+  color: gray; }
+body.home.index > .wrap .map {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 48.82117%;
+  margin-left: 25.58941%;
+  display: block;
+  min-height: 2.1rem;
+  margin-top: -2rem; }
+  body.home.index > .wrap .map:last-child {
+    margin-right: 0; }
+  @media screen and (max-width: 700px) {
+    body.home.index > .wrap .map {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0%;
+      margin-top: 2rem; }
+      body.home.index > .wrap .map:last-child {
+        margin-right: 0; } }
+  body.home.index > .wrap .map .land {
+    fill: none;
+    stroke: #AAA; }
+  body.home.index > .wrap .map .state-boundary {
+    fill: none;
+    stroke: rgba(170, 170, 170, 0.3); }
+  body.home.index > .wrap .map .city {
+    fill: #466D98; }
+  body.home.index > .wrap .map .footprint {
+    fill: rgba(70, 109, 152, 0.05); }
+  body.home.index > .wrap .map .outline {
+    fill: rgba(70, 109, 152, 0.05); }
 body.home.index > .wrap > section.content section.impact,
 body.home.index > .wrap > section.content section.codeday {
   float: left;
@@ -1070,6 +989,15 @@ body.home.index > .wrap > section.content section.codeday .video {
   width: 48.82117%; }
   body.home.index > .wrap > section.content section.codeday .video:last-child {
     margin-right: 0; }
+  @media screen and (max-width: 700px) {
+    body.home.index > .wrap > section.content section.codeday .video {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 100%;
+      margin-right: 0; }
+      body.home.index > .wrap > section.content section.codeday .video:last-child {
+        margin-right: 0; } }
 body.home.index > .wrap > section.content section.codeday .details {
   float: left;
   display: block;
@@ -1078,6 +1006,15 @@ body.home.index > .wrap > section.content section.codeday .details {
   margin-right: 0; }
   body.home.index > .wrap > section.content section.codeday .details:last-child {
     margin-right: 0; }
+  @media screen and (max-width: 700px) {
+    body.home.index > .wrap > section.content section.codeday .details {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 100%;
+      margin-right: 0; }
+      body.home.index > .wrap > section.content section.codeday .details:last-child {
+        margin-right: 0; } }
   body.home.index > .wrap > section.content section.codeday .details p:first-child {
     font-weight: bold; }
 body.home.index > .wrap > section.content section.featured {
@@ -1087,7 +1024,7 @@ body.home.index > .wrap > section.content section.featured {
   width: 100%; }
   body.home.index > .wrap > section.content section.featured:before, body.home.index > .wrap > section.content section.featured:after {
     margin-top: 4rem;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     content: "";
     display: block;
     border-top: 1px solid #AAA; }
@@ -1100,7 +1037,10 @@ body.home.index > .wrap > section.content section.featured {
     font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     font-size: 1rem;
     font-weight: 500;
-    text-align: center; }
+    text-align: center;
+    clear: both; }
+  body.home.index > .wrap > section.content section.featured .map {
+    margin-bottom: 2rem; }
   body.home.index > .wrap > section.content section.featured ul {
     padding: 0; }
     body.home.index > .wrap > section.content section.featured ul:after {
@@ -1567,9 +1507,9 @@ body.admin.events ul.events {
       border-top-width: 2.2rem;
       padding: 0.5rem 0; }
     body.admin.events ul.events li.loaded .month, body.admin.events ul.events li.loaded .year {
-      background-color: #FB481C; }
+      background-color: #cb7972; }
     body.admin.events ul.events li.loaded .day {
-      border-color: #FB481C;
+      border-color: #cb7972;
       color: #333; }
     body.admin.events ul.events li.loaded .name {
       color: #333; }
@@ -1641,7 +1581,7 @@ body.rsvp.rsvp section.details {
       body.rsvp.rsvp section.details:last-child {
         margin-right: 0; } }
   body.rsvp.rsvp section.details .map {
-    background-color: #0343FA;
+    background-color: #466D98;
     height: 13.9rem; }
   body.rsvp.rsvp section.details .address, body.rsvp.rsvp section.details .date, body.rsvp.rsvp section.details .countdown {
     text-align: center;
@@ -1772,7 +1712,7 @@ body.donate.donate .error {
   margin-right: 2.35765%;
   width: 100%;
   margin-right: 0;
-  background: #FB481C;
+  background: #cb7972;
   color: #fff;
   padding: 2.35765%; }
   body.donate.donate .error:last-child {
@@ -1808,7 +1748,7 @@ body.donate.donate .contribution-info {
     display: inline-block;
     text-align: center;
     float: right;
-    background-color: #0343FA;
+    background-color: #466D98;
     padding: 0.5rem 5rem;
     margin: 0px;
     position: relative;
@@ -1820,7 +1760,7 @@ body.donate.donate .contribution-info {
     font-weight: bold;
     color: #FFF;
     text-decoration: none !important;
-    text-shadow: 0px -1px 0px #022895; }
+    text-shadow: 0px -1px 0px #263b52; }
   body.donate.donate .contribution-info input[type="text"], body.donate.donate .contribution-info input[type="email"], body.donate.donate .contribution-info input[type="number"], body.donate.donate .contribution-info .donation .amount label {
     float: left;
     display: block;
@@ -1853,8 +1793,8 @@ body.donate.donate .contribution-info {
       display: none; }
     body.donate.donate .contribution-info .donation .amount input[type="radio"]:checked + label, body.donate.donate .contribution-info .donation .amount input[type="text"].checked {
       color: #fff;
-      background-color: #0343FA;
-      border-color: #0343FA; }
+      background-color: #466D98;
+      border-color: #466D98; }
     body.donate.donate .contribution-info .donation .amount label, body.donate.donate .contribution-info .donation .amount input[type="text"] {
       float: left;
       display: block;
@@ -1987,7 +1927,7 @@ body.donate.donate .contribution-info {
             margin-right: 0; }
     body.donate.donate .contribution-info .payment .onsite-gateway button {
       float: none;
-      background-color: #0343FA;
+      background-color: #466D98;
       padding: 0px;
       margin: 0px;
       height: 38px;
@@ -2000,7 +1940,7 @@ body.donate.donate .contribution-info {
       font-weight: bold;
       color: #FFF;
       text-decoration: none;
-      text-shadow: 0px -1px 0px #022895; }
+      text-shadow: 0px -1px 0px #263b52; }
   body.donate.donate .contribution-info .payment .mail {
     float: left;
     display: block;
@@ -2145,16 +2085,16 @@ body.donate.donate .big-impact {
       margin-right: 0; }
     body.donate.donate .big-impact .map .land {
       fill: none;
-      stroke: rgba(3, 67, 250, 0.4); }
+      stroke: rgba(70, 109, 152, 0.4); }
     body.donate.donate .big-impact .map .state-boundary {
       fill: none;
-      stroke: rgba(3, 67, 250, 0.2); }
+      stroke: rgba(70, 109, 152, 0.2); }
     body.donate.donate .big-impact .map .city {
-      fill: #0343FA; }
+      fill: #466D98; }
     body.donate.donate .big-impact .map .footprint {
-      fill: rgba(3, 67, 250, 0.05); }
+      fill: rgba(70, 109, 152, 0.05); }
     body.donate.donate .big-impact .map .outline {
-      fill: rgba(3, 67, 250, 0.05); }
+      fill: rgba(70, 109, 152, 0.05); }
 body.donate.donate .why-contribute ul {
   padding: 0; }
   body.donate.donate .why-contribute ul li {
@@ -2193,7 +2133,7 @@ body.donate.receipt .thanks {
   margin-right: 2.35765%;
   width: 100%;
   margin-right: 0;
-  background: #15E014;
+  background: #72CB99;
   color: #fff;
   padding: 2.35765%;
   margin-bottom: 2rem; }
@@ -2312,7 +2252,7 @@ body.about.about .wrap section.mission ul.principles {
     body.about.about .wrap section.mission ul.principles li:last-child {
       margin-right: 0; }
     body.about.about .wrap section.mission ul.principles li:nth-child(2n) {
-      margin-right: 0; }a
+      margin-right: 0; }
     body.about.about .wrap section.mission ul.principles li:nth-child(2n+1) {
       clear: both; }
     @media screen and (max-width: 700px) {
@@ -2383,11 +2323,11 @@ body.about.about .wrap section.nation .map {
     fill: none;
     stroke: rgba(170, 170, 170, 0.3); }
   body.about.about .wrap section.nation .map .city {
-    fill: #15E014; }
+    fill: #466D98; }
   body.about.about .wrap section.nation .map .footprint {
-    fill: rgba(21, 224, 20, 0.05); }
+    fill: rgba(70, 109, 152, 0.05); }
   body.about.about .wrap section.nation .map .outline {
-    fill: rgba(21, 224, 20, 0.05); }
+    fill: rgba(70, 109, 152, 0.05); }
 body.about.about .wrap section.nation .cities {
   float: left;
   display: block;

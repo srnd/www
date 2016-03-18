@@ -1,12 +1,43 @@
 body.home.index
+    & > a.donate
+        background-color: $color-blue
+    & > section.hero
+        background-color: #fff
     & > header
-        h1 a
-            color: #ffffff
-
-        nav ul li a
-            color: lighten($color-blue, 30)
+        h1 a, nav ul li a
+            color: lighten($color-black, 30)
 
     & > .wrap
+        .map
+            @include span-columns(6)
+            @include shift(3)
+            display: block
+            min-height: 2.1rem
+            margin-top: -2rem
+
+            @include media($media-mobile)
+                @include span-columns(4)
+                @include omega
+                @include shift(0)
+                margin-top: 2rem
+            .land
+                fill: none
+                stroke: $color-gray
+
+            .state-boundary
+                fill: none
+                stroke: transparentize($color-gray, 0.7)
+
+            .city
+                fill: $color-blue
+
+            .footprint
+                fill: transparentize($color-blue, 0.95)
+
+            .outline
+                fill: transparentize($color-blue, 0.95)
+
+
 
         & > section.content
             section.impact,
@@ -57,9 +88,15 @@ body.home.index
             section.codeday
                 .video
                     +span-columns(6)
+                    @include media($media-mobile)
+                        +span-columns(4)
+                        +omega
                 .details
                     +span-columns(6)
                     +omega
+                    @include media($media-mobile)
+                        +span-columns(4)
+                        +omega
                     p:first-child
                         font-weight: bold
 
@@ -68,7 +105,7 @@ body.home.index
                 &:after
                     margin:
                         top: 4rem
-                        bottom: 4rem
+                        bottom: 3rem
 
                     content: ""
                     display: block
@@ -85,6 +122,10 @@ body.home.index
                         size: 1rem
                         weight: 500
                     text-align: center
+                    clear: both
+
+                .map
+                    margin-bottom: 2rem
 
                 ul
                     padding: 0
