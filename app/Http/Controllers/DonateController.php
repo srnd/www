@@ -61,7 +61,9 @@ class DonateController extends \StudentRND\Http\Controller {
         ];
 
         $donation = $this->createDonationRecord('stripe', $invoice->charge, $previous_customer_id, $user);
-        $this->mailDonationReceipt($donation, true);
+        try {
+            $this->mailDonationReceipt($donation, true);
+        } catch (\Exception $ex) {}
     }
 
     public function postCancelSubscription()
@@ -383,7 +385,7 @@ class DonateController extends \StudentRND\Http\Controller {
             ['html' => $isSubscriptionGenerated ? 'emails/donation_thanks_recurring' : 'emails/donation_thanks'],
             [ 'donation' => $donation_record ],
             function($email) use ($donation_record, $isSubscriptionGenerated) {
-                $email->from('donate@studentrnd.org', 'StudentRND');
+                $email->from('donate@srnd.org', 'StudentRND');
                 $email->to($donation_record->email, $donation_record->first_name);
                 $email->subject('Receipt for Your '.($isSubscriptionGenerated?'Recurring ':'').'Donation');
             });

@@ -381,7 +381,7 @@ body.home.index > section.hero {
   @media screen and (max-width: 700px) {
     body.home.index > section.hero {
       height: initial;
-      min-height: 80%;
+      min-height: 40rem;
       background-image: url(../img/widermo.jpg);
       background-position: 50% 50%; } }
   body.home.index > section.hero::selection {
@@ -1701,9 +1701,6 @@ body.live.live iframe {
   margin-top: 2rem; }
 
 body.donate.donate > section.title {
-  background-image: url(../img/girlscolored.jpg);
-  background-position: 50% 50%;
-  background-size: cover;
   padding-bottom: 6rem;
   padding-top: 6rem; }
 body.donate.donate .error {
