@@ -7,7 +7,7 @@ body.home.index > section.hero
     position: relative
     background:
         image: url(../img/wider.jpg)
-        color: $color-blue
+        color: $color-red
         size: cover
         position: 50% 40%
         repeat: no-repeat
@@ -22,11 +22,11 @@ body.home.index > section.hero
 
     &::selection
         background: #ffffff
-        color: $color-blue
+        color: $color-red
 
     &::-moz-selection
         background: #ffffff
-        color: $color-blue
+        color: $color-red
 
     article
         @include outer-container
@@ -58,11 +58,10 @@ body.home.index > section.hero
             .mission
                 font:
                     family: $font-family-header
-                    weight: 100
-                    style: italic
+                    weight: 900
                     size: 2rem
                 color: $color-black
-                line-height: 3.4rem
+                line-height: 1.2
                 margin:
                     bottom: 0
                     top: 0
@@ -71,14 +70,14 @@ body.home.index > section.hero
                 font:
                     family: $font-family-header
                     size: 1rem
-                color: lighten($color-black, 30)
+                color: lighten($color-black, 20)
 body > a.donate
     display: block
     width: 100%
     text-align: center
     margin: 0
     padding: 0.25rem 0.25rem 1.25rem
-    background-color: $color-green
+    background-color: $color-blue
     color: #fff
     text-decoration: none
     .link

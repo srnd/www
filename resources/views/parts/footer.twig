@@ -3,7 +3,7 @@
     <section class="about">
         <header>
             <h2>StudentRND</h2>
-            <h3>We make students fall in love with coding.</h3>
+            <h3>We help students fall in love with coding.</h3>
         </header>
         <p>StudentRND is a 501(c)(3) public-charity registered in Washington.
            Our EIN is <input type="text" readonly value="26-4742589" class="ein copier" />
@@ -44,21 +44,13 @@
 {% set script_urls = [
     'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js',
     'https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js',
-    'https://cdnjs.cloudflare.com/ajax/libs/topojson/1.1.0/topojson.min.js',
-    'https://use.typekit.net/wck5lid.js'
+    'https://cdnjs.cloudflare.com/ajax/libs/topojson/1.1.0/topojson.min.js'
 ] %}
 {% for script_url in script_urls %}
     <script type="text/javascript" src="{{ script_url }}"></script>
 {% endfor %}
 
 <script type="text/javascript">
-    (function(){
-        try{Typekit.load();}catch(e){}
-        $('.copier').click(function(){
-            this.setSelectionRange(0, this.value.length);
-        });
-    })();
-
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;

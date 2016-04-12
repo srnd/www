@@ -89,23 +89,23 @@ html, body {
   padding: 0;
   margin: 0;
   height: 100%;
-  font-family: "Helvetica Neue", "Helvetica", "Arial", "proxima-nova", "Proxima Nova", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased; }
   html p, html li, html a, html blockquote, html em, html strong, body p, body li, body a, body blockquote, body em, body strong {
-    font-size: 0.875rem;
+    font-size: 1rem;
     line-height: 1.3125rem; }
   html a, html a:visited, body a, body a:visited {
-    color: #333; }
+    color: #686868; }
   html a:hover, html a:active, body a:hover, body a:active {
-    color: #cb7972; }
+    color: #ff686b; }
 
 ::selection {
-  background: #466D98;
+  background: #3F97CC;
   color: #ffffff; }
 
 ::-moz-selection {
-  background: #466D98;
+  background: #3F97CC;
   color: #ffffff; }
 
 body.donate.donate .contribution-info > nav ul {
@@ -117,28 +117,28 @@ body.donate.donate .contribution-info > nav ul {
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px; }
   body.donate.donate .contribution-info > nav ul > li:last-child a, body.donate.donate .contribution-info > nav ul > a:last-child {
-    background-color: #F8F8FA;
+    background-color: #fff;
     border-bottom-right-radius: 2px;
     border-top-right-radius: 2px;
     padding-right: 1.5rem; }
   body.donate.donate .contribution-info > nav ul > li:last-child a:after, body.donate.donate .contribution-info > nav ul > a:last-child:after, body.donate.donate .contribution-info > nav ul > li:last-child a:before, body.donate.donate .contribution-info > nav ul > a:last-child:before {
     border: none; }
   body.donate.donate .contribution-info > nav ul > li:not(.active) a:hover, body.donate.donate .contribution-info > nav ul > a:hover:not(.active) {
-    color: #466D98; }
+    color: #3F97CC; }
   body.donate.donate .contribution-info > nav ul > li.active a, body.donate.donate .contribution-info > nav ul > a.active {
-    color: #466D98; }
+    color: #3F97CC; }
   body.donate.donate .contribution-info > nav ul a {
     display: inline-block;
-    background-color: #F8F8FA;
-    border: 1px solid #AAA;
-    color: #333;
+    background-color: #fff;
+    border: 1px solid #8A8A8A;
+    color: #686868;
     line-height: 3rem;
     margin-right: -5px;
     padding: 0 0.75rem 0 1.5rem;
     position: relative;
     text-decoration: none;
     margin-bottom: 2px;
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 0.875rem;
     font-weight: 500; }
     body.donate.donate .contribution-info > nav ul a:after, body.donate.donate .contribution-info > nav ul a:before {
@@ -146,7 +146,7 @@ body.donate.donate .contribution-info > nav ul {
       top: 0px;
       right: auto;
       bottom: 0px;
-      left: 100%;
+      left: 99%;
       border-bottom: 1.5rem solid transparent;
       border-left: 0.75rem solid transparent;
       border-top: 1.5rem solid transparent;
@@ -155,11 +155,11 @@ body.donate.donate .contribution-info > nav ul {
       margin: auto;
       z-index: 2; }
     body.donate.donate .contribution-info > nav ul a:before {
-      border-left-color: #AAA;
+      border-left-color: #8A8A8A;
       margin-left: 1px;
       z-index: 1; }
     body.donate.donate .contribution-info > nav ul a:after {
-      border-left-color: #F8F8FA; }
+      border-left-color: #fff; }
 
 .angle {
   position: relative;
@@ -189,7 +189,7 @@ body > .wrap {
   padding-top: 3rem;
   padding-bottom: 7rem;
   margin-top: -1rem;
-  background-color: #F8F8FA; }
+  background-color: #fff; }
   body > .wrap > .content {
     max-width: 68em;
     margin-left: auto;
@@ -206,10 +206,10 @@ body > .wrap {
 input.copier {
   border: none;
   padding: 0;
-  width: 5.4em;
+  width: 5.8em;
   background-color: transparent;
   font-size: 0.875rem;
-  font-family: "Helvetica Neue", "Helvetica", "Arial", "proxima-nova", "Proxima Nova", sans-serif; }
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif; }
 
 body > footer {
   margin-top: -1rem;
@@ -226,7 +226,7 @@ body > footer {
       padding-right: 1rem; } }
   body > footer section p, body > footer section input.copier, body > footer section li, body > footer section a, body > footer section a:visited, body > footer section h2, body > footer body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap body > footer section.team .key.people ul li article .name {
     font-size: 0.9rem;
-    color: #AAA;
+    color: #8A8A8A;
     line-height: 1.6; }
   body > footer section h2, body > footer body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap body > footer section.team .key.people ul li article .name {
     font-size: 1rem; }
@@ -253,7 +253,7 @@ body > footer {
         body > footer section.about:last-child {
           margin-right: 0; } }
     body > footer section.about header h2, body > footer section.about header body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li article body > footer section.about header .name {
-      font-family: "Helvetica", "Arial", "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-family: "Helvetica", "Arial", "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
       font-size: 2rem;
       font-weight: 200;
       margin: 0; }
@@ -318,7 +318,7 @@ body > header {
       margin: 0; }
       body > header .content h1 a {
         text-decoration: none;
-        font-family: "Helvetica", "Arial", "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        font-family: "Helvetica", "Arial", "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
         font-size: 2rem;
         font-weight: 300;
         color: #ffffff; }
@@ -335,13 +335,13 @@ body > header {
           text-decoration: underline; }
         body > header .content nav ul li a {
           text-decoration: none;
-          font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+          font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
           font-size: 0.75rem;
           padding: 1rem 1rem;
           text-transform: uppercase;
           color: #ffffff; }
 body > .title {
-  background-color: #466D98;
+  background-color: #ff686b;
   margin-top: -5rem;
   position: relative;
   z-index: -1;
@@ -357,10 +357,10 @@ body > .title {
       clear: both; }
     body > .title article h2, body > .title body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li body > .title article .name {
       text-align: center;
-      font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-      font-weight: 100;
+      font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
+      font-weight: 700;
       font-style: italic;
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: #ffffff;
       line-height: 3.2rem;
       margin-bottom: 0;
@@ -374,7 +374,7 @@ body.home.index > section.hero {
   padding-top: 5rem;
   position: relative;
   background-image: url(../img/wider.jpg);
-  background-color: #466D98;
+  background-color: #ff686b;
   background-size: cover;
   background-position: 50% 40%;
   background-repeat: no-repeat; }
@@ -386,10 +386,10 @@ body.home.index > section.hero {
       background-position: 50% 50%; } }
   body.home.index > section.hero::selection {
     background: #ffffff;
-    color: #466D98; }
+    color: #ff686b; }
   body.home.index > section.hero::-moz-selection {
     background: #ffffff;
-    color: #466D98; }
+    color: #ff686b; }
   body.home.index > section.hero article {
     max-width: 68em;
     margin-left: auto;
@@ -430,18 +430,17 @@ body.home.index > section.hero {
           body.home.index > section.hero article .info:last-child, body.home.index > section.hero article .fundraise-ask:last-child {
             margin-right: 0; } }
       body.home.index > section.hero article .info .mission, body.home.index > section.hero article .fundraise-ask .mission {
-        font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-        font-weight: 100;
-        font-style: italic;
+        font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
+        font-weight: 900;
         font-size: 2rem;
-        color: #333;
-        line-height: 3.4rem;
+        color: #686868;
+        line-height: 1.2;
         margin-bottom: 0;
         margin-top: 0; }
       body.home.index > section.hero article .info .what, body.home.index > section.hero article .fundraise-ask .what {
-        font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
         font-size: 1rem;
-        color: gray; }
+        color: #9b9b9b; }
 
 body > a.donate {
   display: block;
@@ -449,7 +448,7 @@ body > a.donate {
   text-align: center;
   margin: 0;
   padding: 0.25rem 0.25rem 1.25rem;
-  background-color: #72CB99;
+  background-color: #3F97CC;
   color: #fff;
   text-decoration: none; }
   body > a.donate .link {
@@ -467,12 +466,12 @@ body.build.post > .wrap > .content > article > .text blockquote.alignleft p, bod
     margin-top: 0; }
   body.build.post > .wrap > .content > article > .text blockquote.alignleft:not(.small), body.build.post > .wrap > .content > article > .text blockquote.alignright:not(.small), body.build.post > .wrap > .content > article > .text blockquote.aligncenter:not(.small),
   body.build.post > .wrap > .content > article > .text blockquote.alignleft p:not(.small), body.build.post > .wrap > .content > article > .text blockquote.alignright p:not(.small), body.build.post > .wrap > .content > article > .text blockquote.aligncenter p:not(.small) {
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     text-transform: uppercase;
     font-size: 1.5rem;
     line-height: 1.9rem;
-    color: #466D98;
-    background: -webkit-linear-gradient(top, #6e93bc 0, #365475 100%);
+    color: #3F97CC;
+    background: -webkit-linear-gradient(top, #7bb8dc 0, #2d7cab 100%);
     background: -o-linear-gradient(transparent, transparent);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent; }
@@ -503,9 +502,9 @@ body.build.post > .wrap > .content > article > .text .aligncenter img, body.buil
 body.build.post > .wrap > .content > article > .text .wp-caption p {
   margin: 0;
   padding: 0;
-  font-family: "Helvetica Neue", "Helvetica", "Arial", "proxima-nova", "Proxima Nova", sans-serif;
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 0.6rem;
-  color: #AAA;
+  color: #8A8A8A;
   line-height: 1rem;
   text-transform: uppercase; }
 body.build.post > .wrap > .content > article > .text .wp-caption.alignleft {
@@ -524,19 +523,19 @@ body.build.post > .wrap > .content > article > .text .wp-caption.aligncenter {
 
 a.action, form input[type="submit"], button {
   cursor: pointer;
-  border: 1px solid #333;
-  color: #333;
+  border: 1px solid #686868;
+  color: #686868;
   display: block;
   text-align: center;
   float: right;
   width: 10rem;
-  background-color: #F8F8FA;
+  background-color: #fff;
   padding: 0.5rem 1rem;
   margin-bottom: 0.5rem;
   font-size: 1rem; }
   a.action:hover, form input[type="submit"]:hover, button:hover {
-    background-color: #333;
-    color: #F8F8FA; }
+    background-color: #686868;
+    color: #fff; }
   a.action:after, form input[type="submit"]:after, button:after {
     content: "";
     clear: right;
@@ -602,15 +601,15 @@ form div.field {
   form div.field textarea,
   form div.field select {
     border: none;
-    border-bottom: 1px solid #333;
-    color: #333;
+    border-bottom: 1px solid #686868;
+    color: #686868;
     font-size: 1.2rem;
     padding: 0rem 0 0.2rem 0;
     outline: none;
     font-feature-settings: "tnum";
     -webkit-font-feature-settings: "tnum";
     font-family: monospace;
-    background-color: #F8F8FA; }
+    background-color: #fff; }
     form div.field input[type="text"]:focus,
     form div.field input[type="url"]:focus,
     form div.field input[type="number"]:focus,
@@ -621,10 +620,10 @@ form div.field {
     form div.field input[type="datetime-local"]:focus,
     form div.field textarea:focus,
     form div.field select:focus {
-      border-color: #466D98;
-      color: #466D98; }
+      border-color: #3F97CC;
+      color: #3F97CC; }
   form div.field textarea {
-    border-right: 1px solid #333;
+    border-right: 1px solid #686868;
     height: 10rem; }
   form div.field select {
     -moz-border-radius: 0;
@@ -644,11 +643,11 @@ body.build.index > .wrap > .content article, body.build.archive > .wrap > .conte
     clear: both; }
   body.build.index > .wrap > .content article .meta .category, body.build.archive > .wrap > .content article .meta .category {
     font-size: 0.75rem;
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     text-decoration: none;
-    color: #333;
+    color: #686868;
     text-transform: uppercase;
-    border-bottom: 3px solid #466D98;
+    border-bottom: 3px solid #3F97CC;
     position: relative; }
   body.build.index > .wrap > .content article a .feature-image, body.build.archive > .wrap > .content article a .feature-image {
     float: left;
@@ -678,7 +677,7 @@ body.build.index > .wrap > .content article, body.build.archive > .wrap > .conte
     body.build.index > .wrap > .content article .preview h2, body.about.about body.build.index > .wrap > .content section.team .key.people ul li article .preview .name, body.build.archive > .wrap > .content article .preview h2, body.about.about body.build.archive > .wrap > .content section.team .key.people ul li article .preview .name {
       margin-top: 0; }
       body.build.index > .wrap > .content article .preview h2 a, body.about.about body.build.index > .wrap > .content section.team .key.people ul li article .preview .name a, body.build.archive > .wrap > .content article .preview h2 a, body.about.about body.build.archive > .wrap > .content section.team .key.people ul li article .preview .name a {
-        font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
         font-size: 2rem;
         font-weight: 300;
         line-height: 2.2rem;
@@ -696,8 +695,8 @@ body.build.index > .wrap > .content article, body.build.archive > .wrap > .conte
       content: "";
       filter: progid:DXImageTransform.Microsoft.gradient(gradientType=0,startColorstr='#00E7E7E2',endColorstr='#FFFFFFFF');
       background-size: 100%;
-      background-image: -webkit-linear-gradient(top, rgba(248, 248, 250, 0) 0, #F8F8FA 100%);
-      background-image: linear-gradient(to bottom, rgba(248, 248, 250, 0) 0, #F8F8FA 100%);
+      background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0, #fff 100%);
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0, #fff 100%);
       display: block;
       position: absolute;
       pointer-events: none;
@@ -755,7 +754,7 @@ body.build.index > .wrap > .content .primary .sidebar, body.build.archive > .wra
   margin-right: 2.35765%;
   width: 23.23176%;
   margin-right: 0;
-  border-left-color: #c5d4e5; }
+  border-left-color: #e0eef7; }
   body.build.index > .wrap > .content .primary .sidebar:last-child, body.build.archive > .wrap > .content .primary .sidebar:last-child {
     margin-right: 0; }
   @media screen and (max-width: 700px) {
@@ -777,10 +776,10 @@ body.build.index > .wrap > .content .primary .sidebar, body.build.archive > .wra
       list-style-type: none; }
       body.build.index > .wrap > .content .primary .sidebar article.categories ul li a, body.build.archive > .wrap > .content .primary .sidebar article.categories ul li a {
         display: block;
-        border-left: 3px solid #333;
-        color: #333;
+        border-left: 3px solid #686868;
+        color: #686868;
         text-decoration: none;
-        font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
         font-size: 1rem;
         padding: 0.75rem 1rem; }
       body.build.index > .wrap > .content .primary .sidebar article.categories ul li:first-child, body.build.archive > .wrap > .content .primary .sidebar article.categories ul li:first-child {
@@ -816,7 +815,7 @@ body.privacy section.content section {
   body.privacy section.content section h2, body.privacy section.content body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap body.privacy section.content section.team .key.people ul li article .name {
     margin-top: 4rem;
     margin-bottom: 3rem;
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 2.5rem;
     font-weight: 200;
     text-align: center; }
@@ -836,7 +835,7 @@ body.returns section.content section {
   body.returns section.content section h2, body.returns section.content body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap body.returns section.content section.team .key.people ul li article .name {
     margin-top: 4rem;
     margin-bottom: 3rem;
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 2.5rem;
     font-weight: 200;
     text-align: center; }
@@ -862,7 +861,7 @@ body.contact.contact section.contacts section {
         margin-right: 0; } }
   body.contact.contact section.contacts section h4 {
     text-align: left;
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 1.3rem;
     font-weight: 500;
     margin-bottom: 0; }
@@ -872,7 +871,7 @@ body.contact.contact section.contacts section {
       list-style-type: none; }
       body.contact.contact section.contacts section ul li a, body.contact.contact section.contacts section ul li span.name {
         font-weight: 700;
-        color: #333;
+        color: #686868;
         text-decoration: none; }
       body.contact.contact section.contacts section ul li span.name {
         display: block;
@@ -881,11 +880,11 @@ body.contact.contact section.contacts section {
         display: block; }
 
 body.home.index > a.donate {
-  background-color: #466D98; }
+  background-color: #ff686b; }
 body.home.index > section.hero {
   background-color: #fff; }
 body.home.index > header h1 a, body.home.index > header nav ul li a {
-  color: gray; }
+  color: #b5b5b5; }
 body.home.index > .wrap .map {
   float: left;
   display: block;
@@ -910,16 +909,16 @@ body.home.index > .wrap .map {
         margin-right: 0; } }
   body.home.index > .wrap .map .land {
     fill: none;
-    stroke: #AAA; }
+    stroke: #8A8A8A; }
   body.home.index > .wrap .map .state-boundary {
     fill: none;
-    stroke: rgba(170, 170, 170, 0.3); }
+    stroke: rgba(138, 138, 138, 0.3); }
   body.home.index > .wrap .map .city {
-    fill: #466D98; }
+    fill: #3F97CC; }
   body.home.index > .wrap .map .footprint {
-    fill: rgba(70, 109, 152, 0.05); }
+    fill: rgba(63, 151, 204, 0.05); }
   body.home.index > .wrap .map .outline {
-    fill: rgba(70, 109, 152, 0.05); }
+    fill: rgba(63, 151, 204, 0.05); }
 body.home.index > .wrap > section.content section.impact,
 body.home.index > .wrap > section.content section.codeday {
   float: left;
@@ -938,7 +937,7 @@ body.home.index > .wrap > section.content section.codeday {
     body.about.about body.home.index > .wrap > section.content section.team .key.people ul li article section.codeday header .name {
       margin-top: 0;
       margin-bottom: 0;
-      font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
       font-size: 2.5rem;
       font-weight: 200;
       text-align: center; }
@@ -946,7 +945,7 @@ body.home.index > .wrap > section.content section.codeday {
     body.home.index > .wrap > section.content section.codeday header p {
       margin-top: 0;
       color: #bbb;
-      font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
       font-size: 1rem;
       text-align: center; }
 body.home.index > .wrap > section.content section.impact ul {
@@ -1016,7 +1015,8 @@ body.home.index > .wrap > section.content section.codeday .details {
       body.home.index > .wrap > section.content section.codeday .details:last-child {
         margin-right: 0; } }
   body.home.index > .wrap > section.content section.codeday .details p:first-child {
-    font-weight: bold; }
+    font-weight: bold;
+    margin-top: 0; }
 body.home.index > .wrap > section.content section.featured {
   float: left;
   display: block;
@@ -1027,14 +1027,14 @@ body.home.index > .wrap > section.content section.featured {
     margin-bottom: 3rem;
     content: "";
     display: block;
-    border-top: 1px solid #AAA; }
+    border-top: 1px solid #8A8A8A; }
   body.home.index > .wrap > section.content section.featured:last-child {
     margin-right: 0; }
   body.home.index > .wrap > section.content section.featured h2, body.about.about body.home.index > .wrap > section.content section.featured section.team .key.people ul li article .name, body.about.about body.home.index > .wrap > section.content section.team .key.people ul li article section.featured .name {
     margin-top: -1rem;
     margin-bottom: 1rem;
-    color: #AAA;
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: #8A8A8A;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 1rem;
     font-weight: 500;
     text-align: center;
@@ -1165,7 +1165,7 @@ body.build.post .text {
   body.build.post .text hr {
     clear: both;
     border: 0;
-    border-top: 1px solid #AAA;
+    border-top: 1px solid #8A8A8A;
     width: 100%;
     margin: 3rem 0; }
   @media screen and (max-width: 700px) {
@@ -1177,7 +1177,7 @@ body.build.post > .hero.with-image {
   padding-top: 5rem;
   position: relative;
   z-index: -1;
-  background-color: #333;
+  background-color: #686868;
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat; }
@@ -1203,7 +1203,7 @@ body.build.post > .hero.with-image {
         left: 0;
         padding: 0; } }
     body.build.post > .hero.with-image article h2 a, body.build.post > .hero.with-image body.about.about .wrap section.team .key.people ul li article .name a, body.about.about .wrap section.team .key.people ul li body.build.post > .hero.with-image article .name a {
-      font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
       font-weight: 700;
       font-style: italic;
       font-size: 3.3rem;
@@ -1217,7 +1217,7 @@ body.build.post > .hero.with-image {
           font-size: 2rem;
           line-height: 2.2rem; } }
     body.build.post > .hero.with-image article h3, body.build.post > .hero.with-image article h3 a {
-      font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
       font-size: 0.75rem;
       font-weight: 700;
       color: rgba(255, 255, 255, 0.9);
@@ -1244,12 +1244,12 @@ body.code-of-conduct .code {
         line-height: 1.3125rem; } }
 
 body.press h3 {
-  font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
   font-size: 1.3rem;
   font-weight: 500; }
 body.press h4 {
   text-align: left;
-  font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
   font-size: 1.1rem;
   font-weight: 300;
   margin-bottom: 0; }
@@ -1269,7 +1269,7 @@ body.press .overview {
       list-style-type: none; }
       body.press .overview .press ul li a, body.press .overview .press ul li span.name {
         font-weight: 700;
-        color: #333;
+        color: #686868;
         text-decoration: none; }
       body.press .overview .press ul li span.name {
         display: block;
@@ -1305,7 +1305,7 @@ body.press .details {
       body.press .details:last-child {
         margin-right: 0; } }
 body.press .about p:nth-child(2) {
-  font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
   font-size: 1.3rem;
   font-weight: 300;
   line-height: 1.55rem; }
@@ -1355,7 +1355,7 @@ body.press .faq ul {
         body.press .faq ul li:last-child {
           margin-right: 0; } }
     body.press .faq ul li .q {
-      font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
       font-size: 1rem;
       font-weight: 300;
       margin-bottom: 0; }
@@ -1364,7 +1364,7 @@ body.press .faq:before, body.press .faq:after {
   display: block;
   width: 40%;
   margin: 3rem auto;
-  border-top: 1px solid #AAA; }
+  border-top: 1px solid #8A8A8A; }
 body.press ul.assets {
   display: block;
   padding: 0; }
@@ -1408,7 +1408,7 @@ body.press .releases:before {
   display: block;
   width: 40%;
   margin: 3rem auto;
-  border-top: 1px solid #AAA; }
+  border-top: 1px solid #8A8A8A; }
 body.press .releases ul {
   padding: 0; }
   body.press .releases ul li {
@@ -1432,12 +1432,12 @@ body.press .releases ul {
     body.press .releases ul li a {
       display: block;
       text-decoration: none;
-      color: #333;
+      color: #686868;
       height: 6rem;
       overflow: hidden; }
     body.press .releases ul li .title {
       display: block;
-      font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
       font-size: 1rem;
       font-weight: 300;
       margin-bottom: 0.5rem; }
@@ -1445,7 +1445,7 @@ body.press.release .meta {
   padding-bottom: 5rem;
   font-size: 0.875rem;
   line-height: 1.3125rem;
-  font-family: "Helvetica Neue", "Helvetica", "Arial", "proxima-nova", "Proxima Nova", sans-serif; }
+  font-family: "Avenir Next", "Helvetica", "Arial", sans-serif; }
   body.press.release .meta .contact {
     float: left;
     display: block;
@@ -1473,13 +1473,13 @@ body.press.release .release {
     margin-top: -1rem;
     margin-bottom: 2rem;
     text-align: center;
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-weight: 300;
     font-style: italic; }
 body.press.release .overview {
   padding-left: 2rem; }
   body.press.release .overview, body.press.release .overview a {
-    color: #AAA; }
+    color: #8A8A8A; }
   body.press.release .overview .presskit h3 {
     margin-top: 0; }
   @media screen and (max-width: 700px) {
@@ -1496,23 +1496,23 @@ body.admin.events ul.events {
     margin: 0 0.5rem 0 0; }
     body.admin.events ul.events li a {
       text-decoration: none;
-      color: #AAA; }
+      color: #8A8A8A; }
     body.admin.events ul.events li.new a {
       display: block;
       width: 100%;
       font-weight: 700;
       font-size: 2rem;
       text-align: center;
-      border: 1px solid #AAA;
+      border: 1px solid #8A8A8A;
       border-top-width: 2.2rem;
       padding: 0.5rem 0; }
     body.admin.events ul.events li.loaded .month, body.admin.events ul.events li.loaded .year {
-      background-color: #cb7972; }
+      background-color: #ff686b; }
     body.admin.events ul.events li.loaded .day {
-      border-color: #cb7972;
-      color: #333; }
+      border-color: #ff686b;
+      color: #686868; }
     body.admin.events ul.events li.loaded .name {
-      color: #333; }
+      color: #686868; }
     body.admin.events ul.events li .month, body.admin.events ul.events li .year {
       line-height: 0.9rem;
       display: block;
@@ -1522,15 +1522,15 @@ body.admin.events ul.events {
       padding: 0.1rem 0;
       font-size: 0.75rem;
       width: 100%;
-      background-color: #AAA;
-      color: #F8F8FA; }
+      background-color: #8A8A8A;
+      color: #fff; }
     body.admin.events ul.events li .day {
       display: block;
       width: 100%;
       font-weight: 700;
       font-size: 2rem;
       text-align: center;
-      border: 1px solid #AAA;
+      border: 1px solid #8A8A8A;
       border-top: none;
       padding: 0.5rem 0; }
     body.admin.events ul.events li .name {
@@ -1581,12 +1581,12 @@ body.rsvp.rsvp section.details {
       body.rsvp.rsvp section.details:last-child {
         margin-right: 0; } }
   body.rsvp.rsvp section.details .map {
-    background-color: #466D98;
+    background-color: #3F97CC;
     height: 13.9rem; }
   body.rsvp.rsvp section.details .address, body.rsvp.rsvp section.details .date, body.rsvp.rsvp section.details .countdown {
     text-align: center;
     padding-top: 0.3rem;
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 1rem;
     font-weight: 200; }
     body.rsvp.rsvp section.details .address.address, body.rsvp.rsvp section.details .date.address, body.rsvp.rsvp section.details .countdown.address {
@@ -1614,7 +1614,7 @@ body.rsvp.rsvp section.rsvp {
     width: 100%; }
     body.rsvp.rsvp section.rsvp form input {
       padding: 1rem;
-      font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
       font-size: 1.5rem;
       font-weight: 200; }
     body.rsvp.rsvp section.rsvp form > input, body.rsvp.rsvp section.rsvp form > .plus-ones {
@@ -1693,7 +1693,7 @@ body.live.live section.description {
 body.live.live section.countdown {
   margin-top: 0;
   margin-bottom: 0;
-  font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
   font-size: 1rem;
   font-weight: 200;
   text-align: center; }
@@ -1709,7 +1709,7 @@ body.donate.donate .error {
   margin-right: 2.35765%;
   width: 100%;
   margin-right: 0;
-  background: #cb7972;
+  background: #ff686b;
   color: #fff;
   padding: 2.35765%; }
   body.donate.donate .error:last-child {
@@ -1738,14 +1738,14 @@ body.donate.donate .contribution-info {
       list-style-type: none;
       display: inline; }
   body.donate.donate .contribution-info h2, body.donate.donate .contribution-info body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li article body.donate.donate .contribution-info .name {
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 1.3rem;
     font-weight: 500; }
   body.donate.donate .contribution-info .next-step {
     display: inline-block;
     text-align: center;
     float: right;
-    background-color: #466D98;
+    background-color: #3F97CC;
     padding: 0.5rem 5rem;
     margin: 0px;
     position: relative;
@@ -1757,7 +1757,7 @@ body.donate.donate .contribution-info {
     font-weight: bold;
     color: #FFF;
     text-decoration: none !important;
-    text-shadow: 0px -1px 0px #263b52; }
+    text-shadow: 0px -1px 0px #235e82; }
   body.donate.donate .contribution-info input[type="text"], body.donate.donate .contribution-info input[type="email"], body.donate.donate .contribution-info input[type="number"], body.donate.donate .contribution-info .donation .amount label {
     float: left;
     display: block;
@@ -1765,19 +1765,19 @@ body.donate.donate .contribution-info {
     width: 100%;
     margin-bottom: 2.35765%;
     padding: 1.17883%;
-    border: 1px solid #AAA;
+    border: 1px solid #8A8A8A;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
     transition: box-shadow 0.45s ease 0s, border-color 0.45s ease-in-out 0s;
-    color: #333;
+    color: #686868;
     background-color: #fff;
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 0.875rem;
     font-weight: 500; }
     body.donate.donate .contribution-info input[type="text"]:last-child, body.donate.donate .contribution-info input[type="email"]:last-child, body.donate.donate .contribution-info input[type="number"]:last-child, body.donate.donate .contribution-info .donation .amount label:last-child {
       margin-right: 0; }
     body.donate.donate .contribution-info input[type="text"]:focus, body.donate.donate .contribution-info input[type="email"]:focus, body.donate.donate .contribution-info input[type="number"]:focus, body.donate.donate .contribution-info .donation .amount label:focus {
-      box-shadow: 0px 0px 5px #777777;
-      border-color: #777777;
+      box-shadow: 0px 0px 5px #575757;
+      border-color: #575757;
       outline: medium none; }
   body.donate.donate .contribution-info .donation .amount {
     margin-bottom: 1rem;
@@ -1790,18 +1790,18 @@ body.donate.donate .contribution-info {
       display: none; }
     body.donate.donate .contribution-info .donation .amount input[type="radio"]:checked + label, body.donate.donate .contribution-info .donation .amount input[type="text"].checked {
       color: #fff;
-      background-color: #466D98;
-      border-color: #466D98; }
+      background-color: #3F97CC;
+      border-color: #3F97CC; }
     body.donate.donate .contribution-info .donation .amount label, body.donate.donate .contribution-info .donation .amount input[type="text"] {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 23.23176%;
       border-radius: 3px;
-      border: 2px solid #AAA;
+      border: 2px solid #8A8A8A;
       cursor: pointer;
       text-align: center;
-      color: #333;
+      color: #686868;
       transition: background-color 300ms ease-out 0s, border-color 300ms ease-out 0s; }
       body.donate.donate .contribution-info .donation .amount label:last-child, body.donate.donate .contribution-info .donation .amount input[type="text"]:last-child {
         margin-right: 0; }
@@ -1878,7 +1878,7 @@ body.donate.donate .contribution-info {
     margin-right: 2.35765%;
     width: 65.88078%;
     text-align: center;
-    border-right: 1px solid #AAA;
+    border-right: 1px solid #8A8A8A;
     padding: 1rem 2rem 1rem 1rem; }
     body.donate.donate .contribution-info .payment .onsite-gateway:last-child {
       margin-right: 0; }
@@ -1895,7 +1895,7 @@ body.donate.donate .contribution-info {
       background-size: cover;
       background-repeat: none;
       background-position: 0 0;
-      border: 5px solid #AAA;
+      border: 5px solid #8A8A8A;
       padding: 7rem 2rem 3rem;
       max-width: 23rem;
       margin: 0 auto 1rem; }
@@ -1924,7 +1924,7 @@ body.donate.donate .contribution-info {
             margin-right: 0; }
     body.donate.donate .contribution-info .payment .onsite-gateway button {
       float: none;
-      background-color: #466D98;
+      background-color: #3F97CC;
       padding: 0px;
       margin: 0px;
       height: 38px;
@@ -1937,7 +1937,7 @@ body.donate.donate .contribution-info {
       font-weight: bold;
       color: #FFF;
       text-decoration: none;
-      text-shadow: 0px -1px 0px #263b52; }
+      text-shadow: 0px -1px 0px #235e82; }
   body.donate.donate .contribution-info .payment .mail {
     float: left;
     display: block;
@@ -1959,7 +1959,7 @@ body.donate.donate .contribution-info {
       body.donate.donate .contribution-info .payment .alternate-gateways:last-child, body.donate.donate .contribution-info .payment .onsite-gateway:last-child {
         margin-right: 0; }
     body.donate.donate .contribution-info .payment .onsite-gateway {
-      border-bottom: 1px solid #AAA;
+      border-bottom: 1px solid #8A8A8A;
       border-right: none;
       padding-right: 0;
       padding-bottom: 1rem; }
@@ -1983,7 +1983,7 @@ body.donate.donate .details {
   body.donate.donate .details:last-child {
     margin-right: 0; }
   body.donate.donate .details h2, body.donate.donate .details body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li article body.donate.donate .details .name {
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 1.3rem;
     font-weight: 500; }
   body.donate.donate .details img {
@@ -2004,7 +2004,7 @@ body.donate.donate .people, body.donate.donate .big-impact {
   body.donate.donate .people h2, body.donate.donate body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team body.donate.donate .key.people ul li article .name, body.donate.donate .big-impact h2, body.donate.donate .big-impact body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li article body.donate.donate .big-impact .name {
     margin-top: 0;
     margin-bottom: 0;
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 3rem;
     font-weight: 200;
     text-align: center; }
@@ -2013,7 +2013,7 @@ body.donate.donate .people, body.donate.donate .big-impact {
     body.donate.donate .people header p, body.donate.donate .big-impact header p {
       margin-top: 0;
       color: #bbb;
-      font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
       font-size: 1rem;
       text-align: center; }
 body.donate.donate .people {
@@ -2035,7 +2035,7 @@ body.donate.donate .people {
         background-repeat: no-repeat;
         background-position: 50% 50%; }
       body.donate.donate .people ul li p {
-        font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+        font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
         font-size: 0.9rem; }
         body.donate.donate .people ul li p span.name {
           text-transform: uppercase;
@@ -2051,7 +2051,7 @@ body.donate.donate .big-impact {
     margin-bottom: 4rem;
     content: "";
     display: block;
-    border-top: 1px solid #AAA; }
+    border-top: 1px solid #8A8A8A; }
   body.donate.donate .big-impact .activities {
     float: left;
     display: block;
@@ -2065,13 +2065,13 @@ body.donate.donate .big-impact {
         list-style-type: none;
         margin-bottom: 1rem; }
         body.donate.donate .big-impact .activities ul li h3 {
-          font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+          font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
           font-size: 1.3rem;
           font-weight: 500;
           margin-bottom: 0; }
         body.donate.donate .big-impact .activities ul li p {
           margin-top: 0.5rem;
-          font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+          font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
           font-size: 0.9rem; }
   body.donate.donate .big-impact .map {
     float: left;
@@ -2082,16 +2082,16 @@ body.donate.donate .big-impact {
       margin-right: 0; }
     body.donate.donate .big-impact .map .land {
       fill: none;
-      stroke: rgba(70, 109, 152, 0.4); }
+      stroke: rgba(63, 151, 204, 0.4); }
     body.donate.donate .big-impact .map .state-boundary {
       fill: none;
-      stroke: rgba(70, 109, 152, 0.2); }
+      stroke: rgba(63, 151, 204, 0.2); }
     body.donate.donate .big-impact .map .city {
-      fill: #466D98; }
+      fill: #3F97CC; }
     body.donate.donate .big-impact .map .footprint {
-      fill: rgba(70, 109, 152, 0.05); }
+      fill: rgba(63, 151, 204, 0.05); }
     body.donate.donate .big-impact .map .outline {
-      fill: rgba(70, 109, 152, 0.05); }
+      fill: rgba(63, 151, 204, 0.05); }
 body.donate.donate .why-contribute ul {
   padding: 0; }
   body.donate.donate .why-contribute ul li {
@@ -2116,7 +2116,7 @@ body.donate.donate .why-contribute ul {
         body.donate.donate .why-contribute ul li:nth-child(2n) {
           margin-right: 0; } }
     body.donate.donate .why-contribute ul li a {
-      color: #333;
+      color: #686868;
       text-decoration: none; }
       body.donate.donate .why-contribute ul li a img {
         width: 50%;
@@ -2130,7 +2130,7 @@ body.donate.receipt .thanks {
   margin-right: 2.35765%;
   width: 100%;
   margin-right: 0;
-  background: #72CB99;
+  background: #84dcc6;
   color: #fff;
   padding: 2.35765%;
   margin-bottom: 2rem; }
@@ -2159,7 +2159,7 @@ body.donate.receipt .receipt {
     body.donate.receipt .receipt .donation span {
       display: block; }
     body.donate.receipt .receipt .donation .amount {
-      font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
       font-size: 3.5rem;
       font-weight: 700; }
   body.donate.receipt .receipt .donated-by, body.donate.receipt .receipt .donated-to {
@@ -2172,12 +2172,12 @@ body.donate.receipt .receipt {
     body.donate.receipt .receipt .donated-by h2, body.donate.receipt .receipt .donated-by body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li article body.donate.receipt .receipt .donated-by .name, body.donate.receipt .receipt .donated-to h2, body.donate.receipt .receipt .donated-to body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li article body.donate.receipt .receipt .donated-to .name {
       line-height: 0;
       padding-top: 0.5rem;
-      font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
       font-size: 1.3rem;
       font-weight: 500; }
     body.donate.receipt .receipt .donated-by span.name, body.donate.receipt .receipt .donated-to span.name {
       font-weight: 700;
-      color: #333;
+      color: #686868;
       text-decoration: none;
       display: block;
       margin-top: 1rem; }
@@ -2191,7 +2191,7 @@ body.donate.receipt .legal {
   clear: both;
   text-align: center;
   width: 50%;
-  border: 1px solid #333;
+  border: 1px solid #686868;
   margin: 0 auto; }
   body.donate.receipt .legal p {
     font-size: 0.7rem;
@@ -2209,32 +2209,32 @@ body.donate.receipt .recurring {
       border: 0;
       font-size: 0.875rem;
       font-weight: 500;
-      color: #333;
+      color: #686868;
       text-decoration: underline; }
       body.donate.receipt .recurring form input[type="submit"]:hover {
         background-color: transparent;
-        color: #333; }
+        color: #686868; }
 
 body.about.about .wrap section > header {
   margin-bottom: 3rem; }
   body.about.about .wrap section > header h2, body.about.about .wrap section > header section.team .key.people ul li article .name, body.about.about .wrap section.team .key.people ul li article section > header .name {
     margin-top: 0;
     margin-bottom: 0;
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 2.5rem;
     font-weight: 200;
     text-align: center; }
   body.about.about .wrap section > header p {
     margin-top: 0;
     color: #bbb;
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 1rem;
     text-align: center; }
 body.about.about .wrap section.mission article {
   max-width: 40rem;
   margin: -1rem auto 4rem; }
   body.about.about .wrap section.mission article p {
-    font-family: "proxima-nova", "Proxima Nova", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 1rem; }
 body.about.about .wrap section.mission ul.principles {
   padding: 0; }
@@ -2277,7 +2277,7 @@ body.about.about .wrap section.results:before, body.about.about .wrap section.re
   margin-bottom: 4rem;
   content: "";
   display: block;
-  border-top: 1px solid #AAA;
+  border-top: 1px solid #8A8A8A;
   clear: both; }
 body.about.about .wrap section.results article {
   margin-bottom: 4rem;
@@ -2298,13 +2298,13 @@ body.about.about .wrap section.results article {
       margin: 0; }
       body.about.about .wrap section.results article ul li .pie {
         margin-right: 1rem;
-        color: #F8F8FA; }
+        color: #fff; }
 body.about.about .wrap section.nation:after {
   margin-top: 4rem;
   margin-bottom: 4rem;
   content: "";
   display: block;
-  border-top: 1px solid #AAA;
+  border-top: 1px solid #8A8A8A;
   clear: both; }
 body.about.about .wrap section.nation .map {
   float: left;
@@ -2315,16 +2315,16 @@ body.about.about .wrap section.nation .map {
     margin-right: 0; }
   body.about.about .wrap section.nation .map .land {
     fill: none;
-    stroke: #AAA; }
+    stroke: #8A8A8A; }
   body.about.about .wrap section.nation .map .state-boundary {
     fill: none;
-    stroke: rgba(170, 170, 170, 0.3); }
+    stroke: rgba(138, 138, 138, 0.3); }
   body.about.about .wrap section.nation .map .city {
-    fill: #466D98; }
+    fill: #ff686b; }
   body.about.about .wrap section.nation .map .footprint {
-    fill: rgba(70, 109, 152, 0.05); }
+    fill: rgba(255, 104, 107, 0.05); }
   body.about.about .wrap section.nation .map .outline {
-    fill: rgba(70, 109, 152, 0.05); }
+    fill: rgba(255, 104, 107, 0.05); }
 body.about.about .wrap section.nation .cities {
   float: left;
   display: block;
@@ -2386,7 +2386,7 @@ body.about.about .wrap section.team .key.people ul {
         display: block; }
       body.about.about .wrap section.team .key.people ul li article .title {
         font-size: 0.8rem;
-        color: #AAA;
+        color: #8A8A8A;
         font-weight: 300;
         margin: 0;
         display: block; }
