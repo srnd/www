@@ -22,11 +22,11 @@ body.home.index
                 margin-top: 2rem
             .land
                 fill: none
-                stroke: $color-gray
+                stroke: $color-gray-light
 
             .state-boundary
                 fill: none
-                stroke: transparentize($color-gray, 0.7)
+                stroke: transparentize($color-gray-light, 0.7)
 
             .city
                 fill: $color-blue
@@ -84,6 +84,31 @@ body.home.index
                         img
                             +span-columns(5)
 
+                section.quote
+                    +span-columns(8)
+                    +shift(2)
+                    +omega
+                    padding: 4rem 0 1rem
+                    &:before
+                        margin: 0 auto 3rem
+                        content: ""
+                        display: block
+                        border-top: 1px solid $color-gray-light
+                        width: 30%
+                    blockquote
+                        padding: 0 0 0 2rem
+                        margin: 0
+                        border-left: 3px solid $color-gray
+                    .attr
+                        text-align: center
+                        .name
+                            display: block
+                            font-weight: 700
+                        .title
+                            display: none
+                        .org
+                            display: block
+
 
             section.codeday
                 .video
@@ -110,7 +135,7 @@ body.home.index
 
                     content: ""
                     display: block
-                    border-top: 1px solid $color-gray
+                    border-top: 1px solid $color-gray-light
 
                 @include span-columns(12)
                 h2

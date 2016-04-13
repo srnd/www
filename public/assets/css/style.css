@@ -130,7 +130,7 @@ body.donate.donate .contribution-info > nav ul {
   body.donate.donate .contribution-info > nav ul a {
     display: inline-block;
     background-color: #fff;
-    border: 1px solid #8A8A8A;
+    border: 1px solid #BDBDBD;
     color: #686868;
     line-height: 3rem;
     margin-right: -5px;
@@ -155,7 +155,7 @@ body.donate.donate .contribution-info > nav ul {
       margin: auto;
       z-index: 2; }
     body.donate.donate .contribution-info > nav ul a:before {
-      border-left-color: #8A8A8A;
+      border-left-color: #BDBDBD;
       margin-left: 1px;
       z-index: 1; }
     body.donate.donate .contribution-info > nav ul a:after {
@@ -226,7 +226,7 @@ body > footer {
       padding-right: 1rem; } }
   body > footer section p, body > footer section input.copier, body > footer section li, body > footer section a, body > footer section a:visited, body > footer section h2, body > footer body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap body > footer section.team .key.people ul li article .name {
     font-size: 0.9rem;
-    color: #8A8A8A;
+    color: #BDBDBD;
     line-height: 1.6; }
   body > footer section h2, body > footer body.about.about .wrap section.team .key.people ul li article .name, body.about.about .wrap body > footer section.team .key.people ul li article .name {
     font-size: 1rem; }
@@ -504,7 +504,7 @@ body.build.post > .wrap > .content > article > .text .wp-caption p {
   padding: 0;
   font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   font-size: 0.6rem;
-  color: #8A8A8A;
+  color: #BDBDBD;
   line-height: 1rem;
   text-transform: uppercase; }
 body.build.post > .wrap > .content > article > .text .wp-caption.alignleft {
@@ -909,10 +909,10 @@ body.home.index > .wrap .map {
         margin-right: 0; } }
   body.home.index > .wrap .map .land {
     fill: none;
-    stroke: #8A8A8A; }
+    stroke: #DFDFDF; }
   body.home.index > .wrap .map .state-boundary {
     fill: none;
-    stroke: rgba(138, 138, 138, 0.3); }
+    stroke: rgba(223, 223, 223, 0.3); }
   body.home.index > .wrap .map .city {
     fill: #3F97CC; }
   body.home.index > .wrap .map .footprint {
@@ -981,6 +981,35 @@ body.home.index > .wrap > section.content section.impact ul {
       width: 40.29137%; }
       body.home.index > .wrap > section.content section.impact ul li img:last-child {
         margin-right: 0; }
+body.home.index > .wrap > section.content section.impact section.quote {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 65.88078%;
+  margin-left: 17.05961%;
+  margin-right: 0;
+  padding: 4rem 0 1rem; }
+  body.home.index > .wrap > section.content section.impact section.quote:last-child {
+    margin-right: 0; }
+  body.home.index > .wrap > section.content section.impact section.quote:before {
+    margin: 0 auto 3rem;
+    content: "";
+    display: block;
+    border-top: 1px solid #DFDFDF;
+    width: 30%; }
+  body.home.index > .wrap > section.content section.impact section.quote blockquote {
+    padding: 0 0 0 2rem;
+    margin: 0;
+    border-left: 3px solid #BDBDBD; }
+  body.home.index > .wrap > section.content section.impact section.quote .attr {
+    text-align: center; }
+    body.home.index > .wrap > section.content section.impact section.quote .attr .name {
+      display: block;
+      font-weight: 700; }
+    body.home.index > .wrap > section.content section.impact section.quote .attr .title {
+      display: none; }
+    body.home.index > .wrap > section.content section.impact section.quote .attr .org {
+      display: block; }
 body.home.index > .wrap > section.content section.codeday .video {
   float: left;
   display: block;
@@ -1027,13 +1056,13 @@ body.home.index > .wrap > section.content section.featured {
     margin-bottom: 3rem;
     content: "";
     display: block;
-    border-top: 1px solid #8A8A8A; }
+    border-top: 1px solid #DFDFDF; }
   body.home.index > .wrap > section.content section.featured:last-child {
     margin-right: 0; }
   body.home.index > .wrap > section.content section.featured h2, body.about.about body.home.index > .wrap > section.content section.featured section.team .key.people ul li article .name, body.about.about body.home.index > .wrap > section.content section.team .key.people ul li article section.featured .name {
     margin-top: -1rem;
     margin-bottom: 1rem;
-    color: #8A8A8A;
+    color: #BDBDBD;
     font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 1rem;
     font-weight: 500;
@@ -1165,7 +1194,7 @@ body.build.post .text {
   body.build.post .text hr {
     clear: both;
     border: 0;
-    border-top: 1px solid #8A8A8A;
+    border-top: 1px solid #BDBDBD;
     width: 100%;
     margin: 3rem 0; }
   @media screen and (max-width: 700px) {
@@ -1364,7 +1393,7 @@ body.press .faq:before, body.press .faq:after {
   display: block;
   width: 40%;
   margin: 3rem auto;
-  border-top: 1px solid #8A8A8A; }
+  border-top: 1px solid #BDBDBD; }
 body.press ul.assets {
   display: block;
   padding: 0; }
@@ -1408,7 +1437,7 @@ body.press .releases:before {
   display: block;
   width: 40%;
   margin: 3rem auto;
-  border-top: 1px solid #8A8A8A; }
+  border-top: 1px solid #BDBDBD; }
 body.press .releases ul {
   padding: 0; }
   body.press .releases ul li {
@@ -1479,7 +1508,7 @@ body.press.release .release {
 body.press.release .overview {
   padding-left: 2rem; }
   body.press.release .overview, body.press.release .overview a {
-    color: #8A8A8A; }
+    color: #BDBDBD; }
   body.press.release .overview .presskit h3 {
     margin-top: 0; }
   @media screen and (max-width: 700px) {
@@ -1496,14 +1525,14 @@ body.admin.events ul.events {
     margin: 0 0.5rem 0 0; }
     body.admin.events ul.events li a {
       text-decoration: none;
-      color: #8A8A8A; }
+      color: #BDBDBD; }
     body.admin.events ul.events li.new a {
       display: block;
       width: 100%;
       font-weight: 700;
       font-size: 2rem;
       text-align: center;
-      border: 1px solid #8A8A8A;
+      border: 1px solid #BDBDBD;
       border-top-width: 2.2rem;
       padding: 0.5rem 0; }
     body.admin.events ul.events li.loaded .month, body.admin.events ul.events li.loaded .year {
@@ -1522,7 +1551,7 @@ body.admin.events ul.events {
       padding: 0.1rem 0;
       font-size: 0.75rem;
       width: 100%;
-      background-color: #8A8A8A;
+      background-color: #BDBDBD;
       color: #fff; }
     body.admin.events ul.events li .day {
       display: block;
@@ -1530,7 +1559,7 @@ body.admin.events ul.events {
       font-weight: 700;
       font-size: 2rem;
       text-align: center;
-      border: 1px solid #8A8A8A;
+      border: 1px solid #BDBDBD;
       border-top: none;
       padding: 0.5rem 0; }
     body.admin.events ul.events li .name {
@@ -1765,7 +1794,7 @@ body.donate.donate .contribution-info {
     width: 100%;
     margin-bottom: 2.35765%;
     padding: 1.17883%;
-    border: 1px solid #8A8A8A;
+    border: 1px solid #BDBDBD;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
     transition: box-shadow 0.45s ease 0s, border-color 0.45s ease-in-out 0s;
     color: #686868;
@@ -1776,8 +1805,8 @@ body.donate.donate .contribution-info {
     body.donate.donate .contribution-info input[type="text"]:last-child, body.donate.donate .contribution-info input[type="email"]:last-child, body.donate.donate .contribution-info input[type="number"]:last-child, body.donate.donate .contribution-info .donation .amount label:last-child {
       margin-right: 0; }
     body.donate.donate .contribution-info input[type="text"]:focus, body.donate.donate .contribution-info input[type="email"]:focus, body.donate.donate .contribution-info input[type="number"]:focus, body.donate.donate .contribution-info .donation .amount label:focus {
-      box-shadow: 0px 0px 5px #575757;
-      border-color: #575757;
+      box-shadow: 0px 0px 5px #8a8a8a;
+      border-color: #8a8a8a;
       outline: medium none; }
   body.donate.donate .contribution-info .donation .amount {
     margin-bottom: 1rem;
@@ -1798,7 +1827,7 @@ body.donate.donate .contribution-info {
       margin-right: 2.35765%;
       width: 23.23176%;
       border-radius: 3px;
-      border: 2px solid #8A8A8A;
+      border: 2px solid #BDBDBD;
       cursor: pointer;
       text-align: center;
       color: #686868;
@@ -1878,7 +1907,7 @@ body.donate.donate .contribution-info {
     margin-right: 2.35765%;
     width: 65.88078%;
     text-align: center;
-    border-right: 1px solid #8A8A8A;
+    border-right: 1px solid #BDBDBD;
     padding: 1rem 2rem 1rem 1rem; }
     body.donate.donate .contribution-info .payment .onsite-gateway:last-child {
       margin-right: 0; }
@@ -1895,7 +1924,7 @@ body.donate.donate .contribution-info {
       background-size: cover;
       background-repeat: none;
       background-position: 0 0;
-      border: 5px solid #8A8A8A;
+      border: 5px solid #BDBDBD;
       padding: 7rem 2rem 3rem;
       max-width: 23rem;
       margin: 0 auto 1rem; }
@@ -1959,7 +1988,7 @@ body.donate.donate .contribution-info {
       body.donate.donate .contribution-info .payment .alternate-gateways:last-child, body.donate.donate .contribution-info .payment .onsite-gateway:last-child {
         margin-right: 0; }
     body.donate.donate .contribution-info .payment .onsite-gateway {
-      border-bottom: 1px solid #8A8A8A;
+      border-bottom: 1px solid #BDBDBD;
       border-right: none;
       padding-right: 0;
       padding-bottom: 1rem; }
@@ -2051,7 +2080,7 @@ body.donate.donate .big-impact {
     margin-bottom: 4rem;
     content: "";
     display: block;
-    border-top: 1px solid #8A8A8A; }
+    border-top: 1px solid #BDBDBD; }
   body.donate.donate .big-impact .activities {
     float: left;
     display: block;
@@ -2277,7 +2306,7 @@ body.about.about .wrap section.results:before, body.about.about .wrap section.re
   margin-bottom: 4rem;
   content: "";
   display: block;
-  border-top: 1px solid #8A8A8A;
+  border-top: 1px solid #BDBDBD;
   clear: both; }
 body.about.about .wrap section.results article {
   margin-bottom: 4rem;
@@ -2304,7 +2333,7 @@ body.about.about .wrap section.nation:after {
   margin-bottom: 4rem;
   content: "";
   display: block;
-  border-top: 1px solid #8A8A8A;
+  border-top: 1px solid #BDBDBD;
   clear: both; }
 body.about.about .wrap section.nation .map {
   float: left;
@@ -2315,10 +2344,10 @@ body.about.about .wrap section.nation .map {
     margin-right: 0; }
   body.about.about .wrap section.nation .map .land {
     fill: none;
-    stroke: #8A8A8A; }
+    stroke: #BDBDBD; }
   body.about.about .wrap section.nation .map .state-boundary {
     fill: none;
-    stroke: rgba(138, 138, 138, 0.3); }
+    stroke: rgba(189, 189, 189, 0.3); }
   body.about.about .wrap section.nation .map .city {
     fill: #ff686b; }
   body.about.about .wrap section.nation .map .footprint {
@@ -2386,7 +2415,7 @@ body.about.about .wrap section.team .key.people ul {
         display: block; }
       body.about.about .wrap section.team .key.people ul li article .title {
         font-size: 0.8rem;
-        color: #8A8A8A;
+        color: #BDBDBD;
         font-weight: 300;
         margin: 0;
         display: block; }
