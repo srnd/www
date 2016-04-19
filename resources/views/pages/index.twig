@@ -5,54 +5,51 @@
     <section class="hero">
         <article>
             <section class="info">
-                <p class="mission">Coding shows students they can change the world. We get them to take the first step.</p>
-                <p class="what">Since 2009, StudentRND has convinced tens of thousands of students with no prior interest to give coding a try. We run programs in 38 cities nation-wide.</p>
+                <span class="lead">Coding shows students they can change the world, but</span>
+                <span class="primary">Most students still don't want to learn to code.</span>
+                <span class="mission">Since 2009, we've inspired tens of thousands of students to give coding a try,
+                                      with a focus on women and minorities. We run programs in 40 cities nationwide.</span>
             </section>
         </article>
     </section>
-    {% if not fundraising.active %}
-        <a class="donate" href="/donate">
-            We are funded by donations, and spend $36 per participant to bring tech education to your city.
-            <span class="link">Please donate now.</span>
-        </a>
-    {% endif %}
+    <a class="donate" href="/donate">
+        We are funded by donations, and spend $36 per participant to bring tech education to your city.
+        <span class="link">Please donate now.</span>
+    </a>
 {% endblock %}
 {% block content %}
     <section class="impact">
         <header>
-            <h2>The strongest engagement with students who need it.</h2>
-            <p>Through years of experience and refinement, we've developed a model which is proven to get
-               girls, minorities, and students of low socioeconomic status to get interested in coding, and
-               stay interested in coding.</p>
+            <h2>CodeDay: Sparking interest in the students who need it.</h2>
+            <p>Our model is proven to get girls, minorities, and students from low-income backgrounds to start coding
+               and stay interested.</p>
         </header>
 
-        <ul>
-            <li>
-                <img src="/assets/img/diverse_team.jpg" />
-                <h3>The most diverse tech programs.</h3>
-                <p>43% of our participants are girls, 38% are from Title I schools, and 28% are from a
-                   under-represented ethnic group.</p>
-            </li>
-            <li>
-                <img src="/assets/img/press/assets/codeday/01.jpg" />
-                <h3>Low cost, high return.</h3>
-                <p>We inspire students with no prior interest in coding. After attending an event, 80% of these students
-                   are still pursuing coding three months later.</p>
-            </li>
-        </ul>
-        <section class="quote">
-            <blockquote>
-                <p>The Salinas Valley is known as the “Salad Bowl Capital of the World” due to its amazing agricultural community. Unfortunately, it is also known as one of the 13 most dangerous cities in California due to the level of gang violence. My goal as an administrator of Migrant Education Region 16 is to expose my students to the vast opportunities that exist outside of our valley.</p>
-                <p>CodeDay provided our students with a first stepping-stone into the world of &ldquo;coders&rdquo;. Students entered their first CodeDay with no knowledge of what to expect. They were welcomed with open arms, provided with mentors, taught basic coding skills, and began to see themselves as capable of being part of this &ldquo;world.&rdquo;</p>
-                <p>My students are now confident, not just as future &ldquo;coders,&rdquo; but as future participants in the careers that STEM has to offer!</p>
-            </blockquote>
-            <div class="attr">
-                <span class="name">Summer Prather-Smith</span>
-                <span class="title">Director of Migrant Education Region XVI</span>
-                <span class="org">Monterey County Office of Education</span>
-            </div>
-        </section>
+        <div class="video">
+                    <iframe src="//fast.wistia.net/embed/iframe/r4avh9mp2g?videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" id="splash-video" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
+                    <script src="//fast.wistia.net/assets/external/iframe-api-v1.js"></script>
+        </div>
+
+        <div class="details">
+            <p><span>CodeDay gives students the chance to work on a project which excites
+               them individually,</span> attracting students who don't normally identify as "coders":</p>
+            <ul class="diversity">
+                <li><span class="pie">43,57</span>43% girls</li>
+                <li><span class="pie">38,62</span>38% low-income</li>
+                <li><span class="pie">28,72</span>28% minorities</li>
+            </ul>
+            <p>Beginner attendees report sustained changes in our 2.5mo follow-up:</p>
+             <ul class="outcomes">
+                <li><span class="pie">80,20</span>80% still coding</li>
+                <li><span class="pie">74,26</span>74% attend other events</li>
+            </ul>
+           <p>We've run CodeDay since 2011. Early attendees are now working at Google, Microsoft, Y Combinator, Splunk,
+              etc. Learn more at <a href="https://codeday.org/">codeday.org.</a></p>
+
+
+        </div>
     </section>
+
 
     <section class="featured">
         <h2>38 Cities Nationwide</h2>
@@ -68,34 +65,27 @@
         </ul>
     </section>
 
-    <section class="codeday">
-        <header>
-            <h2>CodeDay: A proven program for getting students started.</h2>
-            <p>Plenty of programs support students who want to learn to code, but most students aren't yet interested.
-                Our flagship program, CodeDay, is focused on getting students to take the first step: trying out coding.
-                Since 2009 we've convinced tens of thousands to do just that.</p>
-        </header>
 
-        <div class="video">
-            <iframe src="//fast.wistia.net/embed/iframe/r4avh9mp2g?videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" id="splash-video" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
-            <script src="//fast.wistia.net/assets/external/iframe-api-v1.js"></script>
-        </div>
-
-        <div class="details">
-            <p>CodeDay targets students with no prior coding experience, and offers them an opportunity to code
-                something which interests them individually, rather than a standard assignment.</p>
-            <p>At CodeDay, students pitch ideas for apps or games they want to see exist, then spend the next 24 hours
-                creating them while learning more about code, with the help our of staff and mentors.</p>
-            <p>Showing students the creative side of code convinces most to pursue coding further.</p>
-            <p>Students regularly tell us CodeDay is one of the most meaningful things they've done. Over 80% of our
-                attendees continue to code after attending; strengthening the local tech community and empowering
-                low-income students and minority groups.</p>
-            <p>For more information, visit <a href="https://codeday.org/">CodeDay.org.</a></p>
+    <section class="quote">
+        <blockquote>
+            <p>The Salinas Valley is known as the “Salad Bowl Capital of the World” due to its amazing agricultural community. Unfortunately, it is also known as one of the 13 most dangerous cities in California due to the level of gang violence. My goal as an administrator of Migrant Education Region 16 is to expose my students to the vast opportunities that exist outside of our valley.</p>
+            <p>CodeDay provided our students with a first stepping-stone into the world of &ldquo;coders&rdquo;. Students entered their first CodeDay with no knowledge of what to expect. They were welcomed with open arms, provided with mentors, taught basic coding skills, and began to see themselves as capable of being part of this &ldquo;world.&rdquo;</p>
+            <p>My students are now confident, not just as future &ldquo;coders,&rdquo; but as future participants in the careers that STEM has to offer!</p>
+        </blockquote>
+        <div class="attr">
+            <span class="name">Summer Prather-Smith</span>
+            <span class="title">Director of Migrant Education Region XVI</span>
+            <span class="org">Monterey County Office of Education</span>
         </div>
     </section>
-
 {% endblock %}
 {% block scripts %}
+    <script src="/assets/js/jquery.sparkline.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.pie').sparkline('html', {type: "pie", sliceColors: ['#3F97CC', '#DFDFDF'], offset: -90});
+        });
+    </script>
     <script type="text/javascript">
         (function(){
             var previous_width = null;

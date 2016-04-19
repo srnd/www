@@ -1,23 +1,27 @@
 body.home.index > section.hero
-    height: 80%
+    height: 20rem
     width: 100%
     min-height: 30rem
     margin-top: -5rem
     padding-top: 5rem
     position: relative
     background:
-        image: url(../img/wider.jpg)
+        image: url(../img/press/assets/codeday/24.jpg)
         color: $color-red
         size: cover
         position: 50% 40%
         repeat: no-repeat
 
-    @include media($media-mobile)
-        height: initial
-        min-height: 40rem
-        background:
-            image: url(../img/widermo.jpg)
-            position: 50% 50%
+    &:after
+        content: ""
+        opacity: 0.57
+        background-image: linear-gradient(-180deg, transparent 0%, #000000 50%)
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        z-index: 1
 
 
     &::selection
@@ -31,22 +35,42 @@ body.home.index > section.hero
     article
         @include outer-container
         clear: both
+        z-index: 10
 
         position: absolute
         left: 0
         right: 0
         top: 25%
 
-        @include media($media-mobile)
-            position: initial
-            top: initial
+        +media($media-mobile)
+            padding: 0 1rem
 
-
-        .info, .fundraise-ask
-            @include span-columns(5)
-            @include shift(7)
+        .info
+            +span-columns(12)
+            +omega
             margin-top: 2.5rem
-            text-align: right
+            text-align: center
+
+            .primary
+                font:
+                    family: $font-family-header
+                    weight: 900
+                    size: 3.5rem
+                color: $color-white
+                line-height: 1.2
+                padding: 1rem 0
+                display: block
+                clear: both
+
+            .mission, .lead
+                +span-columns(8)
+                +shift(2)
+                +omega
+                display: block
+                font:
+                    family: $font-family-header
+                    size: 1.25rem
+                color: $color-white
 
             @include media($media-mobile)
                 @include span-columns(4)
@@ -55,22 +79,11 @@ body.home.index > section.hero
                 text-align: center
                 margin-top: 0
 
-            .mission
-                font:
-                    family: $font-family-header
-                    weight: 900
-                    size: 2rem
-                color: $color-black
-                line-height: 1.2
-                margin:
-                    bottom: 0
-                    top: 0
-
-            .what
-                font:
-                    family: $font-family-header
-                    size: 1rem
-                color: lighten($color-black, 20)
+                .primary
+                    font-size: 2.75rem
+                .mission, .lead
+                    +span-columns(4)
+                    +shift(0)
 body > a.donate
     display: block
     width: 100%

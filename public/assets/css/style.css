@@ -367,23 +367,27 @@ body > .title {
       margin-top: 0; }
 
 body.home.index > section.hero {
-  height: 80%;
+  height: 20rem;
   width: 100%;
   min-height: 30rem;
   margin-top: -5rem;
   padding-top: 5rem;
   position: relative;
-  background-image: url(../img/wider.jpg);
+  background-image: url(../img/press/assets/codeday/24.jpg);
   background-color: #ff686b;
   background-size: cover;
   background-position: 50% 40%;
   background-repeat: no-repeat; }
-  @media screen and (max-width: 700px) {
-    body.home.index > section.hero {
-      height: initial;
-      min-height: 40rem;
-      background-image: url(../img/widermo.jpg);
-      background-position: 50% 50%; } }
+  body.home.index > section.hero:after {
+    content: "";
+    opacity: 0.57;
+    background-image: linear-gradient(-180deg, transparent 0%, #000000 50%);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1; }
   body.home.index > section.hero::selection {
     background: #ffffff;
     color: #ff686b; }
@@ -395,6 +399,7 @@ body.home.index > section.hero {
     margin-left: auto;
     margin-right: auto;
     clear: both;
+    z-index: 10;
     position: absolute;
     left: 0;
     right: 0;
@@ -405,20 +410,41 @@ body.home.index > section.hero {
       clear: both; }
     @media screen and (max-width: 700px) {
       body.home.index > section.hero article {
-        position: initial;
-        top: initial; } }
-    body.home.index > section.hero article .info, body.home.index > section.hero article .fundraise-ask {
+        padding: 0 1rem; } }
+    body.home.index > section.hero article .info {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 40.29137%;
-      margin-left: 59.70863%;
+      width: 100%;
+      margin-right: 0;
       margin-top: 2.5rem;
-      text-align: right; }
-      body.home.index > section.hero article .info:last-child, body.home.index > section.hero article .fundraise-ask:last-child {
+      text-align: center; }
+      body.home.index > section.hero article .info:last-child {
         margin-right: 0; }
+      body.home.index > section.hero article .info .primary {
+        font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
+        font-weight: 900;
+        font-size: 3.5rem;
+        color: #fff;
+        line-height: 1.2;
+        padding: 1rem 0;
+        display: block;
+        clear: both; }
+      body.home.index > section.hero article .info .mission, body.home.index > section.hero article .info .lead {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 65.88078%;
+        margin-left: 17.05961%;
+        margin-right: 0;
+        display: block;
+        font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
+        font-size: 1.25rem;
+        color: #fff; }
+        body.home.index > section.hero article .info .mission:last-child, body.home.index > section.hero article .info .lead:last-child {
+          margin-right: 0; }
       @media screen and (max-width: 700px) {
-        body.home.index > section.hero article .info, body.home.index > section.hero article .fundraise-ask {
+        body.home.index > section.hero article .info {
           float: left;
           display: block;
           margin-right: 7.42297%;
@@ -427,20 +453,18 @@ body.home.index > section.hero {
           margin-left: 0%;
           text-align: center;
           margin-top: 0; }
-          body.home.index > section.hero article .info:last-child, body.home.index > section.hero article .fundraise-ask:last-child {
-            margin-right: 0; } }
-      body.home.index > section.hero article .info .mission, body.home.index > section.hero article .fundraise-ask .mission {
-        font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
-        font-weight: 900;
-        font-size: 2rem;
-        color: #686868;
-        line-height: 1.2;
-        margin-bottom: 0;
-        margin-top: 0; }
-      body.home.index > section.hero article .info .what, body.home.index > section.hero article .fundraise-ask .what {
-        font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
-        font-size: 1rem;
-        color: #9b9b9b; }
+          body.home.index > section.hero article .info:last-child {
+            margin-right: 0; }
+          body.home.index > section.hero article .info .primary {
+            font-size: 2.75rem; }
+          body.home.index > section.hero article .info .mission, body.home.index > section.hero article .info .lead {
+            float: left;
+            display: block;
+            margin-right: 7.42297%;
+            width: 100%;
+            margin-left: 0%; }
+            body.home.index > section.hero article .info .mission:last-child, body.home.index > section.hero article .info .lead:last-child {
+              margin-right: 0; } }
 
 body > a.donate {
   display: block;
@@ -879,12 +903,6 @@ body.contact.contact section.contacts section {
       body.contact.contact section.contacts section ul li span.address span {
         display: block; }
 
-body.home.index > a.donate {
-  background-color: #ff686b; }
-body.home.index > section.hero {
-  background-color: #fff; }
-body.home.index > header h1 a, body.home.index > header nav ul li a {
-  color: #b5b5b5; }
 body.home.index > .wrap .map {
   float: left;
   display: block;
@@ -930,7 +948,7 @@ body.home.index > .wrap > section.content section.codeday {
     margin-right: 0; }
   body.home.index > .wrap > section.content section.impact header,
   body.home.index > .wrap > section.content section.codeday header {
-    margin-bottom: 3rem; }
+    margin-bottom: 4rem; }
     body.home.index > .wrap > section.content section.impact header h2, body.about.about body.home.index > .wrap > section.content section.impact header section.team .key.people ul li article .name, body.about.about body.home.index > .wrap > section.content section.team .key.people ul li article section.impact header .name,
     body.home.index > .wrap > section.content section.codeday header h2,
     body.about.about body.home.index > .wrap > section.content section.codeday header section.team .key.people ul li article .name,
@@ -944,108 +962,119 @@ body.home.index > .wrap > section.content section.codeday {
     body.home.index > .wrap > section.content section.impact header p,
     body.home.index > .wrap > section.content section.codeday header p {
       margin-top: 0;
-      color: #bbb;
+      color: #686868;
       font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
       font-size: 1rem;
       text-align: center; }
-body.home.index > .wrap > section.content section.impact ul {
-  padding: 0; }
-  body.home.index > .wrap > section.content section.impact ul li {
+body.home.index > .wrap > section.content section.impact {
+  padding: 2rem 0; }
+  body.home.index > .wrap > section.content section.impact .video {
     float: left;
     display: block;
     margin-right: 2.35765%;
-    width: 48.82117%;
-    vertical-align: top;
-    list-style-type: none; }
-    body.home.index > .wrap > section.content section.impact ul li:last-child {
-      margin-right: 0; }
-    body.home.index > .wrap > section.content section.impact ul li:nth-child(2n) {
+    width: 48.82117%; }
+    body.home.index > .wrap > section.content section.impact .video:last-child {
       margin-right: 0; }
     @media screen and (max-width: 700px) {
-      body.home.index > .wrap > section.content section.impact ul li {
+      body.home.index > .wrap > section.content section.impact .video {
         float: left;
         display: block;
         margin-right: 7.42297%;
         width: 100%;
         margin-right: 0; }
-        body.home.index > .wrap > section.content section.impact ul li:last-child {
-          margin-right: 0; }
-        body.home.index > .wrap > section.content section.impact ul li:not(:first-child) {
-          padding-top: 2.5rem; } }
-    body.home.index > .wrap > section.content section.impact ul li h3 {
+        body.home.index > .wrap > section.content section.impact .video:last-child {
+          margin-right: 0; } }
+  body.home.index > .wrap > section.content section.impact .details {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 48.82117%;
+    margin-right: 0; }
+    body.home.index > .wrap > section.content section.impact .details:last-child {
+      margin-right: 0; }
+    @media screen and (max-width: 700px) {
+      body.home.index > .wrap > section.content section.impact .details {
+        float: left;
+        display: block;
+        margin-right: 7.42297%;
+        width: 100%;
+        margin-right: 0;
+        padding: 3rem 2rem; }
+        body.home.index > .wrap > section.content section.impact .details:last-child {
+          margin-right: 0; } }
+    body.home.index > .wrap > section.content section.impact .details p:first-child {
       margin-top: 0; }
-    body.home.index > .wrap > section.content section.impact ul li img {
-      float: left;
+    body.home.index > .wrap > section.content section.impact .details p {
+      clear: both; }
+      body.home.index > .wrap > section.content section.impact .details p span {
+        font-weight: bold; }
+    body.home.index > .wrap > section.content section.impact .details ul {
+      padding: 0;
+      margin: 1rem 0 2rem;
+      clear: both;
       display: block;
-      margin-right: 2.35765%;
-      width: 40.29137%; }
-      body.home.index > .wrap > section.content section.impact ul li img:last-child {
-        margin-right: 0; }
-body.home.index > .wrap > section.content section.impact section.quote {
+      margin-right: 0; }
+      body.home.index > .wrap > section.content section.impact .details ul:after {
+        content: "";
+        display: table;
+        clear: both; }
+      body.home.index > .wrap > section.content section.impact .details ul li {
+        list-style-type: none;
+        text-align: center; }
+      body.home.index > .wrap > section.content section.impact .details ul.diversity li {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 31.76157%; }
+        body.home.index > .wrap > section.content section.impact .details ul.diversity li:last-child {
+          margin-right: 0; }
+      body.home.index > .wrap > section.content section.impact .details ul.outcomes {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 82.94039%;
+        margin-left: 8.5298%; }
+        body.home.index > .wrap > section.content section.impact .details ul.outcomes:last-child {
+          margin-right: 0; }
+        body.home.index > .wrap > section.content section.impact .details ul.outcomes li {
+          float: left;
+          display: block;
+          margin-right: 2.35765%;
+          width: 48.82117%; }
+          body.home.index > .wrap > section.content section.impact .details ul.outcomes li:last-child {
+            margin-right: 0; }
+body.home.index > .wrap > section.content section.quote {
   float: left;
   display: block;
   margin-right: 2.35765%;
   width: 65.88078%;
   margin-left: 17.05961%;
   margin-right: 0;
-  padding: 4rem 0 1rem; }
-  body.home.index > .wrap > section.content section.impact section.quote:last-child {
+  padding: 1rem 0 1rem; }
+  body.home.index > .wrap > section.content section.quote:last-child {
     margin-right: 0; }
-  body.home.index > .wrap > section.content section.impact section.quote:before {
-    margin: 0 auto 3rem;
-    content: "";
-    display: block;
-    border-top: 1px solid #DFDFDF;
-    width: 30%; }
-  body.home.index > .wrap > section.content section.impact section.quote blockquote {
+  @media screen and (max-width: 700px) {
+    body.home.index > .wrap > section.content section.quote {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 100%;
+      margin-left: 0%; }
+      body.home.index > .wrap > section.content section.quote:last-child {
+        margin-right: 0; } }
+  body.home.index > .wrap > section.content section.quote blockquote {
     padding: 0 0 0 2rem;
     margin: 0;
     border-left: 3px solid #BDBDBD; }
-  body.home.index > .wrap > section.content section.impact section.quote .attr {
+  body.home.index > .wrap > section.content section.quote .attr {
     text-align: center; }
-    body.home.index > .wrap > section.content section.impact section.quote .attr .name {
+    body.home.index > .wrap > section.content section.quote .attr .name {
       display: block;
       font-weight: 700; }
-    body.home.index > .wrap > section.content section.impact section.quote .attr .title {
+    body.home.index > .wrap > section.content section.quote .attr .title {
       display: none; }
-    body.home.index > .wrap > section.content section.impact section.quote .attr .org {
+    body.home.index > .wrap > section.content section.quote .attr .org {
       display: block; }
-body.home.index > .wrap > section.content section.codeday .video {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 48.82117%; }
-  body.home.index > .wrap > section.content section.codeday .video:last-child {
-    margin-right: 0; }
-  @media screen and (max-width: 700px) {
-    body.home.index > .wrap > section.content section.codeday .video {
-      float: left;
-      display: block;
-      margin-right: 7.42297%;
-      width: 100%;
-      margin-right: 0; }
-      body.home.index > .wrap > section.content section.codeday .video:last-child {
-        margin-right: 0; } }
-body.home.index > .wrap > section.content section.codeday .details {
-  float: left;
-  display: block;
-  margin-right: 2.35765%;
-  width: 48.82117%;
-  margin-right: 0; }
-  body.home.index > .wrap > section.content section.codeday .details:last-child {
-    margin-right: 0; }
-  @media screen and (max-width: 700px) {
-    body.home.index > .wrap > section.content section.codeday .details {
-      float: left;
-      display: block;
-      margin-right: 7.42297%;
-      width: 100%;
-      margin-right: 0; }
-      body.home.index > .wrap > section.content section.codeday .details:last-child {
-        margin-right: 0; } }
-  body.home.index > .wrap > section.content section.codeday .details p:first-child {
-    font-weight: bold;
-    margin-top: 0; }
 body.home.index > .wrap > section.content section.featured {
   float: left;
   display: block;

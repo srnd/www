@@ -1,12 +1,4 @@
 body.home.index
-    & > a.donate
-        background-color: $color-red
-    & > section.hero
-        background-color: #fff
-    & > header
-        h1 a, nav ul li a
-            color: lighten($color-black, 30)
-
     & > .wrap
         .map
             @include span-columns(6)
@@ -44,7 +36,7 @@ body.home.index
             section.codeday
                 @include span-columns(12)
                 header
-                    margin-bottom: 3rem
+                    margin-bottom: 4rem
                     h2
                         margin:
                             top: 0
@@ -57,60 +49,14 @@ body.home.index
 
                     p
                         margin-top: 0
-                        color: #bbb
+                        color: $color-black
                         font:
                             family: $font-family-header
                             size: 1rem
                         text-align: center
 
             section.impact
-                ul
-                    padding: 0
-                    li
-                        +span-columns(6)
-                        vertical-align: top
-                        list-style-type: none
-                        &:nth-child(2n)
-                            +omega
-
-                        @include media($media-mobile)
-                            @include span-columns(4)
-                            @include omega
-                            &:not(:first-child)
-                                padding-top: 2.5rem
-
-                        h3
-                            margin-top: 0
-                        img
-                            +span-columns(5)
-
-                section.quote
-                    +span-columns(8)
-                    +shift(2)
-                    +omega
-                    padding: 4rem 0 1rem
-                    &:before
-                        margin: 0 auto 3rem
-                        content: ""
-                        display: block
-                        border-top: 1px solid $color-gray-light
-                        width: 30%
-                    blockquote
-                        padding: 0 0 0 2rem
-                        margin: 0
-                        border-left: 3px solid $color-gray
-                    .attr
-                        text-align: center
-                        .name
-                            display: block
-                            font-weight: 700
-                        .title
-                            display: none
-                        .org
-                            display: block
-
-
-            section.codeday
+                padding: 2rem 0
                 .video
                     +span-columns(6)
                     @include media($media-mobile)
@@ -122,9 +68,52 @@ body.home.index
                     @include media($media-mobile)
                         +span-columns(4)
                         +omega
+                        padding: 3rem 2rem
                     p:first-child
-                        font-weight: bold
                         margin-top: 0
+                    p
+                        clear: both
+                        span
+                            font-weight: bold
+                    ul
+                        padding: 0
+                        margin: 1rem 0 2rem
+                        clear: both
+                        +row
+                        +omega
+                        li
+                            list-style-type: none
+                            text-align: center
+                        &.diversity li
+                            +span-columns(4)
+                        &.outcomes
+                            +span-columns(10)
+                            +shift(1)
+                            li
+                                +span-columns(6)
+
+            section.quote
+                +span-columns(8)
+                +shift(2)
+                +omega
+                padding: 1rem 0 1rem
+                +media($media-mobile)
+                    +span-columns(4)
+                    +shift(0)
+                blockquote
+                    padding: 0 0 0 2rem
+                    margin: 0
+                    border-left: 3px solid $color-gray
+                .attr
+                    text-align: center
+                    .name
+                        display: block
+                        font-weight: 700
+                    .title
+                        display: none
+                    .org
+                        display: block
+
 
             section.featured
                 &:before,
@@ -136,7 +125,6 @@ body.home.index
                     content: ""
                     display: block
                     border-top: 1px solid $color-gray-light
-
                 @include span-columns(12)
                 h2
                     margin:
