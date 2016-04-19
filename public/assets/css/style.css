@@ -388,6 +388,9 @@ body.home.index > section.hero {
     left: 0;
     right: 0;
     z-index: 1; }
+  @media screen and (max-width: 700px) {
+    body.home.index > section.hero {
+      height: 35rem; } }
   body.home.index > section.hero::selection {
     background: #ffffff;
     color: #ff686b; }
