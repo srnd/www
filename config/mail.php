@@ -8,6 +8,6 @@ return [
     'port' => 587,
     'from' => ['name' => null, 'address' => null],
     'username' => $config['sendgrid']['username'],
-    'password' => $config['sesdgrid']['password'],
+    'password' => $config['sendgrid']['password'],
     'pretend' => false
 ];
