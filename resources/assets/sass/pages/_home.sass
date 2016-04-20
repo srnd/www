@@ -21,13 +21,13 @@ body.home.index
                 stroke: transparentize($color-gray-light, 0.7)
 
             .city
-                fill: $color-blue
+                fill: $color-black
 
             .footprint
-                fill: transparentize($color-blue, 0.95)
+                fill: transparentize($color-black, 0.95)
 
             .outline
-                fill: transparentize($color-blue, 0.95)
+                fill: transparentize($color-black, 0.95)
 
 
 
@@ -56,7 +56,7 @@ body.home.index
                         text-align: center
 
             section.impact
-                padding: 2rem 0
+                padding: 3rem 0
                 .video
                     +span-columns(6)
                     @include media($media-mobile)
@@ -75,15 +75,20 @@ body.home.index
                         clear: both
                         span
                             font-weight: bold
+                    h4
+                        text-align: center
+                        font-size: 1rem
                     ul
                         padding: 0
-                        margin: 1rem 0 2rem
+                        margin: 0 0 2rem
                         clear: both
                         +row
                         +omega
                         li
                             list-style-type: none
                             text-align: center
+                            .pie
+                                margin-right: 1rem
                         &.diversity li
                             +span-columns(4)
                         &.outcomes
@@ -91,6 +96,44 @@ body.home.index
                             +shift(1)
                             li
                                 +span-columns(6)
+                .cta
+                    clear: both
+                    padding-top: 4rem
+                    +media($media-mobile)
+                        padding-top: 1rem
+                    ul
+                        padding: 0
+                        li
+                            list-style-type: none
+                            text-align: center
+                            padding: 0 1rem
+                            +span-columns(2)
+                            a
+                                display: block
+                                padding: 0.5rem
+                                color: $color-black
+                            &:nth-child(3n-2)
+                                +shift(3)
+                            &:nth-child(2n)
+                                padding: 0
+                                a
+                                    font-weight: 600
+                                    padding: 1rem
+                                    position: relative
+                                    top: -0.5rem
+                                    color: $color-white
+                                    background-color: $color-red
+                                    border: 1px solid $color-red
+                                    border-radius: 2px
+                                    text-decoration: none
+                                    &:hover
+                                        color: $color-red
+                                        background-color: $color-white
+                            +media($media-mobile)
+                                display: none
+                                &:nth-child(3n-1)
+                                    display: block
+                                    +span-columns(4)
 
             section.quote
                 +span-columns(8)
@@ -127,6 +170,8 @@ body.home.index
                     border-top: 1px solid $color-gray-light
                 @include span-columns(12)
                 h2
+                    display: none
+                h3
                     margin:
                         top: -1rem
                         bottom: 1rem

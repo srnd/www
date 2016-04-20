@@ -21,40 +21,45 @@
     <section class="impact">
         <header>
             <h2>CodeDay: Sparking interest in the students who need it.</h2>
-            <p>Our model is proven to get girls, minorities, and students from low-income backgrounds to start coding
-               and stay interested.</p>
+            <p>The technology revolution left many groups behind. CodeDay is our proven program for closing that opportunity gap.</p>
         </header>
 
         <div class="video">
-                    <iframe src="//fast.wistia.net/embed/iframe/r4avh9mp2g?videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" id="splash-video" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="640" height="360"></iframe>
+                    <iframe src="//fast.wistia.net/embed/iframe/r4avh9mp2g?videoFoam=true" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" id="splash-video" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen width="431" height="248"></iframe>
                     <script src="//fast.wistia.net/assets/external/iframe-api-v1.js"></script>
         </div>
 
         <div class="details">
-            <p><span>CodeDay gives students the chance to work on a project which excites
-               them individually,</span> attracting students who don't normally identify as "coders":</p>
+            <p><span>CodeDay, our primary program, gives students the chance to work on a project which excites
+               them individually.</span> Because it works with existing interests, CodeDay attracts students who don't
+               normally identify as "coders", and gets them excited about coding.</p>
+            <h4>Highly Diverse Attendees</h4>
             <ul class="diversity">
                 <li><span class="pie">43,57</span>43% girls</li>
                 <li><span class="pie">38,62</span>38% low-income</li>
                 <li><span class="pie">28,72</span>28% minorities</li>
             </ul>
-            <p>Beginner attendees report sustained changes in our 2.5mo follow-up:</p>
+            <h4>Strong Long-term Outcomes</h4>
              <ul class="outcomes">
-                <li><span class="pie">80,20</span>80% still coding</li>
+                <li><span class="pie">80,20</span>80% still coding months later</li>
                 <li><span class="pie">74,26</span>74% attend other events</li>
             </ul>
-           <p>We've run CodeDay since 2011. Early attendees are now working at Google, Microsoft, Y Combinator, Splunk,
-              etc. Learn more at <a href="https://codeday.org/">codeday.org.</a></p>
+        </div>
 
-
+        <div class="cta">
+            <ul>
+                <li><a href="https://blog.srnd.org/why-does-codeday-work-2263f43f6f47" target="_blank">Methodology</a></li>
+                <li><a href="https://codeday.org/" target="_blank">Learn More</a></li>
+                <li><a href="https://codeday.org/volunteer" target="_blank">Volunteer</a></li>
+            </ul>
         </div>
     </section>
 
-
     <section class="featured">
-        <h2>38 Cities Nationwide</h2>
+        <h2>The Story So Far</h2>
+        <h3>40+ cities nationwide:</h3>
         <div class="map"></div>
-        <h2>You may have heard about us in:</h2>
+        <h3>You may have heard about us in:</h3>
         <ul>
             <li class="npr"><a href="http://blogs.kqed.org/mindshift/2012/04/watch-out-silicon-valley-here-come-the-tinkering-teens/">NPR</a></li>
             <li class="all-things-considered"><a href="http://www.npr.org/blogs/alltechconsidered/2014/01/25/266162832/computers-are-the-future-but-does-everyone-need-to-code">All Things Considered</a></li>
@@ -78,12 +83,16 @@
             <span class="org">Monterey County Office of Education</span>
         </div>
     </section>
+
+    <section class="partners">
+
+    </section>
 {% endblock %}
 {% block scripts %}
     <script src="/assets/js/jquery.sparkline.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
-            $('.pie').sparkline('html', {type: "pie", sliceColors: ['#3F97CC', '#DFDFDF'], offset: -90});
+            $('.pie').sparkline('html', {type: "pie", sliceColors: ['#484848', '#DFDFDF'], offset: -90});
         });
     </script>
     <script type="text/javascript">

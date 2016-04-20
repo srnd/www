@@ -14,7 +14,6 @@ body.about.about .wrap
 
             p
                 margin-top: 0
-                color: #bbb
                 font:
                     family: $font-family-header
                     size: 1rem
@@ -77,6 +76,14 @@ body.about.about .wrap
                         .pie
                             margin-right: 1rem
                             color: $color-background
+                +media($media-mobile)
+                    margin-bottom: 0
+                    +span-columns(2)
+                    &:nth-child(3n)
+                        +omega
+                    &:nth-child(4n)
+                        +shift(1)
+                        margin-bottom: 4rem
 
         &.nation
             &:after
@@ -90,6 +97,9 @@ body.about.about .wrap
                 clear: both
             .map
                 +span-columns(7)
+                +media($media-mobile)
+                    +span-columns(4)
+                    +omega
                 .land
                     fill: none
                     stroke: $color-gray
@@ -99,16 +109,21 @@ body.about.about .wrap
                     stroke: transparentize($color-gray, 0.7)
 
                 .city
-                    fill: $color-red
+                    fill: $color-black
 
                 .footprint
-                    fill: transparentize($color-red, 0.95)
+                    fill: transparentize($color-black, 0.95)
 
                 .outline
-                    fill: transparentize($color-red, 0.95)
+                    fill: transparentize($color-black, 0.95)
 
             .cities
                 +span-columns(5)
+                +media($media-mobile)
+                    +span-columns(4)
+                    +omega
+                    padding-bottom: 3rem
+                    text-align: center
                 padding-top: 3rem
                 ul
                     padding: 0
@@ -131,6 +146,9 @@ body.about.about .wrap
                             +omega
                         &:nth-child(2n + 1)
                             clear: both
+                        +media($media-mobile)
+                            +span-columns(4)
+                            +omega
                         .picture
                             +span-columns(4)
                             text-align: center
@@ -148,7 +166,7 @@ body.about.about .wrap
                                 display: block
                             .title
                                 font-size: 0.8rem
-                                color: $color-gray
+                                color: $color-black
                                 font-weight: 300
                                 margin: 0
                                 display: block

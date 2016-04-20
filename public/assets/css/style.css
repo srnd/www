@@ -91,12 +91,13 @@ html, body {
   height: 100%;
   font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased; }
+  -webkit-font-smoothing: antialiased;
+  color: #484848; }
   html p, html li, html a, html blockquote, html em, html strong, body p, body li, body a, body blockquote, body em, body strong {
     font-size: 1rem;
     line-height: 1.3125rem; }
   html a, html a:visited, body a, body a:visited {
-    color: #686868; }
+    color: #484848; }
   html a:hover, html a:active, body a:hover, body a:active {
     color: #ff686b; }
 
@@ -131,7 +132,7 @@ body.donate.donate .contribution-info > nav ul {
     display: inline-block;
     background-color: #fff;
     border: 1px solid #BDBDBD;
-    color: #686868;
+    color: #484848;
     line-height: 3rem;
     margin-right: -5px;
     padding: 0 0.75rem 0 1.5rem;
@@ -367,7 +368,7 @@ body > .title {
       margin-top: 0; }
 
 body.home.index > section.hero {
-  height: 30rem;
+  height: 40rem;
   width: 100%;
   margin-top: -5rem;
   padding-top: 5rem;
@@ -549,8 +550,8 @@ body.build.post > .wrap > .content > article > .text .wp-caption.aligncenter {
 
 a.action, form input[type="submit"], button {
   cursor: pointer;
-  border: 1px solid #686868;
-  color: #686868;
+  border: 1px solid #484848;
+  color: #484848;
   display: block;
   text-align: center;
   float: right;
@@ -560,7 +561,7 @@ a.action, form input[type="submit"], button {
   margin-bottom: 0.5rem;
   font-size: 1rem; }
   a.action:hover, form input[type="submit"]:hover, button:hover {
-    background-color: #686868;
+    background-color: #484848;
     color: #fff; }
   a.action:after, form input[type="submit"]:after, button:after {
     content: "";
@@ -627,8 +628,8 @@ form div.field {
   form div.field textarea,
   form div.field select {
     border: none;
-    border-bottom: 1px solid #686868;
-    color: #686868;
+    border-bottom: 1px solid #484848;
+    color: #484848;
     font-size: 1.2rem;
     padding: 0rem 0 0.2rem 0;
     outline: none;
@@ -649,7 +650,7 @@ form div.field {
       border-color: #3F97CC;
       color: #3F97CC; }
   form div.field textarea {
-    border-right: 1px solid #686868;
+    border-right: 1px solid #484848;
     height: 10rem; }
   form div.field select {
     -moz-border-radius: 0;
@@ -671,7 +672,7 @@ body.build.index > .wrap > .content article, body.build.archive > .wrap > .conte
     font-size: 0.75rem;
     font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     text-decoration: none;
-    color: #686868;
+    color: #484848;
     text-transform: uppercase;
     border-bottom: 3px solid #3F97CC;
     position: relative; }
@@ -802,8 +803,8 @@ body.build.index > .wrap > .content .primary .sidebar, body.build.archive > .wra
       list-style-type: none; }
       body.build.index > .wrap > .content .primary .sidebar article.categories ul li a, body.build.archive > .wrap > .content .primary .sidebar article.categories ul li a {
         display: block;
-        border-left: 3px solid #686868;
-        color: #686868;
+        border-left: 3px solid #484848;
+        color: #484848;
         text-decoration: none;
         font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
         font-size: 1rem;
@@ -897,7 +898,7 @@ body.contact.contact section.contacts section {
       list-style-type: none; }
       body.contact.contact section.contacts section ul li a, body.contact.contact section.contacts section ul li span.name {
         font-weight: 700;
-        color: #686868;
+        color: #484848;
         text-decoration: none; }
       body.contact.contact section.contacts section ul li span.name {
         display: block;
@@ -934,11 +935,11 @@ body.home.index > .wrap .map {
     fill: none;
     stroke: rgba(223, 223, 223, 0.3); }
   body.home.index > .wrap .map .city {
-    fill: #3F97CC; }
+    fill: #484848; }
   body.home.index > .wrap .map .footprint {
-    fill: rgba(63, 151, 204, 0.05); }
+    fill: rgba(72, 72, 72, 0.05); }
   body.home.index > .wrap .map .outline {
-    fill: rgba(63, 151, 204, 0.05); }
+    fill: rgba(72, 72, 72, 0.05); }
 body.home.index > .wrap > section.content section.impact,
 body.home.index > .wrap > section.content section.codeday {
   float: left;
@@ -964,12 +965,12 @@ body.home.index > .wrap > section.content section.codeday {
     body.home.index > .wrap > section.content section.impact header p,
     body.home.index > .wrap > section.content section.codeday header p {
       margin-top: 0;
-      color: #686868;
+      color: #484848;
       font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
       font-size: 1rem;
       text-align: center; }
 body.home.index > .wrap > section.content section.impact {
-  padding: 2rem 0; }
+  padding: 3rem 0; }
   body.home.index > .wrap > section.content section.impact .video {
     float: left;
     display: block;
@@ -1010,9 +1011,12 @@ body.home.index > .wrap > section.content section.impact {
       clear: both; }
       body.home.index > .wrap > section.content section.impact .details p span {
         font-weight: bold; }
+    body.home.index > .wrap > section.content section.impact .details h4 {
+      text-align: center;
+      font-size: 1rem; }
     body.home.index > .wrap > section.content section.impact .details ul {
       padding: 0;
-      margin: 1rem 0 2rem;
+      margin: 0 0 2rem;
       clear: both;
       display: block;
       margin-right: 0; }
@@ -1023,6 +1027,8 @@ body.home.index > .wrap > section.content section.impact {
       body.home.index > .wrap > section.content section.impact .details ul li {
         list-style-type: none;
         text-align: center; }
+        body.home.index > .wrap > section.content section.impact .details ul li .pie {
+          margin-right: 1rem; }
       body.home.index > .wrap > section.content section.impact .details ul.diversity li {
         float: left;
         display: block;
@@ -1045,6 +1051,56 @@ body.home.index > .wrap > section.content section.impact {
           width: 48.82117%; }
           body.home.index > .wrap > section.content section.impact .details ul.outcomes li:last-child {
             margin-right: 0; }
+  body.home.index > .wrap > section.content section.impact .cta {
+    clear: both;
+    padding-top: 4rem; }
+    @media screen and (max-width: 700px) {
+      body.home.index > .wrap > section.content section.impact .cta {
+        padding-top: 1rem; } }
+    body.home.index > .wrap > section.content section.impact .cta ul {
+      padding: 0; }
+      body.home.index > .wrap > section.content section.impact .cta ul li {
+        list-style-type: none;
+        text-align: center;
+        padding: 0 1rem;
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 14.70196%; }
+        body.home.index > .wrap > section.content section.impact .cta ul li:last-child {
+          margin-right: 0; }
+        body.home.index > .wrap > section.content section.impact .cta ul li a {
+          display: block;
+          padding: 0.5rem;
+          color: #484848; }
+        body.home.index > .wrap > section.content section.impact .cta ul li:nth-child(3n-2) {
+          margin-left: 25.58941%; }
+        body.home.index > .wrap > section.content section.impact .cta ul li:nth-child(2n) {
+          padding: 0; }
+          body.home.index > .wrap > section.content section.impact .cta ul li:nth-child(2n) a {
+            font-weight: 600;
+            padding: 1rem;
+            position: relative;
+            top: -0.5rem;
+            color: #fff;
+            background-color: #ff686b;
+            border: 1px solid #ff686b;
+            border-radius: 2px;
+            text-decoration: none; }
+            body.home.index > .wrap > section.content section.impact .cta ul li:nth-child(2n) a:hover {
+              color: #ff686b;
+              background-color: #fff; }
+        @media screen and (max-width: 700px) {
+          body.home.index > .wrap > section.content section.impact .cta ul li {
+            display: none; }
+            body.home.index > .wrap > section.content section.impact .cta ul li:nth-child(3n-1) {
+              display: block;
+              float: left;
+              display: block;
+              margin-right: 7.42297%;
+              width: 100%; }
+              body.home.index > .wrap > section.content section.impact .cta ul li:nth-child(3n-1):last-child {
+                margin-right: 0; } }
 body.home.index > .wrap > section.content section.quote {
   float: left;
   display: block;
@@ -1091,6 +1147,8 @@ body.home.index > .wrap > section.content section.featured {
   body.home.index > .wrap > section.content section.featured:last-child {
     margin-right: 0; }
   body.home.index > .wrap > section.content section.featured h2, body.about.about body.home.index > .wrap > section.content section.featured section.team .key.people ul li article .name, body.about.about body.home.index > .wrap > section.content section.team .key.people ul li article section.featured .name {
+    display: none; }
+  body.home.index > .wrap > section.content section.featured h3 {
     margin-top: -1rem;
     margin-bottom: 1rem;
     color: #BDBDBD;
@@ -1237,7 +1295,7 @@ body.build.post > .hero.with-image {
   padding-top: 5rem;
   position: relative;
   z-index: -1;
-  background-color: #686868;
+  background-color: #484848;
   background-size: cover;
   background-position: 50% 50%;
   background-repeat: no-repeat; }
@@ -1329,7 +1387,7 @@ body.press .overview {
       list-style-type: none; }
       body.press .overview .press ul li a, body.press .overview .press ul li span.name {
         font-weight: 700;
-        color: #686868;
+        color: #484848;
         text-decoration: none; }
       body.press .overview .press ul li span.name {
         display: block;
@@ -1492,7 +1550,7 @@ body.press .releases ul {
     body.press .releases ul li a {
       display: block;
       text-decoration: none;
-      color: #686868;
+      color: #484848;
       height: 6rem;
       overflow: hidden; }
     body.press .releases ul li .title {
@@ -1570,9 +1628,9 @@ body.admin.events ul.events {
       background-color: #ff686b; }
     body.admin.events ul.events li.loaded .day {
       border-color: #ff686b;
-      color: #686868; }
+      color: #484848; }
     body.admin.events ul.events li.loaded .name {
-      color: #686868; }
+      color: #484848; }
     body.admin.events ul.events li .month, body.admin.events ul.events li .year {
       line-height: 0.9rem;
       display: block;
@@ -1761,8 +1819,7 @@ body.live.live iframe {
   margin-top: 2rem; }
 
 body.donate.donate > section.title {
-  padding-bottom: 6rem;
-  padding-top: 6rem; }
+  background-color: #3F97CC; }
 body.donate.donate .error {
   float: left;
   display: block;
@@ -1816,8 +1873,7 @@ body.donate.donate .contribution-info {
     font-size: 13px;
     font-weight: bold;
     color: #FFF;
-    text-decoration: none !important;
-    text-shadow: 0px -1px 0px #235e82; }
+    text-decoration: none !important; }
   body.donate.donate .contribution-info input[type="text"], body.donate.donate .contribution-info input[type="email"], body.donate.donate .contribution-info input[type="number"], body.donate.donate .contribution-info .donation .amount label {
     float: left;
     display: block;
@@ -1828,7 +1884,7 @@ body.donate.donate .contribution-info {
     border: 1px solid #BDBDBD;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1) inset;
     transition: box-shadow 0.45s ease 0s, border-color 0.45s ease-in-out 0s;
-    color: #686868;
+    color: #484848;
     background-color: #fff;
     font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 0.875rem;
@@ -1861,7 +1917,7 @@ body.donate.donate .contribution-info {
       border: 2px solid #BDBDBD;
       cursor: pointer;
       text-align: center;
-      color: #686868;
+      color: #484848;
       transition: background-color 300ms ease-out 0s, border-color 300ms ease-out 0s; }
       body.donate.donate .contribution-info .donation .amount label:last-child, body.donate.donate .contribution-info .donation .amount input[type="text"]:last-child {
         margin-right: 0; }
@@ -2176,7 +2232,7 @@ body.donate.donate .why-contribute ul {
         body.donate.donate .why-contribute ul li:nth-child(2n) {
           margin-right: 0; } }
     body.donate.donate .why-contribute ul li a {
-      color: #686868;
+      color: #484848;
       text-decoration: none; }
       body.donate.donate .why-contribute ul li a img {
         width: 50%;
@@ -2237,7 +2293,7 @@ body.donate.receipt .receipt {
       font-weight: 500; }
     body.donate.receipt .receipt .donated-by span.name, body.donate.receipt .receipt .donated-to span.name {
       font-weight: 700;
-      color: #686868;
+      color: #484848;
       text-decoration: none;
       display: block;
       margin-top: 1rem; }
@@ -2251,7 +2307,7 @@ body.donate.receipt .legal {
   clear: both;
   text-align: center;
   width: 50%;
-  border: 1px solid #686868;
+  border: 1px solid #484848;
   margin: 0 auto; }
   body.donate.receipt .legal p {
     font-size: 0.7rem;
@@ -2269,11 +2325,11 @@ body.donate.receipt .recurring {
       border: 0;
       font-size: 0.875rem;
       font-weight: 500;
-      color: #686868;
+      color: #484848;
       text-decoration: underline; }
       body.donate.receipt .recurring form input[type="submit"]:hover {
         background-color: transparent;
-        color: #686868; }
+        color: #484848; }
 
 body.about.about .wrap section > header {
   margin-bottom: 3rem; }
@@ -2286,7 +2342,6 @@ body.about.about .wrap section > header {
     text-align: center; }
   body.about.about .wrap section > header p {
     margin-top: 0;
-    color: #bbb;
     font-family: "Avenir Next", serif, "Helvetica", "Arial", sans-serif;
     font-size: 1rem;
     text-align: center; }
@@ -2359,6 +2414,20 @@ body.about.about .wrap section.results article {
       body.about.about .wrap section.results article ul li .pie {
         margin-right: 1rem;
         color: #fff; }
+  @media screen and (max-width: 700px) {
+    body.about.about .wrap section.results article {
+      margin-bottom: 0;
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 46.28851%; }
+      body.about.about .wrap section.results article:last-child {
+        margin-right: 0; }
+      body.about.about .wrap section.results article:nth-child(3n) {
+        margin-right: 0; }
+      body.about.about .wrap section.results article:nth-child(4n) {
+        margin-left: 26.85574%;
+        margin-bottom: 4rem; } }
 body.about.about .wrap section.nation:after {
   margin-top: 4rem;
   margin-bottom: 4rem;
@@ -2373,6 +2442,15 @@ body.about.about .wrap section.nation .map {
   width: 57.35098%; }
   body.about.about .wrap section.nation .map:last-child {
     margin-right: 0; }
+  @media screen and (max-width: 700px) {
+    body.about.about .wrap section.nation .map {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 100%;
+      margin-right: 0; }
+      body.about.about .wrap section.nation .map:last-child {
+        margin-right: 0; } }
   body.about.about .wrap section.nation .map .land {
     fill: none;
     stroke: #BDBDBD; }
@@ -2380,11 +2458,11 @@ body.about.about .wrap section.nation .map {
     fill: none;
     stroke: rgba(189, 189, 189, 0.3); }
   body.about.about .wrap section.nation .map .city {
-    fill: #ff686b; }
+    fill: #484848; }
   body.about.about .wrap section.nation .map .footprint {
-    fill: rgba(255, 104, 107, 0.05); }
+    fill: rgba(72, 72, 72, 0.05); }
   body.about.about .wrap section.nation .map .outline {
-    fill: rgba(255, 104, 107, 0.05); }
+    fill: rgba(72, 72, 72, 0.05); }
 body.about.about .wrap section.nation .cities {
   float: left;
   display: block;
@@ -2393,6 +2471,17 @@ body.about.about .wrap section.nation .cities {
   padding-top: 3rem; }
   body.about.about .wrap section.nation .cities:last-child {
     margin-right: 0; }
+  @media screen and (max-width: 700px) {
+    body.about.about .wrap section.nation .cities {
+      float: left;
+      display: block;
+      margin-right: 7.42297%;
+      width: 100%;
+      margin-right: 0;
+      padding-bottom: 3rem;
+      text-align: center; }
+      body.about.about .wrap section.nation .cities:last-child {
+        margin-right: 0; } }
   body.about.about .wrap section.nation .cities ul {
     padding: 0; }
     body.about.about .wrap section.nation .cities ul li {
@@ -2421,6 +2510,15 @@ body.about.about .wrap section.team .key.people ul {
       margin-right: 0; }
     body.about.about .wrap section.team .key.people ul li:nth-child(2n + 1) {
       clear: both; }
+    @media screen and (max-width: 700px) {
+      body.about.about .wrap section.team .key.people ul li {
+        float: left;
+        display: block;
+        margin-right: 7.42297%;
+        width: 100%;
+        margin-right: 0; }
+        body.about.about .wrap section.team .key.people ul li:last-child {
+          margin-right: 0; } }
     body.about.about .wrap section.team .key.people ul li .picture {
       float: left;
       display: block;
@@ -2446,7 +2544,7 @@ body.about.about .wrap section.team .key.people ul {
         display: block; }
       body.about.about .wrap section.team .key.people ul li article .title {
         font-size: 0.8rem;
-        color: #BDBDBD;
+        color: #484848;
         font-weight: 300;
         margin: 0;
         display: block; }
