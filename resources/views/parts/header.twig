@@ -12,7 +12,8 @@
     {
         "id": "donate",
         "name": "Donate",
-        "url": "/donate"
+        "url": "/donate",
+        "no_cache": true
     },
     {
         "id": "press",
@@ -36,7 +37,7 @@
                             {% if nav_item.id == section %}
                         class="active"
                             {% endif %}>
-                        <a href="{{ nav_item.url }}">
+                        <a href="{{ nav_item.url }}" {% if nav_item.no_cache %}data-no-instant{% endif %}>
                             {{ nav_item.name }}
                         </a>
                     </li>
