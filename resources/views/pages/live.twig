@@ -13,7 +13,7 @@
 
     {% if event.starts_at.isFuture %}
         <section class="countdown" id="time-remaining-text">
-            {{ event.starts_at.timestamp|date('l, M jS, g:ia') }} &middot;
+            {{ event.starts_at.timestamp|date('l, M jS, g:ia') }} Pacific &middot;
             <span class="weeks" id="time-remaining-weeks">{{ ((event.starts_at.diffInDays)/7)|round(0, 'floor') }} weeks</span>
             <span class="days" id="time-remaining-days">{{ (event.starts_at.diffInDays)%7 }} days</span>
             <span class="hours" id="time-remaining-hours">{{ (event.starts_at.diffInHours)%24 }} hours</span>
@@ -23,11 +23,12 @@
     {% endif %}
 
     <script src="//jwpsrv.com/library/9jvExmVHEeSKwg6sC0aurw.js"></script>
-    <section class="video" style="width:640px;height:360px;margin:0 auto;">
+    <section class="video" style="width:640px;{% if event.stream_id|length > 15 %}height:360px;{% endif %}margin:0 auto;">
         {% if (event.stream_id|length) > 15 %}
             {{ event.stream_id|raw }}
         {% else %}
             <iframe width="640" height="360" src="//www.youtube.com/embed/{{ event.stream_id }}?feature=player_embedded&autoplay=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+            <iframe width="640" height="250" src="https://www.youtube.com/live_chat?v={{ event.stream_id }}&embed_domain=srnd.org" frameborder="0"></iframe>
         {% endif %}
     </section>
 {% endblock %}
