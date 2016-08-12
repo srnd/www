@@ -21,6 +21,11 @@ class StaticController extends \StudentRND\Http\Controller {
         return \View::make('pages/terms-of-service');
     }
 
+    public function getTrademarks()
+    {
+        return \View::make('pages/trademarks');
+    }
+
     public function getReturns()
     {
         return \View::make('pages/returns');

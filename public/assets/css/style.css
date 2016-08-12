@@ -2723,4 +2723,16 @@ body.admin.donations section.tools {
     width: 100%;
     height: 10rem; }
 
+body.trademarks section.content section.list {
+  margin: 5rem 0; }
+  body.trademarks section.content section.list table td {
+    padding-right: 4rem; }
+    body.trademarks section.content section.list table td:first-child {
+      max-width: 20rem; }
+      body.trademarks section.content section.list table td:first-child img {
+        width: 100%;
+        height: auto; }
+body.trademarks section.content section.notes p {
+  font-size: 0.8rem; }
+
 /*# sourceMappingURL=style.css.map */
