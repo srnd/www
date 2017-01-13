@@ -166,7 +166,6 @@ class DonateController extends \StudentRND\Http\Controller {
      */
     public function stripeCheckoutOneTime()
     {
-        return $this->makeDonationPage(['Your card was declined.']);
         $requirements_check = $this->containsAllRequired(['stripe_token']);
         if (!$requirements_check->success) {
             return $this->makeDonationPage($requirements_check->errors);
