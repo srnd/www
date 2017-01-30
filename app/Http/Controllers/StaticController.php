@@ -33,12 +33,12 @@ class StaticController extends \StudentRND\Http\Controller {
     
     public function getConduct()
     {
-    	return \Redirect::to('/code-of-conduct');
+    	return \View::make('pages/code-of-conduct');
     }
 
     public function getCodeOfConduct()
     {
-        return \View::make('pages/code-of-conduct');
+    	return \Redirect::to('/conduct');
     }
 
     public function getPressRelease()
