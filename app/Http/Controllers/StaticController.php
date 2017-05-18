@@ -16,6 +16,11 @@ class StaticController extends \StudentRND\Http\Controller {
         return \View::make('pages/privacy');
     }
 
+    public function getBugs()
+    {
+        return \View::make('pages/bugs');
+    }
+
     public function getTerms()
     {
         return \View::make('pages/terms-of-service');
