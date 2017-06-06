@@ -28,10 +28,10 @@ body > .content:nth-child(2) > div, body > div:nth-child(2)
   margin-top: 0
 
 @mixin mobile
-  @media only screen and (max-width: $width)
+  @media only screen and (max-width: $mobileWidth)
     @content
 @mixin desktop
-  @media only screen and (min-width: $width)
+  @media only screen and (min-width: ($mobileWidth + 1px))
     @content
 @mixin print
   @media only print
