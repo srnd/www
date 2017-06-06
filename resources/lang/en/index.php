@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    "hero-text"             => "Few students are interested in enrolling in coding classes, particularly those from and underrepresented background. Our creative and fun programs get students excited about coding and drive enrollment.",
+    "hero-text"             => "Few students are interested in enrolling in coding classes, particularly those from underrepresented backgrounds. Our creative and fun programs get students excited about coding and drive enrollment.",
     "hero-cta-donate"       => "Help us inspire students to pursue CS.",
 
     "stats-title"           => ":coders new coders created in over :cities cities across the US.",
