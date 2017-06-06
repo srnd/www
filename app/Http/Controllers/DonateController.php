@@ -385,7 +385,7 @@ class DonateController extends \StudentRND\Http\Controller {
             ['html' => $isSubscriptionGenerated ? 'emails/donation_thanks_recurring' : 'emails/donation_thanks'],
             [ 'donation' => $donation_record ],
             function($email) use ($donation_record, $isSubscriptionGenerated) {
-                $email->from('donate@srnd.org', 'StudentRND');
+                $email->from('donate@srnd.org', 'srnd.org');
                 $email->to($donation_record->email, $donation_record->first_name);
                 $email->subject('Receipt for Your '.($isSubscriptionGenerated?'Recurring ':'').'Donation');
             });
