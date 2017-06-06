@@ -7,7 +7,7 @@ class AwsS3Assets
     public static function GetAssets($bucket, $prefix, $thumbPrefix, $downloadPrefix, $downloadExt)
     {
         $thumbsXml = "https://s3-us-west-1.amazonaws.com/${bucket}?prefix=${prefix}/${thumbPrefix}";
-        $s3Prefix = "http://${bucket}/${prefix}";
+        $s3Prefix = "https://${bucket}/${prefix}";
 
         $thumbsObj = new \SimpleXMLElement(file_get_contents($thumbsXml));
         
