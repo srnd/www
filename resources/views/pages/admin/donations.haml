@@ -1,0 +1,83 @@
+-extends "template.haml" 
+-block section
+  admin
+-block page
+  donations
+-block title
+  Donations Admin
+-block body
+  .content
+    %header
+      %h2 Donation Admin
+    .tools 
+      %h3 Receive Donation
+      %form(action="/admin/donations/new" method="post") 
+        %h4 Info
+        %input(type="text" name="first_name" placeholder="First Name" required)
+        %input(type="text" name="last_name" placeholder="Last Name" required)
+        %input(type="checkbox" name="is_anonymous" value="1" id="is_anonymous")
+        %label(for="is_anonymous") Anon
+        %input(type="email" name="email" placeholder="Email")
+
+        %h4 Money
+        %input(type="text" name="amount" placeholder="Amount" required)
+        %select(name="transaction_source") 
+          %option(value="stripe") Stripe
+          %option(value="dwolla") Dwolla
+          %option(value="check" selected) Check
+          %option(value="in-kind") In-Kind
+        
+        %input(type="text" name="transaction_id" placeholder="Trans ID")
+
+        %textarea(name="in_kind_description" placeholder="Description of goods (non-cash only)")
+
+        %input(type="submit" value="Generate Receipt")
+
+    .info 
+      %h3 Statistics
+      %table 
+        %thead 
+          %tr 
+            %th Period
+            %th Number of Donations
+            %th Total Donations
+            %th Average Donation
+          
+        
+        %tbody 
+          -for period,val in stats 
+            %tr 
+              %td #{period}
+              %td #{val.count}
+              %td $#{val.total|round(2)}
+              %td $#{val.average|round(2)}
+      
+
+      %h3 Monthly Donations
+      %ul 
+        -for subscriber in subscribers 
+          %li 
+            %a(href="/donate/receipt/#{subscriber.id}") #{subscriber.displayName} &mdash;
+            $#{subscriber.amount|round(2)}/month since #{subscriber.created_at.timestamp|date('F j Y')}
+            -if subscriber.cancelled_at 
+              &mdash; CANCELLED #{subscriber.created_at.timestamp|date('F j Y')}
+
+      %h3 All Donations
+      %table 
+        %thead 
+          %tr 
+            %th Date
+            %th Name
+            %th Amount
+            %th Via
+          
+        %tbody 
+          -for donation in donations 
+            %tr 
+              %td <a href="/donate/receipt/#{donation.id}">#{donation.created_at.timestamp|date('m/d/y')}</a>
+              %td #{donation.displayName}
+              %td
+                $#{donation.amount|round(2)}
+                -if donation.transaction_subscription_id
+                  (rec)
+              %td #{donation.transaction_source} &mdash; #{donation.transaction_id}

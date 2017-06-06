@@ -1,0 +1,18 @@
+%p Hi #{donation.first_name},
+
+%p We just received your monthly $#{donation.amount|number_format(2)} donation!
+
+%p As a reminder, here's what your donation is doing for your community:
+
+%ul 
+  %li Your support allows more students attend CodeDay with more scholarships and increased capacity.
+  %li Contributions help bring events to new cities, helping reach students without access to tech programs.
+
+
+%p
+  You can print a receipt for this donation at
+  %a(href="https://srnd.org/donate/receipt/#{donation.id}") https://srnd.org/donate/receipt/#{donation.id}
+
+%p Again, thank you so much. Your support makes this all happen.
+
+%p - The srnd.org team

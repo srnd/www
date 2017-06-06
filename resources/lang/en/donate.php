@@ -1,0 +1,46 @@
+<?php
+
+return array(
+    "title"                 => "Donate",
+    "tag"                   => "Help continue to build CS interest in your community.",
+    "text"                  => "We are funded by donations, and spend just $38 to make a life-long change in career opportunity for a student. Your support will allow us to continue to make these changes possible.",
+
+    "donate"                => "Make a Donation",
+    "amount-other"          => "Other",
+    "frequency-onetime"     => "One-Time",
+    "frequency-monthly"     => "Monthly",
+    "first-name"            => "First Name",
+    "last-name"             => "Last Name",
+    "email"                 => "Email",
+    "anonymous-label"       => "Keep this donation anonymous.",
+    "city"                  => "City (optional)",
+    "city-label"            => "If you're requesting this donation be used for a specific city, please specify:",
+    "payment"               => "Payment Information",
+    "card-number"           => "Card Number",
+    "exp-label"             => "EXP",
+    "exp-month"             => "MM",
+    "exp-year"              => "YY",
+    "cvc"                   => "CVC",
+    "card-complete"         => "Donate :amount by card",
+    "dwolla-complete"       => "Donate :amount with Dwolla",
+
+    "donate-mail"           => "You can also donate by mailing a check to :address",
+
+    "sponsor-title"         => "Corporate Sponsorships",
+    "sponsor"               => "We work with many companies looking to promote developer products and build reputations as top tech employers.",
+    "sponsor-cta"           => "<a href=\"tel::tel\">Call</a> :telFormatted, <a href=\"mailto::email\">email</a> :email, or <a href=\":onepage\">download</a> our one-page.",
+
+    "receipt-title"         => "Donation Receipt",
+    "receipt-tag"           => "Receipt for your donation to srnd.org",
+    "receipt-legal"         => "No goods or services were provided in exchange for this donation. srnd.org is tax-exempt under IRC &sect; 501(c)(3). Our EIN is 26-4742589. Please keep this receipt for your records.",
+    "thanks"                => "Your donation was successfully processed! Please print or bookmark this page for your records.",
+    "thanks-sub"            => "Your :amount donation will automatically be deducted at this time each month. You can cancel your donation from any donation receipt.",
+    "cancelled"             => "Your monthly donation was just cancelled.",
+    "in-kind"               => "In-Kind Gift",
+    "received"              => "Received :date",
+    "by"                    => "Donated By",
+    "to"                    => "Donated To",
+    "in-kind-description"   => "Description of In-Kind Gift",
+    "recurring-head"        => "This donation was part of an ongoing monthly donation.",
+    "recurring-cancel"      => "Cancel this recurring donation",
+);

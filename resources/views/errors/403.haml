@@ -1,0 +1,13 @@
+-extends "template.haml"
+-block section
+  errors
+-block page
+  403
+-block title
+  #{i18n('errors.403-title')}
+-block body
+  .content
+    .error
+      %img(src="/assets/img/error-401.jpg" alt="#{i18n('errors.401-img-alt')}" title="#{i18n('errors.401-img-title')}")
+      %h2 #{i18n('errors.403-tag')}
+      %p #{i18n('errors.403-text')}

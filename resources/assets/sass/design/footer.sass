@@ -1,0 +1,29 @@
+body > footer
+  clear: both
+  width: 100%
+  max-width: $width
+  margin: 0 auto
+  padding: 4rem 0
+  .copyright
+    +grid-column(3)
+    font-size: +modular-scale(-1)
+    color: $color-gray
+  .links
+    +desktop
+      +grid-column(3)
+      +grid-push(6)
+    text-align: right
+    ul
+      padding: 0
+      margin-top: 0
+      li
+        list-style-type: none
+        a
+          color: $color-gray
+  +mobile
+    .copyright, .links
+      +grid-column(6)
+  +print
+    .copyright, .links
+      display: none
+

@@ -1,8 +1,0 @@
-{% extends "template.twig" %}
-{% block section %}open{% endblock %}
-{% block page %}minutes{% endblock %}
-{% block title %}Open Data{% endblock %}
-{% block page_tagline %}Board Minutes: {{ minutes_file.date|date('F j, Y') }}{% endblock %}
-{% block content %}
-    {{ minutes_file.content|markdown|raw }}
-{% endblock %}

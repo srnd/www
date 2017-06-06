@@ -1,0 +1,39 @@
+[main]
+host = https://www.transifex.com
+lang_map = es_MX:es, en_US:en
+
+[srndorg.common]
+file_filter = resources/lang/<lang>/common.php
+minimum_perc = 80
+source_lang = en
+type = PHP_ARRAY
+
+[srndorg.contact]
+file_filter = resources/lang/<lang>/contact.php
+minimum_perc = 80
+source_lang = en
+type = PHP_ARRAY
+
+[srndorg.donate]
+file_filter = resources/lang/<lang>/donate.php
+minimum_perc = 80
+source_lang = en
+type = PHP_ARRAY
+
+[srndorg.errors]
+file_filter = resources/lang/<lang>/errors.php
+minimum_perc = 80
+source_lang = en
+type = PHP_ARRAY
+
+[srndorg.index]
+file_filter = resources/lang/<lang>/index.php
+minimum_perc = 80
+source_lang = en
+type = PHP_ARRAY
+
+[srndorg.press]
+file_filter = resources/lang/<lang>/press.php
+minimum_perc = 80
+source_lang = en
+type = PHP_ARRAY

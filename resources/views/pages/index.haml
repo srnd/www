@@ -1,0 +1,87 @@
+-extends "template.haml"
+-block section
+  index
+-block page
+  index
+-block body
+  .hero
+    .content
+      .tagline #{i18n('common.tagline')}
+      .details #{i18n('index.hero-text')}
+      .cta
+        %a(href="/donate") #{i18n('index.hero-cta-donate')}
+
+  .stats
+    .content
+      %h2 #{i18n('index.stats-title', {'coders': '18,000', 'cities': '40'})}
+      %ul
+        %li.two-line
+          %h3 #{i18n('index.stats-block-1-title')}
+          %ul
+            %li #{i18n('index.stats-block-1-1', {'students': '25,000'})}
+            %li #{i18n('index.stats-block-1-2', {'cities': '40'})}
+        %li
+          %h3 #{i18n('index.stats-block-2-title')}
+          %img.pie(src="/assets/img/pie-68.svg")
+          .details #{i18n('index.stats-block-2', {'underrep': '68'})}
+        %li
+          %h3 #{i18n('index.stats-block-3-title')}
+          .bar
+            .progress(style="width: 75%") #{i18n('index.stats-block-3', {'outcome': '71'})}
+
+  .content
+    .explainer
+      %h2 #{i18n('index.explainer-title')}
+      %ul
+        %li
+          .frame
+            %img(src="/assets/img/explainer/1.png" alt="#{i18n('index.explainer-1-alt')}" title="#{i18n('index.explainer-1-title')}")
+          .caption #{i18n('index.explainer-1-caption')}
+        %li
+          .frame
+            %img(src="/assets/img/explainer/2.png" alt="#{i18n('index.explainer-2-alt')}" title="#{i18n('index.explainer-2-title')}")
+          .caption #{i18n('index.explainer-2-caption')}
+        %li
+          .frame
+            %img(src="/assets/img/explainer/3.png" alt="#{i18n('index.explainer-3-alt')}" title="#{i18n('index.explainer-3-title')}")
+          .caption #{i18n('index.explainer-3-caption')}
+
+    .programs
+      %h2 #{i18n('index.programs-title')}
+      %ul
+        %li.codeday
+          %a(href="https://codeday.org/" target="_blank")
+            %img(src="/assets/img/logo-codeday.svg")
+          .caption #{i18n('index.programs-codeday')}
+        %li.chat
+          %a(href="https://studentrnd.slack.com/" target="_blank")
+            %img(src="/assets/img/logo-chat.svg")
+          .caption #{i18n('index.programs-chat', {'number': '20,000'})}
+        %li.codebreak
+          %a(href="https://codebreak.srnd.org/" target="_blank")
+            %img(src="/assets/img/logo-codebreak.svg")
+          .caption #{i18n('index.programs-codebreak')}
+
+    .schools
+      %h2 #{i18n('index.schools-title')}
+      .quote-block
+        %img(src="/assets/img/monterey-1.jpg")
+        .quote
+          %blockquote
+            %p #{i18n('index.schools-quote-p1')}
+            %p #{i18n('index.schools-quote-p2')}
+          .by
+            .name #{i18n('index.schools-quote-by')}
+            .title #{i18n('index.schools-quote-title')}
+
+    .help
+      .text
+        %h2 #{i18n('index.help-title')}
+        %a(href="/donate") #{i18n('index.help-cta')}
+      .images
+        %img(src="/assets/img/line-1.jpg")>
+        %img(src="/assets/img/watch-1.jpg")>
+        %img(src="/assets/img/collaboration-1.jpg")>
+        %img(src="/assets/img/music-1.jpg")>
+        %img(src="/assets/img/relax-1.jpg")>
+        %img(src="/assets/img/collaboration-2.jpg")>

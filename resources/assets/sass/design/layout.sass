@@ -1,0 +1,63 @@
+html, body
+  padding: 0
+  margin: 0 0 3rem 0
+
+*
+  +prefixer(box-sizing, border-box, webkit moz spec)
+
+.content
+  width: 100%
+  max-width: $width
+  margin: 0 auto
+
+body > .content > div, body > .content > header
+  +grid-column(12)
+  +grid-container
+
+body > .content > header
+  img
+    width: 100%
+    height: auto
+  h2
+    @extend %wave-head
+
+$spacing-section: 8rem
+body > .content > div
+  margin-top: $spacing-section
+body > .content:nth-child(2) > div, body > div:nth-child(2)
+  margin-top: 0
+
+@mixin mobile
+  @media only screen and (max-width: $width)
+    @content
+@mixin desktop
+  @media only screen and (min-width: $width)
+    @content
+@mixin print
+  @media only print
+    @content
+
++print
+  @page
+    margin: 0
+  body
+    margin: 0.5in
+
+%wave-head
+  @extend h1
+  text-align: left !important
+  margin-bottom: +modular-scale(-3)
+  margin-top: 0
+  &:after
+    content: ""
+    display: block
+    margin-top: +modular-scale(-3)
+    height: 0.9rem
+    background:
+      image: url('/assets/img/wave-short.svg')
+      size: contain
+      repeat: no-repeat
+    -webkit-print-color-adjust: exact
+    color-adjust: exact
+    +print
+      background-image: url('/assets/img/wave-short.svg')

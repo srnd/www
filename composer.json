@@ -12,7 +12,10 @@
         "dwolla/dwolla-php": "2.0.8",
         "mixpanel/mixpanel-php" : "2.*",
         "studentrnd/s5api": "dev-master",
-        "pda/pheanstalk": "3.1.*"
+        "pda/pheanstalk": "3.1.*",
+        "mthaml/mthaml": "^1.8",
+        "league/commonmark": "^0.15.4",
+        "dpolac/twig-lambda": "^0.5.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

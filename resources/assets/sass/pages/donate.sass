@@ -1,0 +1,139 @@
+body.section-donate
+  ////////////////////////////////////////////////// 
+  // Index
+  ////////////////////////////////////////////////// 
+  &.page-index
+    form.donation
+      +desktop
+        +grid-column(8)
+      +mobile
+        +grid-column(12)
+
+      ///////////////////////// 
+      // Errors
+      ///////////////////////// 
+      .errors
+        @extend %rounded
+        border: 1px solid $color-red
+        padding: 1rem
+        margin-bottom: 2rem
+      
+      ///////////////////////// 
+      // Amount
+      ///////////////////////// 
+      .amount
+        +grid-container
+        +grid-collapse
+        input[type="radio"]
+          display: none
+        label, input[type="text"]
+          @extend %button-featured
+          +desktop
+            +grid-column(2)
+          +mobile
+            +grid-column(6)
+            margin-bottom: 20px
+        input[type="radio"]:checked+label, input[type="text"].selected
+          @extend %button-cta
+      
+      ///////////////////////// 
+      // Frequency
+      ///////////////////////// 
+      .frequency
+        margin-top: 1rem
+        text-align: center
+
+      ///////////////////////// 
+      // Card
+      ///////////////////////// 
+      .card
+        #card-element
+          @extend %rounded
+          border: 1px solid $color-gray-light
+          padding: 0.5rem 1rem
+
+      ///////////////////////// 
+      // Contact
+      ///////////////////////// 
+      .contact
+        margin-top: 1rem
+        +grid-collapse
+        input[type="text"], input[type="email"]
+          @extend %rounded
+          border: 1px solid $color-gray-light
+          padding: 0.5rem 1rem
+        input[name="first_name"], input[name="last_name"]
+          +grid-column(6)
+        input[name="email"]
+          +grid-column(12)
+          margin-top: 10px
+          margin-bottom: 10px
+        input[name="is_anonymous"]
+          margin-left: 20px
+
+      ///////////////////////// 
+      // Submit
+      ///////////////////////// 
+      .submit
+        text-align: center
+        margin-top: 2rem
+        input[type="submit"]
+          @extend %button-cta
+        .mail
+          font-size: +modular-scale(-1)
+
+
+    ///////////////////////// 
+    // Other Ways to Support
+    ///////////////////////// 
+    .other-support
+      +desktop
+        +grid-column(4)
+      +mobile
+        +grid-column(12)
+
+      @extend %rounded
+      border: 1px solid $color-gray
+      padding: 1rem
+      text-align: center
+      h3
+        margin-top: 0
+      a.cta
+        @extend %button:hover
+        width: 70%
+        line-height: 0
+        display: inline-block
+        img
+          width: 100%
+          height: auto
+
+
+
+
+  ////////////////////////////////////////////////// 
+  // Receipt
+  ////////////////////////////////////////////////// 
+  &.page-receipt
+    .receipt
+      +grid-container
+      width: 100%
+      margin: 0
+      .donation
+        +grid-column(4)
+        .amount
+          @extend h1
+          margin-top: +modular-scale(0)
+          margin-bottom: 0
+      .by, .to
+        +grid-column(4)
+      .in-kind-description
+        +grid-column(12)
+      +mobile
+        .donation
+          +grid-column(12)
+        .by, .to
+          +grid-column(6)
+    +print
+      & > header nav, .recurring
+        display: none
+        

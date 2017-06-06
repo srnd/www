@@ -1,27 +1,34 @@
-## Laravel PHP Framework
+# srnd.org
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## File Locations
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+In general, fully compiled resources will be in the `public/assets` folder, while sources will be in the `resources`
+folder. More specifically, you can find resources:
 
-Laravel is accessible, yet powerful, providing powerful tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+- Images, scripts: `public/assets`
+- Stylesheets: `resources/assets/sass`
+- Pages/templates: `resources/views`
+- Translation strings: `resources/lang`
 
-## Official Documentation
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Translations
 
-## Contributing
+Translations are managed by Transifex. You should only ever edit `en` translations here; edits to other languages will
+be overwritten when you `tx pull`. When you've made changes to translations, `tx push`, then use the Transifex UI to
+order translations to other languages. (Or translate them using the web UI yourself if you're really good.)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+## Press Photos/Videos
 
-## Security Vulnerabilities
+Press assets should be uploaded to the `assets.srnd.org` s3 bucket, and will automatically appear on the press page
+when present.
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+Images should be in the `press/images/` folder. There are two subfolders, `sml` for small (500x333px) images, and
+`lg` for originals. Both versions must be present, and must have the exact same file name. You can use a command like
+this to convert automatically:
 
-### License
+```
+convert "*.jpg" -resize "500x333^" -gravity center -crop 500x333+0+0 +repage -set filename:base "%[base]" "../../sml/Presentations and Awards/%[filename:base].jpg"
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Videos should be in the `press/videos/` folder. Similar to the images, there are two subfolders, `thumb` for thumbnails
+(500x333px), and `video` for source videos. Video should be encoded and saved as `.mp4`, HD resolution and high quality.
