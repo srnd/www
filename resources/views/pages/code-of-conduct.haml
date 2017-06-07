@@ -4,50 +4,39 @@
 -block page
   code-of-conduct
 -block title
-  Code of Conduct
+  #{i18n('conduct.title')}
 -block body
   .content
     %header
-      %h2 Code of Conduct
+      %img(src="/assets/img/head-conduct.jpg")
+      %h2 #{i18n('conduct.title')}
     .code
-      %p
-        srnd.org strives to make students feel welcome so they can meet new friends, have fun, and build cool things.
-        To create this atmosphere, we need the help of the whole community.
+      %p #{i18n('conduct.intro')}
 
-      %h2 At srnd.org events, please be friendly and welcoming.
+      %h3 #{i18n('conduct.friendly-header')}
       %ul 
-        %li Be humble, even when you're successful.
-        %li Respect, encourage, and support others.
-        %li Don't use offensive language referring to people's gender, race, sexual orientation, religion, or disabilities. Don't use sexualized language or imagery.
-        %li Don't &ldquo;hit on&rdquo; other attendees, even if you think the person is receptive.
+        %li #{i18n('conduct.friendly-humble')}
+        %li #{i18n('conduct.friendly-respect')}
+        %li #{i18n('conduct.friendly-language')}
+        %li #{i18n('conduct.friendly-hit-on')}
       
 
-      %h2 srnd.org members may never harass others.
-      %p
-        Harassment includes words or behavior which are intended to disparage, demean, mock, or intimidate a person or
-        group. People who participate in harassment are not welcome at srnd.org events, even when this behavior takes
-        place outside the event.
-
-      %h2 At srnd.org events, keep things safe and legal.
+      %h3 #{i18n('conduct.harass-header')}
+      %p #{i18n('conduct.harass-text')}
+        
+      %h3 #{i18n('conduct.legal-header')}
       %ul 
-        %li Ensure the safety of yourself and others. Do not carry guns, knives, or other weapons. Deescalate conflicts when possible; get staff help when not.
-        %li Abstain from using or being under the influence of alcohol, marijuana, illicit substances, and recreational drugs.
+        %li #{i18n('conduct.legal-safety')}
+        %li #{i18n('conduct.legal-drugs')}
       
+      .enforcement
+        %h3 #{i18n('conduct.enforcement-header')}
+        %p #{i18n('conduct.enforcement-report')}
+        %p #{i18n('conduct.enforcement-process')}
+        %ul 
+          %li #{i18n('conduct.enforcement-email')}: conduct@srnd.org
+          %li #{i18n('conduct.enforcement-phone')}: 888-607-SRND ext 9999
+          %li #{i18n('conduct.enforcement-slack')}: @tylermenezes
 
-      %h2 Enforcement
-      %p
-        If you notice something which you think violates this code, please report it, even if it didn't happen to you.
-        Anyone who reports a suspected violation in good faith will receive free admission to a future event.
-      %p
-        All reports will be treated as anonymously as possible, and will initially go directly to global management.
-        You will not experience any retaliation from volunteers, mentors, or staff. To make a report:
-      %ul 
-        %li email: conduct@srnd.org
-        %li phone: 888-607-SRND ext 9999
-        %li slack: @tylermenezes
-      
-
-      %p
-        Community members violating these rules will be sanctioned at the discretion of srnd.org staff, including an
-        expulsion or ban from all srnd.org activities without refund.
-      %p (Last updated November 7, 2016.)
+        %p #{i18n('conduct.sanctions')}
+      %p #{i18n('conduct.last-updated', {'date': 1478520000|date('F j, Y')})}
