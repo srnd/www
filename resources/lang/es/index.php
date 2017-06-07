@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    "hero-text"             => "Pocos estudiantes están interesados ​​en inscribirse en clases de programación, en particular aquellos que pertenecen a alguna minoría. Nuestros programas creativos y divertidos hacen que los estudiantes se entusiasmen con la programación y los motiva a que se inscriban.",
+    "hero-text"             => "Pocos estudiantes están interesados en inscribirse en clases de codificación, en particular aquellos que pertenecen a alguna minoría. Nuestros programas creativos y divertidos hacen que los estudiantes se sientan entusiasmados respecto a la codificación y los motiva a que se inscriban.",
     "hero-cta-donate"       => "Ayúdanos a lograr que los estudiantes se interesen en la computación.",
 
     "stats-title"           => ":coders nuevos programadores formados en más de :cities de todo Estados Unidos.",
