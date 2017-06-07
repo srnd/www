@@ -14,7 +14,8 @@ return [
         ],
 
         'globals' => [
-            'version' => filemtime(implode(DIRECTORY_SEPARATOR, [public_path(), 'assets', 'css', 'style.css']))
+            'version' => filemtime(implode(DIRECTORY_SEPARATOR, [public_path(), 'assets', 'css', 'style.css'])),
+            'requestUrl' => request()->url()
         ],
     ],
 

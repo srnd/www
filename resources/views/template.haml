@@ -2,32 +2,33 @@
 %html
   %head
     -if block('title')
-      %title #{ block('title') } ~ #{i18n('common.name')}
-      %meta(property="og:title" content="#{block('title')}")
-      %meta(name="twitter:title" content="#{block('title')}")
+      %title #{ block('title')|trim } ~ #{i18n('common.name')}
+      %meta(property="og:title" content="#{block('title')|trim}")
+      %meta(name="twitter:title" content="#{block('title')|trim}")
     -else
       %title #{i18n('common.name')} ~ #{i18n('common.tagline-title')}
       %meta(property="og:title" content="#{i18n('common.name')}")
       %meta(name="twitter:title" content="#{i18n('common.name')}")
 
     -if block('description')
-      %meta(name="description" content="#{block('description')}")
-      %meta(property="og:description" content="#{block('description')}")
-      %meta(name="twitter:description" conent="#{block('description')}")
+      %meta(name="description" content="#{block('description')|trim}")
+      %meta(property="og:description" content="#{block('description')|trim}")
+      %meta(name="twitter:description" conent="#{block('description')|trim}")
     -else
       %meta(name="description" content="#{i18n('common.desc')}")
       %meta(property="og:description" content="#{i18n('common.desc-social')}")
       %meta(name="twitter:description" conent="#{i18n('common.desc-social')}")
 
     -if block('image')
-      %meta(property="og:image" content="#{block('image')}")
-      %meta(name="twitter:image" content="#{block('image')}")
+      %meta(property="og:image" content="#{url(block('image')|trim)}")
+      %meta(name="twitter:image" content="#{url(block('image')|trim)}")
     -else
-      %meta(property="og:image" content="/assets/img/og.jpg")
-      %meta(name="twitter:image" content="/assets/img/og.jpg")
+      %meta(property="og:image" content="#{url('/assets/img/og.jpg')}")
+      %meta(name="twitter:image" content="#{url('/assets/img/og.jpg')}")
 
 
     %meta(property="og:locale" content="#{lang}")
+    %meta(property="og:url" content="#{currentUrl}")
     %meta(name="twitter:card" content="summary_large_image")
     %meta(name="twitter:site" content="@studentrnd")
     %meta(name="twitter:creator" content="@studentrnd")
@@ -41,37 +42,49 @@
     %link(rel="stylesheet" href="/assets/css/style.css?v=#{version}")
     %meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
 
-  %body(class="section-#{block('section')|trim} page-#{block('page')|trim}")
+  %body(class="lang-#{lang} section-#{block('section')|trim} page-#{block('page')|trim}")
     %header
       %h1
-        %a(href="/") #{i18n('common.name')}
+        %a(href="#{langPrefix}/") #{i18n('common.name')}
       %nav
         %ul
           %li
-            %a(href="/contact") #{i18n('common.nav-contact')}
+            %a(href="#{langPrefix}/contact") #{i18n('common.nav-contact')}
           %li
-            %a(href="/press") #{i18n('common.nav-press')}
+            %a(href="#{langPrefix}/press") #{i18n('common.nav-press')}
           %li
-            %a(href="/donate") #{i18n('common.nav-donate')}
+            %a(href="#{langPrefix}/donate") #{i18n('common.nav-donate')}
           %li
-            %a(href="https://blog.srnd.org/" target="_blank") #{i18n('common.nav-blog')}
-          %li
-            %a(href="http://srnd.supply/" target="_blank") #{i18n('common.nav-store')}
+            -if lang != ''
+              %a(href="/en#{nonLangUri}") English
+            -else
+              %a(href="/es#{nonLangUri}") Español
 
     #{block('body')}
 
     %footer
       .copyright
         &copy; 2012-#{null|date('Y')} srnd.org
+      .legal
+        %ul
+          %li
+            %a(href="#{langPrefix}/privacy") #{i18n('common.nav-privacy')}
+          %li
+            %a(href="#{langPrefix}/trademarks") #{i18n('common.nav-trademarks')}
+          %li
+            %a(href="#{langPrefix}/returns") #{i18n('common.nav-returns')}
+          %li
+            %a(href="#{langPrefix}/bugs") #{i18n('common.nav-bugs')}
       .links
         %ul
           %li
-            %a(href="/conduct") #{i18n('common.nav-conduct')}
+            %a(href="https://blog.srnd.org/" target="_blank") #{i18n('common.nav-blog')}
           %li
-            %a(href="/returns") #{i18n('common.nav-returns')}
+            %a(href="http://srnd.supply/" target="_blank") #{i18n('common.nav-store')}
           %li
-            %a(href="/privacy") #{i18n('common.nav-privacy')}
+            %a(href="#{langPrefix}/conduct") #{i18n('common.nav-conduct')}
           %li
-            %a(href="/trademarks") #{i18n('common.nav-trademarks')}
-          %li
-            %a(href="/bugs") #{i18n('common.nav-bugs')}
+            -if lang != ''
+              %a(href="/en#{nonLangUri}") English
+            -else
+              %a(href="/es#{nonLangUri}") Español

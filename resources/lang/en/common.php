@@ -13,7 +13,7 @@ return array(
     "nav-blog"          => "Blog",
     "nav-privacy"       => "Privacy",
     "nav-trademarks"    => "Trademarks",
-    "nav-conduct"       => "Code of Conduct",
+    "nav-conduct"       => "Conduct",
     "nav-returns"       => "Return Policy",
     "nav-bugs"          => "Bug Bounty",
     "nav-store"         => "Merch",

@@ -8,10 +8,8 @@ body > footer
     +grid-column(3)
     font-size: +modular-scale(-1)
     color: $color-gray
-  .links
-    +desktop
-      +grid-column(3)
-      +grid-push(6)
+  .links, .legal
+    +grid-column(2)
     text-align: right
     ul
       padding: 0
@@ -20,10 +18,13 @@ body > footer
         list-style-type: none
         a
           color: $color-gray
+  +desktop
+    .legal
+      +grid-push(5)
   +mobile
-    .copyright, .links
-      +grid-column(6)
+    .copyright, .links, .legal
+      +grid-column(4)
   +print
-    .copyright, .links
+    .copyright, .links, .legal
       display: none
 
