@@ -10,8 +10,8 @@ return array(
     "stats-block-3-title"   => "... y propiciar la inscripción a largo plazo en clases de computación.",
     "stats-block-1-1"       => ":students+ estudiantes",
     "stats-block-1-2"       => "Programas en más de :cities ciudades",
-    "stats-block-2"         => ":underrep% of students identify as female, low-income, and/or Latinx/African American",
-    "stats-block-3"         => ":outcome% of students with no prior interest are still coding three months later",
+    "stats-block-2"         => ":underrep% de los estudiantes se identifican como mujeres de bajos ingresos y de ascendencia latina o afroamericana",
+    "stats-block-3"         => ":outcome% de los estudiantes que no tenían ningún interés previo, todavía están programando tres meses después",
 
     "explainer-title"       => "Existe un gran problema en la enseñanza de la computación: pocos estudiantes quieren aprender.",
     "explainer-1-alt"       => "Un profesor de computación se encuentra al frente de un aula vacía.",
