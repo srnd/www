@@ -17,10 +17,19 @@ class DefaultLang
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        @session_start();
-        if (isset($_SESSION['lang']) && $_SESSION['lang']) {
-            return redirect('/'.$_SESSION['lang'].'/'.request()->path());
+        $tld = substr($request->getHost(), strrpos($request->getHost(), '.')+1);
+        switch ($tld) {
+            case "es":
+            case "esdev":
+                $locale = 'es';
+                break;
+            default:
+                $locale = 'en';
+                break;
         }
+
+        \App::setLocale($locale);
+        \View::share('lang', $locale);
 
         return $next($request);
     }

@@ -15,6 +15,7 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+        \StudentRND\Http\Middleware\DefaultLang::class,
         \StudentRND\Http\Middleware\ShareVersion::class,
     ];
 
@@ -49,6 +50,5 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \StudentRND\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'default-lang' => \StudentRND\Http\Middleware\DefaultLang::class,
     ];
 }
