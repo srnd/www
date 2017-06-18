@@ -45,20 +45,20 @@
   %body(class="lang-#{lang} section-#{block('section')|trim} page-#{block('page')|trim}")
     %header
       %h1
-        %a(href="#{langPrefix}/") #{i18n('common.name')}
+        %a(href="/") #{i18n('common.name')}
       %nav
         %ul
           %li
-            %a(href="#{langPrefix}/contact") #{i18n('common.nav-contact')}
+            %a(href="/contact") #{i18n('common.nav-contact')}
           %li
-            %a(href="#{langPrefix}/press") #{i18n('common.nav-press')}
+            %a(href="/press") #{i18n('common.nav-press')}
           %li
-            %a(href="#{langPrefix}/donate") #{i18n('common.nav-donate')}
+            %a(href="/donate") #{i18n('common.nav-donate')}
           %li
             -if lang != ''
-              %a(href="/en#{nonLangUri}") English
+              %a(href="https://srnd.org/") English
             -else
-              %a(href="/es#{nonLangUri}") Español
+              %a(href="https://srnd.es/") Español
 
     #{block('body')}
 
@@ -68,13 +68,13 @@
       .legal
         %ul
           %li
-            %a(href="#{langPrefix}/privacy") #{i18n('common.nav-privacy')}
+            %a(href="/privacy") #{i18n('common.nav-privacy')}
           %li
-            %a(href="#{langPrefix}/trademarks") #{i18n('common.nav-trademarks')}
+            %a(href="/trademarks") #{i18n('common.nav-trademarks')}
           %li
-            %a(href="#{langPrefix}/returns") #{i18n('common.nav-returns')}
+            %a(href="/returns") #{i18n('common.nav-returns')}
           %li
-            %a(href="#{langPrefix}/bugs") #{i18n('common.nav-bugs')}
+            %a(href="/bugs") #{i18n('common.nav-bugs')}
       .links
         %ul
           %li
@@ -82,7 +82,7 @@
           %li
             %a(href="http://srnd.supply/" target="_blank") #{i18n('common.nav-store')}
           %li
-            %a(href="#{langPrefix}/conduct") #{i18n('common.nav-conduct')}
+            %a(href="/conduct") #{i18n('common.nav-conduct')}
           %li
             -if lang != ''
               %a(href="/en#{nonLangUri}") English
