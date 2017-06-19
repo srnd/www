@@ -24,7 +24,7 @@ return array(
     "explainer-3-title"     => "Getting students excited about coding is a necessary step to increasing tech diversity.",
     "explainer-3-caption"   => "Students leave excited and enroll in CS classes and join CS clubs.",
 
-    "programs-title"        => "Our programs atract and excite students without prior interest.",
+    "programs-title"        => "Our programs attract and excite students without prior interest.",
     "programs-codeday"      => "CodeDay gets beginners excited about coding in just 24 hours.",
     "programs-chat"         => "Our online chat connects a :number+ student community.",
     "programs-codebreak"    => "CodeBreak pairs students with mentors over summer and winter break.",
