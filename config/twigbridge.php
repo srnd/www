@@ -15,7 +15,7 @@ return [
 
         'globals' => [
             'version' => filemtime(implode(DIRECTORY_SEPARATOR, [public_path(), 'assets', 'css', 'style.css'])),
-            'requestUrl' => request()->url()
+            'requestUrl' => strpos(php_sapi_name(), 'cli') === false ? request()->url() : null
         ],
     ],
 
