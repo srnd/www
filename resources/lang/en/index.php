@@ -25,9 +25,9 @@ return array(
     "explainer-3-caption"   => "Students leave excited and enroll in CS classes and join CS clubs.",
 
     "programs-title"        => "Our programs attract and excite students without prior interest.",
-    "programs-codeday"      => "CodeDay gets beginners excited about coding in just 24 hours.",
+    "programs-codeday"      => "CodeDay gets beginners excited about coding with weekend events.",
     "programs-chat"         => "Our online chat connects a :number+ student community.",
-    "programs-codebreak"    => "CodeBreak pairs students with mentors over summer and winter break.",
+    "programs-codebreak"    => "CodeBreak is the largest and most accessible CS summer program in the US.",
 
     "schools-title"         => "We help hundreds of schools and districts increase CS enrollment.",
     "schools-quote-p1"      => "[The Salinas Valley] is one of the 13 most dangerous cities in California... My goal is to expose my students to the vast opportunities that exist outside of our valley.",
