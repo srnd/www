@@ -17,12 +17,10 @@ class DonateController extends \StudentRND\Http\Controller {
 
     public function postIndex()
     {
-        if (\Input::get('payment_method') === 'stripe' && \Input::get('frequency') === 'monthly') {
+        if (\Input::has('stripe_token') && \Input::get('frequency') !== 'onetime') {
             return $this->stripeCheckoutRecurring();
-        } else if (\Input::get('payment_method') === 'stripe' && \Input::get('frequency') === 'onetime') {
+        } else if (\Input::has('stripe_token') && \Input::get('frequency') === 'onetime') {
             return $this->stripeCheckoutOneTime();
-        } else if (\Input::get('payment_method') === 'dwolla' && \Input::get('frequency') !== 'monthly') {
-            return $this->dwollaCheckout();
         } else {
             return $this->makeDonationPage();
         }
@@ -56,7 +54,12 @@ class DonateController extends \StudentRND\Http\Controller {
             'email' => $otherDonation->email,
             'amount' => $otherDonation->amount,
             'is_recurring' => false,
-            'is_anonymous' => $otherDonation->is_anonymous,
+            'address_1' => $otherDonation->address1,
+            'city' => $otherDonation->city,
+            'state' => $otherDonation->state,
+            'zip' => $otherDonation->zip,
+            'reward' => null,
+            'reward_option' => null,
             'for' => $otherDonation->for
         ];
 
@@ -145,7 +148,7 @@ class DonateController extends \StudentRND\Http\Controller {
             $donation_record = $this->createDonationRecord('stripe', $charge->id, $cust->id);
         } catch (\Exception $ex) {
             $charge->refunds->create();
-            return $this->makeDonationPage(["Something went wrong on our side; we're looking into it. Your card was not charged."]);
+            return $this->makeDonationPage(["Something went wrong on our side; we're looking into it. Your card was not charged.", $ex->getMessage()]);
         }
 
         // Try to track events and send the email
@@ -195,7 +198,7 @@ class DonateController extends \StudentRND\Http\Controller {
             $donation_record = $this->createDonationRecord('stripe', $charge->id);
         } catch (\Exception $ex) {
             $charge->refunds->create();
-            return $this->makeDonationPage(["Something went wrong on our side; we're looking into it. Your card was not charged."]);
+            return $this->makeDonationPage(["Something went wrong on our side; we're looking into it. Your card was not charged.", $ex->getMessage()]);
         }
 
         // Try to track events and send the email
@@ -209,96 +212,6 @@ class DonateController extends \StudentRND\Http\Controller {
         // Redirect to the transaction complete page
         \Session::flash('just_donated', true);
         return \Redirect::to('/donate/receipt/'.$donation_record->id);
-    }
-
-    /* ====== DWOLLA ====== */
-
-    /**
-     * Creates a Dwolla cart and redirects the user to the payment page.
-     */
-    public function dwollaCheckout()
-    {
-        $requirements_check = $this->containsAllRequired();
-        if (!$requirements_check->success) {
-            return $this->makeDonationPage($requirements_check->errors);
-        }
-
-        $user = $this->getDonationInfo();
-
-        $dc = new \Dwolla\Checkouts();
-        \Dwolla\Checkouts::$settings = $this->getDwollaSettings();
-
-        $dc->addToCart("Donation", "Donation", $user['amount'], 1);
-        $cart = $dc->create(
-            [ 'destinationId' => \Config::get('dwolla.account_id') ],
-            [ 'redirect' => \URL::to('/donate/dwolla/return') ]
-        );
-
-        \Cache::put('dwolla.checkout.'.$cart['CheckoutId'], $user, 120);
-
-        if (\Config::get('dwolla.sandbox')) {
-            return \Redirect::to('https://uat.dwolla.com/payment/checkout/'.$cart['CheckoutId']);
-        } else {
-            return \Redirect::to('https://www.dwolla.com/payment/checkout/'.$cart['CheckoutId']);
-        }
-    }
-
-    /**
-     * Verifies the Dwolla cart and redirects the user to the receipt.
-     */
-    public function getDwollaReturn()
-    {
-        $checkoutId = \Input::get('checkoutId');
-        $user = \Cache::get('dwolla.checkout.'.$checkoutId);
-
-        if (!$user) {
-            return "No such transaction";
-        }
-
-        $dc = new \Dwolla\Checkouts();
-        $dc->settings = $this->getDwollaSettings();
-        \Dwolla\Checkouts::$settings = $this->getDwollaSettings();
-
-        if (!$dc->verify(\Input::get('signature'), $checkoutId, $user['amount'])) {
-            return "Dwolla signature mismatch.";
-        }
-
-        if (\Input::get('error') ) {
-            \Session::flash('donation_info', $user);
-            return \Redirect::to('/donate');
-        }
-
-        $this->donation_info = $user;
-        $donation_record = $this->createDonationRecord('dwolla', \Input::get('destinationTransaction'));
-        \Cache::forget('dwolla.checkout.'.$checkoutId);
-
-        // Try to track events and send the email
-        $this->optionalStep(function() {
-            $this->trackDonateEvents();
-        });
-        $this->optionalStep(function() use ($donation_record) {
-            $this->mailDonationReceipt($donation_record);
-        });
-
-        // Redirect to the transaction complete page
-        \Session::flash('just_donated', true);
-        return \Redirect::to('/donate/receipt/'.$donation_record->id);
-    }
-
-    /**
-     * Sets Dwolla account settings
-     *
-     * @return \Dwolla\Settings
-     */
-    private function getDwollaSettings()
-    {
-        $settings = new \Dwolla\Settings();
-        $settings->client_id = \Config::get('dwolla.client_id');
-        $settings->client_secret = \Config::get('dwolla.client_secret');
-        $settings->sandbox = \Config::get('dwolla.sandbox');
-        $settings->debug = \Config::get('app.debug');
-
-        return $settings;
     }
 
     /**
@@ -334,7 +247,6 @@ class DonateController extends \StudentRND\Http\Controller {
         ]);
         $mp->track('donated', [
             'amount'            => $user['amount'],
-            'is_anonymous'      => $user['is_anonymous'],
             'campaign'          => \Session::get('donation_campaign')
         ]);
         $mp->people->setOnce($user['email'], [
@@ -362,8 +274,13 @@ class DonateController extends \StudentRND\Http\Controller {
         $donation->is_recurring = $user['is_recurring'];
         $donation->first_name = $user['first_name'];
         $donation->last_name = $user['last_name'];
+        $donation->address_1 = $user['address_1'];
+        $donation->city = $user['city'];
+        $donation->state = $user['state'];
+        $donation->zip = $user['zip'];
+        $donation->reward = $user['reward'] !== 'none' ? $user['reward'] : null;
+        $donation->reward_option = $user['reward_option'];
         $donation->email = $user['email'];
-        $donation->is_anonymous = $user['is_anonymous'];
         $donation->for = $user['for'];
 
         $donation->transaction_source = $transaction_source;
@@ -387,6 +304,7 @@ class DonateController extends \StudentRND\Http\Controller {
             function($email) use ($donation_record, $isSubscriptionGenerated) {
                 $email->from('donate@srnd.org', 'srnd.org');
                 $email->to($donation_record->email, $donation_record->first_name);
+                $email->bcc('tylermenezes@srnd.org', 'Tyler Menezes');
                 $email->subject('Receipt for Your '.($isSubscriptionGenerated?'Recurring ':'').'Donation');
             });
     }
@@ -453,9 +371,14 @@ class DonateController extends \StudentRND\Http\Controller {
             'is_recurring' => \Input::get('is_recurring') ? true : false,
             'first_name' => \Input::get('first_name'),
             'last_name' => \Input::get('last_name'),
+            'address_1' => \Input::get('address_1'),
+            'city' => \Input::get('city'),
+            'state' => \Input::get('state'),
+            'zip' => \Input::get('zip'),
+            'reward' => \Input::get('reward'),
+            'reward_option' => \Input::get('reward-'.\Input::get('reward').'-option'),
             'email' => \Input::get('email'),
             'stripe_token' => \Input::get('stripe_token'),
-            'is_anonymous' => \Input::get('is_anonymous') ? true : false,
             'for' => \Input::get('for')
         ];
     }
@@ -471,7 +394,24 @@ class DonateController extends \StudentRND\Http\Controller {
         return \View::make('pages/donate/index', array_merge($this->getDonationInfo(), [
             'errors' => $errors,
             'stripe_public' => \Config::get('stripe.public'),
-            'show_opt_out' => \Session::has('donate_campaign')
+            'show_opt_out' => \Session::has('donate_campaign'),
+            'gifts' => iterator_to_array(self::getGifts())
         ]));
+    }
+
+
+    /**
+     * Gets a list of available gifts with translation information.
+     */
+    private static function getGifts()
+    {
+        $gifts = yaml_parse_file(config_path().'/gifts.yml');
+        foreach ($gifts as $k => $v) {
+            $v['name'] = trans('donate-gifts.'.$k.'-name');
+            $v['description'] = trans('donate-gifts.'.$k.'-description');
+            $v['image'] = '/assets/img/donate-gifts/'.$k.'-small.jpg';
+            $v['limage'] = '/assets/img/donate-gifts/'.$k.'-large.jpg';
+            yield $k => $v;
+        }
     }
 } 

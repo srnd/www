@@ -12,148 +12,70 @@
       %h2 #{i18n('donate.tag')}
       %p #{i18n('donate.text')}
 
-    %form.donation(method="post")
-      %h3 #{i18n('donate.donate')}
-      -if errors
-        .errors
-          #{i18n('errors.title')}
-          %ul
-            -for error in errors
-              %li #{error}
-      .amount
-        -for amount in [10, 25, 50, 100, 250]
-          -if amount == 25
-            %input(type="radio" name="fake_amount" id="amount_#{amount}" value="#{amount}" checked)
-          -else
-            %input(type="radio" name="fake_amount" id="amount_#{amount}" value="#{amount}")
-          %label(for="amount_#{amount}") $#{amount}
-        %input(type="text" name="fake_amount" id="amount_custom" placeholder="#{i18n('donate.amount-other')}" format="[0-9]+(\\.[0-9]{2})?" oninvalid="setCustomValidity('#{i18n('errors.validate-number')}')")
-        %input(type="hidden" name="amount" value="")
+    -if errors
+      .errors
+        #{i18n('errors.title')}
+        %ul
+          -for error in errors
+            %li #{error}
 
-      .frequency
-        %input(type="radio" name="frequency" id="frequency_onetime" value="onetime")
-        %label(for="frequency_onetime") #{i18n('donate.frequency-onetime')}
+    #donateWidget
 
-        %input(type="radio" name="frequency" id="frequency_monthly" value="monthly" checked)
-        %label(for="frequency_monthly") #{i18n('donate.frequency-monthly')}
+    %p.mail #{i18n('donate.donate-mail', {'address': 'srnd.org, 505 Broadway E #141, Seattle, WA 98102'})}
+-block scripts
+  :javascript
+    window.defaultState = {
+      "amount": 15,
+      "prefilledAmounts": [15,25,50,100],
+      "frequency": "monthly",
+    };
+    window.i18n = {
+      "DonationImpactAnnually": "#{i18n('donate.impact-annually')|escape('js')}",
+      "DonationImpactText": {
+        0:     "#{i18n('donate.impact-coffee')|escape('js')}",
+        15:    "#{i18n('donate.impact-marketing')|escape('js')}",
+        38:    "#{i18n('donate.impact-scholarship')|escape('js')}",
+        400:   "#{i18n('donate.impact-school')|escape('js')}",
+        5000:  "#{i18n('donate.impact-city')|escape('js')}",
+      },
+      "Contact": {
+        "first_name":   "#{i18n('donate.first-name')|escape('js')}",
+        "last_name":    "#{i18n('donate.last-name')|escape('js')}",
+        "email":        "#{i18n('donate.email')|escape('js')}",
+        "address_1":    "Address",
+        "address_2":    "Address",
+        "city":         "City",
+        "state":        "State",
+        "zip":          "ZIP",
+      },
 
-      %h4 #{i18n('donate.payment')}
-      .card
-        #card-element
 
-      .contact
-        %input(type="text" name="first_name" placeholder="#{i18n('donate.first-name')}" required)
-        %input(type="text" name="last_name" placeholder="#{i18n('donate.last-name')}" required)
-        %input(type="email" name="email" placeholder="#{i18n('donate.email')}" required)
-        
-        %input(type="checkbox" name="is_anonymous" id="is_anonymous")
-        %label(for="is_anonymous") #{i18n('donate.anonymous-label')}
+      "DonationFrequencyMemberNo":  "#{i18n('donate.frequency-member-no')|escape('js')}",
+      "DonationFrequencyMemberYes": "#{i18n('donate.frequency-member-yes')|escape('js')}",
+      "DonationFrequencyOnetime":   "#{i18n('donate.frequency-onetime')|escape('js')}",
+      "DonationFrequencyMonthly":   "#{i18n('donate.frequency-monthly')|escape('js')}",
+      "DonationFrequencyAnnual":    "#{i18n('donate.frequency-annual')|escape('js')}",
+      
+      "DonationFrequencyTitle":     "#{i18n('donate.frequency')|escape('js')}",
+      "DonationAmountTitle":        "#{i18n('donate.amount')|escape('js')}",
+      "DonationGiftTitle":          "#{i18n('donate.gift')|escape('js')}",
+      "DonationContactTitle":       "#{i18n('donate.contact')|escape('js')}",
+      "DonationPaymentTitle":       "#{i18n('donate.payment')|escape('js')}",
 
-      .submit
-        %input(type="submit" value="Donate")
-        %input(type="hidden" name="payment_method" value="stripe")
-        %p.mail #{i18n('donate.donate-mail', {'address': 'srnd.org, 505 Broadway E #141, Seattle, WA 98102'})}
-    .other-support
-      %h3 #{i18n('donate.sponsor-title')}
-      %a.cta(href="http://assets.srnd.org/onepage.pdf" target="_blank")<
-        %img(src="/assets/img/onepage.png")>
-      %p #{i18n('donate.sponsor')}
-      %p #{i18n('donate.sponsor-cta', {'tel': '18886077763', 'telFormatted': '(888) 607-7763 ext 103', 'email': 'sponsor@srnd.org', 'onepage': 'http://assets.srnd.org/onepage.pdf'})}
+      "DonationFrequencyMember":    "#{i18n('donate.membership-explain')|escape('js')}",
+      "DonationCustom":             "#{i18n('donate.impact-custom')|escape('js')}",
+      "DonationNoGift":             "#{i18n('donate.no-gift')|escape('js')}",
+
+      "DonationSubmitDisabled":     "#{i18n('donate.submit-disabled')}",
+      "DonationSubmit": {
+        "onetime":  "#{i18n('donate.submit-onetime')}",
+        "monthly":  "#{i18n('donate.submit-monthly')}",
+        "annual":   "#{i18n('donate.submit-annual')}"
+      }
+    };
+
+    window.gifts = #{gifts|json_encode|raw};
+    window.stripePublic = "#{stripe_public|escape('js')}";
 
   %script(src="https://js.stripe.com/v3/")
-  :javascript
-    (function(){
-      var amountBuiltins = document.querySelectorAll('.amount input[type="radio"]');
-      var hiddenAmount = document.querySelector('.amount input[type="hidden"][name="amount"]');
-      var amountCustom = document.querySelector('.amount input[type="text"]');
-      var eachBuiltin = function(fn){ [].forEach.call(amountBuiltins, fn); }
-      var frequencies = document.querySelectorAll('.frequency input[type="radio"]');
-      var button = document.querySelector('.submit input[type="submit"]');
-      var removeCustomValue = function() { 
-        amountCustom.className = '';
-        amountCustom.value = '';
-      }
-      var getAmount = function() {
-        if (amountCustom.value) return amountCustom.value;
-
-        var builtinAmountSelection = document.querySelector('.amount input[name="fake_amount"]:checked').value;
-        if (builtinAmountSelection) return builtinAmountSelection;
-        return 0;
-      }
-      var updateButton = function() {
-        if (document.querySelector('.frequency input[name="frequency"]:checked').value == 'onetime') {
-          button.value = "Make a $"+getAmount()+" donation";
-        } else {
-          button.value = "Start $"+getAmount()+" monthly donation";
-        }
-        hiddenAmount.value = getAmount();
-      };
-
-      // When the user clicks a built-in amount, clear the custom amount
-      eachBuiltin(function(radio) { radio.addEventListener('click', function(){removeCustomValue(); updateButton();}); });
-
-      // When the user enters a valid custom amount, clear the builtin selection
-      amountCustom.addEventListener('focusout', function() {
-        var neatVal = amountCustom.value.trim();
-        if (isNaN(neatVal) || neatVal === '') {
-          removeCustomValue();
-        } else {
-          amountCustom.value = neatVal;
-          amountCustom.className = 'selected';
-          eachBuiltin(function(radio) { radio.checked = false; });
-        }
-        updateButton();
-      });
-
-      // When the user changes the frequency, update the button
-      [].forEach.call(frequencies, function(freq) { freq.addEventListener('click', updateButton); });
-
-      updateButton();
-    })();
-    (function(){
-      var form = document.querySelector('form.donation');
-      var stripe = Stripe('#{stripe_public}');
-      var elements = stripe.elements();
-      var card = elements.create('card', {style: {
-        base: {
-          color: '#484848',
-          lineHeight: '24px',
-          fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
-          fontSmoothing: 'antialiased',
-          fontSize: '14.667px',
-          ':placeholder': {
-            color: '#bdbdbd'
-          }
-        },
-        invalid: {
-          color: '#ff686b',
-          iconColor: '#ff686b'
-        }
-      }});
-      card.mount('#card-element');
-
-      // Insert the token ID into the form so it gets submitted to the server
-      var stripeTokenHandler = function(token) {
-        var hiddenInput = document.createElement('input');
-        hiddenInput.setAttribute('type', 'hidden');
-        hiddenInput.setAttribute('name', 'stripe_token');
-        hiddenInput.setAttribute('value', token.id);
-        form.appendChild(hiddenInput);
-
-        // Submit the form
-        form.submit();
-      }
-
-      // Stripe form post
-      form.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        stripe.createToken(card).then(function(result) {
-          if (result.error) {
-            alert(result.error.message);
-          } else {
-            stripeTokenHandler(result.token);
-          }
-        });
-      });
-    })();
+  %script(src="/assets/js/app.js")

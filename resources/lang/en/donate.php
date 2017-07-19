@@ -2,13 +2,9 @@
 
 return array(
     "title"                 => "Donate",
-    "tag"                   => "Help continue to build CS interest in your community.",
-    "text"                  => "We are funded by donations, and spend just $38 to make a life-long change in career opportunity for a student. Your support will allow us to continue to make these changes possible.",
+    "tag"                   => "Help build CS interest in your community.",
+    "text"                  => "We are funded by donations, and as little as $38 makes a life-long change in career opportunity for a student.",
 
-    "donate"                => "Make a Donation",
-    "amount-other"          => "Other",
-    "frequency-onetime"     => "One-Time",
-    "frequency-monthly"     => "Monthly",
     "first-name"            => "First Name",
     "last-name"             => "Last Name",
     "email"                 => "Email",
@@ -23,11 +19,35 @@ return array(
     "cvc"                   => "CVC",
     "card-complete"         => "Donate :amount by card",
     "dwolla-complete"       => "Donate :amount with Dwolla",
+    "submit-disabled"       => "(Please complete all fields to donate.)",
+    "submit-onetime"        => "Send your $:amount one-time donation",
+    "submit-monthly"        => "Start your monthly $:amount donation",
+    "submit-annual"         => "Start your annual $:amount donation",
+
+    "frequency"             => "Would you like to become a supporting member with a recurring donation?",
+    "membership-explain"    => "srnd.org members receive a physical membership card, discounted event admission, and regular updates on how your money is being used to support CS education and outreach.",
+    "frequency-member-no"   => "",
+    "frequency-member-yes"  => "Supporting Member",
+    "frequency-onetime"     => "One-Time Donation",
+    "frequency-monthly"     => "Monthly Donation",
+    "frequency-annual"      => "Annual Donation",
+
+    "amount"                => "What would you like to contribute?",
+    "impact-coffee"         => "Pays for a coffee meeting to discuss involvement with a local educator.",
+    "impact-marketing"      => "Helps promote CodeDay at :num school:plural:annual.",
+    "impact-scholarship"    => "Pays for :num student scholarship:plural:annual.",
+    "impact-school"         => "Pays for scholarships for :num school:plural:annual.",
+    "impact-city"           => "Pays for a city for :num season:plural:annual.",
+    "impact-custom"         => "Enter a custom amount.",
+    "impact-annually"       => "annually",
+
+    "gift"                  => "Choose a thank-you gift:",
+    "no-gift"               => "No thanks, I don't want a gift.",
 
     "donate-mail"           => "You can also donate by mailing a check to :address",
 
     "sponsor-title"         => "Corporate Sponsorships",
-    "sponsor"               => "We work with many companies looking to promote developer products and build reputations as top tech employers.",
+    "sponsor"               => "We work with many compaies looking to promote developer products and build reputations as top tech employers.",
     "sponsor-cta"           => "<a href=\"tel::tel\">Call</a> :telFormatted, <a href=\"mailto::email\">email</a> :email, or <a href=\":onepage\">download</a> our one-page.",
 
     "receipt-title"         => "Donation Receipt",

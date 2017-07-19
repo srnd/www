@@ -3,73 +3,182 @@ body.section-donate
   // Index
   ////////////////////////////////////////////////// 
   &.page-index
-    form.donation
-      +desktop
-        +grid-column(8)
-      +mobile
-        +grid-column(12)
+  
+    ///////////////////////// 
+    // Errors
+    ///////////////////////// 
+    .errors
+      @extend %rounded
+      border: 1px solid $color-red
+      padding: 1rem
+      margin-bottom: 2rem
 
+    form.donation
+      +grid-collapse
       ///////////////////////// 
-      // Errors
+      // General Style
       ///////////////////////// 
-      .errors
-        @extend %rounded
-        border: 1px solid $color-red
-        padding: 1rem
+      & > section
         margin-bottom: 2rem
-      
+        & > h3, & > p
+          +grid-column(12)
+      .radio-field
+        +grid-container
+      .radio
+        +grid-column(12)
+        @extend %button-featured
+        margin-bottom: 1rem
+        white-space: normal
+        padding: 0.5rem
+        &[data-disabled]
+          cursor: not-allowed
+          filter: grayscale(100%)
+          &:hover
+            box-shadow: none
+            background-color: transparent
+        &[data-selected]
+          border-color: $color-black
+          @extend %button:hover
+          background-color: transparent
+
       ///////////////////////// 
       // Amount
       ///////////////////////// 
       .amount
         +grid-container
-        +grid-collapse
-        input[type="radio"]
-          display: none
-        label, input[type="text"]
-          @extend %button-featured
+        .radio
+          min-height: 12rem
+          margin-bottom: 20px
           +desktop
             +grid-column(2)
+            &:last-child
+              +grid-column(4)
           +mobile
-            +grid-column(6)
-            margin-bottom: 20px
-        input[type="radio"]:checked+label, input[type="text"].selected
-          @extend %button-cta
+            +grid-column(4)
+            &:last-child
+              +grid-column(8)
+          text-align: center
+          span
+            @extend h2
+            display: inline-block
+            margin-bottom: 0
+            &.amount-default
+              margin-top: 0.6rem
+            &.amount-custom
+              text-align: left
+              @extend %rounded
+              border: 1px solid $color-gray-light
+              padding: 0.5rem 1rem
+              input
+                @extend h2
+                width: calc(100% - 1.4rem)
+                border: none
+                background-color: transparent
+                margin-bottom: 0
       
       ///////////////////////// 
       // Frequency
       ///////////////////////// 
       .frequency
+        +grid-container
         margin-top: 1rem
-        text-align: center
+        p
+          margin-top: 0
+        .radio
+          +desktop
+            +grid-column(3)
+          +mobile
+            +grid-column(6)
+          .member
+            display: block
+            height: 1.5em
+            margin-bottom: 0
+          .frequency
+            display: block
+            font-weight: bold
+            margin-top: 0
 
       ///////////////////////// 
-      // Card
+      // "Gifts" (Rewards)
       ///////////////////////// 
-      .card
-        #card-element
-          @extend %rounded
-          border: 1px solid $color-gray-light
-          padding: 0.5rem 1rem
+      .reward
+        +grid-container
+        margin-top: 1rem
+        .radio
+          +grid-container
+          +mobile
+            +grid-column(12)
+          +desktop
+            +grid-column(6)
+            &:first-child
+              margin-right: 40%
+          position: relative
+          .image
+            cursor: zoom-in
+            div
+              float: left
+              width: 10rem
+              height: 10rem
+              background:
+                size: cover
+                position: 50% 50%
+          .info
+            padding-left: 1rem
+            float: left
+            width: calc(100% - 10rem)
+            .title
+              @extend h5
+              display: block
+            select
+              display: block
+              position: absolute
+              bottom: 0.5rem
+              right: 0.5rem
 
       ///////////////////////// 
       // Contact
       ///////////////////////// 
       .contact
         margin-top: 1rem
+        margin-bottom: 4rem
+        +grid-container
         +grid-collapse
-        input[type="text"], input[type="email"]
+        h3
+          +grid-column(12)
+          width: calc(100% - 80px) !important
+          margin-left: 40px !important
+        section input, .StripeElement
           @extend %rounded
           border: 1px solid $color-gray-light
           padding: 0.5rem 1rem
-        input[name="first_name"], input[name="last_name"]
-          +grid-column(6)
-        input[name="email"]
-          +grid-column(12)
-          margin-top: 10px
+        .StripeElement
+          +desktop
+            +grid-column(6)
+            width: calc(50% - 70px)
+            margin-right: 40%
+            margin-left: 40px
+          +mobile
+            +grid-column(12)
+            width: calc(100% - 80px)
+            margin-left: 40px
           margin-bottom: 10px
-        input[name="is_anonymous"]
-          margin-left: 20px
+        section.basic, section.address
+          +desktop
+            +grid-column(6)
+          +mobile
+            +grid-column(12)
+            margin-bottom: 10px
+          +grid-container
+          input[name="first_name"], input[name="last_name"]
+            +grid-column(6)
+          input[name="city"], input[name="state"], input[name="zip"]
+            +grid-column(4)
+          input[name="email"]
+            +grid-column(12)
+            margin-top: 10px
+          input[name="address_1"]
+            +grid-column(12)
+            margin-bottom: 10px
 
       ///////////////////////// 
       // Submit
@@ -79,34 +188,20 @@ body.section-donate
         margin-top: 2rem
         input[type="submit"]
           @extend %button-cta
+          &:disabled
+            background-color: $color-gray
+            border-color: $color-gray
+            cursor: default
         .mail
           font-size: +modular-scale(-1)
 
 
-    ///////////////////////// 
-    // Other Ways to Support
-    ///////////////////////// 
-    .other-support
-      +desktop
-        +grid-column(4)
-      +mobile
-        +grid-column(12)
-
-      @extend %rounded
-      border: 1px solid $color-gray
-      padding: 1rem
-      text-align: center
-      h3
-        margin-top: 0
-      a.cta
-        @extend %button:hover
-        width: 70%
-        line-height: 0
-        display: inline-block
-        img
-          width: 100%
-          height: auto
-
+  ///////////////////////// 
+  // Mail
+  ///////////////////////// 
+  p.mail
+    text-align: center
+    color: $color-gray
 
 
 

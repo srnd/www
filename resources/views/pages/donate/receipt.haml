@@ -36,7 +36,10 @@
 
       .by
         %h3 #{i18n('donate.by')}
-        %p #{donation.first_name} #{donation.last_name}
+        %p
+          #{donation.first_name} #{donation.last_name}<br />
+          #{donation.address_1}<br />
+          #{donation.city} #{donation.state} #{donation.zip}
 
       .to
         %h3 #{i18n('donate.to')}
