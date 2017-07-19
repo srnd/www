@@ -2,7 +2,7 @@
 
 return array(
     "stickers-name"                     => "Sticker Pack",
-    "stickers-description"              => "An assortment of five each: srnd.org, CodeDay, and I <3 CODE stickers.",
+    "stickers-description"              => "An assortment of stickers: srnd.org, CodeDay, and I <3 CODE.",
 
     "history-name"                      => "History Pack",
     "history-description"               => "Own a tiny piece of our early history! Contains four stickers with our original logos, and two \"Food Dollars\" from our origin as a makerspace.",

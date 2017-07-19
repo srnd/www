@@ -19,7 +19,9 @@ export default class DonationRewardPicker extends React.Component {
                         </a>
                         <div className="info">
                             <span className="title">{reward.name}</span>
-                            <span className="description">{reward.description}</span>
+                            <span className="description">
+                                {reward.description} (min ${this.props.donationFrequency == "monthly" ? reward.recur : reward.today})
+                            </span>
                             {reward.options ? (
                                 <select name={this.props.name+'-'+id+'-option'}>
                                     {reward.options.map(x => <option key={x}>{x}</option>)}
