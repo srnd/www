@@ -47,7 +47,7 @@ class DonationAmount extends React.Component {
         return impactText[maxImpact]
             .replace(':num', num)
             .replace(':plural', plural)
-            .replace(':annual', ' '+window.i18n.DonationImpactAnnually);
+            .replace(':annual', (frequency == 'monthly' ? ' '+window.i18n.DonationImpactAnnually : ''));
     }
 
     constructor(props) {

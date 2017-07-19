@@ -33,7 +33,7 @@ return array(
     "frequency-annual"      => "Annual Donation",
 
     "amount"                => "What would you like to contribute?",
-    "impact-coffee"         => "Pays for a coffee meeting to discuss involvement with a local educator.",
+    "impact-coffee"         => "Pays for a meeting with a local educator.",
     "impact-marketing"      => "Helps promote CodeDay at :num school:plural:annual.",
     "impact-scholarship"    => "Pays for :num student scholarship:plural:annual.",
     "impact-school"         => "Pays for scholarships for :num school:plural:annual.",
