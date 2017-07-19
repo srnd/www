@@ -54,9 +54,9 @@ body.section-donate
             &:last-child
               +grid-column(4)
           +mobile
-            +grid-column(4)
+            +grid-column(6)
             &:last-child
-              +grid-column(8)
+              +grid-column(12)
           text-align: center
           span
             @extend h2
@@ -91,8 +91,12 @@ body.section-donate
             +grid-column(6)
           .member
             display: block
-            height: 1.5em
-            margin-bottom: 0
+            +desktop
+              height: 1.5em
+              margin-bottom: 0
+            +mobile
+              min-height: 1.5rem
+              margin-bottom: 0.5rem
           .frequency
             display: block
             font-weight: bold
