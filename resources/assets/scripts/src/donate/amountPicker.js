@@ -75,12 +75,12 @@ class DonationAmount extends React.Component {
     }
 
     render() {
-        return <div className="donate-amount">
+        return <div className="donate-amount" onClick={() => this.refs.amount && this.refs.amount.focus()}>
             {this.props.amount != null ? (
                 <span className="amount-default">${this.props.amount}</span>
             ) : (
                 <span className="amount-custom">$<input
-                    type="amount"
+                    type="amount" ref="amount"
                     onChange={this.updateAmount} onBlur={this.props.onCustomBlur}
                     /></span>
             )}

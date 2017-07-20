@@ -5,6 +5,7 @@ import DonationRewardPicker from './donate/rewardPicker.js'
 import ContactForm from './donate/contactForm.js'
 import { DonatePageDispatcher, DonatePageStore } from './donate/state.js'
 import { FancyRadio, FancyRadioOption } from './ui/fancyRadio'
+import { RadioGroup, Radio } from './ui/radio'
 import { StripeProvider, Elements, CardElement, injectStripe } from 'react-stripe-elements';
 
 
@@ -46,32 +47,25 @@ class DonatePage extends React.Component {
         }};
 
         return <form className="donation" method="post" onSubmit={this.onSubmit}>
-                <section className="frequency">
-                    <h3>{window.i18n.DonationFrequencyTitle}</h3>
-                    <p>{window.i18n.DonationFrequencyMember}</p>
-                    <FancyRadio
-                        name="frequency"
-                        onUpdate={f => DonatePageDispatcher.dispatch({action: "frequency-changed", frequency: f})}>
-                        <FancyRadioOption value="onetime" selected={this.state.frequency == "onetime"}>
-                            <span className="member">{window.i18n.DonationFrequencyMemberNo}</span>
-                            <span className="frequency">{window.i18n.DonationFrequencyOnetime}</span>
-                        </FancyRadioOption>
-
-                        <FancyRadioOption value="monthly" selected={this.state.frequency == "monthly"}>
-                            <span className="member">{window.i18n.DonationFrequencyMemberYes}</span>
-                            <span className="frequency">{window.i18n.DonationFrequencyMonthly}</span>
-                        </FancyRadioOption>
-                    </FancyRadio>
-                </section>
-
                 <section className="amount">
                     <h3>{window.i18n.DonationAmountTitle}</h3>
+                    <RadioGroup
+                        className="frequency"
+                        name="frequency" default={this.state.frequency}
+                        onUpdate={f => DonatePageDispatcher.dispatch({action: "frequency-changed", frequency: f})}>
+                        <Radio value="onetime">{window.i18n.DonationFrequencyOnetime}</Radio>
+                        <Radio value="monthly">{window.i18n.DonationFrequencyMonthly}</Radio>
+                    </RadioGroup>
                     <DonationAmountPicker
                         name="amount"
                         amounts={this.state.prefilledAmounts}
                         defaultAmount={this.state.amount}
                         donationFrequency={this.state.frequency}
                         onUpdate={a => DonatePageDispatcher.dispatch({action: "amount-changed", amount: a})} />
+                    <p className="member-info">
+                        <strong>{window.i18n['DonationFrequencyMember'+(this.state.frequency == 'onetime' ? 'No' : 'Yes')]} </strong>
+                        {window.i18n.DonationFrequencyMember}
+                    </p>
                 </section>
 
                 <section className="reward">

@@ -46,9 +46,24 @@ body.section-donate
       ///////////////////////// 
       .amount
         +grid-container
+        margin-top: 2rem
+        margin-bottom: 3rem
+        h3
+          +desktop
+            +grid-column(7)
+          margin-top: 0
+        .frequency
+          +desktop
+            +grid-column(5)
+          text-align: right
+          span
+            padding-left: 1rem
+        .member-info
+          margin-top: 0
+          margin-bottom: 0
+        & > div
+          clear: both
         .radio
-          min-height: 12rem
-          margin-bottom: 20px
           +desktop
             +grid-column(2)
             &:last-child
@@ -57,6 +72,9 @@ body.section-donate
             +grid-column(6)
             &:last-child
               +grid-column(12)
+          margin-bottom: 20px
+        .donate-amount
+          min-height: 11rem
           text-align: center
           span
             @extend h2
@@ -76,32 +94,6 @@ body.section-donate
                 background-color: transparent
                 margin-bottom: 0
       
-      ///////////////////////// 
-      // Frequency
-      ///////////////////////// 
-      .frequency
-        +grid-container
-        margin-top: 1rem
-        p
-          margin-top: 0
-        .radio
-          +desktop
-            +grid-column(3)
-          +mobile
-            +grid-column(6)
-          .member
-            display: block
-            +desktop
-              height: 1.5em
-              margin-bottom: 0
-            +mobile
-              min-height: 1.5rem
-              margin-bottom: 0.5rem
-          .frequency
-            display: block
-            font-weight: bold
-            margin-top: 0
-
       ///////////////////////// 
       // "Gifts" (Rewards)
       ///////////////////////// 
