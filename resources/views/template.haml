@@ -73,19 +73,12 @@
             %a(href="/trademarks") #{i18n('common.nav-trademarks')}
           %li
             %a(href="/returns") #{i18n('common.nav-returns')}
-          %li
-            %a(href="/bugs") #{i18n('common.nav-bugs')}
       .links
         %ul
           %li
             %a(href="https://blog.srnd.org/" target="_blank") #{i18n('common.nav-blog')}
           %li
-            %a(href="http://srnd.supply/" target="_blank") #{i18n('common.nav-store')}
-          %li
             %a(href="/conduct") #{i18n('common.nav-conduct')}
           %li
-            -if lang != ''
-              %a(href="/en#{nonLangUri}") English
-            -else
-              %a(href="/es#{nonLangUri}") Español
+            %a(href="/bugs") #{i18n('common.nav-bugs')}
     #{block('scripts')}
