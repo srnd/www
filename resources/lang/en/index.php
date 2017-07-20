@@ -13,6 +13,8 @@ return array(
     "stats-block-2"         => ":underrep% of students identify as female, low-income, and/or Latinx/African American",
     "stats-block-3"         => ":outcome% of students with no prior interest are still coding three months later",
 
+    "press"                 => "As seen on:",
+
     "explainer-title"       => "There's a big problem in CS education: few students want to learn.",
     "explainer-1-alt"       => "A computer science teacher stands in front of an empty classroom.",
     "explainer-1-title"     => "Few female, low-income, and African American/Latinx students are enrolling in STEM classes.",

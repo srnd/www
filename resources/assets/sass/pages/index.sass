@@ -119,6 +119,49 @@ body.section-index
               background-color: $color-accent
               color: $color-background
               padding: 0.25rem 0.75rem
+    
+    // Press
+    .press
+      margin-top: 5rem
+      text-align: center
+      h3
+        @extend h5
+        color: $color-gray
+        margin-bottom: 0
+      ul
+        padding: 0
+        margin-top: 0.5rem
+        li
+          display: inline-block
+          list-style-type: none
+          margin: 0 1rem
+          opacity: 0.45
+          background:
+            size: contain
+            position: 50% 50%
+            repeat: no-repeat
+
+          a
+            display: inline-block
+            height: 40px
+            width: 7rem
+            text-indent: -50rem
+            overflow: hidden
+
+          &.pbs
+            background-image: url('/assets/img/press/pbs.png')
+            a
+              width: 5rem
+          &.npr
+            background-image: url('/assets/img/press/npr.png')
+            a
+              width: 4rem
+          &.univision
+            background-image: url('/assets/img/press/univision.png')
+          &.techcrunch
+            background-image: url('/assets/img/press/techcrunch.png')
+          &.readwrite
+            background-image: url('/assets/img/press/readwrite.png')
 
 
   ////////////////////////
