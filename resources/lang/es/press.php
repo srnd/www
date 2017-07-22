@@ -5,7 +5,7 @@ return array(
     "tag"                           => "Llevamos a cabo programas de computación increíblemente emocionantes.",
 
     "srnd-title"                    => "Acerca de srnd.org",
-    "srnd-1"                        => "Cerca del 80% de los trabajadores de las empresas tecnológicas más importantes son hombres, y menos del 10% son de ascendencia afroamericana o latina. Las instituciones gubernamentales y las organizaciones sin fines de lucro han tratado de reducir esta brecha de oportunidades ofreciendo clases de programación en todas las escuelas secundarias, pero entre las minorías hay pocos estudiantes que deciden inscribirse. ",
+    "srnd-1"                        => "Cerca del 80% de los trabajadores de las empresas  tecnológicas más importantes son hombres, y menos del 10% son de ascendencia afroamericana o latina. Las instituciones gubernamentales y las organizaciones sin fines de lucro han tratado de reducir esta brecha de oportunidades ofreciendo clases de programación en todas las escuelas secundarias, pero entre las minorías hay pocos estudiantes que deciden inscribirse.",
     "srnd-2"                        => "Srnd.org es una organización nacional sin fines de lucro que aumenta el número de estudiantes pertenecientes a alguna minoría que se dedican a la computación. Casi 20 000 estudiantes sin interés o experiencia previos han asistido a los programas de srnd.org desde el 2012, y la mayoría ha seguido programando desde entonces.",
 
     "program-codeday-title"         => "Acerca de CodeDay",

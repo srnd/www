@@ -2,7 +2,7 @@
 
 return array(
     "hero-text"             => "Pocos estudiantes están interesados en inscribirse en clases de codificación, en particular aquellos que pertenecen a alguna minoría. Nuestros programas creativos y divertidos hacen que los estudiantes se sientan entusiasmados respecto a la codificación y los motiva a que se inscriban.",
-    "hero-cta-donate"       => "Ayúdanos a lograr que los estudiantes se interesen en la computación.",
+    "hero-cta-donate"       => "Ayuda a inspirar a nuevos codificadores.",
 
     "stats-title"           => ":coders nuevos programadores formados en más de :cities de todo Estados Unidos.",
     "stats-block-1-title"   => "Nuestros programas establecidos...",
@@ -12,6 +12,8 @@ return array(
     "stats-block-1-2"       => "Programas en más de :cities ciudades",
     "stats-block-2"         => ":underrep% de los estudiantes se identifican como mujeres de bajos ingresos y de ascendencia latina o afroamericana",
     "stats-block-3"         => ":outcome% de los estudiantes que no tenían ningún interés previo, todavía están programando tres meses después",
+
+    "press"                 => "Como se vio en:",
 
     "explainer-title"       => "Existe un gran problema en la enseñanza de la computación: pocos estudiantes quieren aprender.",
     "explainer-1-alt"       => "Un profesor de computación se encuentra al frente de un aula vacía.",
@@ -24,10 +26,10 @@ return array(
     "explainer-3-title"     => "Hacer que los estudiantes se interesen en la programación es un paso indispensable para aumentar la diversidad tecnológica.",
     "explainer-3-caption"   => "Los estudiantes se van motivados y se inscriben a clases o se unen a clubes de computación. ",
 
-    "programs-title"        => "Nuestros programas atraen y motivan a estudiantes que nunca antes habían mostrado interés.",
-    "programs-codeday"      => "CodeDay hace que los principiantes se sientan motivados a programar en solo 24 horas.",
+    "programs-title"        => "Nuestros programas atraen y emocionan a estudiantes sin interés previo.",
+    "programs-codeday"      => "CodeDay hace que los principiantes se interesen en la codificación con eventos de fin de semana.",
     "programs-chat"         => "Nuestro chat en línea conecta a una comunidad de :number+ estudiantes.",
-    "programs-codebreak"    => "CodeBreak vincula a estudiantes con mentores durante las vacaciones de verano e invierno.",
+    "programs-codebreak"    => "CodeBreak es el programa de verano de ciencias de la computación más grande y accesible de los Estados Unidos.",
 
     "schools-title"         => "Ayudamos a cientos de escuelas y distritos a aumentar la matrícula en computación.",
     "schools-quote-p1"      => "[The Salinas Valley] es una de las 13 ciudades más peligrosas de California... Mi objetivo es mostrarles a mis estudiantes la gran cantidad de oportunidades que hay más allá de nuestro valle.",
@@ -36,6 +38,6 @@ return array(
     "schools-quote-by"      => "Summer Prather-Smith",
     "schools-quote-title"   => "Director de la Oficina de Educación del Condado de Monterey",
 
-    "help-title"            => "Ayúdanos a seguir llevando programas eficaces a decenas de miles de estudiantes.",
-    "help-cta"              => "Formas de apoyar"
+    "help-title"            => "Puedes marcar una gran diferencia para hacer crecer las ciencias de la computación en tu comunidad.",
+    "help-cta"              => "Contribuye a inspirar a nuevos codificadores"
 );

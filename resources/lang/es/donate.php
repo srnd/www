@@ -2,13 +2,9 @@
 
 return array(
     "title"                 => "Donar",
-    "tag"                   => "Ayuda a seguir fomentando el interés en la computación dentro de tu comunidad.",
-    "text"                  => "Nos financiamos a través de donaciones, y solo necesitamos USD $38 para cambiar de por vida las oportunidades laborales de un estudiante. Tu apoyo nos permitirá seguir haciendo que estos cambios sean posibles.",
+    "tag"                   => "Ayuda a generar interés por las ciencias de la computación en tu comunidad.",
+    "text"                  => "Nos financiamos con donaciones y tan solo $38 pueden generar un cambio para toda la vida en las oportunidades de carrera para un estudiante. ",
 
-    "donate"                => "Haz una donación",
-    "amount-other"          => "Otro",
-    "frequency-onetime"     => "Una vez",
-    "frequency-monthly"     => "Mensualmente",
     "first-name"            => "Nombre",
     "last-name"             => "Apellido",
     "email"                 => "Correo electrónico",
@@ -23,11 +19,34 @@ return array(
     "cvc"                   => "Código CVC",
     "card-complete"         => "Donar :amount con tarjeta",
     "dwolla-complete"       => "Donar :amount con Dwolla",
+    "submit-disabled"       => "(Por favor, llena todos los campos para donar).",
+    "submit-onetime"        => "Envía tu $: cantidad donación por única vez",
+    "submit-monthly"        => "Inicia tu donación mensual de $:amount ",
+    "submit-annual"         => "Inicia tu donación anual de $:amount",
+
+    "membership-no"         => "Piensa en convertirte en miembro patrocinador con una donación recurrente.",
+    "membership-yes"        => "Tu donación constante te convierte en un miembro auspiciante",
+    "membership-explain"    => "Los miembros reciben una tarjeta física de membresía, entrada con descuento al evento y actualizaciones regulares sobre el impacto que está generando su donación.",
+    "frequency-onetime"     => "Una vez",
+    "frequency-monthly"     => "Miembro mensual",
+    "frequency-annual"      => "Anual",
+
+    "amount"                => "¿Con qué te gustaría contribuir?",
+    "impact-coffee"         => "Paga por una reunión con un educador local:",
+    "impact-marketing"      => "Ayuda a promover el CodeDay en :num escuela:plural:anual.",
+    "impact-scholarship"    => "Paga por :num estudiante beca:plural:anual.",
+    "impact-school"         => "Paga becas para :num escuela:plural:anual.",
+    "impact-city"           => "Paga por una ciudad por :num temporada:plural:anual.",
+    "impact-custom"         => "Introduce una cantidad personalizada.",
+    "impact-annually"       => "anualmente",
+
+    "gift"                  => "Elige un regalo de agradecimiento:",
+    "no-gift"               => "No gracias, no quiero un regalo.",
 
     "donate-mail"           => "También puedes donar enviando un cheque a :address",
 
     "sponsor-title"         => "Patrocinios corporativos",
-    "sponsor"               => "Trabajamos con muchas compañías que buscan promover productos para desarrolladores y construirse una reputación como empleadores de alta tecnología.",
+    "sponsor"               => "Trabajamos con muchas compañías que buscan promover productos de desarrolladores y construir reputaciones como empleadores de primer nivel en el sector tecnológico.",
     "sponsor-cta"           => "<a href=\"tel::tel\">Llame al</a> :telFormatted, <a href=\"mailto::email\">correo electrónico</a> :email o <a href=\":onepage\">descargue</a> nuestra información en una página.",
 
     "receipt-title"         => "Recibo de donación",

@@ -26,6 +26,12 @@ minimum_perc = 80
 source_lang = en
 type = PHP_ARRAY
 
+[srndorg.donate-gifts]
+file_filter = resources/lang/<lang>/donate-gifts.php
+minimum_perc = 80
+source_lang = en
+type = PHP_ARRAY
+
 [srndorg.errors]
 file_filter = resources/lang/<lang>/errors.php
 minimum_perc = 80
@@ -43,3 +49,4 @@ file_filter = resources/lang/<lang>/press.php
 minimum_perc = 80
 source_lang = en
 type = PHP_ARRAY
+

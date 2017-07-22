@@ -2,7 +2,7 @@
 
 return array(
     "hero-text"             => "Few students are interested in enrolling in coding classes, particularly those from underrepresented backgrounds. Our creative and fun programs get students excited about coding and drive enrollment.",
-    "hero-cta-donate"       => "Help us inspire students to pursue CS.",
+    "hero-cta-donate"       => "Help inspire new coders.",
 
     "stats-title"           => ":coders new coders created in over :cities cities across the US.",
     "stats-block-1-title"   => "Our established programs...",
@@ -38,6 +38,6 @@ return array(
     "schools-quote-by"      => "Summer Prather-Smith",
     "schools-quote-title"   => "Director, Monterey County Office of Education",
 
-    "help-title"            => "Help us continue to bring effective programs to tens of thousands.",
-    "help-cta"              => "Ways to Support"
+    "help-title"            => "You can make a big difference in growing Computer Science in your community.",
+    "help-cta"              => "Contribute to inspiring new coders."
 );
