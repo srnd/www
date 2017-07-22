@@ -11,9 +11,10 @@
       .cta
         %a(href="/donate") #{i18n('index.hero-cta-donate')}
 
+  %a(name="stats")
   .stats
     .content
-      %h2 #{i18n('index.stats-title', {'coders': '18,000', 'cities': '40'})}
+      %h2 <a href="#stats">#{i18n('index.stats-title', {'coders': '18,000', 'cities': '40'})}</a>
       %ul
         %li.two-line
           %h3 #{i18n('index.stats-block-1-title')}
@@ -40,7 +41,7 @@
 
   .content
     .explainer
-      %h2 #{i18n('index.explainer-title')}
+      %h2 <a name="about" href="#about">#{i18n('index.explainer-title')}</a>
       %ul
         %li
           .frame
@@ -72,7 +73,7 @@
           .caption #{i18n('index.programs-codebreak')}
 
     .schools
-      %h2 #{i18n('index.schools-title')}
+      %h2 <a name="schools" href="#schools">#{i18n('index.schools-title')}</a>
       .quote-block
         %img(src="/assets/img/monterey-1.jpg")
         .quote
@@ -85,7 +86,7 @@
 
     .help
       .text
-        %h2 #{i18n('index.help-title')}
+        %h2 <a name="cta" href="#cta">#{i18n('index.help-title')}</a>
         %a(href="/donate") #{i18n('index.help-cta')}
       .images
         %img(src="/assets/img/line.jpg" srcset="/assets/img/line@2x.jpg 2x")>

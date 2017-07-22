@@ -6,6 +6,12 @@ body.section-index
     & > .content > div
       margin-top: 3rem
 
+  .content h2 > a
+    text-decoration: none
+  a[name="stats"]
+    position: relative
+    top: 20rem
+
 
   ////////////////////////
   // Hero
@@ -340,7 +346,7 @@ body.section-index
           font-size: +modular-scale(2)
           margin-bottom: +modular-scale(2)
         margin-top: 0
-      a
+      & > a
         @extend %button-cta
         @extend %button-larger
     .images
