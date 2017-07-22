@@ -1,13 +1,27 @@
 body > footer
+  +grid-container
+  +grid-collapse
   clear: both
   width: 100%
   max-width: $width
   margin: 0 auto
   padding: 4rem 0
-  .copyright
-    +grid-column(3)
-    font-size: +modular-scale(-1)
-    color: $color-gray
+  .info
+    +grid-column(6)
+    &, input
+      font-size: +modular-scale(0)
+      color: $color-gray
+      display: inline
+    input
+      display: inline
+      padding: 0
+      border: 0
+      width: 7em
+      cursor: pointer
+    .social
+      margin-top: 0.25rem
+      iframe
+        display: block
   .links, .legal
     +grid-column(2)
     text-align: right
@@ -20,9 +34,9 @@ body > footer
           color: $color-gray
   +desktop
     .legal
-      +grid-push(5)
+      +grid-push(2)
   +mobile
-    .copyright, .links, .legal
+    .info, .links, .legal
       +grid-column(4)
   +print
     .copyright, .links, .legal
