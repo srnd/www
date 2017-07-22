@@ -20,7 +20,7 @@ return array(
     "card-complete"         => "Donar :amount con tarjeta",
     "dwolla-complete"       => "Donar :amount con Dwolla",
     "submit-disabled"       => "(Por favor, llena todos los campos para donar).",
-    "submit-onetime"        => "Envía tu $: cantidad donación por única vez",
+    "submit-onetime"        => "Envía tu $:amount cantidad donación por única vez",
     "submit-monthly"        => "Inicia tu donación mensual de $:amount ",
     "submit-annual"         => "Inicia tu donación anual de $:amount",
 
@@ -32,11 +32,11 @@ return array(
     "frequency-annual"      => "Anual",
 
     "amount"                => "¿Con qué te gustaría contribuir?",
-    "impact-coffee"         => "Paga por una reunión con un educador local:",
-    "impact-marketing"      => "Ayuda a promover el CodeDay en :num escuela:plural:anual.",
-    "impact-scholarship"    => "Paga por :num estudiante beca:plural:anual.",
-    "impact-school"         => "Paga becas para :num escuela:plural:anual.",
-    "impact-city"           => "Paga por una ciudad por :num temporada:plural:anual.",
+    "impact-coffee"         => "Paga por una reunión con un educador local.",
+    "impact-marketing"      => "Ayuda a promover el CodeDay en :num escuela:plural:annual.",
+    "impact-scholarship"    => "Paga por :num estudiante beca:plural:annual.",
+    "impact-school"         => "Paga becas para :num escuela:plural:annual.",
+    "impact-city"           => "Paga por una ciudad por :num temporada:plural:annual.",
     "impact-custom"         => "Introduce una cantidad personalizada.",
     "impact-annually"       => "anualmente",
 
