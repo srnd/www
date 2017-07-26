@@ -62,7 +62,7 @@
 
       "DonationFrequencyMemberNo":  "#{i18n('donate.membership-no')|escape('js')}",
       "DonationFrequencyMemberYes": "#{i18n('donate.membership-yes')|escape('js')}",
-      "DonationFrequencyMember":    "#{i18n('donate.membership-explain')|escape('js')}",
+      "DonationFrequencyMember":    "#{i18n('donate.membership-explain')|replace({'"': '\\"'})|raw}",
       "DonationCustom":             "#{i18n('donate.impact-custom')|escape('js')}",
       "DonationNoGift":             "#{i18n('donate.no-gift')|escape('js')}",
 

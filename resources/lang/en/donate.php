@@ -27,7 +27,7 @@ return array(
 
     "membership-no"         => "Consider becoming a supporting member with a recurring donation.",
     "membership-yes"        => "Your recurring donation makes you a supporting member.",
-    "membership-explain"    => "Members receive a physical membership card, discounted event admission, and regular updates on the impact their donation is making.",
+    "membership-explain"    => "Members receive a <a target=\"_blank\" href=\"/assets/img/badge.jpg\">plastic membership card,</a> discounted event admission, and regular updates on the impact their donation is making.",
     "frequency-onetime"     => "One-Time",
     "frequency-monthly"     => "Monthly Member",
     "frequency-annual"      => "Annual",

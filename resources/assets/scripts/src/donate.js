@@ -8,8 +8,6 @@ import { FancyRadio, FancyRadioOption } from './ui/fancyRadio'
 import { RadioGroup, Radio } from './ui/radio'
 import { StripeProvider, Elements, CardElement, injectStripe } from 'react-stripe-elements';
 
-
-
 class DonatePage extends React.Component {
     constructor(props) {
         super(props);
@@ -67,7 +65,8 @@ class DonatePage extends React.Component {
                     {this.state.showMembership ? (
                         <p className="member-info">
                             <strong>{window.i18n['DonationFrequencyMember'+(this.state.frequency == 'onetime' ? 'No' : 'Yes')]} </strong>
-                            {window.i18n.DonationFrequencyMember}
+                    <span
+                        dangerouslySetInnerHTML={{__html: window.i18n.DonationFrequencyMember}}></span>
                         </p>
                     ) : ''}
                 </section>
