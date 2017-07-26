@@ -1,0 +1,87 @@
+body.section-sponsor
+
+  ///////////////////////// 
+  // Sponsor Levels
+  ///////////////////////// 
+  .commitments
+    +grid-collapse
+    & > h3
+      +grid-column(12)
+      a
+        text-decoration: none
+    &:first-child > h3
+      margin-top: -1rem
+    & > p
+      +grid-column(12)
+      margin-top: 0
+    & > ul
+      +grid-container
+      padding: 0
+      & > li
+        +desktop
+          +grid-column(4)
+        +mobile
+          +grid-column(12)
+        list-style-type: none
+        margin-bottom: 2rem
+
+        // Summary Box
+        .summary
+          @extend %rounded
+          border: 1px solid $color-gray-light
+          padding: 1rem
+          
+          text-align: center
+          header, div, p
+            text-align: left
+
+          p
+            min-height: 4.5rem
+
+          header
+            margin: -1rem -1rem 1.5rem
+            padding: 1rem
+            background-color: $color-gray-lightest
+            h4
+              @extend h3
+              margin: 0
+              font-weight: 500
+          .amount
+            @extend h1
+            margin-bottom: 0
+            font-weight: 500
+
+          .cta
+            @extend %button-featured
+            margin-bottom: 1.7rem
+          .cta-secondary
+            display: block
+            margin-top: -1.4rem
+
+        &.feature .summary
+          background-color: $color-accent-lightest
+          border-color: $color-accent-light
+          header
+            background-color: $color-accent
+            h4
+              color: $color-white
+          .cta
+            @extend %button-cta
+
+
+        // Benefit Comparison
+        ul.compare
+          margin-top: 1.5rem
+          padding-left: 2.5rem
+          li
+            padding-top: 0.5rem
+            list-style-image: url('/assets/img/check.svg')
+            &.with-previous
+              font-weight: 700
+
+        +desktop
+          &:not(:last-child) ul.compare
+            min-height: 9.25rem
+            margin-right: -10px
+            padding-right: 10px
+            border-right: 1px solid $color-gray-light

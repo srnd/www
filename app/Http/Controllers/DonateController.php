@@ -395,7 +395,8 @@ class DonateController extends \StudentRND\Http\Controller {
             'errors' => $errors,
             'stripe_public' => \Config::get('stripe.public'),
             'show_opt_out' => \Session::has('donate_campaign'),
-            'gifts' => iterator_to_array(self::getGifts())
+            'gifts' => iterator_to_array(self::getGifts()),
+            'ref' => \Input::get('ref')
         ]));
     }
 
@@ -405,13 +406,24 @@ class DonateController extends \StudentRND\Http\Controller {
      */
     private static function getGifts()
     {
-        $gifts = yaml_parse_file(config_path().'/gifts.yml');
-        foreach ($gifts as $k => $v) {
-            $v['name'] = trans('donate-gifts.'.$k.'-name');
-            $v['description'] = trans('donate-gifts.'.$k.'-description');
-            $v['image'] = '/assets/img/donate-gifts/'.$k.'-small.jpg';
-            $v['limage'] = '/assets/img/donate-gifts/'.$k.'-large.jpg';
-            yield $k => $v;
+        if (\Input::get('ref') === 'sponsor') {
+            yield 'sponsor' => [
+                'name' => trans('donate-gifts.sponsor-name'),
+                'description' => trans('donate-gifts.sponsor-description'),
+                'image' => '/assets/img/donate-gifts/sponsor-small.jpg',
+                'limage' => '/assets/img/donate-gifts/sponsor-large.jpg',
+                'today' => 100,
+                'recur' => 100
+            ];
+        } else {
+            $gifts = yaml_parse_file(config_path().'/gifts.yml');
+            foreach ($gifts as $k => $v) {
+                $v['name'] = trans('donate-gifts.'.$k.'-name');
+                $v['description'] = trans('donate-gifts.'.$k.'-description');
+                $v['image'] = '/assets/img/donate-gifts/'.$k.'-small.jpg';
+                $v['limage'] = '/assets/img/donate-gifts/'.$k.'-large.jpg';
+                yield $k => $v;
+            }
         }
     }
 } 

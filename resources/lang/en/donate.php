@@ -4,6 +4,7 @@ return array(
     "title"                 => "Donate",
     "tag"                   => "Help build CS interest in your community.",
     "text"                  => "We are funded by donations, and as little as $38 makes a life-long change in career opportunity for a student.",
+    "corporate"             => "(Represent a company? Visit our corporate donations section.)",
 
     "first-name"            => "First Name",
     "last-name"             => "Last Name",

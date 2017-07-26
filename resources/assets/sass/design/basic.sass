@@ -42,7 +42,6 @@ p, li, blockquote
   $button-shadow-color: transparentize($color-gray, .5)
 
   @extend %rounded
-  white-space: nowrap
   padding: 0.5rem 1rem
   display: inline-block
 
@@ -54,11 +53,11 @@ p, li, blockquote
   border: 1px solid transparent
   &:hover
     box-shadow: 0 0 2px $button-shadow-color, 0 2px 2px $button-shadow-color
-    background-color: $color-gray-light
+    background-color: $color-gray-lightest
   &:active:hover
     box-shadow: 0 0 4px $button-shadow-color, 1px 3px 4px $button-shadow-color
   &:active
-    background-color: $color-gray-light
+    background-color: $color-gray-lightest
   @media (hover:none)
     box-shadow: 0 0 4px $button-shadow-color, 1px 3px 4px $button-shadow-color
 

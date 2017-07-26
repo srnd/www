@@ -17,4 +17,5 @@ return array(
     "nav-returns"       => "Return Policy",
     "nav-bugs"          => "Bug Bounty",
     "nav-store"         => "Merch",
+    "nav-sponsor"       => "Sponsor",
 );

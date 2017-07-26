@@ -1,35 +1,40 @@
 <?php
 
 return array(
-    "title"                 => "Corporate Donations and Sponsorship",
-    "tag"                   => "Even small donations make a big difference.",
+    "title"                 => "Sponsor",
+    "tag"                   => "Corporate Donations and Sponsorship",
+    "tag-p"                 => "68% of our students are from an underrepresented group. Support from partners allows us to continue to reach tens of thousands of these diverse students each year through programs such as CodeDay.",
 
-    "call"                  => "Call :phone",
-    "download-prospectus"   => "or download our prospectus",
+    "annual-contact"        => "We've listed a few ways companies often choose to engage below, however we'll work with your company to develop a customized partnership. Email <a href=\":mailto\">:email</a>, call <a href=\":tel\">:phone</a>, or <a href=\":download\">download our one-page</a> to learn more.",
 
     "seasonal"              => "Seasonal Commitments",
     "seasonal-community"    => "Community Supporter",
-    "seasonal-community-d"  => "Small organizations can make a big difference for dozens of students.",
-    "seasonal-sponsor"      => "Sponsor",
-    "spasonal-sponsor-d"    => "A workshop slot and access to a multi-year talent pipeline are our ways of recognizing your increased support.",
-    "seasonal-national"     => "National Sponsor",
-    "seasonal-national-d"   => "Nationwide support means Sponsor-level promotion across the US. Our staff will run your workshops wherever you can't.",
+    "seasonal-community-d"  => "Your organization can help dozens of students attend programs with a small donation.",
+    "seasonal-sponsor"      => "Supporter",
+    "seasonal-sponsor-d"    => "Make an impact while promoting your company locally with a workshop slot and access to talent.",
+    "seasonal-national"     => "National Supporter",
+    "seasonal-national-d"   => "Nationwide support means your company will be known across the US.",
 
     "cta-contact"           => "Contact Us",
     "cta-support"           => "Donate Now",
     "cta-support-or"        => "or contact us",
 
-
+    "benefit-community"     => "All Community benefits",
+    "benefit-sponsor"       => "All Supporter benefits",
     "benefit-mentors"       => "Bring mentors",
     "benefit-kickoff"       => ":time minute kickoff slot",
     "benefit-swag"          => "Distribute swag",
-    "benefit-logo"          => "Your logo on the website and tickets",
-    "benefit-workshop"      => "Host a :time minute workshop",
     "benefit-prize"         => "Award a prize",
-    "benefit-resumes"       => "Enhanced resumes:note going back :year year:plural",
+    "benefit-logo"          => "Your logo on the website",
+    "benefit-workshop"      => "Host a :time minute workshop",
+    "benefit-resumes"       => "<abbr title=\"Includes an overall rating as well as open-source work, staff recommendations, and more\">Enhanced resumes</abbr> from your region, going back one year",
+    "benefit-resumes-n"     => "Nationwide enhanced resumes",
+    "benefit-national"      => "Our staff run your workshop at all events across the US",
 
 
     "annual"                => "Annual Commitments",
-    "annual-city"           => "City Sponsor",
-    "annual-national"       => "National Sponsor",
+    "annual-city"           => "Regional Partner",
+    "annual-city-d"         => "Work with us to grow your region's tech talent; we'll help you stand out as a leading employer.",
+    "annual-national"       => "Global Partner",
+    "annual-national-d"     => "Let's work together to develop a customized plan to make an impact and spotlight your company.",
 );

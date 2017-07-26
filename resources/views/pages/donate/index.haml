@@ -10,7 +10,12 @@
     %header
       %img(src="/assets/img/head-donate.jpg")
       %h2 #{i18n('donate.tag')}
-      %p #{i18n('donate.text')}
+      -if ref == 'sponsor'
+        %p #{i18n('donate.text')}
+      -else
+        %p
+          #{i18n('donate.text')}
+          %a(href="/sponsor") #{i18n('donate.corporate')}
 
     -if errors
       .errors
@@ -24,11 +29,6 @@
     %p.mail #{i18n('donate.donate-mail', {'address': 'srnd.org, 505 Broadway E #141, Seattle, WA 98102'})}
 -block scripts
   :javascript
-    window.defaultState = {
-      "amount": 25,
-      "prefilledAmounts": [15,25,50,100],
-      "frequency": "monthly",
-    };
     window.i18n = {
       "DonationImpactAnnually": "#{i18n('donate.impact-annually')|escape('js')}",
       "DonationImpactText": {
@@ -76,5 +76,22 @@
 
     window.gifts = #{gifts|json_encode|raw};
     window.stripePublic = "#{stripe_public|escape('js')}";
+
+  -if ref == 'sponsor'
+    :javascript
+      window.defaultState = {
+        "amount": 500,
+        "prefilledAmounts": [100,250,500,1000],
+        "frequency": "onetime",
+        "showMembership": false
+      };
+  -else
+    :javascript
+      window.defaultState = {
+        "amount": 25,
+        "prefilledAmounts": [15,25,50,100],
+        "frequency": "monthly",
+        "showMembership": true
+      };
 
   %script(src="https://js.stripe.com/v3/")

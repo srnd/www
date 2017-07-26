@@ -49,23 +49,27 @@ class DonatePage extends React.Component {
         return <form className="donation" method="post" onSubmit={this.onSubmit}>
                 <section className="amount">
                     <h3>{window.i18n.DonationAmountTitle}</h3>
-                    <RadioGroup
-                        className="frequency"
-                        name="frequency" default={this.state.frequency}
-                        onUpdate={f => DonatePageDispatcher.dispatch({action: "frequency-changed", frequency: f})}>
-                        <Radio value="onetime">{window.i18n.DonationFrequencyOnetime}</Radio>
-                        <Radio value="monthly">{window.i18n.DonationFrequencyMonthly}</Radio>
-                    </RadioGroup>
+                    {this.state.showMembership ? (
+                        <RadioGroup
+                            className="frequency"
+                            name="frequency" default={this.state.frequency}
+                            onUpdate={f => DonatePageDispatcher.dispatch({action: "frequency-changed", frequency: f})}>
+                            <Radio value="onetime">{window.i18n.DonationFrequencyOnetime}</Radio>
+                            <Radio value="monthly">{window.i18n.DonationFrequencyMonthly}</Radio>
+                        </RadioGroup>
+                    ) : ''}
                     <DonationAmountPicker
                         name="amount"
                         amounts={this.state.prefilledAmounts}
                         defaultAmount={this.state.amount}
                         donationFrequency={this.state.frequency}
                         onUpdate={a => DonatePageDispatcher.dispatch({action: "amount-changed", amount: a})} />
-                    <p className="member-info">
-                        <strong>{window.i18n['DonationFrequencyMember'+(this.state.frequency == 'onetime' ? 'No' : 'Yes')]} </strong>
-                        {window.i18n.DonationFrequencyMember}
-                    </p>
+                    {this.state.showMembership ? (
+                        <p className="member-info">
+                            <strong>{window.i18n['DonationFrequencyMember'+(this.state.frequency == 'onetime' ? 'No' : 'Yes')]} </strong>
+                            {window.i18n.DonationFrequencyMember}
+                        </p>
+                    ) : ''}
                 </section>
 
                 <section className="reward">

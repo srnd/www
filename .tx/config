@@ -50,3 +50,9 @@ minimum_perc = 80
 source_lang = en
 type = PHP_ARRAY
 
+[srndorg.sponsor]
+file_filter = resources/lang/<lang>/sponsor.php
+minimum_perc = 80
+source_lang = en
+type = PHP_ARRAY
+

@@ -11,5 +11,8 @@ return array(
     "shirt_codeday-description"         => "A super-soft poly blend shirt with the CodeDay logo presented in full-color.",
 
     "hoodie_black-name"                 => "Lightweight Zip Hoodie",
-    "hoodie_black-description"          => "A heather-black hoodie with an embroidered srnd logo. Warm enough for the fall, cool enough for the spring."
+    "hoodie_black-description"          => "A heather-black hoodie with an embroidered srnd logo. Warm enough for the fall, cool enough for the spring.",
+
+    "sponsor-name"                      => "Community Supporter",
+    "sponsor-description"               => "Includes: logo on website, 1 minute kickoff slot, bring mentors, distribute swag."
 );
