@@ -18,4 +18,5 @@ return array(
     "nav-bugs"          => "Bug Bounty",
     "nav-store"         => "Merch",
     "nav-sponsor"       => "Sponsor",
+    "nav-oss"           => "Open Source"
 );

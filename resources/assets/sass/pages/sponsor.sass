@@ -9,11 +9,10 @@ body.section-sponsor
       +grid-column(12)
       a
         text-decoration: none
-    &:first-child > h3
-      margin-top: -1rem
     & > p
       +grid-column(12)
       margin-top: 0
+
     & > ul
       +grid-container
       padding: 0
@@ -43,11 +42,10 @@ body.section-sponsor
             padding: 1rem
             background-color: $color-gray-lightest
             h4
-              @extend h3
               margin: 0
               font-weight: 500
           .amount
-            @extend h1
+            @extend h3
             margin-bottom: 0
             font-weight: 500
 

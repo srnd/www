@@ -17,4 +17,6 @@ return array(
     "nav-returns"       => "Política de devoluciones",
     "nav-bugs"          => "Gratificación por bugs",
     "nav-store"         => "Mercancía",
+    "nav-sponsor"       => "Patrocinante",
+    "nav-oss"           => "Código abierto"
 );

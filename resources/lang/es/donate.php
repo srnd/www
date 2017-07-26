@@ -4,6 +4,7 @@ return array(
     "title"                 => "Donar",
     "tag"                   => "Ayuda a generar interés por las ciencias de la computación en tu comunidad.",
     "text"                  => "Nos financiamos con donaciones y tan solo $38 pueden generar un cambio para toda la vida en las oportunidades de carrera para un estudiante. ",
+    "corporate"             => "(¿Representa a una empresa? Visite nuestra sección de donaciones corporativas).",
 
     "first-name"            => "Nombre",
     "last-name"             => "Apellido",
