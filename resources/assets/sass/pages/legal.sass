@@ -20,9 +20,17 @@ body.section-legal
   &.page-trademarks
     .list
       th
-        text-align: left
-      th:first-child, td:first-child
-        width: 20%
+        text-align: center
       img
-        width: 100%
-        height: auto
+        max-height: 50px
+      th, td
+        padding: 1rem
+        &:nth-child(2), &:nth-child(3)
+          text-align: center
+
+  ///////////////////////// 
+  // Bug Bounty
+  ///////////////////////// 
+  &.page-bugs
+    li
+      padding: 0.35rem 0

@@ -24,92 +24,109 @@
     
     %div(class="what-we-collect") 
       %h2 What Information We Collect
-      %p We collect two types of information:
+      %p We collect several types of information:
       %ul 
         %li 
           %p
-            Information you give us. Many of our services require you to provide information,
+            %strong Information you give us.
+            Many of our services require you to provide information,
             such as a name, email, address, or billing information. Additionally, some services require you to
             sign up for or log in with a srnd.org account, which requires similar information.
+
+        %li
+          %p
+            %strong Public information.
+            For example, we collect information on your contributions to open-source software.
         
         %li 
           %p
-            Information we get when you use our services. We collect information when you use
-            our services, such as when you visit the srnd.org website, or when you attend a CodeDay. This
-            information includes:
+            %strong Information we get when you use our services.
+            This information includes:
           %ul 
             %li 
-              %h4 Device Information
               %p
-                When you visit one of srnd.org's electronic services, we collect information which can be
-                used to uniquely identify your device (such as hardware versions, operating system version,
-                or information your device manufacturer provides such as unique IDs or mobile phone
-                numbers.) We also associate this information with your account.
+                %em Device information.
+                When you use one of srnd.org's electronic services, we collect information which can be
+                used to uniquely identify your device.
             
             %li 
-              %h4 Log Information
               %p
+                %em Location information.
+                When you use our electronic or physical services, we collect information about your physical
+                location. We request explicit permission before collecting location data more precise than your city.
+            
+            %li 
+              %p
+                %em Log information.
                 When you use our electronic or physical services, we automatically collect certain
                 information and store it as logs. This includes details of how you used the service (such
-                as how many tickets you bought for CodeDay), timestamps of when your use occured, and
-                device information.
-            
-            %li 
-              %h4 Location Information
-              %p
-                When you use our electronic or physical services, we collect information about your physical
-                location. When using our electronic services, we use various technologies to collect this
-                information, such as IP address and GPS or other sensors.
-            
-            %li 
-              %h4 Local Storage
-              %p
-                When using our electronic services, we and our partners collect and store information
-                (including personal information and unique identifiers) locally on your device using
-                technologies like Cookies and HTML Local Storage. This information may be sent to our
-                servers.
-            
-          
+                as how many tickets you bought for CodeDay).
         
       
     
     %div(class="how-we-use") 
       %h2 How We Use Your Information
-      %p
-        We use the information we collect to provide, maintain, protect, and improve our services, to develop new
-        ones, and to protect ourselves and our users. We may combine information from one of our services with
-        information from other services, or with information from our partners.
-      %p
-        We also use the information we collect to let you know about new or updated services. srnd.org is a
-        non-profit which is funded by contributions from the public, so we may also use this information to contact
-        you, your friends, or your family members about donation and volunteer opportunities.
+      %p We use your information internally for the following purposes:
+      %ul
+        %li
+          %p
+            %strong To provide services.
+            We use the information we collect to continue to provide existing services, to improve them, and to
+            develop new ones.
+
+        %li
+          %p
+            %strong For safety and security.
+            We use the information we collect to protect ourselves and our users. For example, we maintain a list of
+            people who are no longer allowed to attend our events for security reasons.
+
+        %li
+          %p
+            %strong To keep you updated.
+            We use information we collect to provide updates on existing and new services, and to occasionally let you
+            know about donation or volunteer opportunities.
+      
       %p
         We may collect and store this information in a country outside the one where you live.
-      %p
-        We will ask your permission before using this information for a purpose other than what we've described
-        here.
     
     %div(class="what-we-share") 
-      %h2 What Information We Share
-      %p
-        We provide some information to trusted partners to process it for us in compliance with appropriate security
-        and confidentiality measures. For example, we provide your payment information to Stripe, which processes
-        credit card transactions for us.
-      %p
-        We may share aggregated, non-personally-identifying information with our partners or publicly, such as to
-        show trends.
-      %p
-        Limited information, such as your name, email, and the information we get when you use our services, may
-        be shared with partners who are interested in recruiting you for a job, internship, or college, or with
-        partners who provide services of interest to developers. We believe these sort of partnerships provide
-        us both with benefits, but you can opt out of this sort of sharing by sending us an email.
-      %p
-        We will provide information agencies, organizations if we have a good-faith belief that doing so is necessary
-        to:
-      %ul 
-        %li Meet an applicable law, regulation, legal process or enforceable governmental request
-        %li Detect, prevent, or otherwise address fraud, security or technical issues.
-        %li Protect against harm to the rights, property or safety of us, our users, our partners, or the public.
+      %h2 When We Share Information
+      %p We provide information to third-parties for the following purposes:
+      %ul
+        %li
+          %p
+            %strong To process it.
+            We provide some information to trusted partners to process it for us in compliance with appropriate
+            security and confidentiality measures. For example, we provide your payment information to our payment
+            processing provider.
+
+        %li
+          %p
+            %strong To measure and demonstrate results.
+            We share aggregated, non-personally-identifying information with our partners or publicly to show the
+            effects of our programs. Additionally, we sometimes aggregate information with partners who provide
+            related programs to measure results.
+
+        %li
+          %p
+            %strong To match you with internships.
+            We provide limited information to trusted partners who provide Computer Science-related internships. This
+            information is limited to your name, email, and public information.
+
+        %li
+          %p
+            %strong When you choose to share it.
+            When using our services, you have the option of sharing some information publicly, such as sharing a
+            project you create at CodeDay.
+
+        %li
+          %p
+            %strong For safety and security.
+            We provide information to third-parties if we have a good-faith belief that doing so is necessary to:
+            %ul 
+              %li Meet an applicable law, regulation, legal process or enforceable governmental request
+              %li Detect, prevent, or otherwise address fraud, security or technical issues.
+              %li Protect against harm to property or safety.
       
     
     %div(class="information-security") 
@@ -118,11 +135,12 @@
         We use industry-standard measures to protect our data from unauthorized alteration or disclosure.
         In particular:
       %ul 
+        %li We encrypt many of our services using HTTPS/TLS.
+        %li We store passwords and other sensitive data using industry-standard cryptography.
         %li
-          We encrypt many of our services using HTTPS/TLS
+          We restrict access to personal information to employees, contractors, and volunteers who have a need to know
+          it.
+        %li We review security and processing practices of third-parties with whom we share information.
         %li
           We review our information collection, storage and processing practices, including physical security
           measures, to guard against unauthorized access to systems.
-        %li
-          We restrict access to personal information to employees, contractors, and agents who need to know that
-          information in order to provide, maintain, protect, or improve our services.
