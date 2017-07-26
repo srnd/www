@@ -56,3 +56,9 @@ minimum_perc = 80
 source_lang = en
 type = PHP_ARRAY
 
+[srndorg.returns]
+file_filter = resources/lang/<lang>/returns.php
+minimum_perc = 80
+source_lang = en
+type = PHP_ARRAY
+

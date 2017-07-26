@@ -27,7 +27,7 @@ return array(
 
     "membership-no"         => "Piensa en convertirte en miembro patrocinador con una donación recurrente.",
     "membership-yes"        => "Tu donación constante te convierte en un miembro auspiciante",
-    "membership-explain"    => "Los miembros reciben <a target=\"_blank\" href=\"/assets/img/badge.jpg\">una tarjeta física de membresía,</a> entrada con descuento al evento y actualizaciones regulares sobre el impacto que está generando su donación.",
+    "membership-explain"    => "Los miembros reciben una <a target=\"_blank\" href=\"/assets/img/badge.jpg\">tarjeta de afiliación de plástico</a>, admisión con descuento para eventos y actualizaciones regulares sobre el impacto que tienen las donaciones que realizan.",
     "frequency-onetime"     => "Una vez",
     "frequency-monthly"     => "Miembro mensual",
     "frequency-annual"      => "Anual",
