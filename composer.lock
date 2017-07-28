@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b292bb4a1abd7309668d9c8f12c7be2a",
+    "content-hash": "5a57c16522bba5491b6c6f43d3be428a",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1413,6 +1413,66 @@
                 "beanstalkd"
             ],
             "time": "2015-08-07T21:42:41+00:00"
+        },
+        {
+            "name": "pelago/emogrifier",
+            "version": "V1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jjriv/emogrifier.git",
+                "reference": "a1db453bb504597d821efcc04b21c79a6021e00c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jjriv/emogrifier/zipball/a1db453bb504597d821efcc04b21c79a6021e00c",
+                "reference": "a1db453bb504597d821efcc04b21c79a6021e00c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0,<=7.1.99"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.8.27",
+                "squizlabs/php_codesniffer": "2.6.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Pelago\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Reeve",
+                    "email": "jreeve@pelagodesign.com"
+                },
+                {
+                    "name": "Cameron Brooks"
+                },
+                {
+                    "name": "Jaime Prado"
+                },
+                {
+                    "name": "Oliver Klee",
+                    "email": "typo3-coding@oliverklee.de"
+                },
+                {
+                    "name": "Roman Ožana",
+                    "email": "ozana@omdesign.cz"
+                }
+            ],
+            "description": "Converts CSS styles into inline style attributes in your HTML code",
+            "homepage": "http://www.pelagodesign.com/sidecar/emogrifier/",
+            "time": "2017-03-02T12:51:48+00:00"
         },
         {
             "name": "psr/http-message",

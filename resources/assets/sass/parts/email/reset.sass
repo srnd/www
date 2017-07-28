@@ -1,0 +1,61 @@
+// Fix for IE resizing images poorly
+img
+  -ms-interpolation-mode: bicubic
+
+// Fix for email clients resizing small text
+body *
+  +prefixer(text-size-adjust, 100%, ms webkit)
+
+// Fix for Gmail offering to download images
+.a6S
+  display: none !important
+  opacity: 0.01 !important
+
+// Fix for email clients messing with links
+*[x-apple-data-detectors], .x-gmail-data-detectors, .x-gmail-data-detectors *, .aBn
+  border-bottom: 0 !important
+  cursor: default !important
+  color: inherit !important
+  text-decoration: none !important
+  font-size: inherit !important
+  font-family: inherit !important
+  font-weight: inherit !important
+  line-height: inherit !important
+
+// Fix for some clients ignoring text-decoration when it's just set normally
+%button
+  text-decoration: none !important
+
+/////////////////////////
+// Padding Fixes
+/////////////////////////
+// General padding issues
+html, body
+  margin: 0 auto !important
+  padding: 0 !important
+  height: 100% !important
+  width: 100% !important
+
+// Android 4.4 adding padding
+div[style*="margin: 16px 0"]
+  margin: 0 !important
+
+// Firefox/webkit padding + Yahoo mail table alignment bug
+table
+  border-spacing: 0 !important
+  border-collapse: collapse !important
+  table-layout: fixed !important
+  margin: 0 auto !important
+table table table
+  table-layout: auto
+
+// Outlook table padding
+table, td
+  mso-table-lspace: 0pt !important
+  mso-table-rspace: 0pt !important
+
+// Gmail right gutter in iPhone 6 and 6+
+@media only screen and (min-device-width: 375px) and (max-device-width: 413px)
+  .email-container
+    min-width: 375px !important
+

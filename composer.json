@@ -15,7 +15,8 @@
         "pda/pheanstalk": "3.1.*",
         "mthaml/mthaml": "^1.8",
         "league/commonmark": "^0.15.4",
-        "dpolac/twig-lambda": "^0.5.0"
+        "dpolac/twig-lambda": "^0.5.0",
+        "pelago/emogrifier": "^1.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

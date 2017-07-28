@@ -19,4 +19,5 @@
     \Route::post('press-releases/{release}/delete', 'PressReleaseController@postDelete');
 
     \Route::controller('donations', 'DonationsController');
+    \Route::controller('email', 'EmailController');
 });

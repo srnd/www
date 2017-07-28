@@ -44,21 +44,3 @@ body > .content:nth-child(2) > div, body > div:nth-child(2)
   body
     margin: 0.5in
 
-%wave-head
-  @extend h1
-  text-align: left !important
-  margin-bottom: +modular-scale(-3)
-  margin-top: 0
-  &:after
-    content: ""
-    display: block
-    margin-top: +modular-scale(-3)
-    height: 0.9rem
-    background:
-      image: url('/assets/img/wave-short.svg')
-      size: contain
-      repeat: no-repeat
-    -webkit-print-color-adjust: exact
-    color-adjust: exact
-    +print
-      background-image: url('/assets/img/wave-short.svg')

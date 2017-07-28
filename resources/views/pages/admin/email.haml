@@ -1,0 +1,22 @@
+-extends "template.haml" 
+-block section
+  admin
+-block page
+  email
+-block title
+  Email Maker
+-block body
+  .content
+    %header
+      %h2 Email Maker
+
+    %form(method="post")
+      %input(type="text" name="prehead" placeholder="Preview Text" required)
+      <br />
+      %input(type="text" name="heroimg" placeholder="Hero Image (full URL)" required)
+      <br />
+      %input(type="text" name="herotext" placeholder="Hero Text" required)
+      <br />
+      %textarea(name="content" placeholder="Content" cols="80" rows="20" required)
+      <br />
+      %input(type="submit" value="Submit")
