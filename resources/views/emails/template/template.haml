@@ -18,39 +18,39 @@
     <!--[if gte mso 9]><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml><![endif]-->
 
   %body(width="100%" bgcolor="#{color}" style="margin: 0; mso-line-height-rule: exactly;")
-  <!--[if mso]><center><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="#{width}" align="center"><tr><td><![endif]-->
-  .wrap
-    .hide
-      #{preheader~block('preheader')}
+    <!--[if mso]><center><table role="presentation" cellspacing="0" cellpadding="0" border="0" width="#{width}" align="center"><tr><td><![endif]-->
+    .wrap
+      .hide
+        #{preheader~block('preheader')}
 
-    .header
-      %a(href="https://srnd.org" target="_blank")
-        %img(src="https://srnd.org/assets/img/logo.png" alt="srnd.org" height="25")
+      .header
+        %a(href="https://srnd.org" target="_blank")
+          %img(src="https://srnd.org/assets/img/logo.png" alt="srnd.org" height="25")
 
-    .hero
-      %img(src="#{heroimg~block('heroimg')|trim}" alt="" width="#{width}" style="width:100%;height:auto;")
-      %h1 #{herotext~block('herotext')}
-      %img(src="https://srnd.org/assets/img/wave-short.png" alt="" style="height:13px; width: auto;" height="13")
+      .hero
+        %img(src="#{heroimg~block('heroimg')|trim}" alt="" width="#{width}" style="width:100%;height:auto;")
+        %h1 #{herotext~block('herotext')}
+        %img(src="https://srnd.org/assets/img/wave-short.png" alt="" style="height:13px; width: auto;" height="13")
 
-    .content
-      #{(content~block('content'))|raw}
+      .content
+        #{(content~block('content'))|raw}
 
-    -block signature
-      .signature
-        %table(width="100%")
-          %tr
-            %td(width="75")
-              %img(src="https://srnd.org/assets/img/team/tyler.png" width="75" style="margin-left:5px")
-            %td
-              .sign
-                %img(src="https://srnd.org/assets/img/tyler-sign.png")
-                <br />
-                Tyler Menezes<br />
-                Executive Director
+      -block signature
+        .signature
+          %table(width="100%")
+            %tr
+              %td(width="75")
+                %img(src="https://srnd.org/assets/img/team/tyler.png" width="75" style="margin-left:5px")
+              %td
+                .sign
+                  %img(src="https://srnd.org/assets/img/tyler-sign.png")
+                  <br />
+                  Tyler Menezes<br />
+                  Executive Director
 
-      .footer
-        %p
-          Our address is 505 Broadway E #141, Seattle, WA 98102.
-          If you don't want to receive emails like this anymore,
-          %a(href="--unsubscribe--") click to unsubscribe.
-  <!--[if mso]></td></tr></table></center>-->
+        .footer
+          %p
+            Our address is 505 Broadway E #141, Seattle, WA 98102.
+            If you don't want to receive emails like this anymore,
+            %a(href="--unsubscribe--") click to unsubscribe.
+    <!--[if mso]></td></tr></table></center>-->

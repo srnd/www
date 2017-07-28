@@ -21,7 +21,6 @@ class EmailController extends \StudentRND\Http\Controller {
         $e = new \Pelago\Emogrifier();
         $e->disableStyleBlocksParsing();
         $e->disableInvisibleNodeRemoval();
-        $e->enableCssToHtmlMapping();
         $e->setHtml($content);
         $e->setCss($css);
 
