@@ -10,10 +10,10 @@
     %header
       %h2 Email Maker
 
-    %form(method="post")
-      %input(type="text" name="prehead" placeholder="Preview Text" required)
+    %form(method="post" enctype="multipart/form-data")
+      %input(type="text" name="preheader" placeholder="Preview Text" required)
       <br />
-      %input(type="text" name="heroimg" placeholder="Hero Image (full URL)" required)
+      %input(type="file" name="photo" required)
       <br />
       %input(type="text" name="herotext" placeholder="Hero Text" required)
       <br />

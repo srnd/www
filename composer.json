@@ -16,7 +16,9 @@
         "mthaml/mthaml": "^1.8",
         "league/commonmark": "^0.15.4",
         "dpolac/twig-lambda": "^0.5.0",
-        "pelago/emogrifier": "^1.2"
+        "pelago/emogrifier": "^1.2",
+        "aws/aws-sdk-php": "^3.32",
+        "sendgrid/sendgrid": "^4.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

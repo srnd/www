@@ -3,6 +3,7 @@ namespace StudentRND\Http\Controllers;
 
 use \Carbon\Carbon;
 use \StudentRND\Models;
+use \StudentRND\Services;
 
 class DonateController extends \StudentRND\Http\Controller {
     private $donation_info;
@@ -298,15 +299,13 @@ class DonateController extends \StudentRND\Http\Controller {
      */
     private function mailDonationReceipt(Models\Donation $donation_record, $isSubscriptionGenerated = false)
     {
-        \Mail::send(
-            ['html' => $isSubscriptionGenerated ? 'emails/donation_thanks_recurring' : 'emails/donation_thanks'],
-            [ 'donation' => $donation_record ],
-            function($email) use ($donation_record, $isSubscriptionGenerated) {
-                $email->from('donate@srnd.org', 'srnd.org');
-                $email->to($donation_record->email, $donation_record->first_name);
-                $email->bcc('tylermenezes@srnd.org', 'Tyler Menezes');
-                $email->subject('Receipt for Your '.($isSubscriptionGenerated?'Recurring ':'').'Donation');
-            });
+        Services\Email::Send(
+            $donation_record->first_name, $donation_record->email,
+            'srnd.org', 'donate@srnd.org',
+            'Receipt for Your '.($isSubscriptionGenerated?'Recurring ':'').'Donation',
+            \View::make($isSubscriptionGenerated ? 'emails/donation_thanks_recurring' : 'emails/donation_thanks', [ 'donation' => $donation_record ])->render(),
+            false,
+            'tylermenezes@srnd.org');
     }
 
     /**

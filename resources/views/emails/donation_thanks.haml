@@ -1,32 +1,38 @@
-%p Hi #{donation.first_name},
+-extends "emails/template/template.haml"
+-block preheader
+  Your srnd.org donation was successfully processed. Your receipt is enclosed.
+-block heroimg
+  https://assets.srnd.org/uploads/ed8a7e9c1a0e3be504a56375bfc770ab.jpg
+-block herotext
+  Thanks for your donation!
+-block content
+  %p Hi #{donation.first_name},
 
--if donation.transaction_subscription_id
-  %p Welcome, new sustaining srnd member!
+  -if donation.transaction_subscription_id
+    %p Welcome, new sustaining srnd member!
 
-%p
-  We just received your $#{donation.amount|number_format(2)} donation, and we wanted to take a second to say thanks!
-  It costs just $36 to make a long-term impact for a student, so your donation means a lot
-
--if donation.transaction_subscription_id
-  %p In addition to making a positive impact, as a member, you'll have access to these exclusive benefits:
-  %ul
-    %li Discounted admission to srnd events (email member@srnd.org).
-    %li A physical membership card, which will ship in the next few days.
-    %li Membership updates list with program and impact updates, and opportunities to comment.
-
-
--if donation.reward
   %p
-    We'll send your gift, #{donation.reward_option} #{i18n('donate-gifts.'~donation.reward~'-name')}, in the next few
-    days.
+    We just received your $#{donation.amount|number_format(2)} donation, and we wanted to take a second to say thanks!
+    It costs just $36 to make a long-term impact for a student, so your donation means a lot.
 
-%p
-  You can print a receipt for this donation at
-  %a(href="https://srnd.org/donate/receipt/#{donation.id}") https://srnd.org/donate/receipt/#{donation.id}
+  -if donation.transaction_subscription_id
+    %p In addition to making a positive impact, as a member, you'll have access to these exclusive benefits:
+    %ul
+      %li Discounted admission to srnd events (email member@srnd.org).
+      %li A physical membership card, which will ship in the next few days.
+      %li Membership updates list with program and impact updates, and opportunities to comment.
 
--if donation.transaction_subscription_id
-  %p (If you want to cancel your membership, you can also do so from that link.)
 
-%p Again, thank you so much. Your support makes this all happen.
+  -if donation.reward
+    %p
+      We'll send your gift, #{donation.reward_option} #{i18n('donate-gifts.'~donation.reward~'-name')}, in the next few
+      days.
 
-%p - The srnd.org Team
+  %p
+    You can print a receipt for this donation at
+    %a(href="https://srnd.org/donate/receipt/#{donation.id}") https://srnd.org/donate/receipt/#{donation.id}
+
+  -if donation.transaction_subscription_id
+    %p (If you want to cancel your membership, you can also do so from that link.)
+
+  %p Again, thank you so much. Your support makes this all happen.
