@@ -78,7 +78,9 @@ body.section-donate
           text-align: center
           span
             @extend h2
-            display: inline-block
+            font-size: +modular-scale(1)
+            font-weight: 500
+            display: block
             margin-bottom: 0
             &.amount-default
               margin-top: 0.6rem
@@ -89,6 +91,8 @@ body.section-donate
               padding: 0.5rem 1rem
               input
                 @extend h2
+                font-size: +modular-scale(1)
+                font-weight: 500
                 width: calc(100% - 1.4rem)
                 border: none
                 background-color: transparent
@@ -124,7 +128,8 @@ body.section-donate
             width: calc(100% - 10rem)
             padding-bottom: 3rem
             .title
-              @extend h5
+              @extend h3
+              font-weight: 500
               display: block
             select
               display: block

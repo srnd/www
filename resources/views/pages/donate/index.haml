@@ -10,12 +10,6 @@
     %header
       %img(src="/assets/img/head-donate.jpg")
       %h2 #{i18n('donate.tag')}
-      -if ref == 'sponsor'
-        %p #{i18n('donate.text')}
-      -else
-        %p
-          #{i18n('donate.text')}
-          %a(href="/sponsor") #{i18n('donate.corporate')}
 
     -if errors
       .errors
