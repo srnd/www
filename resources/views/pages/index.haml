@@ -9,6 +9,8 @@
       .tagline #{i18n('common.tagline')}
       .details #{i18n('index.hero-text')}
       .cta
+        %span(class="wistia_embed wistia_async_w4qfsy0iu3 popover=true popoverContent=link" style="display:inline")
+          %a(href="#") &#x25BA;
         %a(href="/donate") #{i18n('index.hero-cta-donate')}
 
   %a(name="stats")
@@ -95,3 +97,7 @@
         %img(src="/assets/img/music.jpg" srcset="/assets/img/music@2x.jpg 2x")>
         %img(src="/assets/img/relax.jpg" srcset="/assets/img/relax@2x.jpg 2x")>
         %img(src="/assets/img/collaboration2.jpg" srcset="/assets/img/collaboration2@2x.jpg 2x")>
+
+-block scripts
+  %script(src="https://fast.wistia.com/embed/medias/r4avh9mp2g.jsonp" async)
+  %script(src="https://fast.wistia.com/assets/external/E-v1.js" async)
