@@ -9,7 +9,7 @@
       .tagline #{i18n('common.tagline')}
       .details #{i18n('index.hero-text')}
       .cta
-        %span(class="wistia_embed wistia_async_w4qfsy0iu3 popover=true popoverContent=link" style="display:inline")
+        %span(class="wistia_embed wistia_async_w4qfsy0iu3 popover=true popoverContent=link popoverPreventScroll=true" style="display:inline")
           %a(href="#") &#x25BA;
         %a(href="/donate") #{i18n('index.hero-cta-donate')}
 
@@ -101,3 +101,13 @@
 -block scripts
   %script(src="https://fast.wistia.com/embed/medias/r4avh9mp2g.jsonp" async)
   %script(src="https://fast.wistia.com/assets/external/E-v1.js" async)
+  :javascript
+    var playedOnce = false;
+    window._wq = window._wq || [];
+    _wq.push({id: "w4qfsy0iu3", onReady: function(video) {
+        if (!playedOnce && location.hash == '#video') {
+          playedOnce = true;
+          video.popover.show();
+          video.play();
+        }
+    }});

@@ -12,6 +12,11 @@ class StaticController extends \StudentRND\Http\Controller {
         ]);
     }
 
+    public function getVideo()
+    {
+        return \View::make('pages/video');
+    }
+
     public function getSponsor()
     {
         return \View::make('pages/sponsor');
