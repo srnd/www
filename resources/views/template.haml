@@ -20,11 +20,11 @@
       %meta(name="twitter:description" conent="#{i18n('common.desc-social')}")
 
     -if block('image')
-      %meta(property="og:image" content="#{url(block('image')|trim)}")
-      %meta(name="twitter:image" content="#{url(block('image')|trim)}")
+      %meta(property="og:image" content="#{secure_url(block('image')|trim)}")
+      %meta(name="twitter:image" content="#{secure_url(block('image')|trim)}")
     -else
-      %meta(property="og:image" content="#{url('/assets/img/og.jpg')}")
-      %meta(name="twitter:image" content="#{url('/assets/img/og.jpg')}")
+      %meta(property="og:image" content="#{secure_url('/assets/img/og.jpg')}")
+      %meta(name="twitter:image" content="#{secure_url('/assets/img/og.jpg')}")
 
 
     %meta(property="og:locale" content="#{lang}")
