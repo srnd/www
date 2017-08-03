@@ -29,7 +29,14 @@
 
     %meta(property="og:locale" content="#{lang}")
     %meta(property="og:url" content="#{currentUrl}")
-    %meta(name="twitter:card" content="summary_large_image")
+
+    -if block('wistia_og')
+      %meta(name="twitter:card" content="player")
+      %meta(name="twitter:player" content="https://fast.wistia.net/embed/iframe/#{block('wistia_og')|trim}?twitter=true")
+      %meta(name="twitter:player:width" content="400")
+      %meta(name="twitter:player:height" content="224")
+    -else
+      %meta(name="twitter:card" content="summary_large_image")
     %meta(name="twitter:site" content="@studentrnd")
     %meta(name="twitter:creator" content="@studentrnd")
     %meta(name="keywords" content="#{i18n('common.keywords')}")
