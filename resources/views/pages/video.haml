@@ -11,8 +11,19 @@
   assets/img/video_og.png
 -block body
   .content
-    %script(src="https://fast.wistia.com/embed/medias/w4qfsy0iu3.jsonp" async)
-    %script(src="https://fast.wistia.com/assets/external/E-v1.js" async)
     %div(class="wistia_responsive_padding" style="padding:56.0% 0 0 0;position:relative;")
       %div(class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;")
         %div(class="wistia_embed wistia_async_w4qfsy0iu3 videoFoam=true" style="height:100%;width:100%") &nbsp;
+-block scripts
+  :javascript
+    var playedOnce = false;
+    window._wq = window._wq || [];
+    _wq.push({id: "w4qfsy0iu3",
+      options: {
+        autoPlay: false,
+        fullscreenButton: true,
+        playButton: true,
+        plugin: { "captions-v1": { onByDefault: #{lang == 'es' ? 'true' : 'false'}}}},
+    });
+  %script(src="https://fast.wistia.com/embed/medias/w4qfsy0iu3.jsonp" async)
+  %script(src="https://fast.wistia.com/assets/external/E-v1.js" async)

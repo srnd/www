@@ -104,10 +104,12 @@
   :javascript
     var playedOnce = false;
     window._wq = window._wq || [];
-    _wq.push({id: "w4qfsy0iu3", onReady: function(video) {
-        if (!playedOnce && location.hash == '#video') {
-          playedOnce = true;
-          video.popover.show();
-          video.play();
-        }
+    _wq.push({id: "w4qfsy0iu3",
+      options: { autoPlay: true, plugin: { "captions-v1": { onByDefault: #{lang == 'es' ? 'true' : 'false'}}}},
+      onReady: function(video) {
+          if (!playedOnce && location.hash == '#video') {
+            playedOnce = true;
+            video.popover.show();
+            video.play();
+          }
     }});
