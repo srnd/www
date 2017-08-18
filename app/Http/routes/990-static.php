@@ -1,4 +1,4 @@
 <?php
 
-\Route::get('press/release/{release}', 'StaticController@getPressRelease');
+\Route::get('/conduct/enforcement', 'StaticController@getConductEnforcement');
 \Route::controller('', 'StaticController');
