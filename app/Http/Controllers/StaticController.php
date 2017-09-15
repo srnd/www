@@ -27,9 +27,9 @@ class StaticController extends \StudentRND\Http\Controller {
         return \View::make('pages/sponsor');
     }
 
-    public function getHow()
+    public function getEducation()
     {
-        return \View::make('pages/how');
+        return \View::make('pages/education');
     }
 
     public function getPrivacy()

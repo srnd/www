@@ -119,7 +119,6 @@ body.section-index
 
           .bar
             margin-top: calc(-0.25rem - 2px)
-            @extend %rounded
             border: 2px solid $color-accent
             .progress
               background-color: $color-accent
@@ -192,10 +191,12 @@ body.section-index
 
         .frame
           position: relative
+          padding: 0 3rem
           img
+            @extend %featured
+            padding: 0
             width: 100%
             height: auto
-            padding: 0 3rem
         .caption
           text-align: center
           font-style: italic
@@ -222,6 +223,9 @@ body.section-index
     // Line
     $programs-line-width: 3px
     $programs-line-color: $color-gray-light
+
+    h2 a
+      text-decoration: underline
 
     
     +desktop
@@ -310,6 +314,9 @@ body.section-index
           +grid-column(12)
         .quote
           margin-top: 20px
+      img
+        @extend %featured
+        padding: 0
       .quote
         blockquote
           margin-top: 0
@@ -333,9 +340,8 @@ body.section-index
   .help
     +grid-container
     .text
+      @extend %featured
       text-align: center
-      border: 1px solid $color-gray
-      +prefixer(border-radius, 2px, moz webkit ms spec)
       margin-bottom: 20px
       +desktop
         padding: 4rem
@@ -357,6 +363,8 @@ body.section-index
       +grid-collapse
       margin-top: 1rem
       img
+        @extend %featured
+        padding: 0
         margin-bottom: 20px
         +grid-column(4)
         +mobile

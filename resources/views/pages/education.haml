@@ -1,0 +1,171 @@
+-extends "template.haml"
+-block section
+  about
+-block page
+  education
+-block title
+  Education
+-import "parts/tableau.haml" as tableau
+-block body
+  .content
+    %header
+      %h2 We reach underrepresented students and inspire them to pursue Computer Science.
+
+    .fig-sync
+      .text
+        %p
+          Technology has become central to our lives, with no exception for those that are women, low-income, or a US
+          ethnic minority. Yet, the lack of representation of those three groups in technology means their issues are
+          rarely considered,<a href="#cite-online-harassment-2017">1</a> and perpetuates economic inequality. (Figure
+          1.)
+        %p
+          While access to Computer Science classes has increased,<a href="#cite-k12-cs-landscape">2</a> industry
+          diversity is projected to decline without additional outreach to increase motivation for traditionally
+          underrepresented students.<a href="#cite-girls-who-code">3</a>
+        %p
+          One reason: few underrepresented students choose to enroll in high school Computer Science courses due to
+          social pressures.<a href="#cite-google-diversity">4</a>
+      .fig
+        .title Figure 1. Diversity at leading tech companies is lacking.
+        .caption Sources: company and press reports.
+        #{tableau.chart("TechDiversity/Diversity", 370)}
+
+      .text.programs
+        %h3 We run four programs in 43 cities.
+        %p
+          Our programs attract grade 6-12 students enrolled in art, music, and acting classes, generate
+          learner motivation, and provide support to improve long-term outcomes.
+        %ul
+          %li
+            %p
+              %strong CodeDay
+              is an event which attracts creative students and creates CS learner motivation. The program partners
+              with teachers of creative classes to help students create video games in 24 hours.
+          %li
+            %p
+              %strong CodeBreak
+              is a summer program which helps new programmers feel ready to pursue a CS degree. Students work with a
+              mentor from a local tech company to build an app in three weeks.
+          %li
+            %p
+              %strong SRND Chat
+              creates a sense of community and supplies 24/7, real-time coding help for students across the US
+              throughout the year.
+          %li
+            %p
+              %strong CodeClass
+              provides partner schools with introductory CS curriculum to attract and motivate students without prior
+              interest.
+
+        %h3 Our programs use creative, student-driven projects, which attract and motivate non-CS students.
+        %p
+          Our team uses decades of experience as teachers, researchers, and business leaders to design our programs to
+          take advantage of research and educational theory.
+        %p
+          In particular, our programs work together to maximize situated learning &mdash; through a focus on
+          student-directed projects presented in a familiar context (art) &mdash; and encourage legitimate peripheral
+          participation &mdash; by recruiting both new <em>and experienced students</em> to create a representative
+          community of practice.<a href="#cite-situated-learning">5</a>
+        %p
+          Program instruction is provided to students in the context of their projects by our staff in partnership
+          with industry mentors. We provide standardized intro CS outcomes personalized to the specific project and
+          students through heavy use of formative assessment techniques.<a href="#cite-formative-assessment">6</a>
+
+
+    .img-break
+      %img(src="/assets/img/casually-working.jpg")
+      .caption
+        Students work on a game at CodeDay.
+
+
+    %h3 We attract participants who are significantly more diverse than most Computer Science students.
+    .fig-sync
+      .text
+        %p
+          Our introductory programs are designed to attract students with no prior interest in Computer Science
+          (Figure 2) who are enrolled in art, music, and acting classes. To achieve this, they offer art teachers an
+          opportunity for situated learning relevant to their subject: students use their creative talents to make a game.
+      .fig
+        .title Figure 2. 75% of participants had low or no interest in Computer Science.
+        .caption Initial survey data; years 2015 and 2016
+        #{tableau.chart("attendees_0/ExperienceDash", 110)}
+
+    .fig-sync
+      .text
+        %p
+          Because we target these groups, we are able to attract many students who are underrepresented in Computer
+          Science. To quantify these demographics, we conduct a pre-event survey of all program participants; on
+          average 51% of participants complete this survey. (Figure 3.)
+
+        %p
+          We find that nearly 70% of participants identify as a member of a group disproportionately underrepresented
+          in Computer Science. (That is: women and non-binary students, students who identify as Latino/a or African
+          Amercian, and students from low-income backgrounds.)
+      .fig
+        .title Figure 3. 69% of program participants identified with at least one underrepresented group.
+        .caption Initial survey data; years 2015 and 2016
+        #{tableau.chart("attendees_0/Demographics", 300)}
+
+    %h3 Our diverse participants see long-term behavior changes.
+    .fig-sync
+      .text
+        %p
+          Attracting a diverse group of students is only the first step &mdash; our programs must also drive long-term
+          motivation changes.
+
+        %p
+          We measure <em>lagging CS behavior changes</em> to ensure real change. Before students participate, they're
+          asked to indicate their existing interest in Computer Science; we then ask these students whether they
+          continued to code several months after participating.
+
+        %p
+          Our programs have operated continuously since 2011, with more than 25,000 participants to date. We have found
+          that 70% of participants with low or no pre-event motivation continued to code in the three months after
+          attending an event, excluding courses in which they were previously enrolled. (Figure 4.)
+      .fig
+        .title Figure 4. Three months after our programs, 70% of no-to-low-interest participants were still coding.
+        .caption Follow-up survey data; years 2015 and 2016
+        #{tableau.chart("attendees_0/ContinuedDash", 140)}
+    
+    %h3 Our programs help change community perception of Computer Science.
+    .fig-sync
+      .text
+        %p
+          When asked to describe a programmer, many students still list common TV stereotypes: a man in a hoodie typing
+          ones and zeros in green text on a black screen in a darkened basement. This does not seem achievable or
+          desirable to students who do not identify as technical. This, combined with few peer role-models, creates
+          social pressure which can keep students from pursuing technical interests.<a href="#cite-google-diversity">4</a>
+
+        %p
+          Our programs are fun and creative, helping to generate positive word-of-mouth which can change community
+          perception in the long-term.
+
+        %p
+          Our programs achieve an average Net Promoter Score &mdash; an industry measure which estimates the likelihood
+          of positive word-of-mouth &mdash; of 81, compared to an average of 64 for most education
+          programs.<a href="#cite-nps-benchmark">7</a> In future events, nearly 30% of low- or no-interest participants
+          indicated they registered on the advice of a friend. (Figure 6.)
+      .fig
+        .title Figure 5. Three months after our programs, 70% of no-to-low-interest participants were still coding.
+        .caption Follow-up survey data; years 2015 and 2016
+        #{tableau.chart("Source_2/CompareSources", 110)}
+
+    %h3 Let's work together to increase Computer Science graduates in your community.
+    .fig-sync
+      .text
+        %p
+          Schools are invited to register for our two open-enrollment programs:
+        %ul
+          %li
+            %p
+              %a(href="https://codeday.org/schools" target="_blank") CodeDay:
+              events nationwide in November, February, and May. Registration open throughout the year. ($7/student.)
+          %li
+            %p
+              %a(href="https://codebreak.srnd.org/" target="_blank") CodeBreak:
+              Summer registration from May-June; winter registration from November-December. ($10/student.)
+        %p
+          Our chat is only available to students who have previously participated in one of our programs. If you are
+          interested in our CodeClass curriculum, please <a href="mailto:education@srnd.org">contact us.</a>
+
+  %script(src="https://public.tableau.com/javascripts/api/viz_v1.js")

@@ -1,3 +1,6 @@
+$button-shadow-color: transparentize($color-gray, .5)
+$button-shadow-color-light: transparentize($color-gray, .85)
+
 %wave-head
   @extend h1
   text-align: left !important
@@ -18,9 +21,12 @@
 %rounded
   +prefixer(border-radius, 2px, moz webkit spec)
 
-%button
-  $button-shadow-color: transparentize($color-gray, .5)
+%featured
+  border-color: $color-gray-light
+  box-shadow: 0 0 2px $button-shadow-color-light, 0 2px 2px $button-shadow-color
+  padding: 1rem
 
+%button
   @extend %rounded
   padding: 0.5rem 1rem
   display: inline-block
@@ -32,14 +38,14 @@
   transition: all .2s ease-in-out
   border: 1px solid transparent
   &:hover
-    box-shadow: 0 0 2px $button-shadow-color, 0 2px 2px $button-shadow-color
+    box-shadow: 0 0 2px $button-shadow-color-light, 0 2px 2px $button-shadow-color
     background-color: $color-gray-lightest
   &:active:hover
-    box-shadow: 0 0 4px $button-shadow-color, 1px 3px 4px $button-shadow-color
+    box-shadow: 0 0 4px $button-shadow-color-light, 1px 3px 4px $button-shadow-color
   &:active
     background-color: $color-gray-lightest
   @media (hover:none)
-    box-shadow: 0 0 4px $button-shadow-color, 1px 3px 4px $button-shadow-color
+    box-shadow: 0 0 4px $button-shadow-color-light, 1px 3px 4px $button-shadow-color
 
 %button-featured
   @extend %button

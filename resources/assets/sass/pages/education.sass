@@ -1,0 +1,60 @@
+body.section-about.page-education
+  .content > h3
+    +desktop
+      +grid-column(8)
+    +mobile
+      +grid-column(12)
+    clear: both
+  a[href^="#cite-"]
+    vertical-align: super
+    font-size: +modular-scale(-1)
+    text-decoration: none
+    color: $color-gray
+  .fig-sync
+    margin: 0
+    & > .fig, & > .fig-container
+      +desktop
+        +grid-column(5)
+      +mobile
+        +grid-column(12)
+    .fig
+      @extend %featured
+      margin-bottom: 1rem
+      .tableauPlaceholder
+        width: 100%
+        iframe, & > div
+          margin-left: -2rem !important
+          margin-right: -1rem !important
+          width: calc(100% + 2rem + 10px) !important
+    .text
+      +desktop
+        +grid-column(7)
+      +mobile
+        +grid-column(12)
+      h3
+        padding-top: 2rem
+      ul
+        padding-left: 1rem
+
+  .fig-sync, .img-break
+    .title, .caption
+      font-size: +modular-scale(-1)
+    .title
+      font-weight: 700
+    .caption
+      color: $color-gray
+
+  .img-break
+    +desktop
+      +grid-column(8)
+    +mobile
+      +grid-column(12)
+    margin-top: 2rem
+    margin-bottom: 2rem
+    img
+      width: 100%
+      height: auto
+
+  .text.programs
+    +desktop
+      margin-top: -170px
