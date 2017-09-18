@@ -6,7 +6,9 @@ return array(
 
     "press"                     => "Press",
     "sponsorship"               => "Sponsorship",
-    "other"                     => "Other Requests",
+    "addr"                      => "Addresses",
+    "addr-mail"                 => "All Mail",
+    "addr-office"               => "HQ",
     "codeday-phone-hours"       => "We can only provide phone support for CodeDay on event weekends.",
 
     "team-head"                 => "Our team has decades of education and industry experience.",

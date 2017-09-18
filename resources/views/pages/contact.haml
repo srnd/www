@@ -13,6 +13,13 @@
     .contact
       %ul
         %li
+          %h3 CodeDay
+          %p
+            %a(href="mailto:contact@codeday.org") contact@codeday.org
+            %a(href="tel:18882633230") (888) CODE-230
+          %p
+            %em #{i18n('contact.codeday-phone-hours')}
+        %li
           %h3 #{i18n('contact.press')}
           %p
             %a(href="mailto:press@srnd.org") press@srnd.org
@@ -23,20 +30,15 @@
             %a(href="mailto:sponsor@srnd.org") sponsor@srnd.org
             %a(href="tel:18886077763") (888) 607-SRND ext 103
         %li
-          %h3 CodeDay
+          %h3 #{i18n('contact.addr')}
           %p
-            %a(href="mailto:contact@codeday.org") contact@codeday.org
-            %a(href="tel:18882633230") (888) CODE-230
+            %strong #{i18n('contact.addr-mail')}:<br />
+            srnd.org<br />
+            340 S Lemon Ave #7763<br />
+            Walnut, CA 91789
           %p
-            %em #{i18n('contact.codeday-phone-hours')}
-        %li
-          %h3 #{i18n('contact.other')}
-          %p
-            %a(href="mailto:contact@srnd.org") contact@srnd.org
-            %a(href="tel:18886077763") (888) 607-7763 ext 1
-          %p
-            %strong srnd.org<br />
-            505 Broadway E #141<br />
+            %strong #{i18n('contact.addr-office')}:<br />
+            srnd.org<br />
             Seattle, WA 98102
     
     .team
@@ -108,11 +110,6 @@
           %img(src="/assets/img/team/victor.jpg")
           .details
             .name Victor Lourng
-            .title Regional Manager
-        %li
-          %img(src="/assets/img/team/rohan.png")
-          .details
-            .name Rohan Misra
             .title Regional Manager
         %li
           %img(src="/assets/img/team/james.png")
