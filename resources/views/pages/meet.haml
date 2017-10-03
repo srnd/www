@@ -10,7 +10,7 @@
     %header
       %h2 Schedule with #{who.name}
     .list
-      %iframe(src="https://#{who.username}.youcanbook.me/?noframe=true&skipHeaderFooter=true" id="ycbmiframe#{who.username}" style="width:100%;height:1000px;border:0px;background-color:transparent;overflow:hidden !important" frameborder="0" allowtransparency="true")
+      %iframe(src="https://#{who.username}.youcanbook.me/?noframe=true&skipHeaderFooter=true" scrolling="no" id="ycbmiframe#{who.username}" style="width:100%;height:1000px;border:0px;background-color:transparent;overflow:hidden !important" frameborder="0" allowtransparency="true")
       :javascript
         window.addEventListener && window.addEventListener("message", function(event){
           if (event.origin === "https://#{who.username}.youcanbook.me"){
