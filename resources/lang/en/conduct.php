@@ -9,7 +9,7 @@ return array(
     "friendly-language"     => "Don't use offensive language referring to people's gender, race, sexual orientation, religion, or disabilities. Don't use sexualized language or imagery.",
     "friendly-hit-on"       => "Don't &ldquo;hit on&rdquo; other attendees, even if you think the person is receptive.",
     "harass-header"         => "srnd.org members may never harass others.",
-    "harass-text"           => "Harassment includes words or behavior which are intended to disparage, demean, mock, or intimidate a person or group. People who participate in harassment are not welcome at srnd.org events, even when this behavior takes place outside the event.",
+    "harass-text"           => "Harassment includes words or behavior which are intended to disparage, demean, mock, or intimidate a person or group, and unwanted contact of a sexual nature. People who participate in harassment are not welcome at our events, even when this behavior takes place outside the event.",
     "legal-header"          => "At srnd.org events, keep things safe and legal.",
     "legal-safety"          => "Ensure the safety of yourself and others. Do not carry guns, knives, or other weapons. Deescalate conflicts when possible; get staff help when not.",
     "legal-drugs"           => "Abstain from using or being under the influence of alcohol, marijuana, illicit substances, and recreational drugs.",

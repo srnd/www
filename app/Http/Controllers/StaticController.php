@@ -62,6 +62,11 @@ class StaticController extends \StudentRND\Http\Controller {
     	return \View::make('pages/code-of-conduct');
     }
 
+    public function getConductReport()
+    {
+        return \View::make('pages/conduct-report');
+    }
+
     public function getCodeOfConduct()
     {
     	return \Redirect::to('/conduct');

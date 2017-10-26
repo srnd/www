@@ -1,0 +1,32 @@
+-extends "template.haml" 
+-block section
+  legal
+-block page
+  conduct-report
+-block title
+  Make a Report
+-block body
+  .content
+    %header
+      %img(src="/assets/img/head-conduct.jpg")
+
+    %div#wufoo-r6lankq1e3b93u
+      %a(href="https://srnd.wufoo.com/forms/r6lankq1e3b93u")click here if form does not load</a>
+
+    :javascript
+      var r6lankq1e3b93u;(function(d, t) {
+      var s = d.createElement(t), options = {
+      'userName':'srnd',
+      'formHash':'r6lankq1e3b93u',
+      'autoResize':true,
+      'height':'989',
+      'async':true,
+      'host':'wufoo.com',
+      'header':'show',
+      'ssl':true};
+      s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js';
+      s.onload = s.onreadystatechange = function() {
+      var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+      try { r6lankq1e3b93u = new WufooForm();r6lankq1e3b93u.initialize(options);r6lankq1e3b93u.display(); } catch (e) {}};
+      var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+      })(document, 'script');
