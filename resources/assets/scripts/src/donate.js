@@ -55,7 +55,7 @@ class DonatePage extends React.Component {
                             <Radio value="onetime">{window.i18n.DonationFrequencyOnetime}</Radio>
                             <Radio value="monthly">{window.i18n.DonationFrequencyMonthly}</Radio>
                         </RadioGroup>
-                    ) : ''}
+                    ) : <input type="hidden" name="frequency" value="onetime" />}
                     <DonationAmountPicker
                         name="amount"
                         amounts={this.state.prefilledAmounts}
