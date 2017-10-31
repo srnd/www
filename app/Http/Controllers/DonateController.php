@@ -305,7 +305,7 @@ class DonateController extends \StudentRND\Http\Controller {
             'Receipt for Your '.($isSubscriptionGenerated?'Recurring ':'').'Donation',
             \View::make($isSubscriptionGenerated ? 'emails/donation_thanks_recurring' : 'emails/donation_thanks', [ 'donation' => $donation_record ])->render(),
             false,
-            'tylermenezes@srnd.org');
+            'donate@srnd.org');
     }
 
     /**
