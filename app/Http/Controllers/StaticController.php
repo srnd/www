@@ -84,9 +84,4 @@ class StaticController extends \StudentRND\Http\Controller {
     {
         return \View::make('pages/contact');
     }
-
-    public function getContactMeet()
-    {
-        return \View::make('pages/meet', ['who' => ['name' => 'Tyler Menezes', 'username' => 'tylermenezes']]);
-    }
 } 
