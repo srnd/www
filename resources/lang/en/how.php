@@ -21,7 +21,7 @@ return array(
 
     "partner"           => "We partner with non-technical teachers."
     "partner-text-1"    => "Unlike most CS programs, our focus on integrating identities allows us to recruit students from non-technical backgrounds directly."
-    "partner-text-2"    => "We partner with hundreds of art, science, and math teachers across the US, who use CodeDay to help students use their subjects in the real-world. Increased interest in CS is only a nice side-effect!",
+    "partner-text-2"    => "We partner with hundreds of art, science, and math teachers, who use CodeDay to help students use their subjects in the real-world. Increased interest in CS is only a nice side-effect!",
 
     "integrate-title"   => "2. Integrate Interests Quickly",
     "integrate-text-1"  => "CodeDay uses a custom curriculum based on game creation in the Scirra Construct programming environment. This allows non-coders to start making games within minutes, and helps hide the \"programming\" until later in the event."

@@ -6,7 +6,7 @@ return array(
 
     "srnd-title"                    => "About srnd.org",
     "srnd-1"                        => "Nearly 80% of workers at leading technology companies are men, and fewer than 10% are African American or Latino. Governments and non-profits have tried to close this opportunity gap by offering CS classes at every high school, but few underrepresented students are choosing to enroll.",
-    "srnd-2"                        => "srnd.org is a nationwide non-profit which increases the number of underrepresented students signing up for computer science. Nearly 20,000 students without prior interest or experience have attended srnd.org programs since 2012, and most have continued coding since.",
+    "srnd-2"                        => "srnd.org is a worldwide non-profit which increases the number of underrepresented students signing up for computer science. Nearly 20,000 students without prior interest or experience have attended srnd.org programs since 2012, and most have continued coding since.",
 
     "program-codeday-title"         => "About CodeDay",
     "program-codeday-1"             => "CodeDay is a 24-hour event where students of all ages work together to build apps and games. It takes place in over 40 cities simultaneously on three weekends a year.",

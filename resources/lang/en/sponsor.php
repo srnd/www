@@ -13,7 +13,7 @@ return array(
     "seasonal-sponsor"      => "Supporter",
     "seasonal-sponsor-d"    => "Make an impact while promoting your company locally with a workshop slot and access to talent.",
     "seasonal-national"     => "National Supporter",
-    "seasonal-national-d"   => "Nationwide support means your company will be known across the US.",
+    "seasonal-national-d"   => "Nationwide support means your company will be known across the world.",
 
     "cta-contact"           => "Contact Us",
     "cta-support"           => "Donate Now",
@@ -29,7 +29,7 @@ return array(
     "benefit-workshop"      => "Host a :time minute workshop",
     "benefit-resumes"       => "<abbr title=\"Includes an overall rating as well as open-source work, staff recommendations, and more\">Enhanced resumes</abbr> from your region, going back one year",
     "benefit-resumes-n"     => "Nationwide enhanced resumes",
-    "benefit-national"      => "Our staff run your workshop at all events across the US",
+    "benefit-national"      => "Our staff run your workshop at all events across the world",
 
 
     "annual"                => "Ongoing Partnerships",

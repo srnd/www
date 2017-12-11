@@ -4,7 +4,7 @@ return array(
     "hero-text"             => "Few students are interested in enrolling in coding classes, particularly those from underrepresented backgrounds. Our creative and fun programs get students excited about coding and drive enrollment.",
     "hero-cta-donate"       => "Help inspire new coders.",
 
-    "stats-title"           => ":coders new coders created in over :cities cities across the US.",
+    "stats-title"           => ":coders new coders created in over :cities cities.",
     "stats-block-1-title"   => "Our established programs...",
     "stats-block-2-title"   => "... attract diverse students...",
     "stats-block-3-title"   => "... and drive long-term CS enrollment.",
@@ -29,7 +29,7 @@ return array(
     "programs-title"        => "Our programs attract and excite students without prior interest. <a href=\":link\">(Learn how.)</a>",
     "programs-codeday"      => "CodeDay gets beginners excited about coding with weekend events.",
     "programs-chat"         => "Our online chat connects a :number+ student community.",
-    "programs-codebreak"    => "CodeBreak is the largest and most accessible CS summer program in the US.",
+    "programs-codebreak"    => "CodeBreak is the largest and most accessible CS summer program in the world.",
 
     "schools-title"         => "We help hundreds of schools and districts increase CS enrollment.",
     "schools-quote-p1"      => "[The Salinas Valley] is one of the 13 most dangerous cities in California... My goal is to expose my students to the vast opportunities that exist outside of our valley.",
