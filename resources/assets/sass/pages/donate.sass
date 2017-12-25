@@ -1,8 +1,34 @@
+.swal-text
+  text-align: center
+.swal-button
+  background-color: #FF686B
+  &:active
+    background-color: #F55E61
+
 body.section-donate
   ////////////////////////////////////////////////// 
   // Index
   ////////////////////////////////////////////////// 
   &.page-index
+
+    .cryptocurrency
+      margin-bottom: 1rem
+      a
+        &.soon
+          cursor: not-allowed
+          filter: grayscale(100%)
+          &:hover
+            box-shadow: none
+            background-color: transparent
+        @extend %button-featured
+        margin-right: 0.2rem
+        display: inline-block
+        .icon
+          max-height: 25px
+          vertical-align: middle
+          // transform: rotate(-15deg)
+          margin-right: 5px
+        // padding: 0.5rem
   
     ///////////////////////// 
     // Errors
