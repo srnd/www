@@ -53,6 +53,7 @@
     %header
       %h1
         %a(href="/") #{i18n('common.name')}
+      .updates
       %nav
         %ul
           %li
@@ -103,3 +104,9 @@
       insertBefore(d,q)}(window,document,'script','_gs');
 
       _gs('GSN-344037-W');
+    :javascript
+      var HW_config = {
+        selector: ".updates", // CSS selector where to inject the badge
+        account:  "x80Xzx"
+      }
+    %script(async src="//cdn.headwayapp.co/widget.js")

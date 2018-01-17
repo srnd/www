@@ -7,7 +7,7 @@ body > header
     float: left
     margin: 0.2rem 0 2rem 20px
     font-size: 1px
-    width: 5rem
+    width: 4rem
     height: 2rem
     a
       display: inline-block
@@ -23,6 +23,13 @@ body > header
       color-adjust: exact
       +print
         background-image: url('/assets/img/logo.svg')
+  .updates
+    float: left
+    position: relative
+    #HW_badge.HW_visible
+      background: $color-red !important
+    #HW_badge.HW_softHidden
+      background: $color-gray-lightest !important
   nav
     float: right
     margin-right: 20px
