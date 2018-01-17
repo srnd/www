@@ -3,6 +3,7 @@
 return array(
     "hero-text"             => "Few students are interested in enrolling in coding classes, particularly those from underrepresented backgrounds. Our creative and fun programs get students excited about coding and drive enrollment.",
     "hero-cta-donate"       => "Help inspire new coders.",
+    "hero-cta-video"        => "Hear from our participants.",
 
     "stats-title"           => ":coders new coders created in over :cities cities.",
     "stats-block-1-title"   => "Our established programs...",
@@ -37,6 +38,9 @@ return array(
     "schools-quote-p3"      => "My students are not confident, not just as future \"coders,\" but as future participants in the careers STEM has to offer!",
     "schools-quote-by"      => "Summer Prather-Smith",
     "schools-quote-title"   => "Director, Monterey County Office of Education",
+
+    "schools-bottom-title"  => "Let's work together to increase CS enrollment in your community.",
+    "schools-bottom-cta"    => "Contact us: schools@srnd.org",
 
     "help-title"            => "You can make a big difference in growing Computer Science in your community.",
     "help-cta"              => "Contribute to inspiring new coders."

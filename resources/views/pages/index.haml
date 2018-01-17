@@ -10,8 +10,7 @@
       .details #{i18n('index.hero-text')}
       .cta
         %span(class="wistia_embed wistia_async_w4qfsy0iu3 popover=true popoverContent=link popoverPreventScroll=true" style="display:inline")
-          %a(href="#") &#x25BA;
-        %a(href="/donate") #{i18n('index.hero-cta-donate')}
+          %a(href="#") &#x25BA;&nbsp;&nbsp;#{i18n('index.hero-cta-video')}
 
   %a(name="stats")
   .stats
@@ -86,10 +85,10 @@
             .name #{i18n('index.schools-quote-by')}
             .title #{i18n('index.schools-quote-title')}
 
-    .help
+    .cta-bottom
       .text
-        %h2 <a name="cta" href="#cta">#{i18n('index.help-title')}</a>
-        %a(href="/donate") #{i18n('index.help-cta')}
+        %h2 <a name="cta" href="#cta">#{i18n('index.schools-bottom-title')}</a>
+        %a(href="mailto:schools@srnd.org") #{i18n('index.schools-bottom-cta')}
       .images
         %img(src="/assets/img/line.jpg" srcset="/assets/img/line@2x.jpg 2x")>
         %img(src="/assets/img/watch.jpg" srcset="/assets/img/watch@2x.jpg 2x")>
