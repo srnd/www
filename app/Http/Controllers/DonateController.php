@@ -1,11 +1,13 @@
 <?php
+
 namespace StudentRND\Http\Controllers;
 
-use \Carbon\Carbon;
-use \StudentRND\Models;
-use \StudentRND\Services;
+use Carbon\Carbon;
+use StudentRND\Models;
+use StudentRND\Services;
 
-class DonateController extends \StudentRND\Http\Controller {
+class DonateController extends \StudentRND\Http\Controller
+{
     private $donation_info;
 
     public function getIndex()
@@ -13,6 +15,7 @@ class DonateController extends \StudentRND\Http\Controller {
         if (\Input::has('utm_campaign')) {
             \Session::set('donate_campaign', \Input::get('utm_campaign'));
         }
+
         return $this->makeDonationPage();
     }
 
@@ -20,7 +23,7 @@ class DonateController extends \StudentRND\Http\Controller {
     {
         if (\Input::has('stripe_token') && \Input::get('frequency') !== 'onetime') {
             return $this->stripeCheckoutRecurring();
-        } else if (\Input::has('stripe_token') && \Input::get('frequency') === 'onetime') {
+        } elseif (\Input::has('stripe_token') && \Input::get('frequency') === 'onetime') {
             return $this->stripeCheckoutOneTime();
         } else {
             return $this->makeDonationPage();
@@ -30,10 +33,10 @@ class DonateController extends \StudentRND\Http\Controller {
     public function getReceipt()
     {
         return \View::make('pages/donate/receipt', [
-            'donation' => \Route::input('donation'),
-            'just_donated' => \Session::get('just_donated', false),
+            'donation'        => \Route::input('donation'),
+            'just_donated'    => \Session::get('just_donated', false),
             'just_subscribed' => \Session::get('just_subscribed', false),
-            'just_cancelled' => \Session::get('just_cancelled', false)
+            'just_cancelled'  => \Session::get('just_cancelled', false),
         ]);
     }
 
@@ -50,21 +53,22 @@ class DonateController extends \StudentRND\Http\Controller {
 
         $otherDonation = Models\Donation::where('transaction_subscription_id', '=', $previous_customer_id)->first();
         $user = [
-            'first_name' => $otherDonation->first_name,
-            'last_name' => $otherDonation->last_name,
-            'email' => $otherDonation->email,
-            'amount' => $otherDonation->amount,
-            'is_recurring' => false,
-            'address_1' => $otherDonation->address1,
-            'city' => $otherDonation->city,
-            'state' => $otherDonation->state,
-            'zip' => $otherDonation->zip,
-            'reward' => null,
+            'first_name'    => $otherDonation->first_name,
+            'last_name'     => $otherDonation->last_name,
+            'email'         => $otherDonation->email,
+            'amount'        => $otherDonation->amount,
+            'is_recurring'  => false,
+            'address_1'     => $otherDonation->address1,
+            'city'          => $otherDonation->city,
+            'state'         => $otherDonation->state,
+            'zip'           => $otherDonation->zip,
+            'reward'        => null,
             'reward_option' => null,
-            'for' => $otherDonation->for
+            'for'           => $otherDonation->for,
         ];
 
         $donation = $this->createDonationRecord('stripe', $invoice->charge, $previous_customer_id, $user);
+
         try {
             $this->mailDonationReceipt($donation, true);
         } catch (\Exception $ex) {}
@@ -87,6 +91,7 @@ class DonateController extends \StudentRND\Http\Controller {
         }
 
         \Session::flash('just_cancelled', true);
+
         return \Redirect::to('/donate/receipt/'.$donation->id);
     }
 
@@ -107,15 +112,16 @@ class DonateController extends \StudentRND\Http\Controller {
         try {
             // Get a plan for the recurring billing
             $plan = 'donation_monthly_'.$user['amount'];
+
             try {
                 \Stripe_Plan::retrieve($plan);
             } catch (\Stripe_Error $e) {
                 \Stripe_Plan::create([
-                    "amount" => $user['amount'] * 100, // in cents
-                    "currency" => "usd",
-                    "interval" => "month",
-                    "id" => $plan,
-                    "name" => '$'.$user['amount'].' monthly donation'
+                    'amount'   => $user['amount'] * 100, // in cents
+                    'currency' => 'usd',
+                    'interval' => 'month',
+                    'id'       => $plan,
+                    'name'     => '$'.$user['amount'].' monthly donation',
                 ]);
             }
 
@@ -123,19 +129,19 @@ class DonateController extends \StudentRND\Http\Controller {
             $nextBill = Carbon::now()->addMonth();
             $cust = \Stripe_Customer::create([
                 'description' => '$'.$user['amount'].'/mo donation for '.$user['first_name'].' '.$user['last_name'],
-                'source' => $user['stripe_token'],
-                'plan' => $plan,
-                'email' => $user['email'],
-                'trial_end' => $nextBill->timestamp
+                'source'      => $user['stripe_token'],
+                'plan'        => $plan,
+                'email'       => $user['email'],
+                'trial_end'   => $nextBill->timestamp,
             ]);
 
             // Create the first charge
             $charge = \Stripe_Charge::create([
-                "amount" => $user['amount'] * 100, // in cents
-                "currency" => "usd",
-                "customer" => $cust,
-                "description" => 'Online donation',
-                "statement_description" => "DONATION"
+                'amount'                => $user['amount'] * 100, // in cents
+                'currency'              => 'usd',
+                'customer'              => $cust,
+                'description'           => 'Online donation',
+                'statement_description' => 'DONATION',
             ]);
 
         } catch (\Stripe_CardError $e) {
@@ -149,19 +155,21 @@ class DonateController extends \StudentRND\Http\Controller {
             $donation_record = $this->createDonationRecord('stripe', $charge->id, $cust->id);
         } catch (\Exception $ex) {
             $charge->refunds->create();
+
             return $this->makeDonationPage(["Something went wrong on our side; we're looking into it. Your card was not charged.", $ex->getMessage()]);
         }
 
         // Try to track events and send the email
-        $this->optionalStep(function() {
+        $this->optionalStep(function () {
             $this->trackDonateEvents();
         });
-        $this->optionalStep(function() use ($donation_record) {
+        $this->optionalStep(function () use ($donation_record) {
             $this->mailDonationReceipt($donation_record);
         });
 
         // Redirect to the transaction complete page
         \Session::flash('just_subscribed', true);
+
         return \Redirect::to('/donate/receipt/'.$donation_record->id);
     }
 
@@ -182,11 +190,11 @@ class DonateController extends \StudentRND\Http\Controller {
 
         try {
             $charge = \Stripe_Charge::create([
-                "amount" => $user['amount'] * 100, // in cents
-                "currency" => "usd",
-                "card"  => $user['stripe_token'],
-                "description" => 'Online donation',
-                "statement_description" => "DONATION"
+                'amount'                => $user['amount'] * 100, // in cents
+                'currency'              => 'usd',
+                'card'                  => $user['stripe_token'],
+                'description'           => 'Online donation',
+                'statement_description' => 'DONATION',
             ]);
         }  catch(\Stripe_CardError $e) {
             return $this->makeDonationPage(['Your card was declined.']);
@@ -199,19 +207,21 @@ class DonateController extends \StudentRND\Http\Controller {
             $donation_record = $this->createDonationRecord('stripe', $charge->id);
         } catch (\Exception $ex) {
             $charge->refunds->create();
+
             return $this->makeDonationPage(["Something went wrong on our side; we're looking into it. Your card was not charged.", $ex->getMessage()]);
         }
 
         // Try to track events and send the email
-        $this->optionalStep(function() {
+        $this->optionalStep(function () {
             $this->trackDonateEvents();
         });
-        $this->optionalStep(function() use ($donation_record) {
+        $this->optionalStep(function () use ($donation_record) {
             $this->mailDonationReceipt($donation_record);
         });
 
         // Redirect to the transaction complete page
         \Session::flash('just_donated', true);
+
         return \Redirect::to('/donate/receipt/'.$donation_record->id);
     }
 
@@ -232,7 +242,7 @@ class DonateController extends \StudentRND\Http\Controller {
     }
 
     /**
-     * Sends donation events to Mixpanel and Customer.io
+     * Sends donation events to Mixpanel and Customer.io.
      */
     private function trackDonateEvents()
     {
@@ -244,24 +254,25 @@ class DonateController extends \StudentRND\Http\Controller {
         $mp->people->set($user['email'], [
             '$first_name'       => $user['first_name'],
             '$last_name'        => $user['last_name'],
-            '$email'            => $user['email']
+            '$email'            => $user['email'],
         ]);
         $mp->track('donated', [
             'amount'            => $user['amount'],
-            'campaign'          => \Session::get('donation_campaign')
+            'campaign'          => \Session::get('donation_campaign'),
         ]);
         $mp->people->setOnce($user['email'], [
-            'source'            => 'donate'
+            'source'            => 'donate',
         ]);
         $mp->people->trackCharge($user['email'], $user['amount']);
     }
 
     /**
-     * Tracks the donation in the database
+     * Tracks the donation in the database.
      *
      * @param $transaction_source The payment gateway, one of: [stripe, paypal, dwolla]
      * @param $transaction_id The payment gateway's transaction ID
      * @param $transaction_subscription_id The subscription ID of the payment, if any
+     *
      * @return Models\Donation The donation record in the database
      */
     private function createDonationRecord($transaction_source, $transaction_id, $transaction_subscription_id = null, $user = null)
@@ -270,7 +281,7 @@ class DonateController extends \StudentRND\Http\Controller {
             $user = $this->getDonationInfo();
         }
 
-        $donation = new Models\Donation;
+        $donation = new Models\Donation();
         $donation->amount = $user['amount'];
         $donation->is_recurring = $user['is_recurring'];
         $donation->first_name = $user['first_name'];
@@ -289,11 +300,12 @@ class DonateController extends \StudentRND\Http\Controller {
         $donation->transaction_subscription_id = $transaction_subscription_id;
 
         $donation->save();
+
         return $donation;
     }
 
     /**
-     * Sends the donor a receipt
+     * Sends the donor a receipt.
      *
      * @param Models\Donation $donation_record The record of the donation
      */
@@ -302,8 +314,8 @@ class DonateController extends \StudentRND\Http\Controller {
         Services\Email::Send(
             $donation_record->first_name, $donation_record->email,
             'srnd.org', 'donate@srnd.org',
-            'Receipt for Your '.($isSubscriptionGenerated?'Recurring ':'').'Donation',
-            \View::make($isSubscriptionGenerated ? 'emails/donation_thanks_recurring' : 'emails/donation_thanks', [ 'donation' => $donation_record ])->render(),
+            'Receipt for Your '.($isSubscriptionGenerated ? 'Recurring ' : '').'Donation',
+            \View::make($isSubscriptionGenerated ? 'emails/donation_thanks_recurring' : 'emails/donation_thanks', ['donation' => $donation_record])->render(),
             false,
             'donate@srnd.org');
     }
@@ -313,6 +325,7 @@ class DonateController extends \StudentRND\Http\Controller {
      * parameters required for insertion into the database.
      *
      * @param array $input
+     *
      * @return bool
      */
     private function containsAllRequired($input = [])
@@ -331,27 +344,27 @@ class DonateController extends \StudentRND\Http\Controller {
         }
 
         if (count($errors) > 0) {
-            return (object)[
+            return (object) [
                 'success' => false,
-                'errors' => $errors
+                'errors'  => $errors,
             ];
         }
 
         if (intval(\Input::get('amount')) < 1) {
-            return (object)[
+            return (object) [
                 'success' => false,
-                'errors' => ['Amount must be greater than $1. ($'.\Input::get('amount').' provided.)']
+                'errors'  => ['Amount must be greater than $1. ($'.\Input::get('amount').' provided.)'],
             ];
         }
 
-        return (object)[
+        return (object) [
             'success' => true,
-            'errors' => []
+            'errors'  => [],
         ];
     }
 
     /**
-     * Gets donation properties from the request
+     * Gets donation properties from the request.
      *
      * @return array
      */
@@ -366,39 +379,39 @@ class DonateController extends \StudentRND\Http\Controller {
         }
 
         return [
-            'amount' => intval(\Input::get('amount')) ? intval(\Input::get('amount')) : null,
-            'is_recurring' => \Input::get('is_recurring') ? true : false,
-            'first_name' => \Input::get('first_name'),
-            'last_name' => \Input::get('last_name'),
-            'address_1' => \Input::get('address_1'),
-            'city' => \Input::get('city'),
-            'state' => \Input::get('state'),
-            'zip' => \Input::get('zip'),
-            'reward' => \Input::get('reward'),
+            'amount'        => intval(\Input::get('amount')) ? intval(\Input::get('amount')) : null,
+            'is_recurring'  => \Input::get('is_recurring') ? true : false,
+            'first_name'    => \Input::get('first_name'),
+            'last_name'     => \Input::get('last_name'),
+            'address_1'     => \Input::get('address_1'),
+            'city'          => \Input::get('city'),
+            'state'         => \Input::get('state'),
+            'zip'           => \Input::get('zip'),
+            'reward'        => \Input::get('reward'),
             'reward_option' => \Input::get('reward-'.\Input::get('reward').'-option'),
-            'email' => \Input::get('email'),
-            'stripe_token' => \Input::get('stripe_token'),
-            'for' => \Input::get('for')
+            'email'         => \Input::get('email'),
+            'stripe_token'  => \Input::get('stripe_token'),
+            'for'           => \Input::get('for'),
         ];
     }
 
     /**
-     * Creates the donation page from the current request and a list of errors, if any
+     * Creates the donation page from the current request and a list of errors, if any.
      *
      * @param array $errors
+     *
      * @return mixed
      */
     private function makeDonationPage($errors = [])
     {
         return \View::make('pages/donate/index', array_merge($this->getDonationInfo(), [
-            'errors' => $errors,
+            'errors'        => $errors,
             'stripe_public' => \Config::get('stripe.public'),
-            'show_opt_out' => \Session::has('donate_campaign'),
-            'gifts' => iterator_to_array(self::getGifts()),
-            'ref' => \Input::get('ref')
+            'show_opt_out'  => \Session::has('donate_campaign'),
+            'gifts'         => iterator_to_array(self::getGifts()),
+            'ref'           => \Input::get('ref'),
         ]));
     }
-
 
     /**
      * Gets a list of available gifts with translation information.
@@ -407,12 +420,12 @@ class DonateController extends \StudentRND\Http\Controller {
     {
         if (\Input::get('ref') === 'sponsor') {
             yield 'sponsor' => [
-                'name' => trans('donate-gifts.sponsor-name'),
+                'name'        => trans('donate-gifts.sponsor-name'),
                 'description' => trans('donate-gifts.sponsor-description'),
-                'image' => '/assets/img/donate-gifts/sponsor-small.jpg',
-                'limage' => '/assets/img/donate-gifts/sponsor-large.jpg',
-                'today' => 100,
-                'recur' => 100
+                'image'       => '/assets/img/donate-gifts/sponsor-small.jpg',
+                'limage'      => '/assets/img/donate-gifts/sponsor-large.jpg',
+                'today'       => 100,
+                'recur'       => 100,
             ];
         } else {
             $gifts = yaml_parse_file(config_path().'/gifts.yml');
@@ -425,4 +438,4 @@ class DonateController extends \StudentRND\Http\Controller {
             }
         }
     }
-} 
+}

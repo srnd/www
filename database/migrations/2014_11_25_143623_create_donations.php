@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDonations extends Migration {
-
+class CreateDonations extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,7 +11,7 @@ class CreateDonations extends Migration {
      */
     public function up()
     {
-        \Schema::create('donations', function(\Illuminate\Database\Schema\Blueprint $table) {
+        \Schema::create('donations', function (\Illuminate\Database\Schema\Blueprint $table) {
             $table->string('id');
 
             $table->string('first_name');
@@ -45,5 +44,4 @@ class CreateDonations extends Migration {
     {
         \Schema::drop('donations');
     }
-
 }

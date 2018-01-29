@@ -1,21 +1,22 @@
 <?php
+
 return [
     'twig' => [
-        'extension' => 'haml',
+        'extension'   => 'haml',
         'environment' => [
-            'debug' => true,
-            'charset' => 'utf-8',
+            'debug'               => true,
+            'charset'             => 'utf-8',
             'base_template_class' => TwigBridge\Twig\Template::class,
-            'cache' => null,
-            'auto_reload' => true,
-            'strict_variables' => false,
-            'autoescape' => 'html',
-            'optimizations' => -1,
+            'cache'               => null,
+            'auto_reload'         => true,
+            'strict_variables'    => false,
+            'autoescape'          => 'html',
+            'optimizations'       => -1,
         ],
 
         'globals' => [
-            'version' => filemtime(implode(DIRECTORY_SEPARATOR, [public_path(), 'assets', 'css', 'style.css'])),
-            'requestUrl' => strpos(php_sapi_name(), 'cli') === false ? request()->url() : null
+            'version'    => filemtime(implode(DIRECTORY_SEPARATOR, [public_path(), 'assets', 'css', 'style.css'])),
+            'requestUrl' => strpos(php_sapi_name(), 'cli') === false ? request()->url() : null,
         ],
     ],
 
@@ -38,14 +39,14 @@ return [
             \DPolac\TwigLambda\LambdaExtension::class,
         ],
 
-        'facades' => [],
+        'facades'   => [],
         'functions' => [
             'elixir',
             'head',
             'last',
         ],
         'filters' => [
-            'get' => 'data_get',    
+            'get' => 'data_get',
         ],
-    ],  
+    ],
 ];

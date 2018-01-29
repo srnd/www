@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class AddPressTeaser extends Migration
 {
@@ -12,7 +12,7 @@ class AddPressTeaser extends Migration
      */
     public function up()
     {
-        \Schema::table('press_releases', function(Blueprint $table) {
+        \Schema::table('press_releases', function (Blueprint $table) {
             $table->string('teaser')->nullable();
         });
     }
@@ -24,7 +24,7 @@ class AddPressTeaser extends Migration
      */
     public function down()
     {
-        \Schema::table('press_releases', function(Blueprint $table) {
+        \Schema::table('press_releases', function (Blueprint $table) {
             $table->dropColumn('teaser');
         });
     }

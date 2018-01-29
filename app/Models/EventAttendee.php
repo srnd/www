@@ -1,7 +1,9 @@
 <?php
+
 namespace StudentRND\Models;
 
-class EventAttendee extends \Eloquent {
+class EventAttendee extends \Eloquent
+{
     protected $table = 'events_attendees';
 
     public function event()

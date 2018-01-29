@@ -1,9 +1,11 @@
 <?php
+
 namespace StudentRND\Http\Controllers\Admin;
 
-use \StudentRND\Models;
+use StudentRND\Models;
 
-class EventsController extends \StudentRND\Http\Controller {
+class EventsController extends \StudentRND\Http\Controller
+{
     public function getIndex()
     {
         return \View::make('pages/admin/events', ['events' => Models\Event::all()]);
@@ -28,14 +30,16 @@ class EventsController extends \StudentRND\Http\Controller {
 
     public function postNew()
     {
-        $event = new Models\Event;
+        $event = new Models\Event();
         $this->updateEvent($event);
+
         return \Redirect::to('/admin/events/e/'.$event->id);
     }
 
     public function getEdit()
     {
         $event = \Route::input('event');
+
         return \View::make('pages/admin/event-edit', ['event' => $event]);
     }
 
@@ -43,6 +47,7 @@ class EventsController extends \StudentRND\Http\Controller {
     {
         $event = \Route::input('event');
         $this->updateEvent($event);
+
         return \Redirect::to('/admin/events/e/'.$event->id);
     }
 
@@ -57,7 +62,7 @@ class EventsController extends \StudentRND\Http\Controller {
             'stream_id',
 
             'address',
-            'arrive_at'
+            'arrive_at',
         ];
 
         foreach ($needing_update as $to_update)
@@ -70,4 +75,4 @@ class EventsController extends \StudentRND\Http\Controller {
         $event->allow_plus_ones = \Input::get('allow_plus_ones') ? true : false;
         $event->save();
     }
-} 
+}

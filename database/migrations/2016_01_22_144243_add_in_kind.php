@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class AddInKind extends Migration
@@ -12,7 +11,7 @@ class AddInKind extends Migration
      */
     public function up()
     {
-        \Schema::table('donations', function(\Illuminate\Database\Schema\Blueprint $table) {
+        \Schema::table('donations', function (\Illuminate\Database\Schema\Blueprint $table) {
             $table->text('in_kind_description')->nullable();
         });
         DB::statement("ALTER TABLE donations MODIFY COLUMN transaction_source ENUM('stripe', 'dwolla', 'paypal', 'check', 'in-kind')");
@@ -25,7 +24,7 @@ class AddInKind extends Migration
      */
     public function down()
     {
-        \Schema::table('donations', function(\Illuminate\Database\Schema\Blueprint $table) {
+        \Schema::table('donations', function (\Illuminate\Database\Schema\Blueprint $table) {
             $table->dropColumn('in_kind_description');
         });
         DB::statement("ALTER TABLE donations MODIFY COLUMN transaction_source ENUM('stripe', 'dwolla', 'paypal')");

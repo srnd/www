@@ -2,7 +2,8 @@
 
 namespace StudentRND\Services;
 
-class Email {
+class Email
+{
     public static function Render($preheader, $heroimg, $herotext, $content) {
         $css = file_get_contents(base_path('resources/assets/css/email.css'));
         $content = \View::make('emails/template/template', [
@@ -10,8 +11,9 @@ class Email {
             'heroimg'   => $heroimg,
             'herotext'  => $herotext,
             'content'   => $content,
-            'css'       => $css
+            'css'       => $css,
         ])->render();
+
         return self::Prepare($content);
     }
 

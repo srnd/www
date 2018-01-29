@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class AddPressDate extends Migration
 {
@@ -12,7 +12,7 @@ class AddPressDate extends Migration
      */
     public function up()
     {
-        \Schema::table('press_releases', function(Blueprint $table) {
+        \Schema::table('press_releases', function (Blueprint $table) {
             $table->date('published_at');
         });
     }
@@ -24,7 +24,7 @@ class AddPressDate extends Migration
      */
     public function down()
     {
-        \Schema::table('press_releases', function(Blueprint $table) {
+        \Schema::table('press_releases', function (Blueprint $table) {
             $table->dropColumn('published_at');
         });
     }

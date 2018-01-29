@@ -3,16 +3,16 @@
 $config = json_decode(file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'local.json'), true);
 
 return [
-    'debug' => $config['app']['debug'],
-    'url' => $config['app']['url'],
-    'timezone' => $config['app']['timezone'],
-    'locale' => 'en',
-    'cipher' => 'AES-256-CBC',
-    'log' => $config['app']['debug'] ? 'single' : 'syslog',
+    'debug'           => $config['app']['debug'],
+    'url'             => $config['app']['url'],
+    'timezone'        => $config['app']['timezone'],
+    'locale'          => 'en',
+    'cipher'          => 'AES-256-CBC',
+    'log'             => $config['app']['debug'] ? 'single' : 'syslog',
     'fallback_locale' => 'en',
-    'key' => $config['app']['key'],
-    'manifest' => storage_path().'/meta',
-    'providers' => [
+    'key'             => $config['app']['key'],
+    'manifest'        => storage_path().'/meta',
+    'providers'       => [
 
         /*
          * Laravel Framework Service Providers...
@@ -82,5 +82,5 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-        'Twig' => TwigBridge\Facade\Twig::class,
-    ],];
+        'Twig'      => TwigBridge\Facade\Twig::class,
+    ], ];

@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class NewDonations extends Migration
@@ -17,7 +16,7 @@ class NewDonations extends Migration
         DB::statement('ALTER TABLE `donations` MODIFY `state` VARCHAR(255) NULL;');
         DB::statement('ALTER TABLE `donations` MODIFY `zip` VARCHAR(255) NULL;');
 
-        \Schema::table('donations', function(\Illuminate\Database\Schema\Blueprint $table) {
+        \Schema::table('donations', function (\Illuminate\Database\Schema\Blueprint $table) {
             $table->string('reward')->nullable();
             $table->string('reward_option')->nullable();
         });
@@ -30,7 +29,7 @@ class NewDonations extends Migration
      */
     public function down()
     {
-        \Schema::table('donations', function(\Illuminate\Database\Schema\Blueprint $table) {
+        \Schema::table('donations', function (\Illuminate\Database\Schema\Blueprint $table) {
             $table->dropColumn('reward');
             $table->dropColumn('reward_option');
         });

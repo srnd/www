@@ -7,25 +7,22 @@ if (!defined('ENT_SUBSTITUTE')) {
 }
 
 /**
- * 
- * 
  * @author      Tyler Menezes <tylermenezes@gmail.com>
  * @copyright   Copyright (c) Tyler Menezes. Released under the Perl Artistic License 2.0.
- *
- * @package TwigMarkdown
  */
 class Extension extends \Twig_Extension
 {
     public function getFilters()
     {
-        $filters = array(
+        $filters = [
             // formatting filters
-            'markdown'=> new \Twig_Filter_Function(function($data)
+            'markdown'=> new \Twig_Filter_Function(function ($data)
             {
-                include_once dirname(__FILE__) . '/markdown.php';
+                include_once dirname(__FILE__).'/markdown.php';
+
                 return \Markdown($data);
             }),
-        );
+        ];
 
         return $filters;
     }
@@ -34,6 +31,4 @@ class Extension extends \Twig_Extension
     {
         return 'markdown';
     }
-
 }
-

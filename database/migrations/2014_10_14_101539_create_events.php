@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEvents extends Migration {
-
+class CreateEvents extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,7 +11,7 @@ class CreateEvents extends Migration {
      */
     public function up()
     {
-        \Schema::create('events', function(\Illuminate\Database\Schema\Blueprint $table) {
+        \Schema::create('events', function (\Illuminate\Database\Schema\Blueprint $table) {
             $table->increments('id');
 
             $table->string('name');
@@ -32,7 +31,7 @@ class CreateEvents extends Migration {
             $table->timestamps();
         });
 
-        \Schema::create('events_attendees', function(\Illuminate\Database\Schema\Blueprint $table) {
+        \Schema::create('events_attendees', function (\Illuminate\Database\Schema\Blueprint $table) {
             $table->increments('id');
 
             $table->unsignedInteger('event_id');
@@ -55,5 +54,4 @@ class CreateEvents extends Migration {
         \Schema::drop('events_attendees');
         \Schema::drop('events');
     }
-
 }

@@ -1,10 +1,9 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddDonationsRecurring extends Migration {
-
+class AddDonationsRecurring extends Migration
+{
     /**
      * Run the migrations.
      *
@@ -12,7 +11,7 @@ class AddDonationsRecurring extends Migration {
      */
     public function up()
     {
-        \Schema::table('donations', function(\Illuminate\Database\Schema\Blueprint $table) {
+        \Schema::table('donations', function (\Illuminate\Database\Schema\Blueprint $table) {
             $table->string('for')->nullable();
             $table->string('transaction_subscription_id')->nullable();
             $table->dateTime('cancelled_at')->nullable();
@@ -26,11 +25,10 @@ class AddDonationsRecurring extends Migration {
      */
     public function down()
     {
-        \Schema::table('donations', function(\Illuminate\Database\Schema\Blueprint $table) {
+        \Schema::table('donations', function (\Illuminate\Database\Schema\Blueprint $table) {
             $table->dropColumn('for');
             $table->dropColumn('transaction_subscription_id');
             $table->dropColumn('cancelled_at');
         });
     }
-
 }

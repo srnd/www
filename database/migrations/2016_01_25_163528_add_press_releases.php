@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
 
 class AddPressReleases extends Migration
 {
@@ -12,7 +12,7 @@ class AddPressReleases extends Migration
      */
     public function up()
     {
-        \Schema::create('press_releases', function(Blueprint $table) {
+        \Schema::create('press_releases', function (Blueprint $table) {
             $table->string('id');
 
             $table->string('title');

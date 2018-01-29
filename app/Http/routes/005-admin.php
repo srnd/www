@@ -3,7 +3,7 @@
 \Route::model('event', '\StudentRND\Models\Event');
 \Route::model('release', '\StudentRND\Models\PressRelease');
 
-\Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'before' => 'admin'], function(){
+\Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'before' => 'admin'], function () {
     \Route::get('events', 'EventsController@getIndex');
     \Route::post('events/load', 'EventsController@postLoad');
     \Route::get('events/new', 'EventsController@getNew');

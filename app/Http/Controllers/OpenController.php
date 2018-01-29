@@ -1,13 +1,15 @@
 <?php
+
 namespace StudentRND\Http\Controllers;
 
-class OpenController extends \StudentRND\Http\Controller {
+class OpenController extends \StudentRND\Http\Controller
+{
     private function gh_get($endpoint)
     {
         $url = 'https://api.github.com/'.$endpoint;
 
-        $options  = array('http' => array('user_agent'=> $_SERVER['HTTP_USER_AGENT']));
-        $context  = stream_context_create($options);
+        $options = ['http' => ['user_agent'=> $_SERVER['HTTP_USER_AGENT']]];
+        $context = stream_context_create($options);
         $result = @json_decode(@file_get_contents($url, false, $context));
         if (!$result) {
             return [];
@@ -27,11 +29,11 @@ class OpenController extends \StudentRND\Http\Controller {
             if ($file->type === 'file'
                 && preg_match('/\d{4}\-\d{2}\-\d{2}\.markdown/', $file->name)) {
                 list($name, $ext) = explode('.', $file->name);
-                $real_files[] = (object)[
+                $real_files[] = (object) [
                     'name' => $name,
-                    'date' => strtotime($name)
+                    'date' => strtotime($name),
                 ];
-            } else if ($file->type === 'file'
+            } elseif ($file->type === 'file'
                 && preg_match('/wc-\d{4}\-\d{2}\-\d{2}(-\d{1,2})?\.pdf/', $file->name)) {
                 list($name, $ext) = explode('.', $file->name);
                 $name = substr($name, 3);
@@ -40,20 +42,20 @@ class OpenController extends \StudentRND\Http\Controller {
                 if ($display !== $name) {
                     $number = substr($name, 11);
                 }
-                $wc_files[] = (object)[
-                    'name' => $name,
+                $wc_files[] = (object) [
+                    'name'    => $name,
                     'display' => $display,
-                    'date' => strtotime($display),
-                    'number' => $number
+                    'date'    => strtotime($display),
+                    'number'  => $number,
                 ];
             }
         }
 
-        usort($real_files, function($a, $b) {
+        usort($real_files, function ($a, $b) {
             return $b->date - $a->date;
         });
 
-        usort($wc_files, function($a, $b) {
+        usort($wc_files, function ($a, $b) {
             if ($a->date == $b->date) {
                 return $b->number - $a->number;
             } else {
@@ -69,6 +71,7 @@ class OpenController extends \StudentRND\Http\Controller {
         if (!preg_match('/^\d{4}\-\d{2}\-\d{2}(-\d{1,2})?/', $for)) {
             \App::abort(404);
         }
+
         try {
             $gh_contents = $this->gh_get('repos/StudentRND/BoardOfDirectors/contents/wc-'.$for.'.pdf');
         } catch (\Exception $ex) {
@@ -78,7 +81,6 @@ class OpenController extends \StudentRND\Http\Controller {
         if (!$gh_contents) {
             \App::abort(404);
         }
-
 
         $content = base64_decode($gh_contents->content);
         header('Content-type: application/pdf');
@@ -90,6 +92,7 @@ class OpenController extends \StudentRND\Http\Controller {
         if (!preg_match('/^\d{4}\-\d{2}\-\d{2}$/', $for)) {
             \App::abort(404);
         }
+
         try {
             $gh_contents = $this->gh_get('repos/StudentRND/BoardOfDirectors/contents/'.$for.'.markdown');
         } catch (\Exception $ex) {
@@ -100,16 +103,15 @@ class OpenController extends \StudentRND\Http\Controller {
             \App::abort(404);
         }
 
-
         $date = strtotime($for);
         $content = base64_decode($gh_contents->content);
 
-        $minutes_file = (object)[
-            'date' => $date,
-            'name' => $for,
-            'content' => $content
+        $minutes_file = (object) [
+            'date'    => $date,
+            'name'    => $for,
+            'content' => $content,
         ];
 
         return \View::make('pages/open/minutes', ['minutes_file' => $minutes_file]);
     }
-} 
+}

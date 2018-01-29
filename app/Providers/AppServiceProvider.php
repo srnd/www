@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $haml = new \MtHaml\Environment('twig', array('enable_escaper' => false));
+        $haml = new \MtHaml\Environment('twig', ['enable_escaper' => false]);
         $hamlLoader = new \MtHaml\Support\Twig\Loader($haml, \Twig::getLoader());
         \Twig::setLoader($hamlLoader);
     }

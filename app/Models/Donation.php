@@ -1,9 +1,9 @@
 <?php
+
 namespace StudentRND\Models;
 
-use \Carbon\Carbon;
-
-class Donation extends \Eloquent {
+class Donation extends \Eloquent
+{
     protected $table = 'donations';
     public $incrementing = false;
 

@@ -1,9 +1,9 @@
 <?php
+
 namespace StudentRND\Models;
 
-use \Carbon\Carbon;
-
-class PressRelease extends \Eloquent {
+class PressRelease extends \Eloquent
+{
     protected $table = 'press_releases';
     public $incrementing = false;
 

@@ -5,6 +5,6 @@ $config['memcached']['driver'] = 'memcached';
 
 return [
     'default' => 'memcached',
-    'prefix' => $config['memcached']['prefix'],
-    'stores' => ['memcached' => $config['memcached']]
+    'prefix'  => $config['memcached']['prefix'],
+    'stores'  => ['memcached' => $config['memcached']],
 ];

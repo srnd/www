@@ -1,14 +1,15 @@
 <?php
+
 namespace StudentRND\Http\Controllers;
 
-use StudentRND\Models;
 use StudentRND\Services;
 
-class StaticController extends \StudentRND\Http\Controller {
+class StaticController extends \StudentRND\Http\Controller
+{
     public function getIndex()
     {
         return \View::make('pages/index', [
-            'fundraising' => \Config::get('fundraising')
+            'fundraising' => \Config::get('fundraising'),
         ]);
     }
 
@@ -56,10 +57,10 @@ class StaticController extends \StudentRND\Http\Controller {
     {
         return \View::make('pages/returns');
     }
-    
+
     public function getConduct()
     {
-    	return \View::make('pages/code-of-conduct');
+        return \View::make('pages/code-of-conduct');
     }
 
     public function getConductReport()
@@ -69,14 +70,14 @@ class StaticController extends \StudentRND\Http\Controller {
 
     public function getCodeOfConduct()
     {
-    	return \Redirect::to('/conduct');
+        return \Redirect::to('/conduct');
     }
 
     public function getPress()
     {
 
         return \View::make('pages/press', [
-            "images" => Services\AwsS3Assets::GetAssets('assets.srnd.org', 'press/images', 'sml', 'lg', 'jpg')
+            'images' => Services\AwsS3Assets::GetAssets('assets.srnd.org', 'press/images', 'sml', 'lg', 'jpg'),
         ]);
     }
 
@@ -84,4 +85,4 @@ class StaticController extends \StudentRND\Http\Controller {
     {
         return \View::make('pages/contact');
     }
-} 
+}

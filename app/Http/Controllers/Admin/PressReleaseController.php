@@ -1,9 +1,11 @@
 <?php
+
 namespace StudentRND\Http\Controllers\Admin;
 
-use \StudentRND\Models;
+use StudentRND\Models;
 
-class PressReleaseController extends \StudentRND\Http\Controller {
+class PressReleaseController extends \StudentRND\Http\Controller
+{
     public function getIndex()
     {
         return \View::make('pages/admin/press-releases/index', ['releases' => Models\PressRelease::orderBy('published_at', 'DESC')->get()]);
@@ -16,8 +18,9 @@ class PressReleaseController extends \StudentRND\Http\Controller {
 
     public function postNew()
     {
-        $release = new Models\PressRelease;
+        $release = new Models\PressRelease();
         $this->save($release);
+
         return \Redirect::to('/admin/press-releases');
     }
 
@@ -30,13 +33,15 @@ class PressReleaseController extends \StudentRND\Http\Controller {
     {
         $release = \Route::input('release');
         $this->save($release);
+
         return \Redirect::to('/admin/press-releases/'.$release->id.'/edit');
     }
 
     public function postDelete()
     {
-        $release = new Models\PressRelease;
+        $release = new Models\PressRelease();
         $release->delete();
+
         return \Redirect::to('/admin/press-releases');
     }
 
@@ -51,5 +56,4 @@ class PressReleaseController extends \StudentRND\Http\Controller {
 
         $release->save();
     }
-
 }

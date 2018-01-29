@@ -1,9 +1,11 @@
 <?php
+
 namespace StudentRND\Models;
 
-use \Carbon\Carbon;
+use Carbon\Carbon;
 
-class Event extends \Eloquent {
+class Event extends \Eloquent
+{
     protected $table = 'events';
     protected $dates = ['starts_at', 'ends_at', 'arrive_at'];
 
