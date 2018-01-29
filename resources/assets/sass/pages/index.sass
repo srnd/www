@@ -128,7 +128,7 @@ body.section-index
               padding: 0.25rem 0.75rem
     
     // Press
-    .press
+    .press, .sponsors
       margin-top: 5rem
       text-align: center
       h3
@@ -142,7 +142,6 @@ body.section-index
           display: inline-block
           list-style-type: none
           margin: 0 1rem
-          opacity: 0.45
           background:
             size: contain
             position: 50% 50%
@@ -157,18 +156,31 @@ body.section-index
 
           &.pbs
             background-image: url('/assets/img/press/pbs.png')
+            opacity: 0.45
             a
               width: 5rem
           &.npr
             background-image: url('/assets/img/press/npr.png')
+            opacity: 0.45
             a
               width: 4rem
           &.univision
             background-image: url('/assets/img/press/univision.png')
+            opacity: 0.45
           &.techcrunch
             background-image: url('/assets/img/press/techcrunch.png')
+            opacity: 0.45
           &.readwrite
             background-image: url('/assets/img/press/readwrite.png')
+            opacity: 0.45
+
+      &.sponsors
+        h3
+          color: $color-black
+        margin-bottom: -1rem
+        ul li, ul li a
+          width: 9rem
+          height: 55px
 
 
   ////////////////////////
