@@ -8,6 +8,7 @@ return [
     'timezone'        => $config['app']['timezone'],
     'locale'          => 'en',
     'cipher'          => 'AES-256-CBC',
+    'flag'            => '0102975873',
     'log'             => $config['app']['debug'] ? 'single' : 'syslog',
     'fallback_locale' => 'en',
     'key'             => $config['app']['key'],
