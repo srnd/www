@@ -6,8 +6,9 @@ return [
 
     'press'                     => 'Press',
     'sponsorship'               => 'Sponsorship',
-    'addr'                      => 'Addresses',
-    'addr-mail'                 => 'All Mail',
+    'addr'                      => 'Postal Mail',
+    'addr-mail'                 => 'United States',
+    'addr-mail-ca'              => 'Canada',
     'addr-office'               => 'HQ',
     'codeday-phone-hours'       => 'We can only provide phone support for CodeDay on event weekends.',
 

@@ -11,7 +11,7 @@ return [
     'stats-block-3-title'   => '... and drive long-term CS enrollment.',
     'stats-block-1-1'       => ':students+ students',
     'stats-block-1-2'       => 'Programs in more than :cities cities',
-    'stats-block-2'         => ':underrep% of students identify as female, low-income, and/or Latinx/African American',
+    'stats-block-2'         => ':underrep% of students identify as female, low-income, and/or Black/Latinx',
     'stats-block-3'         => ':outcome% of students with no prior interest are still coding three months later',
 
     'sponsors'              => 'With worldwide support from:',
@@ -19,7 +19,7 @@ return [
 
     'explainer-title'       => "There's a big problem in CS education: few students want to learn.",
     'explainer-1-alt'       => 'A computer science teacher stands in front of an empty classroom.',
-    'explainer-1-title'     => 'Few female, low-income, and African American/Latinx students are enrolling in STEM classes.',
+    'explainer-1-title'     => 'Few female, low-income, and Black/Latinx students are enrolling in STEM classes.',
     'explainer-1-caption'   => 'Currently, few underrepresented students are interested in CS classes.',
     'explainer-2-alt'       => 'Students are brainstorming ideas for a video game on a whiteboard, while others code it.',
     'explainer-2-title'     => 'Making computer science fun is the most effective way to generate interest.',
@@ -41,7 +41,7 @@ return [
     'schools-quote-title'   => 'Director, Monterey County Office of Education',
 
     'schools-bottom-title'  => "Let's work together to increase CS enrollment in your community.",
-    'schools-bottom-cta'    => 'Contact us: schools@srnd.org',
+    'schools-bottom-cta'    => 'Contact us: :email',
 
     'help-title'            => 'You can make a big difference in growing Computer Science in your community.',
     'help-cta'              => 'Contribute to inspiring new coders.',

@@ -5,7 +5,7 @@ return [
     'tag'                           => 'We run unusually exciting CS programs.',
 
     'srnd-title'                    => 'About srnd.org',
-    'srnd-1'                        => 'Nearly 80% of workers at leading technology companies are men, and fewer than 10% are African American or Latino. Governments and non-profits have tried to close this opportunity gap by offering CS classes at every high school, but few underrepresented students are choosing to enroll.',
+    'srnd-1'                        => 'Nearly 80% of workers at leading technology companies are men, and fewer than 10% are Black or Latino. Governments and non-profits have tried to close this opportunity gap by offering CS classes at every high school, but few underrepresented students are choosing to enroll.',
     'srnd-2'                        => 'srnd.org is a worldwide non-profit which increases the number of underrepresented students signing up for computer science. Nearly 20,000 students without prior interest or experience have attended srnd.org programs since 2012, and most have continued coding since.',
 
     'program-codeday-title'         => 'About CodeDay',

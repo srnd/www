@@ -49,7 +49,7 @@
     %link(rel="stylesheet" href="/assets/css/style.css?v=#{version}")
     %meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
 
-  %body(class="lang-#{lang} section-#{block('section')|trim} page-#{block('page')|trim}")
+  %body(class="lang-#{lang} country-#{country} section-#{block('section')|trim} page-#{block('page')|trim}")
     %header
       %h1
         %a(href="/") #{i18n('common.name')}
@@ -72,7 +72,10 @@
 
     %footer
       .info
-        &copy; srnd.org, 501(c)(3). <input readonly class="ein" value="26-4742589" />
+        &copy; srnd.org,
+        -if country != "us"
+          US
+        501(c)(3). <input readonly class="ein" value="26-4742589" />
         .social
       .legal
         %ul

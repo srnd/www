@@ -17,19 +17,29 @@ class DefaultLang
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        $tld = substr($request->getHost(), strrpos($request->getHost(), '.') + 1);
+        $host = $request->getHost();
+        $tld = substr($host, strrpos($host, '.') + 1);
         switch ($tld) {
             case 'es':
-            case 'esdev':
+            case 'xes':
                 $locale = 'es';
+                $country = 'us';
+                break;
+            case 'ca':
+            case 'xca':
+                $locale = 'en_CA';
+                $country = 'ca';
                 break;
             default:
                 $locale = 'en';
+                $country = 'us';
                 break;
         }
 
         \App::setLocale($locale);
         \View::share('lang', $locale);
+        \View::share('country', $country);
+        \View::share('domain', $host);
 
         return $next($request);
     }
