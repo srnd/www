@@ -12,8 +12,8 @@ return [
     'seasonal-community-d'  => 'Your organization can help dozens of students attend programs with a small donation.',
     'seasonal-sponsor'      => 'Supporter',
     'seasonal-sponsor-d'    => 'Make an impact while promoting your company locally with a workshop slot and access to talent.',
-    'seasonal-national'     => 'National Supporter',
-    'seasonal-national-d'   => 'Nationwide support means your company will be known across the world.',
+    'seasonal-national'     => 'Global Supporter',
+    'seasonal-national-d'   => 'Global support means your company will be known across the world.',
 
     'cta-contact'           => 'Contact Us',
     'cta-support'           => 'Donate Now',
