@@ -1,0 +1,11 @@
+@mixin mobile
+  @media only screen and (max-width: $mobileWidth)
+    @content
+
+@mixin desktop
+  @media only screen and (min-width: ($mobileWidth + 1px))
+    @content
+
+@mixin print
+  @media only print
+    @content

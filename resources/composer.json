@@ -1,6 +1,0 @@
-{
-    "require": {
-        "mthaml/mthaml": "^1.8",
-        "league/commonmark": "^0.15.4"
-    }
-}

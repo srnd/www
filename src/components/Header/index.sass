@@ -1,0 +1,48 @@
+@import "../../styles/styles"
+
+header.header
+  @extend %content
+  @extend %clearfix
+  margin-top: +modular-scale(2)
+
+  div
+    +grid-column(12)
+
+  img
+    width: 100%
+    height: auto
+    margin-bottom: 1rem
+
+  h2
+    @extend h1
+    text-align: left !important
+    margin-bottom: +modular-scale(-3)
+    margin-top: 0
+    &:after
+      content: ""
+      display: block
+      margin-top: +modular-scale(-3)
+      height: 0.9rem
+      background:
+        image: url(./wave-short.svg)
+        size: contain
+        repeat: no-repeat
+      -webkit-print-color-adjust: exact
+      color-adjust: exact
+
+  .cta
+    margin-top: 4rem
+    text-align: center
+    a
+      @extend %button-cta
+      @extend %button-larger
+    +mobile
+      display: none
+
+  +mobile
+    text-align: center !important
+    .tagline
+      text-align: center !important
+      margin-bottom: 2.5rem
+    .tagline:after
+      display: none

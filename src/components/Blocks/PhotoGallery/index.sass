@@ -1,0 +1,61 @@
+@import "../../../styles/styles"
+
+ul.photo-gallery
+  padding: 0
+  li
+    list-style-type: none
+
+  &.layout-comic li
+    +grid-column(4)
+    padding-left: 1rem
+    padding-right: 1rem
+    .description
+      text-align: center
+    img
+      @extend %featured
+      padding: 0
+      width: 100%
+
+  &.layout-gallery-medium li
+    +grid-column(4)
+    img
+      @extend %featured
+      padding: 0
+      width: 100%
+
+  &.layout-gallery-small li
+    +grid-column(2)
+    img
+      width: 100%
+
+  &.layout-staff-bios li
+    +grid-column(6)
+    img
+      width: calc(25% - 10px)
+      float: left
+    .details
+      width: calc(75% - 10px)
+      margin-left: 20px
+      float: left
+      .name
+        font-weight: 700
+      .title
+        font-weight: 500
+        color: $color-gray
+      .description
+        margin-top: 0
+
+  &.layout-staff-titles li
+    +grid-column(3)
+    img
+      width: calc(20% - 5px)
+      float: left
+    .details
+      width: calc(80% - 5px)
+      margin-left: 10px
+      float: left
+      .name
+        font-weight: 500
+      .title
+        font-weight: 400
+        color: $color-gray

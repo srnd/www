@@ -1,0 +1,15 @@
+@import "../../../styles/styles"
+
+h1, h2, h3, h4, h5, h6
+  &.heading
+    margin: +modular-scale(1) auto
+    width: 100%
+    max-width: $width - ($padding * 2)
+    float: none
+
+h1.heading, h2.heading
+  margin:
+    top: +modular-scale(3)
+    bottom: +modular-scale(1)
+    left: auto
+    right: auto

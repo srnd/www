@@ -1,0 +1,6 @@
+- id: 'contact'
+  link: '/contact'
+- id: 'press'
+  link: '/press'
+- id: 'sponsor'
+  link: '/sponsor'
