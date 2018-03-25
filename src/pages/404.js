@@ -1,6 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import header from "./404.jpg"
+import '../templates/page.sass'
 
 import {Header, Footer} from '../components/Navigation';
 import PageHeader from '../components/Header';

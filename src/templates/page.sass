@@ -4,46 +4,35 @@ html, body
   background-color: $color-background
   font-size: $modular-scale-base
 
+body *
+  box-sizing: border-box
+
 body
   overflow-x: hidden
 
 p, li, span, div, blockquote, a, input, label, textarea, select
-  font-family: $font-family-body
-  color: $color-text
+  @extend %text
 
-h1, h2, h3, h4, h5, h6
-  font-family: $font-family-header
-  font-weight: 700
-  color: $color-text
+input, textarea
+  @extend %input
 
 a, a:hover, a:active, a:visited
-  color: $color-text
+  @extend %a
 
-*
-  box-sizing: border-box
-
-////////////////////////
-// Other Text Formatting
-////////////////////////
 h1
-  font-size: modular-scale(3)
-  margin-bottom: modular-scale(3)
+  @extend %h1
+
 h2
-  font-size: modular-scale(2)
-  margin-bottom: modular-scale(2)
+  @extend %h2
+
 h3
-  font-size: modular-scale(1)
-  margin-bottom: modular-scale(0)
-h4, h5, h6
-  font-size: modular-scale(0)
-p, li, blockquote
-  font-size: modular-scale(0)
+  @extend %h3
 
+h4
+  @extend %h4
 
-::selection
-  color: $color-white
-  background: $color-red
+h5
+  @extend %h5
 
-::-moz-selection
-  color: $color-white
-  background: $color-red
+h6
+  @extend %h6
