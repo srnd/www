@@ -1,9 +1,10 @@
 import React from 'react'
+import Img from "gatsby-image"
 import "./index.sass"
 
 export default (props) => (
     <div className={`quote ${props.photo ? 'with-photo' : ''}`}>
-        {props.photo ? <img src={props.photo.responsiveResolution.src} srcSet={props.photo.responsiveResolution} /> : ''}
+        {props.photo && props.photo.sizes ? <Img sizes={props.photo.sizes} /> : ''}
         <div className="text">
             <blockquote>
                 <p>
@@ -28,9 +29,8 @@ export const query = graphql`
         author
         authorTitle
         photo {
-            responsiveResolution(width: 455) {
-                src
-                srcSet
+            sizes(maxWidth: 455) {
+                ...GatsbyContentfulSizes_withWebp
             }
         }
     }

@@ -3,11 +3,11 @@ import ReactMarkdown from 'react-markdown'
 
 import "./index.sass"
 
-export default (props) => React.createElement(`h${props.level}`, {className: 'heading'}, props.title);
+export default ({ level, title }) => <div className="heading">{React.createElement(`h${level}`, {}, title)}</div>
 
 export const query = graphql`
     fragment HeadingBlockItems on ContentfulLayoutBlockHeading {
-      title
-      level
+        title
+        level
     }
 `;

@@ -1,20 +1,23 @@
 @import "../../../styles/styles"
 div.quote
+  width: 100% !important
+  margin-left: 0 !important
   &:not(.with-photo)
     +grid-column(12)
   &.with-photo
     +desktop
-      img
+      .gatsby-image-outer-wrapper
         +grid-column(5)
       .text
         +grid-column(7)
     +mobile
-      img, .quote
+      .gatsby-image-outer-wrapper, .quote
         +grid-column(12)
+        float: none
       .text
         margin-top: 20px
 
-  img
+  .gatsby-image-outer-wrapper
     @extend %featured
     padding: 0
 
@@ -24,6 +27,8 @@ div.quote
       padding-left: 18px
       margin: 0
       border-left: 2px solid $color-accent
+      +mobile
+        border-left-width: 4px
       p
         font-style: italic
         margin-top: 0

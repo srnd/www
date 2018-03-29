@@ -2,10 +2,11 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
-import Content from '../components/Content';
-import Metadata from '../components/Metadata';
-import {Header, Footer} from '../components/Navigation';
-import PageHeader from '../components/Header';
+import Content from '../components/Content'
+import Metadata from '../components/Metadata'
+import {Header, Footer} from '../components/Navigation'
+import PageHeader from '../components/Header'
+import { ProvidesAppContext } from '../components/Context'
 
 import "./page.sass"
 
@@ -25,14 +26,16 @@ class CmsTemplate extends React.Component {
         const data = this.props.data;
         const layout = data.contentfulLayout;
         return (
-            <div className={`page ${layout.pageClass}`}>
-                <Helmet title={layout.title} />
-                <Metadata metadata={layout.metadata} />
-                <Header nav={ data.navPrimary } />
-                <PageHeader {...layout.header} />
-                <Content items={ layout.content } translate={ translate(data.translations) } />
-                <Footer nav={ data.navSecondary } legal={ data.navLegal } />
-            </div>
+            <ProvidesAppContext {...data}>
+                <div className={`page ${layout.pageClass}`}>
+                    <Helmet title={layout.title} />
+                    <Metadata metadata={layout.metadata} />
+                    <Header nav={ data.navPrimary } />
+                    <PageHeader {...layout.header} />
+                    <Content translate={ translate(data.translations) } {...layout} />
+                    <Footer nav={ data.navSecondary } legal={ data.navLegal } />
+                </div>
+            </ProvidesAppContext>
         );
     }
 }
@@ -64,5 +67,6 @@ export const pageQuery = graphql`
                 }
             }
         }
+        ...AppContextItems
     }
 `;

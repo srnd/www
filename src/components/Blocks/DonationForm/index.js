@@ -15,7 +15,7 @@ class DonationFormInner extends React.Component {
         super(props);
         this.state = {
             frequency: this.props.defaultType || 'onetime',
-            amount: this.props.defaultAmounts[1],
+            amount: this.props.defaultAmounts.length > 1 ? this.props.defaultAmounts[1] : null,
             reward: null,
             firstName: '',
             lastName: '',

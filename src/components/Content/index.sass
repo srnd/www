@@ -1,19 +1,126 @@
 @import "../../styles/styles"
 
-div.content > *
++mobile
+  body
+    padding: 1rem
+
+div.wrapper
   @extend %content
   @extend %clearfix
-  margin-bottom: +modular-scale(1)
+  margin: 0 auto
+  &:not(.multicol) > div > div
+    +grid-column(12)
 
-.page.promo div.content
-  h2
-    text-align: center
-    margin-top: +modular-scale(7)
-    margin-bottom: +modular-scale(3)
+div.content > div, div.content-right > div
+  @extend %clearfix
+  &:not(:first-child):not(.heading)
+    margin-bottom: +modular-scale(2)
+    +mobile
+      margin-bottom: +modular-scale(0)
+  & > h1, & > h2, & > h3, & > h4, & > h5, & > h6
+    &:first-child
+      margin-top: 0
 
-  & > div:first-child
-    margin: 8rem 0
+*[data-grid-collapse]
+  +grid-collapse
+*[data-grid-column="1"]
+  +grid-column(1)
+  +mobile
+    +grid-column(4)
+*[data-grid-column="2"]
+  +grid-column(2)
+  +mobile
+    +grid-column(6)
+*[data-grid-column="3"]
+  +grid-column(3)
+  +mobile
+    +grid-column(6)
+*[data-grid-column="4"]
+  +grid-column(4)
+  +mobile
+    +grid-column(10)
+    +grid-push(1)
+*[data-grid-column="5"]
+  +grid-column(5)
+  +mobile
+    +grid-column(6)
+    +grid-push(2)
+*[data-grid-column="6"]
+  +grid-column(6)
+  +mobile
+    +grid-column(12)
+*[data-grid-column="7"]
+  +grid-column(7)
+  +mobile
+    +grid-column(12)
+*[data-grid-column="8"]
+  +grid-column(8)
+  +mobile
+    +grid-column(12)
+*[data-grid-column="9"]
+  +grid-column(9)
+  +mobile
+    +grid-column(12)
+*[data-grid-column="10"]
+  +grid-column(10)
+  +mobile
+    +grid-column(12)
+*[data-grid-column="11"]
+  +grid-column(11)
+  +mobile
+    +grid-column(12)
+*[data-grid-column="11"]
+  +grid-column(11)
+  +mobile
+    +grid-column(12)
+
+div.right-content
+  &[data-grid-column="1"], &[data-grid-column="2"], &[data-grid-column="3"],  &[data-grid-column="4"]
+    @extend %featured
+    padding-top: 0
+
+.page.promo
+  +mobile
+    header.header h2
+      text-align: center !important
+      &:after
+        display: none
+
+  .content, .special
+    h2
+      text-align: center
+      margin-top: +modular-scale(7)
+      margin-bottom: +modular-scale(3)
+
+  div.content > div:not(:first-child):not(.heading):not(.cta-block)
+    margin-top: +modular-scale(1)
+    &:not(:last-child)
+      margin-bottom: +modular-scale(8)
+      +mobile
+        margin-bottom: +modular-scale(3)
+
+  div.content > div.cta-block
+    margin-top: (-1 * +modular-scale(8)) + +modular-scale(1)
+    +mobile
+      margin-top: (-1 * +modular-scale(3)) + +modular-scale(1)
+    margin-bottom: 0
+    a
+      padding: +modular-scale(2) +modular-scale(0)
+      h2
+        @extend %h1
+        margin-top: 0
+
+  div.content div.cta-block + div.photo-gallery
+    margin-top: 0
+
+  .special
+    margin: 8rem 0 5rem
     max-width: 100%
+
+    h2
+      padding-left: $padding
+      padding-right: $padding
+
     & > div
       width: 100%
       max-width: $width - ($padding * 2)
@@ -31,12 +138,16 @@ div.content > *
     &:before
       background-image: url(./photos-top.png)
       background-size: auto 100%
+      +mobile
+        background-position: 50% 50%
       height: 424px
       +mobile
         height: 50vw
     &:after
       background-image: url(./photos-bottom.png)
       background-size: auto 100%
+      +mobile
+        background-position: 50% 50%
       height: 286px
       +mobile
         height: 30vw
@@ -45,4 +156,3 @@ div.content > *
         background-image: url(./photos-top@2x.png)
       &:after
         background-image: url(./photos-bottom@2x.png)
-

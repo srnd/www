@@ -1,0 +1,29 @@
+@import "../../../styles/styles"
+
+.programs
+  ul
+    +grid-collapse
+    padding: 0
+    li
+      list-style-type: none
+      display: inline
+      a
+        +grid-column(3)
+        +mobile
+          +grid-column(6)
+        min-height: 14rem
+        +mobile
+          min-height: 17rem
+        @extend %featured
+        text-decoration: none
+        text-align: center
+        margin-bottom: $padding
+        padding:
+          left: +modular-scale(1)
+          right: +modular-scale(1)
+        img
+          width: 100%
+          height: auto
+          max-width: + modular-scale(5)
+        .description
+          display: block

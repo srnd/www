@@ -1,15 +1,39 @@
-import React from 'react'
+import XReact from 'react'
+import Cheerio from 'cheerio'
+import { transform } from 'babel-standalone'
 
-import "./index.sass"
+import SponsorsBlock from '../../Fragments/Sponsors'
+import ProgramsBlock from '../../Fragments/Programs'
 
-export default (props) => (
-    <div>
-        <div className="html" dangerouslySetInnerHTML={{ __html: props.html.html }} />
-    </div>
-)
+export default class HtmlBlock extends XReact.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    render() {
+        const React = XReact;
+        return (
+            <div>
+                {this.props.allowReact ? (
+                    <div className="html">{this.renderHtml()}</div>
+                ) : (
+                    <div className="html" dangerouslySetInnerHTML={{__html: this.props.html.html}} />
+                )}
+            </div>
+        );
+    }
+
+    renderHtml() {
+        const React = XReact;
+        const Sponsors = SponsorsBlock;
+        const Programs = ProgramsBlock;
+        return eval(transform('<div>'+this.props.html.html+'</div>', { presets: ['react'] }).code);
+    }
+}
 
 export const query = graphql`
     fragment HtmlBlockItems on ContentfulLayoutBlockHtml {
+        allowReact
         html {
             html
         }

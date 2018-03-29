@@ -1,36 +1,51 @@
 @import "../../../styles/styles"
 
-ul.photo-gallery
+div.photo-gallery ul
+  +grid-collapse
+  @extend %clearfix
   padding: 0
   li
     list-style-type: none
 
   &.layout-comic li
     +grid-column(4)
+    +mobile
+      +grid-column(8)
+      +grid-push(2)
+    margin-bottom: $padding
     padding-left: 1rem
     padding-right: 1rem
     .description
       text-align: center
-    img
+      margin-bottom: 0
+    .gatsby-image-outer-wrapper
       @extend %featured
       padding: 0
       width: 100%
 
   &.layout-gallery-medium li
     +grid-column(4)
-    img
+    .gatsby-image-outer-wrapper
       @extend %featured
       padding: 0
       width: 100%
 
   &.layout-gallery-small li
     +grid-column(2)
-    img
-      width: 100%
+    +mobile
+      +grid-column(4)
+    height: 90px
+    margin-bottom: $padding
+    .gatsby-image-outer-wrapper, img
+      max-width: 100%
+      max-height: 100%
 
   &.layout-staff-bios li
     +grid-column(6)
-    img
+    +mobile
+      +grid-column(12)
+    margin-bottom: +modular-scale(0)
+    .gatsby-image-outer-wrapper
       width: calc(25% - 10px)
       float: left
     .details
@@ -47,7 +62,9 @@ ul.photo-gallery
 
   &.layout-staff-titles li
     +grid-column(3)
-    img
+    +mobile
+      +grid-column(6)
+    .gatsby-image-outer-wrapper
       width: calc(20% - 5px)
       float: left
     .details
@@ -59,3 +76,5 @@ ul.photo-gallery
       .title
         font-weight: 400
         color: $color-gray
+        +mobile
+          display: none

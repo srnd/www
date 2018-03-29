@@ -8,10 +8,14 @@ header.header
   div
     +grid-column(12)
 
-  img
+  img, .gatsby-image-outer-wrapper, .gatsby-image-wrapper
     width: 100%
     height: auto
-    margin-bottom: 1rem
+    margin-bottom: 0
+    margin-left: 0
+
+  img
+    margin-bottom: +modular-scale(1)
 
   h2
     @extend %h1
@@ -37,12 +41,4 @@ header.header
       @extend %button-cta
       @extend %button-larger
     +mobile
-      display: none
-
-  +mobile
-    text-align: center !important
-    .tagline
-      text-align: center !important
-      margin-bottom: 2.5rem
-    .tagline:after
       display: none
