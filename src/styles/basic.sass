@@ -10,7 +10,16 @@
   font-size: +modular-scale(0)
   border: 1px solid $color-gray-light
   padding: 5pt
-  +placeholder
+  ::-webkit-input-placeholder
+    color: $color-gray
+    opacity: 1
+  ::-moz-placeholder
+    color: $color-gray
+    opacity: 1
+  :-ms-input-placeholder
+    color: $color-gray
+    opacity: 1
+  :-moz-placeholder
     color: $color-gray
     opacity: 1
 
