@@ -92,25 +92,25 @@ div.right-content
       margin-top: +modular-scale(7)
       margin-bottom: +modular-scale(3)
 
-  div.content > div:not(:first-child):not(.heading):not(.cta-block)
+  div.content > div:not(:first-child):not(.heading):not(.schema-form)
     margin-top: +modular-scale(1)
     &:not(:last-child)
       margin-bottom: +modular-scale(8)
       +mobile
         margin-bottom: +modular-scale(3)
 
-  div.content > div.cta-block
+  div.content > div.schema-form
+    @extend %featured
+    padding: +modular-scale(2) +modular-scale(0)
     margin-top: (-1 * +modular-scale(8)) + +modular-scale(1)
     +mobile
       margin-top: (-1 * +modular-scale(3)) + +modular-scale(1)
     margin-bottom: 0
-    a
-      padding: +modular-scale(2) +modular-scale(0)
-      h2
-        @extend %h1
-        margin-top: 0
+    h2
+      @extend %h1
+      margin-top: 0
 
-  div.content div.cta-block + div.photo-gallery
+  div.content div.schema-form + div.photo-gallery
     margin-top: 0
 
   .special

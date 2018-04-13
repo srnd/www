@@ -1,4 +1,5 @@
 import React from 'react'
+import { Pii } from '../../Ui/Secure'
 
 class Form extends React.Component {
     constructor(props) {
@@ -11,14 +12,15 @@ class Form extends React.Component {
     render() {
         return (
             <div className="cognito" style={{marginTop: '11pt'}}>
-                {this.state.cognitoDidLoad ? (
+                {this.state.cognitoDidLoad ? [
                     <iframe src={`https://services.cognitoforms.com/f/${process.env.COGNITO_PUBLIC}?id=${this.props.formId}`}
                         frameBorder="0"
                         scrolling="yes"
                         seamless="seamless"
                         height="797"
-                        width="100%" />
-                ) : ''}
+                        width="100%" />,
+                    <Pii />
+                ] : ''}
             </div>
         );
     }
@@ -69,7 +71,7 @@ class Form extends React.Component {
             .cognito .c-forms-form input[type="text"], .cognito .c-forms-form input[type="password"], .cognito .c-forms-form textarea, .cognito .c-forms-form select {
                 font-family: "Avenir Next", "Helvetica", "Arial", sans-serif;
                 color: #484848;
-                font-size: 11pt;
+                font-size: 11.5pt;
                 border: 1px solid #e6e6e6;
             }
             .cognito .c-forms-form input::-moz-placeholder,
@@ -99,7 +101,7 @@ class Form extends React.Component {
                 background-color: #ff686b;
                 color: #fff;
                 border-color: #ff686b;
-                padding: 1rem 2rem;
+                padding: 0.5rem 1rem;
                 display: inline-block;
                 cursor: pointer;
                 -ms-touch-action: manipulation;

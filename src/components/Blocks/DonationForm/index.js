@@ -1,6 +1,7 @@
 import React from 'react'
 import { RadioGroup, Radio } from 'react-radio-group'
 import { FancyRadioGroup, FancyRadioOption } from '../../FancyRadio'
+import { Card as CardSecure } from '../../Ui/Secure'
 import Gifts from './gifts.js'
 import Amounts from './amounts.js'
 import { injectStripe, StripeProvider, Elements, CardElement } from 'react-stripe-elements';
@@ -99,6 +100,7 @@ class DonationFormInner extends React.Component {
                         onClick={() => this.onSubmit()}
                     />
                 </section>
+                <CardSecure />
             </div>
         )
     }

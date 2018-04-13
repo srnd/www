@@ -34,6 +34,7 @@ export class ProvidesAppContext extends React.Component {
             minorSponsors: this.remapEdges(this.props.minorSponsors.edges),
             programs: this.remapEdges(this.props.programs.edges),
             regions: this.remapEdges(this.props.regions.edges),
+            translate: this.props.translate,
         };
         return Object.assign(this.state, propContext);
     }

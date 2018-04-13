@@ -25,8 +25,9 @@ class CmsTemplate extends React.Component {
     render() {
         const data = this.props.data;
         const layout = data.contentfulLayout;
+        const context = Object.assign(data, {translate: translate(data.translations)});
         return (
-            <ProvidesAppContext {...data}>
+            <ProvidesAppContext {...context}>
                 <div className={`page ${layout.pageClass}`}>
                     <Helmet title={layout.title} />
                     <Metadata metadata={layout.metadata} />

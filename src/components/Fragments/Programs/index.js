@@ -8,7 +8,9 @@ export default appContext(({ context, ...props }) => (
         <ul>
             {context.programs.map((program) => (
                 <li>
-                    <a href={program.url} target="_blank">
+                    <a
+                        href={program.url.substring(0, 17) == 'https://srnd.org/' ? program.url.substring(16) : program.url}
+                        target={program.url.substring(0, 17) == 'https://srnd.org/' ? null : '_blank'}>
                         <img src={program.logo.responsiveResolution ? program.logo.responsiveResolution : program.logo.file.url } alt="" />
                         <span class="description">{program.shortDescription}</span>
                     </a>

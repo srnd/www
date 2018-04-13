@@ -11,6 +11,7 @@ import SponsorshipsBlock from '../Blocks/Sponsorships'
 import FormBlock from '../Blocks/Form'
 import DonationFormBlock from '../Blocks/DonationForm'
 import CtaBlock from '../Blocks/Cta'
+import SchemaForm from '../Blocks/SchemaForm'
 
 export const ContentTagTypes = {
     ContentfulLayoutBlockHtml: HtmlBlock,
@@ -22,6 +23,7 @@ export const ContentTagTypes = {
     ContentfulLayoutBlockForm: FormBlock,
     ContentfulLayoutBlockDonationForm: DonationFormBlock,
     ContentfulLayoutBlockCta: CtaBlock,
+    ContentfulLayoutBlockSchemaForm: SchemaForm,
 };
 
 export const mapItems = (items, props) => (
@@ -85,6 +87,10 @@ export const query = graphql`
                 key: id
                 ...CtaBlockItems
             }
+            ... on ContentfulLayoutBlockSchemaForm {
+                key: id
+                ...SchemaFormItems
+            }
         }
 
         rightContent {
@@ -125,9 +131,10 @@ export const query = graphql`
                 key: id
                 ...CtaBlockItems
             }
+            ... on ContentfulLayoutBlockSchemaForm {
+                key: id
+                ...SchemaFormItems
+            }
         }
-    }
-    fragment Translations on RootQueryType {
-        ...DonationFormTranslations
     }
 `;
