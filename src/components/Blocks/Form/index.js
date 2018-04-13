@@ -13,7 +13,7 @@ class Form extends React.Component {
         return (
             <div className="cognito" style={{marginTop: '11pt'}}>
                 {this.state.cognitoDidLoad ? [
-                    <iframe src={`https://services.cognitoforms.com/f/${process.env.COGNITO_PUBLIC}?id=${this.props.formId}`}
+                    <iframe src={`https://services.cognitoforms.com/f/${process.env.GATSBY_COGNITO_PUBLIC}?id=${this.props.formId}`}
                         frameBorder="0"
                         scrolling="yes"
                         seamless="seamless"

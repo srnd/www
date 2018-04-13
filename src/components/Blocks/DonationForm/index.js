@@ -165,7 +165,7 @@ class DonationForm extends React.Component {
             <div>
                 <Script url="https://js.stripe.com/v3/"
                     onError={() => {}}
-                    onLoad={() => this.setState({stripe: window.Stripe(process.env.STRIPE_PUBLIC)})} />
+                    onLoad={() => this.setState({stripe: window.Stripe(process.env.GATSBY_STRIPE_PUBLIC)})} />
                 <StripeProvider stripe={this.state.stripe}>
                     <Elements fonts={[{cssSrc: 'https://srnd-cdn.net/fonts/avenir-next/minimal.css'}]} locale="en-US">
                         <WrappedDonationForm {...this.props} />
