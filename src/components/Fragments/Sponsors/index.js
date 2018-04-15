@@ -7,7 +7,7 @@ export default appContext(({ context, ...props }) => (
     <div className={`all-sponsors type-${props.type || 'default'}`}>
         <ul className="major">
             { context.majorSponsors.map((sponsor) => (
-                <li>
+                <li key={sponsor.id}>
                     <a href={sponsor.link} target="_blank">
                         <img src={sponsor.logo.large.src} srcSet={sponsor.logo.large.srcSet} alt={sponsor.name} />
                     </a>
@@ -16,7 +16,7 @@ export default appContext(({ context, ...props }) => (
         </ul>
         <ul className="minor">
             { context.minorSponsors.map((sponsor) => (
-                <li>
+                <li key={sponsor.id}>
                     <a href={sponsor.link} target="_blank">
                         <img src={sponsor.logo.small.src} srcSet={sponsor.logo.small.srcSet} alt={sponsor.name} />
                     </a>
@@ -31,6 +31,7 @@ export const query = graphql`
         name
         type
         link
+        id
         logo {
             large: responsiveResolution(width: 300, quality: 80) {
                 src

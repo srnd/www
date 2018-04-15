@@ -4,7 +4,7 @@ import lock from './lock.svg'
 import './index.sass'
 
 export const Customizable = ({ children }) => (
-    <div class="secure">
+    <div className="secure">
         <img src={lock} alt="" />
         <p>{children}</p>
     </div>

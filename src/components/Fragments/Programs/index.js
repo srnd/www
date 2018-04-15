@@ -4,7 +4,7 @@ import appContext from '../../Context'
 import './index.sass'
 
 export default appContext(({ context, ...props }) => (
-    <div class="programs">
+    <div className="programs">
         <ul>
             {context.programs.map((program) => (
                 <li>
@@ -12,7 +12,7 @@ export default appContext(({ context, ...props }) => (
                         href={program.url.substring(0, 17) == 'https://srnd.org/' ? program.url.substring(16) : program.url}
                         target={program.url.substring(0, 17) == 'https://srnd.org/' ? null : '_blank'}>
                         <img src={program.logo.responsiveResolution ? program.logo.responsiveResolution : program.logo.file.url } alt="" />
-                        <span class="description">{program.shortDescription}</span>
+                        <span className="description">{program.shortDescription}</span>
                     </a>
                 </li>
             ))}

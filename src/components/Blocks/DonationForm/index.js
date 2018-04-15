@@ -7,11 +7,12 @@ import Amounts from './amounts.js'
 import { injectStripe, StripeProvider, Elements, CardElement } from 'react-stripe-elements';
 import Script from 'react-load-script'
 import Validator from 'validator';
+import WithTracking from '../../Track'
 import './index.sass'
 
 export const DonationFrequencies = Object.freeze({OneTime: 'onetime', Monthly: 'monthly'});
 
-class DonationFormInner extends React.Component {
+class _DonationFormInner extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -130,6 +131,10 @@ class DonationFormInner extends React.Component {
     onSubmit() {
         if (!this.validate) return;
         this.props.stripe.createToken({name: 'TODO'}).then(({token}) => {
+            this.props.track.userDetails({
+                name: `${this.state.firstName} ${this.state.lastName}`,
+                email: this.state.email,
+            });
             // TODO(@tyermenezes)
             alert(token);
         });
@@ -152,7 +157,7 @@ class DonationFormInner extends React.Component {
         };
     }
 }
-
+const DonationFormInner = WithTracking(_DonationFormInner);
 
 class DonationForm extends React.Component {
     constructor(props) {

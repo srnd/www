@@ -7,6 +7,7 @@ import Metadata from '../components/Metadata'
 import {Header, Footer} from '../components/Navigation'
 import PageHeader from '../components/Header'
 import { ProvidesAppContext } from '../components/Context'
+import WithTracking from '../components/Track'
 
 import "./page.sass"
 
@@ -21,11 +22,12 @@ const translate = function(strings) {
     }
 };
 
-class CmsTemplate extends React.Component {
+class _CmsTemplate extends React.Component {
     render() {
         const data = this.props.data;
         const layout = data.contentfulLayout;
         const context = Object.assign(data, {translate: translate(data.translations)});
+        this.props.track.pageview(layout.slug);
         return (
             <ProvidesAppContext {...context}>
                 <div className={`page ${layout.pageClass}`}>
@@ -41,12 +43,13 @@ class CmsTemplate extends React.Component {
     }
 }
 
-export default CmsTemplate;
+export default WithTracking(_CmsTemplate);
 export const pageQuery = graphql`
     query CmsPage($lang: String!, $slug: String!) {
         contentfulLayout(node_locale: {eq: $lang}, slug: {eq: $slug}) {
             title
             pageClass
+            slug
             ...MetadataItems
             ...HeaderItems
             ...ContentItems

@@ -30,5 +30,9 @@ div.schema-form
     input:-moz-placeholder, input:focus, input:invalid
         box-shadow:none !important
 
-  input[type="submit"], button[type="submit"]
-    @extend %button-cta
+  .bottom
+    margin-top: +modular-scale(0)
+    .submit
+      input[type="submit"], button[type="submit"]
+        @extend %button-cta
+        text-align: left

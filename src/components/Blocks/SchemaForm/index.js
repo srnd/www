@@ -13,13 +13,19 @@ export default class SchemaForm extends React.Component {
     render() {
         return (
             <div className="schema-form">
-                <h2>{this.props.cta}</h2>
                 {this.state.submitted
                         ? <p className="submitted">{this.props.submitMessage}</p>
-                        : <div><Form
+                        : <Form
                             schema={JSON.parse(this.props.schema.internal.content)}
                             uiSchema={JSON.parse(this.props.uiSchema.internal.content)}
-                            onSubmit={(e) => this.onSubmit(e.formData)} /><Pii /></div>
+                            onSubmit={(e) => this.onSubmit(e.formData)}>
+                                <div className="bottom">
+                                    <div className="submit">
+                                        <button type="submit">{this.props.cta}</button>
+                                    </div>
+                                    <Pii />
+                                </div>
+                            </Form>
                 }
             </div>
         );
