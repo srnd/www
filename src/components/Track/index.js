@@ -2,40 +2,31 @@ import React from 'react'
 
 export default Inner => class extends React.Component {
     render() {
-        if (typeof(window) === 'undefined') return null;
-
-        this.countly = window.Countly || {};
-        this.countly.q = this.countly.q || [];
-
         const track = {
-            userDetails: (o) => this.withCountly((countly) => countly.user_details(o)),
-            pageview: (page) => this.withCountly((countly) => countly.track_pageview(page)),
-            event: (event, data) => this.withCountly((countly) => countly.add_event(Object.assign({key: event}, data))),
+            userDetails: (o) => this.push('setUserId', o.email),
+            pageview: (page) => {this.push('setDocumentTitle', page);this.push('trackPageView');},
+            event: (event, data) => this.push.apply(['trackEvent', event].concat(data)),
         }
-        return <Inner {...this.props} withCountly={(fn) => this.withCountly(fn)} track={track} />;
+        return <Inner {...this.props} push={(fn) => this.push(fn)} track={track} />;
     }
 
     componentDidMount() {
-        if (typeof(window) !== 'undefined' && !document.getElementById("cly_script")) {
-            var clyScript = document.createElement("script");
-            clyScript.id = "cly_script";
-            clyScript.type = "text/javascript";
-            clyScript.src = `${process.env.GATSBY_COUNTLY_URL}/sdk/web/countly.min.js`;
-            clyScript.async = true;
-            clyScript.onload = () => {
-                window.Countly.q = this.countly.q;
-                this.countly = window.Countly;
-                this.countly.init({
-                    app_key: process.env.GATSBY_COUNTLY_KEY,
-                    url: process.env.GATSBY_COUNTLY_URL
-                });
-                this.countly.track_sessions();
-            };
-            document.body.appendChild(clyScript);
+        if (typeof(window) !== 'undefined' && !document.getElementById("matomo_script")) {
+            var matomoScript = document.createElement("script");
+            matomoScript.id = "matomo_script";
+            matomoScript.type = "text/javascript";
+            matomoScript.src = `${process.env.GATSBY_MATOMO_URL}/piwik.js`;
+            matomoScript.async = true;
+            this.push('setTrackerUrl', `${process.env.GATSBY_MATOMO_URL}/piwik.php`);
+            this.push('setSiteId', process.env.GATSBY_MATOMO_SITE);
+            this.push('enableHeartBeatTimer');
+            document.body.appendChild(matomoScript);
         }
     }
 
-    withCountly(fn) {
-        this.countly.q.push(() => fn(this.countly));
+    push() {
+        if (typeof(window) === 'undefined') return null;
+        window._paq = window._paq || [];
+        window._paq.push(Array.prototype.slice.call(arguments));
     }
 }
