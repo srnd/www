@@ -57,15 +57,5 @@ export const query = graphql`
         programs: allContentfulProgram(sort: {fields: [createdAt], order:ASC}) {
             edges { node { ...ProgramsFragmentItems } }
         }
-
-        regions: allContentfulRegion {
-            edges {
-                node {
-                    name
-                    webname
-                    timezone
-                }
-            }
-        }
     }
 `;

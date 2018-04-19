@@ -63,7 +63,7 @@ export const pageQuery = graphql`
         navSecondary: contentfulNavigation (node_locale: {eq: $lang}, slot: {eq: "secondary"}) {
             ...NavigationItems
         }
-        translations: allContentfulString {
+        translations: allContentfulString (filter: {node_locale: {eq: $lang}}) {
             edges {
                 node {
                     key
