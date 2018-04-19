@@ -18,9 +18,9 @@ export default Inner => class extends React.Component {
             var matomoScript = document.createElement("script");
             matomoScript.id = "matomo_script";
             matomoScript.type = "text/javascript";
-            matomoScript.src = `${process.env.GATSBY_MATOMO_URL}/piwik.js`;
+            matomoScript.src = `${process.env.GATSBY_MATOMO_URL}/js/`;
             matomoScript.async = true;
-            this.push('setTrackerUrl', `${process.env.GATSBY_MATOMO_URL}/piwik.php`);
+            this.push('setTrackerUrl', `${process.env.GATSBY_MATOMO_URL}/ping.php`);
             this.push('setSiteId', process.env.GATSBY_MATOMO_SITE);
             this.push('enableHeartBeatTimer');
             document.body.appendChild(matomoScript);
