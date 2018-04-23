@@ -8,6 +8,7 @@ import {Header, Footer} from '../components/Navigation'
 import PageHeader from '../components/Header'
 import { ProvidesAppContext } from '../components/Context'
 import WithTracking from '../components/Track'
+import Retarget from '../components/Track/retarget'
 
 import "./page.sass"
 
@@ -37,6 +38,7 @@ class _CmsTemplate extends React.Component {
                     <PageHeader {...layout.header} />
                     <Content translate={ translate(data.translations) } {...layout} />
                     <Footer nav={ data.navSecondary } legal={ data.navLegal } />
+                    <Retarget type={ layout.audience } />
                 </div>
             </ProvidesAppContext>
         );
@@ -50,6 +52,7 @@ export const pageQuery = graphql`
             title
             pageClass
             slug
+            audience
             ...MetadataItems
             ...HeaderItems
             ...ContentItems
