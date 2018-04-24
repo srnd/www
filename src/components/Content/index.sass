@@ -81,10 +81,14 @@ div.right-content
 
 .page.promo
   +mobile
-    header.header h2
-      text-align: center !important
-      &:after
-        display: none
+    header.header
+      .cta
+        +mobile
+          display: none
+      h2
+        text-align: center !important
+        &:after
+          display: none
 
   .content, .special
     h2
