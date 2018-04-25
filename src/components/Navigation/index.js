@@ -1,5 +1,5 @@
 import React from 'react'
-import SmartLink from '../SmartLink'
+import SmartLink from '../Ui/SmartLink'
 
 import "./header.sass";
 import "./footer.sass";

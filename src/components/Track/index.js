@@ -8,7 +8,7 @@ export default Inner => class extends React.Component {
                 this.push('setDocumentTitle', page.substr(-1) == '/' ? page.substr(0, page.length - 1) : page);
                 this.push('trackPageView');
             },
-            event: (event, data) => this.push.apply(['trackEvent', event].concat(data)),
+            event: (category, event, value) => this.push('trackEvent', category, event, value),
         }
         return <Inner {...this.props} push={(fn) => this.push(fn)} track={track} />;
     }

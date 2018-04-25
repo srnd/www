@@ -1,11 +1,12 @@
 import React from 'react'
 import axios from 'axios'
 import { Pii } from '../../Ui/Secure'
-import Form from "react-jsonschema-form"
+import Form from 'react-jsonschema-form'
+import WithIpInfo from '../../Track/ipInfo'
 
 import "./index.sass"
 
-export default class SchemaForm extends React.Component {
+class SchemaForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {submitted: false};
@@ -33,11 +34,12 @@ export default class SchemaForm extends React.Component {
 
     onSubmit(formData) {
         axios
-            .get(this.props.submitUrl, {params: formData})
+            .get(this.props.submitUrl, {params: Object.assign(formData, {visitor: this.props.ipInfo})})
             .then((response) => this.setState({submitted: true}))
             .catch((error) => alert(error));
     }
 }
+export default WithIpInfo(SchemaForm);
 
 export const query = graphql`
     fragment SchemaFormItems on ContentfulLayoutBlockSchemaForm {

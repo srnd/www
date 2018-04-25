@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import WistiaButton from './wistia-button.js'
-import url from 'url';
+import MuxPlayer from '../MuxPlayer'
+import url from 'url'
 
 class SmartLink extends React.Component {
     render() {
@@ -12,8 +12,8 @@ class SmartLink extends React.Component {
 
         if (!protocol) {
             return <Link {...this.props}>{this.props.children}</Link>
-        } else if (protocol == 'wistia:') {
-            return <WistiaButton wistiaId={parsed.hostname} {...other}>{this.props.children}</WistiaButton>
+        } else if (protocol == 'mux:') {
+            return <MuxPlayer autoPlay={true} muxId={to.substr(6)} {...other}>{this.props.children}</MuxPlayer>
         } else {
             return <a href={to} {...other} target="_blank">{this.props.children}</a>
         }

@@ -1,6 +1,6 @@
 import React from 'react'
 import "./index.sass"
-import SmartLink from "../../SmartLink"
+import SmartLink from "../../Ui/SmartLink"
 
 export default (props) => (
     <div className="sponsorships">

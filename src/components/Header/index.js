@@ -1,5 +1,5 @@
 import React from 'react'
-import SmartLink from '../SmartLink'
+import SmartLink from '../Ui/SmartLink'
 import Html from '../Blocks/Html'
 import Img from "gatsby-image"
 
