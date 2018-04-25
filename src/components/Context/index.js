@@ -4,7 +4,7 @@ import { Broadcast, Subscriber } from "react-broadcast"
 
 export default (Component) => (props) => (
     <Subscriber channel="app">
-        { context => <Component context={context} /> }
+        { context => <Component context={context} {...props} /> }
     </Subscriber>
 )
 

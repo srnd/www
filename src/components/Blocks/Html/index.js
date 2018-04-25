@@ -4,6 +4,7 @@ import { transform } from 'babel-standalone'
 
 import SponsorsBlock from '../../Fragments/Sponsors'
 import ProgramsBlock from '../../Fragments/Programs'
+import DonationMatchBlock from '../../Fragments/DonationMatch'
 import TrackingControlBlock from '../../Fragments/TrackingControl'
 
 export default class HtmlBlock extends XReact.Component {
@@ -28,6 +29,7 @@ export default class HtmlBlock extends XReact.Component {
         const React = XReact;
         const Sponsors = SponsorsBlock;
         const Programs = ProgramsBlock;
+        const DonationMatch = DonationMatchBlock;
         const TrackingControl = TrackingControlBlock;
         return eval(transform('<div>'+this.props.html.html+'</div>', { presets: ['react'] }).code);
     }
