@@ -8,6 +8,7 @@ import { injectStripe, StripeProvider, Elements, CardElement } from 'react-strip
 import Script from 'react-load-script'
 import Validator from 'validator';
 import WithTracking from '../../Track'
+import axios from 'axios'
 import './index.sass'
 
 export const DonationFrequencies = Object.freeze({OneTime: 'onetime', Monthly: 'monthly'});
@@ -26,7 +27,8 @@ class _DonationFormInner extends React.Component {
             city: '',
             state: '',
             zip: '',
-            cardComplete: false
+            cardComplete: false,
+            loading: false,
         }
     }
     
@@ -95,7 +97,9 @@ class _DonationFormInner extends React.Component {
                     <input type="submit"
                         disabled={!this.validate()}
                         value={(!this.validate()
-                                ? this.props.translate('layout.block.donation-form.submit.missing')
+                                ? (
+                                    this.state.loading ? '...' : this.props.translate('layout.block.donation-form.submit.missing')
+                                )
                                 : this.props.translate('layout.block.donation-form.submit.'+this.state.frequency))
                                 .replace(':amount', '$'+this.state.amount)}
                         onClick={() => this.onSubmit()}
@@ -124,20 +128,43 @@ class _DonationFormInner extends React.Component {
             && (this.state.firstName && this.state.lastName && this.state.email && Validator.isEmail(this.state.email))
             && (!this.state.reward || (this.state.address1 && this.state.city && this.state.state && this.state.zip))
             && this.state.cardComplete
+            && !this.state.loading
         );
-        // TODO(@tylermenezes): Check for gift selected, contact info, stripe, etc.
     }
 
-    onSubmit() {
+    async onSubmit() {
         if (!this.validate) return;
-        this.props.stripe.createToken({name: 'TODO'}).then(({token}) => {
-            this.props.track.userDetails({
-                name: `${this.state.firstName} ${this.state.lastName}`,
-                email: this.state.email,
-            });
-            // TODO(@tyermenezes)
-            alert(token);
+        this.setState({loading: true});
+        this.props.track.userDetails({
+            name: `${this.state.firstName} ${this.state.lastName}`,
+            email: this.state.email,
         });
+
+        try {
+            const { token } = await this.props.stripe.createToken({name: `${this.state.firstName} ${this.state.lastName}`});
+
+            const result = await axios.post(process.env.GATSBY_API_DONATE, {
+                amount: this.state.amount,
+                frequency: this.state.frequency,
+                gift: this.state.reward,
+                token: token.id,
+                currency: 'USD', //TODO(@tylermenezes)
+                contact: {
+                    firstName: this.state.firstName,
+                    lastName: this.state.lastName,
+                    email: this.state.email,
+                    address1: this.state.address,
+                    city: this.state.city,
+                    state: this.state.state,
+                    zip: this.state.zip,
+                },
+            });
+
+            window.location = result.data.receipt;
+        } catch (err) {
+            alert(err.message);
+            this.setState({loading: false});
+        }
     }
 
     stripeDesign() {
