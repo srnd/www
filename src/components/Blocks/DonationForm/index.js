@@ -151,7 +151,7 @@ class _DonationFormInner extends React.Component {
                     firstName: this.state.firstName,
                     lastName: this.state.lastName,
                     email: this.state.email,
-                    address1: this.state.address,
+                    address: this.state.address1,
                     city: this.state.city,
                     state: this.state.state,
                     zip: this.state.zip,
