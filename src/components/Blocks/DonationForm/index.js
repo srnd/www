@@ -132,7 +132,7 @@ class _DonationFormInner extends React.Component {
         );
     }
 
-    async onSubmit() {
+    onSubmit() {
         if (!this.validate) return;
         this.setState({loading: true});
         this.props.track.userDetails({
@@ -140,10 +140,8 @@ class _DonationFormInner extends React.Component {
             email: this.state.email,
         });
 
-        try {
-            const { token } = await this.props.stripe.createToken({name: `${this.state.firstName} ${this.state.lastName}`});
-
-            const result = await axios.post(process.env.GATSBY_API_DONATE, {
+        this.props.stripe.createToken({name: `${this.state.firstName} ${this.state.lastName}`}).then(({ token }) => {
+            axios.post(process.env.GATSBY_API_DONATE, {
                 amount: this.state.amount,
                 frequency: this.state.frequency,
                 gift: this.state.reward,
@@ -158,13 +156,13 @@ class _DonationFormInner extends React.Component {
                     state: this.state.state,
                     zip: this.state.zip,
                 },
-            });
-
-            window.location = result.data.receipt;
-        } catch (err) {
+            })
+        }).then((result) => {
+                window.location = result.data.receipt;
+        }).catch((err) => {
             alert(err.message);
             this.setState({loading: false});
-        }
+        });
     }
 
     stripeDesign() {
