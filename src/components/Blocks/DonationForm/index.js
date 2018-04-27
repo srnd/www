@@ -141,7 +141,7 @@ class _DonationFormInner extends React.Component {
         });
 
         this.props.stripe.createToken({name: `${this.state.firstName} ${this.state.lastName}`}).then(({ token }) => {
-            axios.post(process.env.GATSBY_API_DONATE, {
+            return axios.post(process.env.GATSBY_API_DONATE, {
                 amount: this.state.amount,
                 frequency: this.state.frequency,
                 gift: this.state.reward,
