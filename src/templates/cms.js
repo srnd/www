@@ -10,7 +10,6 @@ import { ProvidesAppContext } from '../components/Context'
 import WithTracking from '../components/Track'
 import Retarget from '../components/Track/retarget'
 import DonationMatch from '../components/Fragments/DonationMatch'
-import Popup from 'react-popup';
 
 import "./page.sass"
 
@@ -34,7 +33,6 @@ class _CmsTemplate extends React.Component {
         return (
             <ProvidesAppContext {...context}>
                 <div className={`page ${layout.pageClass}`}>
-                    <Popup />
                     <Helmet title={layout.title} />
                     <Metadata metadata={layout.metadata} />
                     <Header nav={ data.navPrimary } active={layout.slug} />
