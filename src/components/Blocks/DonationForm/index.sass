@@ -6,7 +6,7 @@ div.donation-form
   // General Style
   ///////////////////////// 
   & > section
-    margin-bottom: 2rem
+    margin-bottom: 1rem
     & > h3, & > p
       +grid-column(12)
   .fancy-radio
@@ -63,14 +63,19 @@ div.donation-form
           +grid-column(12)
       margin-bottom: 20px
     .donate-amount
-      min-height: 11rem
+      min-height: 8rem
       text-align: center
+      p
+        font-size: +modular-scale(-1)
+        color: $color-gray
+        font-weight: 500
       span
         @extend %h2
         font-size: +modular-scale(1)
         font-weight: 500
         display: block
         margin-bottom: 0
+        margin-top: 0
         &.amount-default
           margin-top: 0.6rem
         &.amount-custom
@@ -78,6 +83,7 @@ div.donation-form
           @extend %rounded
           border: 1px solid $color-gray-light
           padding: 0.5rem 1rem
+          margin-top: 0.55rem
           input
             @extend %h2
             font-size: +modular-scale(1)
@@ -86,6 +92,7 @@ div.donation-form
             border: none
             background-color: transparent
             margin-bottom: 0
+            margin-top: 0
   
   ///////////////////////// 
   // "Gifts" (Rewards)

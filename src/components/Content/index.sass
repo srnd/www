@@ -11,15 +11,21 @@ div.wrapper
   &:not(.multicol) > div > div
     +grid-column(12)
 
-div.content > div, div.content-right > div
+div.content > div, div.right-content > div
   @extend %clearfix
   &:not(:first-child):not(.heading)
     margin-bottom: +modular-scale(2)
     +mobile
       margin-bottom: +modular-scale(0)
-  & > h1, & > h2, & > h3, & > h4, & > h5, & > h6
-    &:first-child
-      margin-top: 0
+
+div.content, div.right-content
+  & > div:first-child
+    & > h1, & > h2, & > h3, & > h4, & > h5, & > h6
+      &:first-child
+        margin-top: 0
+
+    & > p:first-child, & > ul:first-child
+      margin-top: (-1 * modular-scale(3)) + modular-scale(1)
 
 *[data-grid-collapse]
   +grid-collapse
