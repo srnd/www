@@ -41,3 +41,106 @@ h6
 
 ul
   padding-left: +modular-scale(1)
+
+
+
+
+
+.mm-popup
+  display: none
+
+.mm-popup--visible
+  display: block
+
+.mm-popup__overlay
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 1000
+  overflow: auto
+  background: rgba(0, 0, 0, 0.1)
+
+.mm-popup__close
+  display: none
+
+.mm-popup__input
+  @extend %input
+
+.mm-popup__btn
+  cursor: pointer
+  @extend %text
+  @extend %button-featured
+
+.mm-popup__btn--success
+  @extend %button-featured
+
+.mm-popup__btn--danger
+  @extend %button-cta
+
+.mm-popup__box
+  width: 350px
+  position: fixed
+  top: 10%
+  left: 50%
+  margin-left: -175px
+  background: #fff
+  overflow: hidden
+  z-index: 1001
+  @extend %featured
+
+.mm-popup__box__header
+  padding: 15px 20px
+  background: $color-gray-lightest
+  color: $color-black
+
+.mm-popup__box__header__title
+  margin: 0
+  font-size: +modular-scale(0)
+  text-align: left
+  font-weight: 600
+
+.mm-popup__box__body
+  padding: 20px
+  background: #fff
+  @extend %text
+  position: relative
+  z-index: 2
+  p
+    margin: 0 0 5px
+
+.mm-popup__box__footer
+  overflow: hidden
+  padding: 40px 20px 20px
+
+.mm-popup__box__footer__right-space
+  float: right
+  .mm-popup__btn
+    margin-left: 5px
+
+.mm-popup__box__footer__left-space
+  float: left
+  .mm-popup__btn
+    margin-right: 5px
+
+.mm-popup__box--popover
+  width: 300px
+  margin-left: -150px
+
+@media (max-width: 420px)
+  .mm-popup__box
+    width: auto
+    left: 10px
+    right: 10px
+    top: 10px
+    margin-left: 0
+  .mm-popup__box__footer__left-space, .mm-popup__box__footer__right-space
+    float: none
+  .mm-popup__box__footer
+    padding-top: 30px
+    .mm-popup__btn
+      display: block
+      width: 100%
+      text-align: center
+      margin-top: 10px

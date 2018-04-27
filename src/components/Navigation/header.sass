@@ -43,6 +43,9 @@ header.navigation
         display: inline-block
         a
           @extend %button
+          color: $color-gray
+          &.active
+            color: $color-red
         +mobile
           &:nth-child(n+4)
             display: none

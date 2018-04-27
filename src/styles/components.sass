@@ -26,6 +26,8 @@ $button-shadow-color-light: rgba(0, 0, 0, 0.04)
   padding: 0.5rem 1rem
   display: inline-block
   font-size: +modular-scale(0)
+  font-weight: 500
+  text-decoration: none
 
   cursor: pointer
   +prefixer(touch-action, manipulation, ms spec)
@@ -53,7 +55,6 @@ $button-shadow-color-light: rgba(0, 0, 0, 0.04)
 %button-cta
   @extend %button-featured
   font-weight: 500
-  font-size: 11pt
   text-decoration: none
   background-color: $color-accent
   color: $color-background

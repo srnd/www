@@ -25,7 +25,7 @@ class Gifts extends React.Component {
                     </a>
                     <div className="info">
                         <span className="title">{gift.title}</span>
-                        <span className="description">{gift.description} (min )</span>
+                        <span className="description">{gift.description} (min ${this.getMinAmount(gift)})</span>
                     </div>
                 </div>
             </FancyRadioOption>
@@ -49,8 +49,6 @@ class Gifts extends React.Component {
 }
 export default Gifts;
 
-// TODO(@tylermenezes): Gather amount
-//
 export const query = graphql`
     fragment GiftItems on ContentfulDonationReward {
             id

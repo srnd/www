@@ -4,10 +4,10 @@ import SmartLink from '../Ui/SmartLink'
 import "./header.sass";
 import "./footer.sass";
 
-const linksToList = (links) => {
+const linksToList = (links, active) => {
     return links.map((item, i) => (
         <li key={item.url}>
-            <SmartLink to={item.url}>{item.title}</SmartLink>
+            <SmartLink to={item.url} className={active && item.url == active ? 'active' : ''}>{item.title}</SmartLink>
         </li>
     ));
 };
@@ -17,7 +17,7 @@ export const Header = (props) => (
         <h1><SmartLink to="/">srnd.org</SmartLink></h1>
         <nav>
             <ul>
-                {props.nav ? linksToList(props.nav.links) : ''}
+                {props.nav ? linksToList(props.nav.links, props.active) : ''}
             </ul>
         </nav>
     </header>

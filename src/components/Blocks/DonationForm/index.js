@@ -9,6 +9,7 @@ import Script from 'react-load-script'
 import Validator from 'validator';
 import WithTracking from '../../Track'
 import axios from 'axios'
+import Popup from 'react-popup'
 import './index.sass'
 
 export const DonationFrequencies = Object.freeze({OneTime: 'onetime', Monthly: 'monthly'});
@@ -160,7 +161,9 @@ class _DonationFormInner extends React.Component {
         }).then((result) => {
                 window.location = result.data.receipt;
         }).catch((err) => {
-            alert(err.message);
+            if (err.response && err.response.data && err.response.data.err)
+                Popup.alert(err.response.data.err);
+            else Popup.alert(err.message);
             this.setState({loading: false});
         });
     }
