@@ -1,4 +1,5 @@
 import React from 'react'
+import { withPrefix } from 'gatsby-link'
 
 export default Inner => class extends React.Component {
     render() {
@@ -18,7 +19,7 @@ export default Inner => class extends React.Component {
             var matomoScript = document.createElement("script");
             matomoScript.id = "matomo_script";
             matomoScript.type = "text/javascript";
-            matomoScript.src = `${process.env.GATSBY_MATOMO_URL}/js/`;
+            matomoScript.src = withPrefix('/ping.js');
             matomoScript.async = true;
             this.push('setTrackerUrl', `${process.env.GATSBY_MATOMO_URL}/ping.php`);
             this.push('setSiteId', process.env.GATSBY_MATOMO_SITE);
