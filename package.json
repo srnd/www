@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@babel/standalone": "^7.0.0-beta.42",
     "axios": "^0.18.0",
     "babel-core": "^6.26.0",
     "babel-standalone": "^6.26.0",
@@ -34,6 +33,7 @@
     "react-markdown": "^3.3.0",
     "react-radio-group": "^3.0.2",
     "react-responsive-modal": "^2.1.0",
+    "react-string-replace": "^0.4.1",
     "react-stripe-elements": "^1.6.0",
     "topojson": "^3.0.2",
     "validator": "^9.4.1"

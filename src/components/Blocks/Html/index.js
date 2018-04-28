@@ -1,37 +1,35 @@
-import XReact from 'react'
-import Cheerio from 'cheerio'
-import { transform } from 'babel-standalone'
+import React from 'react'
+import reactReplace from 'react-string-replace'
 
-import SponsorsBlock from '../../Fragments/Sponsors'
-import ProgramsBlock from '../../Fragments/Programs'
-import DonationMatchBlock from '../../Fragments/DonationMatch'
-import TrackingControlBlock from '../../Fragments/TrackingControl'
+import Sponsors from '../../Fragments/Sponsors'
+import Programs from '../../Fragments/Programs'
+import DonationMatch from '../../Fragments/DonationMatch'
+import TrackingControl from '../../Fragments/TrackingControl'
 
-export default class HtmlBlock extends XReact.Component {
+export default class HtmlBlock extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        const React = XReact;
         return (
             <div>
-                {this.props.allowReact ? (
-                    <div className="html">{this.renderHtml()}</div>
-                ) : (
-                    <div className="html" dangerouslySetInnerHTML={{__html: this.props.html.html}} />
-                )}
+                <div className="html">{this.renderHtml()}</div>
             </div>
         );
     }
 
     renderHtml() {
-        const React = XReact;
-        const Sponsors = SponsorsBlock;
-        const Programs = ProgramsBlock;
-        const DonationMatch = DonationMatchBlock;
-        const TrackingControl = TrackingControlBlock;
-        return eval(transform('<div>'+this.props.html.html+'</div>', { presets: ['react'] }).code);
+        const replace = {
+            '<Sponsors type="small" />': <Sponsors type="small" />,
+            '<Programs />': <Programs />,
+            '<TrackingControl />': <TrackingControl />,
+            '<DonationMatch />': <DonationMatch />,
+        };
+
+        var result = this.props.html.html;
+        Object.keys(replace).map((k) => { result = reactReplace(result, k, () => replace[k]); });
+        return result.map((x) => typeof(x) === 'string' ? <span dangerouslySetInnerHTML={{__html: x}} /> : x);
     }
 }
 

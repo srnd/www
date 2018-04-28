@@ -33,11 +33,11 @@ export const query = graphql`
         link
         id
         logo {
-            large: responsiveResolution(width: 300, quality: 80) {
+            large: responsiveResolution(width: 150, quality: 80) {
                 src
                 srcSet
             }
-            small: responsiveResolution(width: 200, quality: 80) {
+            small: responsiveResolution(width: 100, quality: 70) {
                 src
                 srcSet
             }
