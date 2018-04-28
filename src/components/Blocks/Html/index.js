@@ -20,6 +20,8 @@ export default class HtmlBlock extends React.Component {
     }
 
     renderHtml() {
+        // TODO(@tylermenezes): Weird bug where react doubles all replacements when rehydrating if the replaced
+        //                      component isn't the last in the array.
         const replace = {
             '<Sponsors type="small" />': <Sponsors type="small" />,
             '<Programs />': <Programs />,
@@ -29,7 +31,7 @@ export default class HtmlBlock extends React.Component {
 
         var result = this.props.html.html;
         Object.keys(replace).map((k) => { result = reactReplace(result, k, () => replace[k]); });
-        return result.map((x) => typeof(x) === 'string' ? <span dangerouslySetInnerHTML={{__html: x}} /> : x);
+        return result.map((x) => typeof(x) === 'string' ? <div dangerouslySetInnerHTML={{__html: x}} /> : x);
     }
 }
 
