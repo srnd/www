@@ -7,6 +7,7 @@ const storage = require('@google-cloud/storage')({
 });
 const bucketName = 'www.srnd.org';
 
+console.log("Uploading files.");
 (async () => {
     const files = await glob.promise('public/**/*');
     files.map((file) => {
