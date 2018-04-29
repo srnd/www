@@ -15,7 +15,7 @@ class SmartLink extends React.Component {
         } else if (protocol == 'mux:') {
             return <MuxPlayer autoPlay={true} muxId={to.substr(6)} {...other}>{this.props.children}</MuxPlayer>
         } else {
-            return <a href={to} {...other} target="_blank">{this.props.children}</a>
+            return <a rel="noopener" href={to} {...other} target="_blank">{this.props.children}</a>
         }
     }
 }

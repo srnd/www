@@ -8,7 +8,7 @@ export default appContext(({ context, ...props }) => (
         <ul className="major">
             { context.majorSponsors.map((sponsor) => (
                 <li key={sponsor.id}>
-                    <a href={sponsor.link} target="_blank">
+                    <a href={sponsor.link} rel="noopener" target="_blank">
                         <img src={sponsor.logo.large.src} srcSet={sponsor.logo.large.srcSet} alt={sponsor.name} />
                     </a>
                 </li>
@@ -17,7 +17,7 @@ export default appContext(({ context, ...props }) => (
         <ul className="minor">
             { context.minorSponsors.map((sponsor) => (
                 <li key={sponsor.id}>
-                    <a href={sponsor.link} target="_blank">
+                    <a href={sponsor.link} rel="noopener" target="_blank">
                         <img src={sponsor.logo.small.src} srcSet={sponsor.logo.small.srcSet} alt={sponsor.name} />
                     </a>
                 </li>

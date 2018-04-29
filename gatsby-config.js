@@ -17,6 +17,19 @@ module.exports = {
         'gatsby-plugin-sitemap',
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
+        {
+            resolve: `gatsby-plugin-manifest`,
+            options: {
+                name: "srnd.org",
+                short_name: "srnd.org",
+                start_url: "/",
+                background_color: "#ffffff",
+                theme_color: "#ff686b",
+                display: "browser",
+                icon: "src/components/Metadata/favicon.png",
+            },
+        },
+        'gatsby-plugin-offline',
 		{
 			resolve: 'gatsby-source-filesystem',
 			options: {

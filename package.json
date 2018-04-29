@@ -13,6 +13,7 @@
     "gatsby-image": "^1.0.42",
     "gatsby-link": "^1.6.39",
     "gatsby-plugin-catch-links": "^1.0.19",
+    "gatsby-plugin-manifest": "^1.0.21",
     "gatsby-plugin-offline": "^1.0.15",
     "gatsby-plugin-react-helmet": "^2.0.8",
     "gatsby-plugin-react-next": "^1.0.11",

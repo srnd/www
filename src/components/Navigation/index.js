@@ -26,8 +26,9 @@ export const Header = (props) => (
 export const Footer = (props) => (
     <footer className="navigation">
         <div className="info">
-            <span>&copy; 2007-{(new Date().getFullYear())} srnd.org, 501(c)(3). EIN: </span>
-            <input readOnly={true} className="ein" value="26-4742589" onClick={(e) => {e.target.setSelectionRange(0, e.target.value.length)}} />
+            <span>&copy; 2007-{(new Date().getFullYear())} srnd.org, 501(c)(3). </span>
+            <label for="ein">EIN: </label>
+            <input readOnly={true} className="ein" id="ein" value="26-4742589" onClick={(e) => {e.target.setSelectionRange(0, e.target.value.length)}} />
         </div>
         <div className="legal">
             <ul>

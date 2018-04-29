@@ -23,6 +23,7 @@ export default (props) => (
         <link rel="apple-touch-icon" type="image/png" href={favicon} />
         <link rel="apple-touch-icon" type="image/png" sizes="72x72" href={favicon} />
         <link rel="apple-touch-icon" type="image/png" sizes="114x114" href={favicon} />
+        <meta name="theme-color" content="#ff686b"/>
     </Helmet>
 )
 

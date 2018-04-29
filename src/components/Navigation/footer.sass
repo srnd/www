@@ -12,8 +12,13 @@ footer.navigation
     +grid-column(6)
     &, span, input
       font-size: +modular-scale(0)
-      color: $color-gray
+      color: $color-gray-dark
       display: inline
+    label
+      display: inline
+      padding: 0
+      border: 0
+      color: $color-gray-dark
     input
       display: inline
       padding: 0
@@ -35,7 +40,7 @@ footer.navigation
       li
         list-style-type: none
         a
-          color: $color-gray
+          color: $color-gray-dark
   +desktop
     .legal
       +grid-push(2)
