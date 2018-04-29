@@ -37,8 +37,7 @@
     "react-responsive-modal": "^2.1.0",
     "react-string-replace": "^0.4.1",
     "react-stripe-elements": "^1.6.0",
-    "topojson": "^3.0.2",
-    "validator": "^9.4.1"
+    "topojson": "^3.0.2"
   },
   "keywords": [
     "gatsby"

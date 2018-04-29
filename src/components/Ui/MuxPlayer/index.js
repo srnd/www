@@ -1,5 +1,5 @@
 import React from 'react'
-import Hls from 'hls.js'
+import Hls from 'hls.js/dist/hls.light.js'
 import 'react-responsive-modal/lib/react-responsive-modal.css'
 import Modal from 'react-responsive-modal/lib/css'
 import WithTracking from '../../Track'

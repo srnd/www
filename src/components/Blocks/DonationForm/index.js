@@ -6,7 +6,6 @@ import Gifts from './gifts.js'
 import Amounts from './amounts.js'
 import { injectStripe, StripeProvider, Elements, CardElement } from 'react-stripe-elements';
 import Script from 'react-load-script'
-import Validator from 'validator';
 import WithTracking from '../../Track'
 import axios from 'axios'
 import './index.sass'
@@ -125,11 +124,16 @@ class _DonationFormInner extends React.Component {
         return ( true
             && (this.state.frequency && Object.values(DonationFrequencies).includes(this.state.frequency))
             && (this.state.amount && this.state.amount > 0)
-            && (this.state.firstName && this.state.lastName && this.state.email && Validator.isEmail(this.state.email))
+            && (this.state.firstName && this.state.lastName && this.state.email && this.isEmail(this.state.email))
             && (!this.state.reward || (this.state.address1 && this.state.city && this.state.state && this.state.zip))
             && this.state.cardComplete
             && !this.state.loading
         );
+    }
+
+    isEmail(email) {
+        var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
     }
 
     onSubmit() {
