@@ -9,7 +9,6 @@ module.exports = {
   },
   plugins: [
         'gatsby-plugin-react-next',
-        'gatsby-plugin-remove-trailing-slashes',
         'gatsby-plugin-sass',
         'gatsby-plugin-react-helmet',
         'gatsby-transformer-yaml',
