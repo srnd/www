@@ -3,7 +3,7 @@
 header.header
   @extend %content
   @extend %clearfix
-  margin-top: +modular-scale(2)
+  margin-top: +modular-scale(0)
   margin-bottom: +modular-scale(2)
 
   div
@@ -21,8 +21,9 @@ header.header
   h2
     @extend %h1
     text-align: left !important
-    margin-bottom: +modular-scale(-3)
-    margin-top: 0
+    margin-bottom: +modular-scale(-2)
+    padding-top: +modular-scale(-1)
+    clear: both
     &:after
       content: ""
       display: block

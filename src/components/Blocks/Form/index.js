@@ -1,6 +1,8 @@
 import React from 'react'
 import { Pii } from '../../Ui/Secure'
 
+import "./index.sass"
+
 class Form extends React.Component {
     constructor(props) {
         super(props);
@@ -11,7 +13,7 @@ class Form extends React.Component {
 
     render() {
         return (
-            <div className="cognito" style={{marginTop: '11pt'}}>
+            <div className="cognito" style={{marginTop: '11.5pt'}}>
                 {this.state.cognitoDidLoad ? [
                     <iframe src={`https://services.cognitoforms.com/f/${process.env.GATSBY_COGNITO_PUBLIC}?id=${this.props.formId}`}
                         frameBorder="0"
@@ -55,16 +57,16 @@ class Form extends React.Component {
             .cognito .c-forms-form .c-forms-form-title h2 {
                 color: #484848;
                 font-size: 14.663pt;
-                margin-bottom: 11pt;
+                margin-bottom: 11.5pt;
                 padding: 0;
             }
             .cognito .c-forms-heading .c-forms-form-title {
-                margin-bottom: calc(11pt - 1rem);
+                margin-bottom: calc(11.5pt - 1rem);
                 padding: 0;
             }
-            .cognito .c-forms-form .c-label {
+            .cognito .c-forms-form .c-label, .cognito .c-forms-form .c-choice-option {
                 font-weight: 500;
-                font-size: 11pt;
+                font-size: 11.5pt;
                 color: #484848;
                 margin-top: 1rem;
             }
