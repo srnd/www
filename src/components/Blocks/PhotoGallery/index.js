@@ -65,7 +65,7 @@ export const query = graphql`
             sml: sizes(maxWidth: 300, quality: 90) {
                 ...GatsbyContentfulSizes_withWebp
             }
-            med: sizes(maxWidth: 910, quality: 90) {
+            med: sizes(maxWidth: 500, maxHeight: 281, quality: 90) {
                 ...GatsbyContentfulSizes_withWebp
             }
         }
