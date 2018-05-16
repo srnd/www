@@ -22,9 +22,10 @@ export default class PhotoGalleryBlock extends React.Component {
     }
 
     renderImg(image) {
-        let src = image.med;
+        let src = image.full;
         if (this.props.style === 'staff-titles') src = image.sml;
         if (this.props.style === 'gallery-small') src = image.smc;
+        if (this.props.style === 'gallery-medium') src = image.med;
 
         return (
             src.src ? (
@@ -66,6 +67,9 @@ export const query = graphql`
                 ...GatsbyContentfulSizes_withWebp
             }
             med: sizes(maxWidth: 500, maxHeight: 281, quality: 90) {
+                ...GatsbyContentfulSizes_withWebp
+            }
+            full: sizes(maxWidth: 500, quality: 90) {
                 ...GatsbyContentfulSizes_withWebp
             }
         }
