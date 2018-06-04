@@ -46,8 +46,11 @@ header.navigation
       li
         list-style-type: none
         display: inline-block
-        a:hover
-          box-shadow: none
+        a:hover, a:active:hover
+          box-shadow: none !important
+        @media (hover:none)
+          a
+            box-shadow: none !important
 
     .mobile-nav
       text-align: right
