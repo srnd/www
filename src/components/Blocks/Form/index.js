@@ -1,5 +1,6 @@
 import React from 'react'
 import { Pii } from '../../Ui/Secure'
+import Loading from '../../Ui/Loading'
 
 import "./index.sass"
 
@@ -14,15 +15,17 @@ class Form extends React.Component {
     render() {
         return (
             <div className="cognito" style={{marginTop: '11.5pt'}}>
-                {this.state.cognitoDidLoad ? [
-                    <iframe src={`https://services.cognitoforms.com/f/${process.env.GATSBY_COGNITO_PUBLIC}?id=${this.props.formId}`}
-                        frameBorder="0"
-                        scrolling="yes"
-                        seamless="seamless"
-                        height="797"
-                        width="100%" />,
-                    <Pii />
-                ] : ''}
+                {this.state.cognitoDidLoad ? (
+                    <div>
+                        <iframe src={`https://services.cognitoforms.com/f/${process.env.GATSBY_COGNITO_PUBLIC}?id=${this.props.formId}`}
+                            frameBorder="0"
+                            scrolling="yes"
+                            seamless="seamless"
+                            height="797"
+                            width="100%" />,
+                        <Pii />
+                    </div>
+                ) : <Loading />}
             </div>
         );
     }
@@ -36,6 +39,8 @@ class Form extends React.Component {
             cognitoScript.async = true
             cognitoScript.addEventListener('load', () => this.cognitoDidLoad(window.Cognito));
             document.body.appendChild(cognitoScript);
+        } else if (window && window.Cognito) {
+            this.cognitoDidLoad(window.Cognito);
         }
     }
 

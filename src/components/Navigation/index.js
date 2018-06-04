@@ -21,16 +21,17 @@ export class Header extends React.Component {
     }
     render() {
         const { nav, active } = this.props;
+        const btn = <a href="#" onClick={() => this.setState({ isMenuOpen: !this.state.isMenuOpen })}>&#9776;</a>;
         return (<div>
             <Featured />
             <header className="navigation">
                 <h1><SmartLink to="/">srnd.org</SmartLink></h1>
                 <nav>
                     <div className="mobile-nav">
-                        <a href="#" onClick={() => this.setState({ isMenuOpen: !this.state.isMenuOpen })}>&#9776;</a>
                         <DropdownMenu
                             close={() => this.setState({ isMenuOpen: false })}
-                            align="left"
+                            toggle={btn}
+                            align="right"
                             isOpen={this.state.isMenuOpen}
                         >
                             {linksToList(nav.links, active)}
