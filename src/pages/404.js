@@ -3,15 +3,18 @@ import Helmet from 'react-helmet'
 import header from "./404.jpg"
 import '../templates/page.sass'
 
+import { ProvidesAppContext } from '../components/Context'
 import {Header, Footer} from '../components/Navigation';
 import PageHeader from '../components/Header';
 
 export default ({ data }) => (
     <div className="page">
-        <Helmet title={data.title.value.value} />
-        <Header nav={ data.navPrimary } />
-        <PageHeader image={header} title={data.title.value.value} subtext={{subtext: data.text.value.value}} />
-        <Footer nav={ data.navSecondary } legal={ data.navLegal } />
+        <ProvidesAppContext {...data}>
+            <Helmet title={data.title.value.value} />
+            <Header nav={ data.navPrimary } />
+            <PageHeader image={header} title={data.title.value.value} subtext={{subtext: data.text.value.value}} />
+            <Footer nav={ data.navSecondary } legal={ data.navLegal } />
+        </ProvidesAppContext>
     </div>
 )
 
@@ -36,5 +39,6 @@ export const pageQuery = graphql`
         navSecondary: contentfulNavigation (slot: {eq: "secondary"}) {
             ...NavigationItems
         }
+        ...AppContextItems
     }
 `;
