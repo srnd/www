@@ -1,5 +1,6 @@
 import React from 'react'
 import SmartLink from '../Ui/SmartLink'
+import { Featured } from '../Ui/Announcements'
 
 import "./header.sass";
 import "./footer.sass";
@@ -13,21 +14,24 @@ const linksToList = (links, active) => {
 };
 
 export const Header = (props) => (
-    <header className="navigation">
-        <h1><SmartLink to="/">srnd.org</SmartLink></h1>
-        <nav>
-            <ul>
-                {props.nav ? linksToList(props.nav.links, props.active) : ''}
-            </ul>
-        </nav>
-    </header>
+    <div>
+        <Featured />
+        <header className="navigation">
+            <h1><SmartLink to="/">srnd.org</SmartLink></h1>
+            <nav>
+                <ul>
+                    {props.nav ? linksToList(props.nav.links, props.active) : ''}
+                </ul>
+            </nav>
+        </header>
+    </div>
 );
 
 export const Footer = (props) => (
     <footer className="navigation">
         <div className="info">
             <span>&copy; 2007-{(new Date().getFullYear())} srnd.org, 501(c)(3). </span>
-            <label for="ein">EIN: </label>
+            <label htmlFor="ein">EIN: </label>
             <input readOnly={true} className="ein" id="ein" value="26-4742589" onClick={(e) => {e.target.setSelectionRange(0, e.target.value.length)}} />
         </div>
         <div className="legal">

@@ -34,7 +34,7 @@ class _CmsTemplate extends React.Component {
             <ProvidesAppContext {...context}>
                 <div className={`page ${layout.pageClass}`}>
                     <Helmet title={layout.title} />
-                    <Metadata metadata={layout.metadata} />
+                    <Metadata metadata={layout.metadata} noindex={layout.dontIndex} />
                     <Header nav={ data.navPrimary } active={layout.slug} />
                     <PageHeader {...layout.header} />
                     <Content translate={ translate(data.translations) } {...layout} />
@@ -54,6 +54,7 @@ export const pageQuery = graphql`
             pageClass
             slug
             audience
+            dontIndex
             ...MetadataItems
             ...HeaderItems
             ...ContentItems
