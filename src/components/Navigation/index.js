@@ -1,6 +1,7 @@
 import React from 'react'
 import SmartLink from '../Ui/SmartLink'
 import { Featured } from '../Ui/Announcements'
+import DropdownMenu from 'react-dd-menu';
 
 import "./header.sass";
 import "./footer.sass";
@@ -13,19 +14,38 @@ const linksToList = (links, active) => {
     ));
 };
 
-export const Header = (props) => (
-    <div>
-        <Featured />
-        <header className="navigation">
-            <h1><SmartLink to="/">srnd.org</SmartLink></h1>
-            <nav>
-                <ul>
-                    {props.nav ? linksToList(props.nav.links, props.active) : ''}
-                </ul>
-            </nav>
-        </header>
-    </div>
-);
+export class Header extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { isMenuOpen: false }
+    }
+    render() {
+        const { nav, active } = this.props;
+        return (<div>
+            <Featured />
+            <header className="navigation">
+                <h1><SmartLink to="/">srnd.org</SmartLink></h1>
+                <nav>
+                    <div className="mobile-nav">
+                        <a href="#" onClick={() => this.setState({ isMenuOpen: !this.state.isMenuOpen })}>&#9776;</a>
+                        <DropdownMenu
+                            close={() => this.setState({ isMenuOpen: false })}
+                            align="left"
+                            isOpen={this.state.isMenuOpen}
+                        >
+                            {linksToList(nav.links, active)}
+                        </DropdownMenu>
+                    </div>
+                    <div className="desktop-nav">
+                        <ul>
+                            {linksToList(nav.links, active)}
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+        </div>)
+    }
+}
 
 export const Footer = (props) => (
     <footer className="navigation">

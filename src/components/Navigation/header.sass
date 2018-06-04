@@ -35,17 +35,31 @@ header.navigation
   nav
     float: right
     margin-right: 20px
+    a
+      @extend %button
+      color: $color-gray-dark
+      &.active
+        color: $color-red
     ul
       padding: 0
       margin: 0
       li
         list-style-type: none
         display: inline-block
-        a
-          @extend %button
-          color: $color-gray-dark
-          &.active
-            color: $color-red
-        +mobile
-          &:nth-child(n+4)
-            display: none
+        a:hover
+          box-shadow: none
+
+    .mobile-nav
+      text-align: right
+      ul
+        @extend %featured
+        text-align: left
+        li
+          display: block
+
+    +mobile
+      .desktop-nav
+        display: none
+    +desktop
+      .mobile-nav
+        display: none

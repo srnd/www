@@ -10,10 +10,11 @@ div.schema-form
 
     .field
       +grid-column(12)
-      &:first-child, &:nth-child(2)
-        +grid-column(6)
-      &:not(:first-child):not(:nth-child(2))
-        padding-top: +modular-scale(-1)
+      +desktop
+        &:first-child, &:nth-child(2)
+          +grid-column(6)
+        &:not(:first-child):not(:nth-child(2))
+          padding-top: +modular-scale(-1)
 
     .required
       color: $color-red
