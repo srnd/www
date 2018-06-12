@@ -31,7 +31,7 @@ class _CmsTemplate extends React.Component {
         super(props);
         this.state = {
             nextgenImageSupport: ['loading'],
-            fontsLoaded: typeof(localStorage) !== 'undefined' && localStorage['fontsLoaded'],
+            fontsLoaded: false,
         };
         getSupportedImages((supports) => this.setState({nextgenImageSupport: supports}));
 
