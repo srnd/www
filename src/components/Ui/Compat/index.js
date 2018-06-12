@@ -19,6 +19,7 @@ export const getSupportedImages = function(callback) {
 
 const checkImage = function(src) {
     return new Promise((resolve, reject) => {
+        if (typeof(Image) === 'undefined') resolve(false);
         const test = new Image();
         test.onload = test.onerror = () => resolve(test.height ? true : false);
         test.src = src;
