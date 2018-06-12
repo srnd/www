@@ -1,0 +1,35 @@
+/*.js
+  Cache-Control: public,max-age=2592000
+
+/*.jpg
+  Cache-Control: public,max-age=2592000
+
+/*.png
+  Cache-Control: public,max-age=2592000
+
+/*.gif
+  Cache-Control: public,max-age=2592000
+
+/*.bmp
+  Cache-Control: public,max-age=2592000
+
+/*.webp
+  Cache-Control: public,max-age=2592000
+
+/*.jp2
+  Cache-Control: public,max-age=2592000
+
+/*.html
+  Cache-Control: public,max-age=21600
+  Surrogate-Control: max-age=2592000
+  Surrogate-Key: page
+  
+/*/
+  Cache-Control: public,max-age=21600
+  Surrogate-Control: max-age=2592000
+  Surrogate-Key: page
+
+/
+  Cache-Control: public,max-age=21600
+  Surrogate-Control: max-age=2592000
+  Surrogate-Key: page
