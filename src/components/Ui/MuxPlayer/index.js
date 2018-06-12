@@ -13,7 +13,7 @@ class MuxPlayer extends React.Component {
     }
 
     render() {
-        const { muxId, children, ...rest } = this.props;
+        const { muxId, children, push, ...rest } = this.props;
         return <div>
             <Modal open={this.state.modalOpen} onClose={() => this.setState({modalOpen: false})} >
                 <video

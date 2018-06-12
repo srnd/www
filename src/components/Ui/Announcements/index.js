@@ -4,7 +4,7 @@ import './index.sass'
 
 export const Featured = appContext(({ context, ...props }) => (
     context.featuredAnnouncement ? (
-        <a className="featured-announcement" href={context.featuredAnnouncement.link} target="_blank">
+        <a className="featured-announcement" href={context.featuredAnnouncement.link} target="_blank" rel="noopener">
             {context.featuredAnnouncement.title}
         </a>
     ): null

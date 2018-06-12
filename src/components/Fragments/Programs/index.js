@@ -8,7 +8,7 @@ export default appContext(({ context, ...props }) => (
     <div className="programs">
         <ul>
             {context.programs.map((program) => (
-                <li>
+                <li key={program.id}>
                     <SmartLink
                         to={program.url.substring(0, 17) == 'https://srnd.org/' ? program.url.substring(16) : program.url}
                         target={program.url.substring(0, 17) == 'https://srnd.org/' ? null : '_blank'}>
@@ -24,6 +24,7 @@ export default appContext(({ context, ...props }) => (
 export const query = graphql`
     fragment ProgramsFragmentItems on ContentfulProgram {
         name
+        id
         url
         shortDescription
         description { description }

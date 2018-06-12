@@ -10,6 +10,7 @@ import { ProvidesAppContext } from '../components/Context'
 import WithTracking from '../components/Track'
 import Retarget from '../components/Track/retarget'
 import DonationMatch from '../components/Fragments/DonationMatch'
+import { getSupportedImages } from '../components/Ui/Compat'
 
 import "./page.sass"
 
@@ -25,6 +26,14 @@ const translate = function(strings) {
 };
 
 class _CmsTemplate extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            nextgenImageSupport: ['loading'],
+        };
+        getSupportedImages((supports) => this.setState({nextgenImageSupport: supports}));
+    }
+
     render() {
         const data = this.props.data;
         const layout = data.contentfulLayout;
@@ -32,7 +41,7 @@ class _CmsTemplate extends React.Component {
         this.props.track.pageview(layout.slug);
         return (
             <ProvidesAppContext {...context}>
-                <div className={`page ${layout.pageClass}`}>
+                <div className={`page ${layout.pageClass} ${this.state.nextgenImageSupport.length == 0 ? 'no-nextgen' : this.state.nextgenImageSupport.map((x) => `with-${x}`).join(' ')}`}>
                     <Helmet title={layout.title} />
                     <Metadata metadata={layout.metadata} noindex={layout.dontIndex} />
                     <Header nav={ data.navPrimary } active={layout.slug} />

@@ -135,7 +135,6 @@ div.right-content
       +mobile
         background-size: cover
     &:before
-      background-image: url(./photos-top.jpg)
       background-size: auto 100%
       +mobile
         background-position: 50% 50%
@@ -143,7 +142,6 @@ div.right-content
       +mobile
         height: 50vw
     &:after
-      background-image: url(./photos-bottom.jpg)
       background-size: auto 100%
       margin-top: 3rem
       margin-bottom: 10rem
@@ -153,8 +151,25 @@ div.right-content
       height: 286px
       +mobile
         height: 30vw
-    @media	only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 13/10), only screen and (min-resolution: 120dpi)
-      &:before
-        background-image: url(./photos-top@2x.jpg)
-      &:after
-        background-image: url(./photos-bottom@2x.jpg)
+
+.no-nextgen.page.promo .special
+  &:before
+    background-image: url(./photos-top.jpg)
+  &:after
+    background-image: url(./photos-bottom.jpg)
+  @media	only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 13/10), only screen and (min-resolution: 120dpi)
+    &:before
+      background-image: url(./photos-top@2x.jpg)
+    &:after
+      background-image: url(./photos-bottom@2x.jpg)
+
+.with-webp.page.promo .special
+  &:before
+    background-image: url(./photos-top.webp)
+  &:after
+    background-image: url(./photos-bottom.webp)
+  @media	only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 13/10), only screen and (min-resolution: 120dpi)
+    &:before
+      background-image: url(./photos-top@2x.webp)
+    &:after
+      background-image: url(./photos-bottom@2x.webp)

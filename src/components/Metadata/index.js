@@ -19,7 +19,7 @@ export default (props) => (
         <meta name="twitter:type" content={ types[props.metadata.type] } />
         <meta name="twitter:site" content="@studentrnd" />
         <meta name="twitter:creator" content="@studentrnd" />
-        (props.noindex ? <meta name="robots" content="noindex" /> : '')
+        <meta name="robots" content={props.noindex ? 'none' : 'index'} />
         <link rel="icon" type="image/png" href={favicon} />
         <link rel="apple-touch-icon" type="image/png" href={favicon} />
         <link rel="apple-touch-icon" type="image/png" sizes="72x72" href={favicon} />
