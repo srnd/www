@@ -15,7 +15,7 @@ export default WithAppContext(class DonationMatch extends React.Component {
 
     render() {
         return (
-            <div class="donation-match">
+            <div className="donation-match">
                 <p>{this.props.context.translate('fragment.donation-match.input')}</p>
                 <DonationMatchPicker
                     onChange={(val) => this.setState({typeahead: val})}

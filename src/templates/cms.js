@@ -11,6 +11,7 @@ import WithTracking from '../components/Track'
 import Retarget from '../components/Track/retarget'
 import DonationMatch from '../components/Fragments/DonationMatch'
 import { getSupportedImages } from '../components/Ui/Compat'
+import FontFaceObserver from 'font-face-observer'
 
 import "./page.sass"
 
@@ -30,18 +31,25 @@ class _CmsTemplate extends React.Component {
         super(props);
         this.state = {
             nextgenImageSupport: ['loading'],
+            fontsLoaded: typeof(localStorage) !== 'undefined' && localStorage['fontsLoaded'],
         };
         getSupportedImages((supports) => this.setState({nextgenImageSupport: supports}));
+
+        if (!this.state.fontsLoaded && typeof(window) !== 'undefined') {
+            var observer = new FontFaceObserver('Avenir Next', {weight: 400});
+            observer.check().then(() => this.setState({fontsLoaded: true}));
+        }
     }
 
     render() {
         const data = this.props.data;
         const layout = data.contentfulLayout;
         const context = Object.assign(data, {translate: translate(data.translations)});
+        const imageFormats = this.state.nextgenImageSupport.length == 0 ? 'no-nextgen' : this.state.nextgenImageSupport.map((x) => `with-${x}`).join(' ');
         this.props.track.pageview(layout.slug);
         return (
             <ProvidesAppContext {...context}>
-                <div className={`page ${layout.pageClass} ${this.state.nextgenImageSupport.length == 0 ? 'no-nextgen' : this.state.nextgenImageSupport.map((x) => `with-${x}`).join(' ')}`}>
+                <div className={`page ${layout.pageClass} ${this.state.fontsLoaded ? '' : 'fonts-waiting'} ${imageFormats}`}>
                     <Helmet title={layout.title} />
                     <Metadata metadata={layout.metadata} noindex={layout.dontIndex} />
                     <Header nav={ data.navPrimary } active={layout.slug} />
