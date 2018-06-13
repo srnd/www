@@ -122,7 +122,7 @@ class _DonationFormInner extends React.Component {
 
     validate() {
         return ( true
-            && (this.state.frequency && Object.values(DonationFrequencies).indexOf(this.state.frequency) > -1)
+            && (this.state.frequency && Object.keys(DonationFrequencies).map((x)=>DonationFrequencies[x]).indexOf(this.state.frequency) > -1)
             && (this.state.amount && this.state.amount > 0)
             && (this.state.firstName && this.state.lastName && this.state.email && this.isEmail(this.state.email))
             && (!this.state.reward || (this.state.address1 && this.state.city && this.state.state && this.state.zip))
@@ -202,11 +202,12 @@ class DonationForm extends React.Component {
                 <Script url="https://js.stripe.com/v3/"
                     onError={() => {}}
                     onLoad={() => this.setState({stripe: window.Stripe(process.env.GATSBY_STRIPE_PUBLIC)})} />
-                <StripeProvider stripe={this.state.stripe}>
-                    <Elements fonts={[{cssSrc: 'https://srnd-cdn.net/fonts/avenir-next/minimal.css'}]} locale="en-US">
-                        <WrappedDonationForm {...this.props} />
-                    </Elements>
-                </StripeProvider>
+                {this.state.stripe ? (
+                    <StripeProvider stripe={this.state.stripe}>
+                        <Elements fonts={[{cssSrc: 'https://srnd-cdn.net/fonts/avenir-next/minimal.css'}]} locale="en-US">
+                            <WrappedDonationForm {...this.props} />
+                        </Elements>
+                    </StripeProvider>) : ''}
             </div>
         );
     }

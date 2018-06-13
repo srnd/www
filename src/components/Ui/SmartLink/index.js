@@ -6,7 +6,7 @@ import url from 'url'
 class SmartLink extends React.Component {
     render() {
         const parsed = url.parse(this.props.to);
-        const protocol = parsed.protocol;
+        const protocol = parsed ? parsed.protocol : null;
 
         const { to, ...other } = this.props;
 

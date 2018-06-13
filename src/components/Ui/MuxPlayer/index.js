@@ -41,8 +41,9 @@ class MuxPlayer extends React.Component {
             hls.loadSource(playlist);
             hls.attachMedia(this.player);
             window.x = this.player;
-        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            video.src = playlist;
+        } else if (typeof(this.player) !== 'undefined' && typeof(this.player.canPlayType) !== 'undefined'
+                    && this.player.canPlayType('application/vnd.apple.mpegurl')) {
+            this.player.src = playlist;
         }
     }
 }

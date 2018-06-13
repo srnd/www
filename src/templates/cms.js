@@ -15,6 +15,8 @@ import FontFaceObserver from 'font-face-observer'
 
 import "./page.sass"
 
+require('es6-object-assign').polyfill();
+
 const translate = function(strings) {
     let translations = {};
     for (let translation of strings.edges) {
