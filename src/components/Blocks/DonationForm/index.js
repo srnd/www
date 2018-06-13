@@ -122,7 +122,7 @@ class _DonationFormInner extends React.Component {
 
     validate() {
         return ( true
-            && (this.state.frequency && Object.values(DonationFrequencies).includes(this.state.frequency))
+            && (this.state.frequency && Object.values(DonationFrequencies).indexOf(this.state.frequency) > -1)
             && (this.state.amount && this.state.amount > 0)
             && (this.state.firstName && this.state.lastName && this.state.email && this.isEmail(this.state.email))
             && (!this.state.reward || (this.state.address1 && this.state.city && this.state.state && this.state.zip))

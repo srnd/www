@@ -13,7 +13,7 @@ export default class PhotoGalleryBlock extends React.Component {
                                 <a href={image.file.url} target="_blank">{this.renderImg(image)}</a>
                             ) : this.renderImg(image)}
 
-                            {['comic', 'staff-bios', 'staff-titles'].includes(this.props.style) ? this.renderBio(image) : null}
+                            {['comic', 'staff-bios', 'staff-titles'].indexOf(this.props.style) > -1 ? this.renderBio(image) : null}
                         </li>
                     ))}
                 </ul>
@@ -39,7 +39,7 @@ export default class PhotoGalleryBlock extends React.Component {
     renderBio(image) {
         return (
             <div className="details">
-                {['staff-bios', 'staff-titles'].includes(this.props.style) ? ([
+                {['staff-bios', 'staff-titles'].indexOf(this.props.style) > -1 ? ([
                     <div className="name">{image.title.split(', ')[0]}</div>,
                     <div className="title">{image.title.split(', ')[1] || null}</div>
                 ]) : ''}
