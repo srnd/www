@@ -22,7 +22,7 @@ class Form extends React.Component {
                             scrolling="yes"
                             seamless="seamless"
                             height="797"
-                            width="100%" />,
+                            width="100%" />
                         <Pii />
                     </div>
                 ) : <Loading />}
