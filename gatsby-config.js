@@ -12,7 +12,6 @@ module.exports = {
         'gatsby-plugin-sass',
         'gatsby-plugin-react-helmet',
         'gatsby-transformer-yaml',
-        'gatsby-plugin-offline',
         'gatsby-plugin-catch-links',
         'gatsby-plugin-sitemap',
         'gatsby-transformer-sharp',
@@ -29,13 +28,6 @@ module.exports = {
                 icon: "src/components/Metadata/favicon.png",
             },
         },
-        'gatsby-plugin-offline',
-		{
-			resolve: 'gatsby-source-filesystem',
-			options: {
-				path: './src/data/',
-			},
-		},
         {
             resolve: 'gatsby-source-contentful',
             options: {
