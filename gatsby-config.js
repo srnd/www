@@ -8,10 +8,8 @@ module.exports = {
       siteUrl: 'https://srnd.org', // TODO(@tylermenezes): Populate from language
   },
   plugins: [
-        'gatsby-plugin-react-next',
         'gatsby-plugin-sass',
         'gatsby-plugin-react-helmet',
-        'gatsby-transformer-yaml',
         'gatsby-plugin-catch-links',
         'gatsby-plugin-sitemap',
         'gatsby-transformer-sharp',
