@@ -5,6 +5,7 @@ import Sponsors from '../../Fragments/Sponsors'
 import Programs from '../../Fragments/Programs'
 import DonationMatch from '../../Fragments/DonationMatch'
 import TrackingControl from '../../Fragments/TrackingControl'
+import ProgramMap from '../../Fragments/ProgramMap'
 
 export default class HtmlBlock extends React.Component {
     constructor(props) {
@@ -27,6 +28,7 @@ export default class HtmlBlock extends React.Component {
             '<Programs />': <Programs />,
             '<TrackingControl />': <TrackingControl />,
             '<DonationMatch />': <DonationMatch />,
+            '<ProgramMap />': <ProgramMap />,
         };
 
         var result = this.props.html.html;

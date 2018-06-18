@@ -1,0 +1,39 @@
+@import "../../../styles/styles"
+
+.program-map
+  position: relative
+  +desktop
+    margin-bottom: -3rem
+
+  &:before
+    content: ""
+    display: block
+
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    height: 20%
+    margin-bottom: -20%
+    z-index: 100
+
+
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)))
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%)
+    background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%)
+    background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%)
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%)
+  svg
+    z-index: 0
+    .political-boundry
+      stroke: $color-gray-light
+      stroke-width: 1
+      fill: $color-gray-lightest
+      +mobile
+        stroke: $color-gray
+      
+    .region
+      fill: $color-red
+      stroke: $color-gray-lightest
+      stroke-width: 2

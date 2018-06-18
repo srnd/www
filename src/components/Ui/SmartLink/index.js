@@ -8,10 +8,11 @@ class SmartLink extends React.Component {
         const parsed = url.parse(this.props.to);
         const protocol = parsed ? parsed.protocol : null;
 
-        const { to, ...other } = this.props;
+        var { to, ...other } = this.props;
 
         if (!protocol) {
-            return <Link {...this.props}>{this.props.children}</Link>
+            if (to.substr(-1) !== '/') to += '/';
+            return <Link {...other} to={to}>{this.props.children}</Link>
         } else if (protocol == 'mux:') {
             return <MuxPlayer autoPlay={true} muxId={to.substr(6)} {...other}>{this.props.children}</MuxPlayer>
         } else {

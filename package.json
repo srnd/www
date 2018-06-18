@@ -9,6 +9,7 @@
     "babel-core": "^6.26.3",
     "babel-standalone": "^6.26.0",
     "cheerio": "^1.0.0-rc.2",
+    "d3-geo": "^1.10.0",
     "es6-object-assign": "^1.1.0",
     "font-face-observer": "^1.0.0",
     "gatsby": "^1.9.270",
@@ -42,7 +43,8 @@
     "react-string-replace": "^0.4.1",
     "react-stripe-elements": "^1.7.0",
     "react-transition-group": "^2.3.1",
-    "topojson": "^3.0.2"
+    "topojson": "^3.0.2",
+    "topojson-client": "^3.0.0"
   },
   "keywords": [
     "gatsby"

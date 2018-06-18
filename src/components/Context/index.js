@@ -33,6 +33,7 @@ export class ProvidesAppContext extends React.Component {
             majorSponsors: this.remapEdges(this.props.majorSponsors.edges),
             minorSponsors: this.remapEdges(this.props.minorSponsors.edges),
             programs: this.remapEdges(this.props.programs.edges),
+            regions: this.remapEdges(this.props.regions.edges),
             featuredAnnouncement: this.props.featuredAnnouncement,
             translate: this.props.translate,
         };
@@ -56,6 +57,10 @@ export const query = graphql`
 
         programs: allContentfulProgram(sort: {fields: [createdAt], order:ASC}) {
             edges { node { ...ProgramsFragmentItems } }
+        }
+
+        regions: allContentfulRegion {
+            edges { node { ...ProgramMapFragmentItems }}
         }
 
         featuredAnnouncement: contentfulAnnouncement(featured: {eq:true}) {
