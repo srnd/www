@@ -23,6 +23,22 @@ div.photo-gallery ul
       padding: 0
       width: 100%
 
+  &.layout-story-cards li
+    @extend %featured
+    margin-bottom: 1rem
+    .gatsby-image-outer-wrapper, & > img
+      width: calc(40% - 10px)
+      float: left
+    .description
+      width: calc(60% - 10px)
+      margin-left: 20px
+      float: left
+    &:after
+      content: ""
+      display: block
+      clear: both
+      
+
   &.layout-gallery-medium li
     +grid-column(4)
     margin-bottom: $padding

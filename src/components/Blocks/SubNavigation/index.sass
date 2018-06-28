@@ -1,0 +1,20 @@
+@import "../../../styles/styles"
+
+.sub-navigation
+  @extend %featured
+  +mobile
+    margin-bottom: 3rem
+  ul
+    padding: 0
+    padding-top: 1rem
+    li
+      list-style-type: none
+      a
+        display: block
+        font-size: +modular-scale(0)
+        font-weight: 500
+        text-decoration: none
+        padding: 0.5rem 1rem
+        color: $color-gray-dark
+        &.active
+          color: $color-red

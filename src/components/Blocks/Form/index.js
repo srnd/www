@@ -53,7 +53,7 @@ class Form extends React.Component {
             .cognito .c-field:first-child { padding-top: 0; }
             .cognito .c-forms-form .c-field:first-child .c-label { margin-top: 0; }
             .cognito .c-forms-form-main { margin-top: 0; }
-            * {
+            *, .c-fileupload-dropzone-message, .c-upload-button  {
                 font-family: "Avenir Next", "Helvetica", "Arial", sans-serif !important;
                 -webkit-box-shadow: none !important;
                 -moz-box-shadow: none !important
@@ -103,7 +103,11 @@ class Form extends React.Component {
             .cognito .c-button-section {
                 margin-top: 1rem;
             }
-            #c-submit-button {
+            .cognito .c-forms-form .c-background-highlight {
+                background-color: transparent;
+            }
+
+            #c-submit-button, .cognito .c-forms-form .c-fileupload-dropzone .c-upload-button {
                 text-decoration: none;
                 background-color: #ff686b;
                 color: #fff;
@@ -119,6 +123,11 @@ class Form extends React.Component {
                 user-select: none;
                 transition: all .2s ease-in-out;
                 border: 1px solid transparent;
+            }
+            .cognito .c-forms-form .c-fileupload-dropzone .c-upload-button, .cognito .c-forms-form .c-fileupload-dropzone .c-upload-button:hover {
+                background-color: #8a8a8a;
+                border-color: #8a8a8a;
+                color: #fff;
             }
         `);
         cognito.prefill(this.props.prefills ? this.props.prefills.prefills : {}); 

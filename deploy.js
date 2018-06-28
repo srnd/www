@@ -28,7 +28,7 @@ console.log("Uploading files.");
                     gzip: !isImage,
                     acl: [{entity: 'allUsers', role: 'READER'}],
                     metadata: {
-                        cacheControl: `public, max-age=${isHtml ? (60*60*12) : (60*60*24*30)}, no-transform`
+                        cacheControl: `public, max-age=${isHtml ? (60*5) : (60*60*24*30)}, no-transform`
                     }
                 });
         } catch (err) { console.error(err); }

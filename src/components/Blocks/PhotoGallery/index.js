@@ -13,7 +13,7 @@ export default class PhotoGalleryBlock extends React.Component {
                                 <a href={image.file.url} target="_blank">{this.renderImg(image)}</a>
                             ) : this.renderImg(image)}
 
-                            {['comic', 'staff-bios', 'staff-titles'].indexOf(this.props.style) > -1 ? this.renderBio(image) : null}
+                            {['comic', 'staff-bios', 'staff-titles', 'story-cards'].indexOf(this.props.style) > -1 ? this.renderBio(image) : null}
                         </li>
                     ))}
                 </ul>
@@ -26,6 +26,7 @@ export default class PhotoGalleryBlock extends React.Component {
         if (this.props.style === 'staff-titles') src = image.sml;
         if (this.props.style === 'gallery-small') src = image.smc;
         if (this.props.style === 'gallery-medium') src = image.med;
+        if (this.props.style === 'story-cards') src = image.med;
 
         return (
             src.src ? (

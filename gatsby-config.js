@@ -7,7 +7,8 @@ module.exports = {
       title: 'srnd.org',
       siteUrl: 'https://srnd.org', // TODO(@tylermenezes): Populate from language
   },
-  plugins: [
+plugins: [
+        'gatsby-plugin-remove-trailing-slashes',
         'gatsby-plugin-sass',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-catch-links',

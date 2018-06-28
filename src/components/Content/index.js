@@ -12,6 +12,7 @@ import FormBlock from '../Blocks/Form'
 import DonationFormBlock from '../Blocks/DonationForm'
 import CtaBlock from '../Blocks/Cta'
 import SchemaForm from '../Blocks/SchemaForm'
+import SubNavigation from '../Blocks/SubNavigation'
 
 export const ContentTagTypes = {
     ContentfulLayoutBlockHtml: HtmlBlock,
@@ -24,6 +25,7 @@ export const ContentTagTypes = {
     ContentfulLayoutBlockDonationForm: DonationFormBlock,
     ContentfulLayoutBlockCta: CtaBlock,
     ContentfulLayoutBlockSchemaForm: SchemaForm,
+    ContentfulLayoutBlockSubNavigation: SubNavigation,
 };
 
 export const mapItems = (items, props) => (
@@ -91,6 +93,10 @@ export const query = graphql`
                 key: id
                 ...SchemaFormItems
             }
+            ... on ContentfulLayoutBlockSubNavigation {
+                key: id
+                ...SubNavigationBlockItems
+            }
         }
 
         rightContent {
@@ -134,6 +140,10 @@ export const query = graphql`
             ... on ContentfulLayoutBlockSchemaForm {
                 key: id
                 ...SchemaFormItems
+            }
+            ... on ContentfulLayoutBlockSubNavigation {
+                key: id
+                ...SubNavigationBlockItems
             }
         }
     }

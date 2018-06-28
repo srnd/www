@@ -46,7 +46,7 @@ class _CmsTemplate extends React.Component {
     render() {
         const data = this.props.data;
         const layout = data.contentfulLayout;
-        const context = Object.assign(data, {translate: translate(data.translations)});
+        const context = Object.assign(data, {translate: translate(data.translations), slug: layout.slug});
         const imageFormats = this.state.nextgenImageSupport.length == 0 ? 'no-nextgen' : this.state.nextgenImageSupport.map((x) => `with-${x}`).join(' ');
         this.props.track.pageview(layout.slug);
         return (

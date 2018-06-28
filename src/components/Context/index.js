@@ -36,6 +36,7 @@ export class ProvidesAppContext extends React.Component {
             regions: this.remapEdges(this.props.regions.edges),
             featuredAnnouncement: this.props.featuredAnnouncement,
             translate: this.props.translate,
+            slug: this.props.slug,
         };
         return Object.assign(this.state, propContext);
     }
