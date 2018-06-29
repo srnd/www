@@ -53,7 +53,6 @@ class _CmsTemplate extends React.Component {
         return (
             <ProvidesAppContext {...context}>
                 <div className={`page ${layout.pageClass} ${this.state.fontsLoaded ? '' : 'fonts-waiting'} ${imageFormats}`}>
-                    <ReactTooltip place="bottom" type="light" effect="float" className="tooltip" />
                     <Helmet title={layout.title} />
                     <Metadata metadata={layout.metadata} noindex={layout.dontIndex} />
                     <Header nav={ data.navPrimary } active={layout.slug} />
@@ -61,6 +60,7 @@ class _CmsTemplate extends React.Component {
                     <Content translate={ translate(data.translations) } {...layout} />
                     <Footer nav={ data.navSecondary } legal={ data.navLegal } />
                     <Retarget type={ layout.audience } />
+                    <ReactTooltip place="bottom" type="light" effect="float" className="tooltip" />
                 </div>
             </ProvidesAppContext>
         );

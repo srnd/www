@@ -8,6 +8,7 @@
   &:before
     content: ""
     display: block
+    pointer-events: none
 
     position: absolute
     left: 0
@@ -27,6 +28,7 @@
   &:after
     content: ""
     display: block
+    pointer-events: none
 
     position: absolute
     left: 0
@@ -55,6 +57,12 @@
       fill: $color-red
       stroke: $color-white
       stroke-width: 2
+
+    .user
+      fill: $color-blue
+      stroke: $color-white
+      stroke-width: 2
+      pointer-events: none
 
     .region
       fill: transparentize($color-red, 0.90)

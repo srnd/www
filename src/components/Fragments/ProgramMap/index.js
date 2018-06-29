@@ -4,6 +4,8 @@ import { geoMercator, geoPath } from "d3-geo"
 import { feature } from "topojson-client"
 import { withPrefix } from 'gatsby-link'
 import axios from 'axios'
+import ReactTooltip from 'react-tooltip'
+import withIpInfo from '../../Track/ipInfo'
 
 import './index.sass'
 
@@ -118,6 +120,7 @@ class ProgramMap extends React.Component {
                                         const latLon = [region.location.lon, region.location.lat];
                                         const mapLatLon = this.projection()(latLon);
                                         return <circle
+                                            data-tip={region.name}
                                             key={ `marker-${i}` }
                                             cx={ mapLatLon[0] }
                                             cy={ mapLatLon[1] }
@@ -127,6 +130,15 @@ class ProgramMap extends React.Component {
                                         />
                                     })
                                 }
+                        </g>
+                        <g className="user">
+                            <circle
+                                className="user"
+                                cx={this.projection()([this.props.ipInfo.lon, this.props.ipInfo.lat])[0]}
+                                cy={this.projection()([this.props.ipInfo.lon, this.props.ipInfo.lat])[1]}
+                                r={ this.state.width/sizeDivisor }
+                                onClick={ () => null }
+                            />
                         </g>
                     </svg>
                 )}
@@ -151,6 +163,10 @@ class ProgramMap extends React.Component {
         window.removeEventListener('resize', this.updateDimensions);
     }
 
+    componentDidUpdate() {
+        ReactTooltip.rebuild();
+    }
+
     updateDimensions() {
         if (this.renderTarget !== null) {
             const width = this.renderTarget.clientWidth;
@@ -159,7 +175,7 @@ class ProgramMap extends React.Component {
         }
     }
 }
-export default appContext(ProgramMap);
+export default appContext(withIpInfo(ProgramMap));
 
 export const query = graphql`
     fragment ProgramMapFragmentItems on ContentfulRegion {
