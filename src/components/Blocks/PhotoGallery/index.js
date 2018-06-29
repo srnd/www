@@ -1,5 +1,6 @@
 import React from 'react'
 import Img from "gatsby-image"
+
 import "./index.sass"
 
 export default class PhotoGalleryBlock extends React.Component {
@@ -8,7 +9,7 @@ export default class PhotoGalleryBlock extends React.Component {
             <div className="photo-gallery">
                 <ul className={`layout-${this.props.style}`}>
                     {this.props.photos.map((image) => (
-                        <li key={image.id}>
+                        <li key={image.id} data-tip={this.props.style == 'gallery-small' || this.props.style == 'gallery-medium' ? image.description : null}>
                             {this.props.linkToFullSize ? (
                                 <a href={image.file.url} target="_blank">{this.renderImg(image)}</a>
                             ) : this.renderImg(image)}
@@ -62,16 +63,20 @@ export const query = graphql`
                 url
             }
             smc: sizes(maxWidth: 300, maxHeight: 200, quality: 90) {
-                ...GatsbyContentfulSizes_withWebp
+                ...GatsbyContentfulSizes_withWebp_noBase64
+                ...GatsbyContentfulSizes_tracedSVG
             }
             sml: sizes(maxWidth: 300, quality: 90) {
-                ...GatsbyContentfulSizes_withWebp
+                ...GatsbyContentfulSizes_withWebp_noBase64
+                ...GatsbyContentfulSizes_tracedSVG
             }
             med: sizes(maxWidth: 500, maxHeight: 281, quality: 90) {
-                ...GatsbyContentfulSizes_withWebp
+                ...GatsbyContentfulSizes_withWebp_noBase64
+                ...GatsbyContentfulSizes_tracedSVG
             }
             full: sizes(maxWidth: 500, quality: 90) {
-                ...GatsbyContentfulSizes_withWebp
+                ...GatsbyContentfulSizes_withWebp_noBase64
+                ...GatsbyContentfulSizes_tracedSVG
             }
         }
     }

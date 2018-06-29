@@ -46,14 +46,17 @@ div.photo-gallery ul
       @extend %featured
       padding: 0
       width: 100%
+    .gatsby-image-outer-wrapper, img
+      pointer-events: none
 
   &.layout-gallery-small li
-    +grid-column(2)
+    +grid-column(3)
     +mobile
       +grid-column(4)
-    height: 90px
+    height: 142px
     margin-bottom: $padding
     .gatsby-image-outer-wrapper, img
+      pointer-events: none
       max-width: 100%
       max-height: 100%
 

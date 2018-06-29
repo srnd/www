@@ -30,7 +30,8 @@ export const query = graphql`
         authorTitle
         photo {
             sizes(maxWidth: 455) {
-                ...GatsbyContentfulSizes_withWebp
+                ...GatsbyContentfulSizes_withWebp_noBase64
+                ...GatsbyContentfulSizes_tracedSVG
             }
         }
     }

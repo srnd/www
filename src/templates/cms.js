@@ -4,6 +4,7 @@ import Helmet from 'react-helmet'
 
 import Content from '../components/Content'
 import Metadata from '../components/Metadata'
+import ReactTooltip from 'react-tooltip'
 import {Header, Footer} from '../components/Navigation'
 import PageHeader from '../components/Header'
 import { ProvidesAppContext } from '../components/Context'
@@ -52,6 +53,7 @@ class _CmsTemplate extends React.Component {
         return (
             <ProvidesAppContext {...context}>
                 <div className={`page ${layout.pageClass} ${this.state.fontsLoaded ? '' : 'fonts-waiting'} ${imageFormats}`}>
+                    <ReactTooltip place="bottom" type="light" effect="float" className="tooltip" />
                     <Helmet title={layout.title} />
                     <Metadata metadata={layout.metadata} noindex={layout.dontIndex} />
                     <Header nav={ data.navPrimary } active={layout.slug} />

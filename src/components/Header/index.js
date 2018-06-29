@@ -38,7 +38,8 @@ export const query = graphql`
             image {
                 title
                 sizes(maxWidth: 1820, maxHeight: 660) {
-                    ...GatsbyContentfulSizes_withWebp
+                    ...GatsbyContentfulSizes_withWebp_noBase64
+                    ...GatsbyContentfulSizes_tracedSVG
                 }
             }
             title

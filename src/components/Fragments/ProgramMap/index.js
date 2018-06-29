@@ -17,7 +17,7 @@ class ProgramMap extends React.Component {
         }
 
         if (typeof(window) !== 'undefined') {
-            axios.get(withPrefix('/us-ca.json')).then(
+            axios.get(withPrefix('/ca-us-mx.json')).then(
                 (r) => this.setState({topo: feature(r.data, r.data.objects.collection).features})
             );
         }
@@ -28,6 +28,8 @@ class ProgramMap extends React.Component {
     render() {
         if (!this.state.topo) return null;
 
+        const sizeDivisor = 100;
+
         return (
             <div className="program-map" ref={(el) => {
                 this.renderTarget = el;
@@ -35,7 +37,16 @@ class ProgramMap extends React.Component {
             }}>
                 {!(this.state.width && this.state.height) ? null : (
                     <svg width={this.state.width} height={this.state.height} viewBox={`0 0 ${this.state.width} ${this.state.height}`}>
-                            <g className="outlines">
+                        <defs>
+                            <clipPath id="clip-land">
+                                <path
+                                    d={
+                                        this.state.topo.map((d,i) => (
+                                            geoPath().projection(this.projection())(d)
+                                        )).join('')} />
+                            </clipPath>
+                        </defs>
+                        <g className="outlines">
                             {
                                 this.state.topo.map((d,i) => (
                                 <path
@@ -46,7 +57,61 @@ class ProgramMap extends React.Component {
                                 ))
                             }
                         </g>
-                        <g className="markers">
+                        <g className="footprint-extended">
+                                {
+                                    this.props.context.regions.map((region, i) => {
+                                        if (!region.location) return null;
+                                        const latLon = [region.location.lon, region.location.lat];
+                                        const mapLatLon = this.projection()(latLon);
+                                        return <circle
+                                            key={ `footprint-extended-${i}` }
+                                            cx={ mapLatLon[0] }
+                                            cy={ mapLatLon[1] }
+                                            r={ (this.state.width/sizeDivisor)*6 }
+                                            clipPath="url(#clip-land)"
+                                            className="footprint-extended"
+                                            onClick={ () => null }
+                                        />
+                                    })
+                                }
+                        </g>
+                        <g className="footprint">
+                                {
+                                    this.props.context.regions.map((region, i) => {
+                                        if (!region.location) return null;
+                                        const latLon = [region.location.lon, region.location.lat];
+                                        const mapLatLon = this.projection()(latLon);
+                                        return <circle
+                                            key={ `footprint-${i}` }
+                                            cx={ mapLatLon[0] }
+                                            cy={ mapLatLon[1] }
+                                            r={ (this.state.width/sizeDivisor)*4 }
+                                            clipPath="url(#clip-land)"
+                                            className="footprint"
+                                            onClick={ () => null }
+                                        />
+                                    })
+                                }
+                        </g>
+                        <g className="region">
+                                {
+                                    this.props.context.regions.map((region, i) => {
+                                        if (!region.location) return null;
+                                        const latLon = [region.location.lon, region.location.lat];
+                                        const mapLatLon = this.projection()(latLon);
+                                        return <circle
+                                            key={ `region-${i}` }
+                                            cx={ mapLatLon[0] }
+                                            cy={ mapLatLon[1] }
+                                            r={ (this.state.width/sizeDivisor)*2 }
+                                            clipPath="url(#clip-land)"
+                                            className="region"
+                                            onClick={ () => null }
+                                        />
+                                    })
+                                }
+                        </g>
+                        <g className="marker">
                                 {
                                     this.props.context.regions.map((region, i) => {
                                         if (!region.location) return null;
@@ -56,8 +121,8 @@ class ProgramMap extends React.Component {
                                             key={ `marker-${i}` }
                                             cx={ mapLatLon[0] }
                                             cy={ mapLatLon[1] }
-                                            r={ this.state.width/85 }
-                                            className="region"
+                                            r={ this.state.width/sizeDivisor }
+                                            className="marker"
                                             onClick={ () => null }
                                         />
                                     })
@@ -71,7 +136,7 @@ class ProgramMap extends React.Component {
 
     projection() {
         return geoMercator()
-            .scale(440 * (this.state.width/630))
+            .scale(0.65 * this.state.width)
             .center([-93, 40])
             .translate([this.state.width/2, this.state.height/2]);
     }
