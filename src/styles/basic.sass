@@ -47,3 +47,13 @@
   font-family: $font-family-header
   font-weight: 700
   color: $color-text
+
+=keyframes($name)
+  @-webkit-keyframes #{$name}
+    @content
+  @-moz-keyframes #{$name}
+    @content
+  @-ms-keyframes #{$name}
+    @content
+  @keyframes #{$name}
+    @content

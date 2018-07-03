@@ -38,6 +38,7 @@
     "react-jsonschema-form": "^1.0.3",
     "react-load-script": "0.0.6",
     "react-markdown": "^3.3.2",
+    "react-on-screen": "^2.0.4",
     "react-radio-group": "^3.0.3",
     "react-responsive-modal": "^2.1.0",
     "react-string-replace": "^0.4.1",

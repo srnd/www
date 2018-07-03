@@ -50,25 +50,66 @@
       stroke: $color-gray-light
       stroke-width: 1
       fill: $color-gray-lightest
-      +mobile
-        stroke: $color-gray
 
     .marker
       fill: $color-red
       stroke: $color-white
       stroke-width: 2
+      +mobile
+        stroke-width: 1
 
     .user
-      fill: $color-blue
+      pointer-events: none
+      fill: $color-white
       stroke: $color-white
       stroke-width: 2
-      pointer-events: none
+      opacity: 0.7
+      +mobile
+        stroke-width: 1
 
     .region
       fill: transparentize($color-red, 0.90)
+      opacity: 0
 
     .footprint
       fill: transparentize($color-red, 0.95)
+      opacity: 0
 
     .footprint-extended
       fill: transparentize($color-red, 0.97)
+      opacity: 0
+
+  &.seen
+    .region
+      opacity: 1
+      animation: radiate-region 3s ease normal
+
+    .footprint
+      opacity: 1
+      animation: radiate-footprint 3s ease normal
+
+    .footprint-extended
+      opacity: 1
+      animation: radiate-extended 3s ease normal
+
++keyframes(radiate-region)
+  0%
+    opacity: 0
+  15%
+    opacity: 1
+
++keyframes(radiate-footprint)
+  0%
+    opacity: 0
+  10%
+    opacity: 0
+  25%
+    opacity: 1
+
++keyframes(radiate-extended)
+  0%
+    opacity: 0
+  20%
+    opacity: 0
+  35%
+    opacity: 1
