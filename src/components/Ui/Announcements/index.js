@@ -1,9 +1,11 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import appContext from '../../Context'
 import './index.sass'
 
 export const Featured = appContext(({ context, ...props }) => (
     context.featuredAnnouncement ? (
+        // eslint-disable-next-line
         <a className="featured-announcement" href={context.featuredAnnouncement.link} target="_blank" rel="noopener">
             {context.featuredAnnouncement.title}
         </a>

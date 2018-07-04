@@ -6,6 +6,8 @@ import WithTracking from '../../Track'
 
 import './index.sass'
 
+/* eslint-disable */
+
 class MuxPlayer extends React.Component {
     constructor(props) {
         super(props);

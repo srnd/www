@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import reactReplace from 'react-string-replace'
 
 import Sponsors from '../../Fragments/Sponsors'
@@ -8,10 +9,6 @@ import TrackingControl from '../../Fragments/TrackingControl'
 import ProgramMap from '../../Fragments/ProgramMap'
 
 export default class HtmlBlock extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <div>
@@ -32,7 +29,7 @@ export default class HtmlBlock extends React.Component {
         };
 
         var result = this.props.html.html;
-        Object.keys(replace).map((k) => { result = reactReplace(result, k, () => replace[k]); });
+        Object.keys(replace).map((k) => { result = reactReplace(result, k, () => replace[k]); return null; });
         return result.map((x) => typeof(x) === 'string' ? <div dangerouslySetInnerHTML={{__html: x}} /> : x);
     }
 }

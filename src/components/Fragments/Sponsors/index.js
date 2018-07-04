@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import appContext from '../../Context'
 
 import './index.sass'
@@ -8,8 +9,8 @@ export default appContext(({ context, ...props }) => (
         <ul className="major">
             { context.majorSponsors.map((sponsor) => (
                 <li key={sponsor.id}>
-                    <a href={sponsor.link} rel="noopener" target="_blank">
-                        <img src={sponsor.logo.large.src} srcSet={sponsor.logo.large.srcSet} alt={sponsor.name} />
+                    <a href={sponsor.link} rel="noopener noreferrer" target="_blank">
+                        <img src={sponsor.logo.large.src} alt={sponsor.name} />
                     </a>
                 </li>
             ))}
@@ -17,8 +18,8 @@ export default appContext(({ context, ...props }) => (
         <ul className="minor">
             { context.minorSponsors.map((sponsor) => (
                 <li key={sponsor.id}>
-                    <a href={sponsor.link} rel="noopener" target="_blank">
-                        <img src={sponsor.logo.small.src} srcSet={sponsor.logo.small.srcSet} alt={sponsor.name} />
+                    <a href={sponsor.link} rel="noopener noreferrer" target="_blank">
+                        <img src={sponsor.logo.small.src} alt={sponsor.name} />
                     </a>
                 </li>
             ))}
@@ -33,13 +34,11 @@ export const query = graphql`
         link
         id
         logo {
-            large: responsiveResolution(width: 150, quality: 80) {
+            large: resize(width: 150, quality: 80) {
                 src
-                srcSet
             }
-            small: responsiveResolution(width: 100, quality: 70) {
+            small: resize(width: 100, quality: 70) {
                 src
-                srcSet
             }
         }
     }

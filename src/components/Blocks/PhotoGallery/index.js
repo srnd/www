@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import Img from "gatsby-image"
 
 import "./index.sass"
@@ -9,9 +10,9 @@ export default class PhotoGalleryBlock extends React.Component {
             <div className="photo-gallery">
                 <ul className={`layout-${this.props.style}`}>
                     {this.props.photos.map((image) => (
-                        <li key={image.id} data-tip={this.props.style == 'gallery-small' || this.props.style == 'gallery-medium' ? image.description : null}>
+                        <li key={image.id} data-tip={this.props.style === 'gallery-small' || this.props.style === 'gallery-medium' ? image.description : null}>
                             {this.props.linkToFullSize ? (
-                                <a href={image.file.url} target="_blank">{this.renderImg(image)}</a>
+                                <a href={image.file.url} target="_blank" rel="noopener noreferrer">{this.renderImg(image)}</a>
                             ) : this.renderImg(image)}
 
                             {['comic', 'staff-bios', 'staff-titles', 'story-cards'].indexOf(this.props.style) > -1 ? this.renderBio(image) : null}
@@ -31,7 +32,7 @@ export default class PhotoGalleryBlock extends React.Component {
 
         return (
             src.src ? (
-                <Img sizes={src} alt={image.title} title={image.description} />
+                <Img fluid={src} alt={image.title} title={image.description} />
             ) : (
                 <img src={image.file.url} alt={image.title} title={image.description} />
             )
@@ -62,21 +63,21 @@ export const query = graphql`
             file {
                 url
             }
-            smc: sizes(maxWidth: 300, maxHeight: 200, quality: 90) {
-                ...GatsbyContentfulSizes_withWebp_noBase64
-                ...GatsbyContentfulSizes_tracedSVG
+            smc: fluid(maxWidth: 300, maxHeight: 200, quality: 90) {
+                ...GatsbyContentfulFluid_withWebp_noBase64
+                ...GatsbyContentfulFluid_tracedSVG
             }
-            sml: sizes(maxWidth: 300, quality: 90) {
-                ...GatsbyContentfulSizes_withWebp_noBase64
-                ...GatsbyContentfulSizes_tracedSVG
+            sml: fluid(maxWidth: 300, quality: 90) {
+                ...GatsbyContentfulFluid_withWebp_noBase64
+                ...GatsbyContentfulFluid_tracedSVG
             }
-            med: sizes(maxWidth: 500, maxHeight: 281, quality: 90) {
-                ...GatsbyContentfulSizes_withWebp_noBase64
-                ...GatsbyContentfulSizes_tracedSVG
+            med: fluid(maxWidth: 500, maxHeight: 281, quality: 90) {
+                ...GatsbyContentfulFluid_withWebp_noBase64
+                ...GatsbyContentfulFluid_tracedSVG
             }
-            full: sizes(maxWidth: 500, quality: 90) {
-                ...GatsbyContentfulSizes_withWebp_noBase64
-                ...GatsbyContentfulSizes_tracedSVG
+            full: fluid(maxWidth: 500, quality: 90) {
+                ...GatsbyContentfulFluid_withWebp_noBase64
+                ...GatsbyContentfulFluid_tracedSVG
             }
         }
     }

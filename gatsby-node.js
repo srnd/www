@@ -6,8 +6,8 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 });
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-    const { createPage } = boundActionCreators;
+exports.createPages = ({ graphql, actions }) => {
+    const { createPage } = actions;
 
     return new Promise((resolve, reject) => {
         resolve(graphql(`

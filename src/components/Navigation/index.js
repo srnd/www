@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import SmartLink from '../Ui/SmartLink'
 import { Featured } from '../Ui/Announcements'
 import DropdownMenu from 'react-dd-menu';
@@ -9,7 +10,7 @@ import "./footer.sass";
 const linksToList = (links, active) => {
     return links.map((item, i) => (
         <li key={item.url}>
-            <SmartLink to={item.url} className={active && item.url == active ? 'active' : ''}>{item.title}</SmartLink>
+            <SmartLink to={item.url} className={active && item.url === active ? 'active' : ''}>{item.title}</SmartLink>
         </li>
     ));
 };
@@ -21,6 +22,7 @@ export class Header extends React.Component {
     }
     render() {
         const { nav, active } = this.props;
+        // eslint-disable-next-line
         const btn = <a href="#" onClick={() => this.setState({ isMenuOpen: !this.state.isMenuOpen })}>&#9776;</a>;
         return (<div>
             <Featured />

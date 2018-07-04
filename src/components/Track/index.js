@@ -1,12 +1,12 @@
 import React from 'react'
-import { withPrefix } from 'gatsby-link'
+import { withPrefix } from 'gatsby'
 
 export default Inner => class extends React.Component {
     render() {
         const track = {
             userDetails: (o) => this.push('setUserId', o.email),
             pageview: (page) => {
-                this.push('setDocumentTitle', page.substr(-1) == '/' ? page.substr(0, page.length - 1) : page);
+                this.push('setDocumentTitle', page.substr(-1) === '/' ? page.substr(0, page.length - 1) : page);
                 this.push('trackPageView');
             },
             event: (category, event, value) => this.push('trackEvent', category, event, value),

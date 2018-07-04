@@ -21,7 +21,7 @@ export default WithAppContext(class DonationMatchInfo extends React.Component {
             <div className="donation-match-info">
                 <h1>{m.name}</h1>
                 <p>
-                    {m.url ? <a href={m.url} target="_blank">{tr('fragment.donation-match.url')}</a> : (
+                    {m.url ? <a href={m.url} rel="noopener noreferrer" target="_blank">{tr('fragment.donation-match.url')}</a> : (
                         m.contact ? <a href={`mailto:${m.contact.email}`}>{tr('fragment.donation-match.email')} {m.contact.name}</a> : null
                     )}
                 </p>
@@ -32,8 +32,8 @@ export default WithAppContext(class DonationMatchInfo extends React.Component {
                             {m.match.process ? null :
                                 <p>
                                     {m.name} {tr('fragment.donation-match.match-yes')} {m.match.ratio}
-                                    {m.match.min && m.match.max ? `\$${m.match.min.toLocaleString()}-\$${m.match.max.toLocaleString()}` :
-                                        (m.match.max ? ` ${tr('fragment.donation-match.up-to')} \$${m.match.max.toLocaleString()}` : '.')}
+                                    {m.match.min && m.match.max ? `$${m.match.min.toLocaleString()}-$${m.match.max.toLocaleString()}` :
+                                        (m.match.max ? ` ${tr('fragment.donation-match.up-to')} $${m.match.max.toLocaleString()}` : '.')}
                                 </p>
                             }
                             <div className="more-info" dangerouslySetInnerHTML={{__html: m.match.process}} />

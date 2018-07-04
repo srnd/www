@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import SmartLink from '../../Ui/SmartLink'
 
 import './index.sass'

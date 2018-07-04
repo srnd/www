@@ -1,10 +1,11 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import Img from "gatsby-image"
 import "./index.sass"
 
 export default (props) => (
     <div className={`quote ${props.photo ? 'with-photo' : ''}`}>
-        {props.photo && props.photo.sizes ? <Img sizes={props.photo.sizes} /> : ''}
+        {props.photo && props.photo.fluid ? <Img fluid={props.photo.fluid} /> : ''}
         <div className="text">
             <blockquote>
                 <p>
@@ -29,9 +30,9 @@ export const query = graphql`
         author
         authorTitle
         photo {
-            sizes(maxWidth: 455) {
-                ...GatsbyContentfulSizes_withWebp_noBase64
-                ...GatsbyContentfulSizes_tracedSVG
+            fluid(maxWidth: 455) {
+                ...GatsbyContentfulFluid_withWebp_noBase64
+                ...GatsbyContentfulFluid_tracedSVG
             }
         }
     }

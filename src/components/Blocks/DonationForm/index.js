@@ -1,6 +1,6 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import { RadioGroup, Radio } from 'react-radio-group'
-import { FancyRadioGroup, FancyRadioOption } from '../../FancyRadio'
 import { Card as CardSecure } from '../../Ui/Secure'
 import Gifts from './gifts.js'
 import Amounts from './amounts.js'
@@ -132,6 +132,7 @@ class _DonationFormInner extends React.Component {
     }
 
     isEmail(email) {
+        // eslint-disable-next-line
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
     }

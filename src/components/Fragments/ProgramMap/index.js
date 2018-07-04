@@ -1,8 +1,9 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import appContext from '../../Context'
 import { geoMercator, geoPath } from "d3-geo"
 import { feature } from "topojson-client"
-import { withPrefix } from 'gatsby-link'
+import { withPrefix } from 'gatsby'
 import axios from 'axios'
 import ReactTooltip from 'react-tooltip'
 import withIpInfo from '../../Track/ipInfo'
@@ -133,15 +134,17 @@ class ProgramMap extends React.Component {
                                         })
                                     }
                             </g>
-                            <g className="user">
-                                <circle
-                                    className="user"
-                                    cx={this.projection()([this.props.ipInfo.lon, this.props.ipInfo.lat])[0]}
-                                    cy={this.projection()([this.props.ipInfo.lon, this.props.ipInfo.lat])[1]}
-                                    r={ this.state.width/sizeDivisor }
-                                    onClick={ () => null }
-                                />
-                            </g>
+                            {!this.props.ipInfo ? '' : (
+                                <g className="user">
+                                    <circle
+                                        className="user"
+                                        cx={this.projection()([this.props.ipInfo.lon, this.props.ipInfo.lat])[0]}
+                                        cy={this.projection()([this.props.ipInfo.lon, this.props.ipInfo.lat])[1]}
+                                        r={ this.state.width/sizeDivisor }
+                                        onClick={ () => null }
+                                    />
+                                </g>
+                            )}
                         </svg>
                     )}
                 </div>

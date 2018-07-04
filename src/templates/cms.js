@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 
 import Content from '../components/Content'
@@ -10,7 +10,6 @@ import PageHeader from '../components/Header'
 import { ProvidesAppContext } from '../components/Context'
 import WithTracking from '../components/Track'
 import Retarget from '../components/Track/retarget'
-import DonationMatch from '../components/Fragments/DonationMatch'
 import { getSupportedImages } from '../components/Ui/Compat'
 import FontFaceObserver from 'font-face-observer'
 
@@ -48,7 +47,7 @@ class _CmsTemplate extends React.Component {
         const data = this.props.data;
         const layout = data.contentfulLayout;
         const context = Object.assign(data, {translate: translate(data.translations), slug: layout.slug});
-        const imageFormats = this.state.nextgenImageSupport.length == 0 ? 'no-nextgen' : this.state.nextgenImageSupport.map((x) => `with-${x}`).join(' ');
+        const imageFormats = this.state.nextgenImageSupport.length === 0 ? 'no-nextgen' : this.state.nextgenImageSupport.map((x) => `with-${x}`).join(' ');
         this.props.track.pageview(layout.slug);
         return (
             <ProvidesAppContext {...context}>
@@ -98,5 +97,12 @@ export const pageQuery = graphql`
             }
         }
         ...AppContextItems
+    }
+    fragment GatsbyContentfulFluid_tracedSVG on ContentfulFluid {
+        tracedSVG
+        aspectRatio
+        src
+        srcSet
+        sizes
     }
 `;

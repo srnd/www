@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import SmartLink from '../Ui/SmartLink'
 import Html from '../Blocks/Html'
 import Img from "gatsby-image"
@@ -10,8 +11,8 @@ export default (props) => (
     <div>
         <header className="header">
             <div>
-                {props.image && props.image.sizes ? (
-                    <Img sizes={props.image.sizes} />
+                {props.image && props.image.fluid ? (
+                    <Img fluid={props.image.fluid} />
                 ) : null}
                 <h2>{props.title}</h2>
                 {props.subtext ? (
@@ -37,9 +38,9 @@ export const query = graphql`
         header {
             image {
                 title
-                sizes(maxWidth: 1820, maxHeight: 660) {
-                    ...GatsbyContentfulSizes_withWebp_noBase64
-                    ...GatsbyContentfulSizes_tracedSVG
+                fluid(maxWidth: 1820, maxHeight: 660) {
+                    ...GatsbyContentfulFluid_withWebp_noBase64
+                    ...GatsbyContentfulFluid_tracedSVG
                 }
             }
             title

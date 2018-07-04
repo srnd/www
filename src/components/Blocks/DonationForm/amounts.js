@@ -1,6 +1,5 @@
 import React from 'react'
 import { FancyRadioGroup, FancyRadioOption } from '../../FancyRadio'
-import { DonationFrequencies } from './index.js'
 
 class Amounts extends React.Component {
     constructor(props) {
@@ -37,7 +36,7 @@ export default Amounts;
 
 class DonateAmount extends React.Component {
     render() {
-        const {value, frequency, custom, onChange, translate, ...props} = this.props;
+        const {value, frequency, custom, onChange } = this.props;
         return (
             <div className="donate-amount">
                 { custom ? (
@@ -57,9 +56,9 @@ class DonateAmount extends React.Component {
         const annually = translate('layout.blocks.donation-form.amounts.annual');
         const plural = translate('layout.blocks.donation-form.amounts.plural');
 
-        if (amount == null) return translate('layout.block.donation-form.amounts.custom');
+        if (amount === null) return translate('layout.block.donation-form.amounts.custom');
 
-        if (frequency == 'monthly') amount *= 12;
+        if (frequency === 'monthly') amount *= 12;
 
         var maxImpact = 0;
         for (let minDonation in impactText) {
@@ -70,7 +69,7 @@ class DonateAmount extends React.Component {
 
         return impactText[maxImpact]
             .replace(':num', num)
-            .replace(':plural', (num != 1 ? plural : ''))
-            .replace(':annual', (frequency == 'monthly' ? ' '+annually : ''));
+            .replace(':plural', (num !== 1 ? plural : ''))
+            .replace(':annual', (frequency === 'monthly' ? ' '+annually : ''));
     }
 }

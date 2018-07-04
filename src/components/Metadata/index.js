@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import favicon from "./favicon.png"
 
@@ -14,8 +15,8 @@ export default (props) => (
         <meta name="description" content={ props.metadata.description.description } />
         <meta property="og:description" content={ props.metadata.description.description } />
         <meta name="twitter:description" content={ props.metadata.description.description } />
-        <meta property="og:image" content={ props.metadata.image.responsiveResolution.src } />
-        <meta name="twitter:image" content={ props.metadata.image.responsiveResolution.src } />
+        <meta property="og:image" content={ props.metadata.image.resize.src } />
+        <meta name="twitter:image" content={ props.metadata.image.resize.src } />
         <meta name="twitter:type" content={ types[props.metadata.type] } />
         <meta name="twitter:site" content="@studentrnd" />
         <meta name="twitter:creator" content="@studentrnd" />
@@ -36,7 +37,7 @@ export const query = graphql`
                 description
             }
             image {
-                responsiveResolution(width: 1200, height: 630) {
+                resize(width: 1200, height: 630) {
                     src
                 }
             }

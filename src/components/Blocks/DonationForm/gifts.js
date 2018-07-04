@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 import { FancyRadioGroup, FancyRadioOption } from '../../FancyRadio'
 import { DonationFrequencies } from './index.js'
 
@@ -20,8 +21,8 @@ class Gifts extends React.Component {
         return (
             <FancyRadioOption key={gift.id} value={gift.title} disabled={this.props.amount < this.getMinAmount(gift)}>
                 <div className="gift">
-                    <a href={gift.photo.file.url} target="_blank" className="image">
-                        <div style={{backgroundImage: `url('${gift.photo.responsiveResolution.src}'`}}></div>
+                    <a href={gift.photo.file.url} target="_blank" rel="noopener noreferrer" className="image">
+                        <div style={{backgroundImage: `url('${gift.photo.resize.src}'`}}></div>
                     </a>
                     <div className="info">
                         <span className="title">{gift.title}</span>
@@ -40,11 +41,11 @@ class Gifts extends React.Component {
     }
 
     getSelectedGift(val) {
-        return this.props.gifts.filter((gift) => gift.title == val)[0];
+        return this.props.gifts.filter((gift) => gift.title === val)[0];
     }
 
     getMinAmount(gift) {
-        return this.props.frequency == DonationFrequencies.OneTime ? gift.minimumOneTime : gift.minimumRecurring;
+        return this.props.frequency === DonationFrequencies.OneTime ? gift.minimumOneTime : gift.minimumRecurring;
     }
 }
 export default Gifts;
@@ -61,7 +62,7 @@ export const query = graphql`
                 file {
                     url
                 }
-                responsiveResolution (width: 256) {
+                resize(width: 256) {
                     src
                 }
             }

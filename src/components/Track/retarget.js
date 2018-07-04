@@ -41,7 +41,7 @@ class Retarget extends React.Component {
 
         return (
             <div className="retarget">
-                {links.map((link) => <img src={link} key={link} width="1" height="1" style={{display: 'none'}} />)}
+                {links.map((link) => <img src={link} key={link} width="1" height="1" style={{display: 'none'}} alt="" />)}
             </div>
         );
     }
