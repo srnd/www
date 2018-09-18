@@ -1,4 +1,5 @@
 import React from 'react'
+import prefContext from '../Context/prefs.js'
 
 class Retarget extends React.Component {
     constructor(props) {
@@ -30,7 +31,7 @@ class Retarget extends React.Component {
     }
 
     render() {
-        if (!this.props.type || !(this.props.type in this.state.trackingIds)) return null;
+        if (!this.props.type || !(this.props.type in this.state.trackingIds) || !this.props.prefs.allowTracking) return null;
         const trackingIds = this.state.trackingIds[this.props.type];
         const links = [
             `https://www.facebook.com/tr?id=${trackingIds.fb}&ev=PageView&noscript=1`,
@@ -46,4 +47,4 @@ class Retarget extends React.Component {
         );
     }
 }
-export default Retarget;
+export default prefContext(Retarget);

@@ -8,6 +8,7 @@ import ReactTooltip from 'react-tooltip'
 import {Header, Footer} from '../components/Navigation'
 import PageHeader from '../components/Header'
 import { ProvidesAppContext } from '../components/Context'
+import { ProvidesPrefContext } from '../components/Context/prefs'
 import WithTracking from '../components/Track'
 import Retarget from '../components/Track/retarget'
 import { getSupportedImages } from '../components/Ui/Compat'
@@ -66,7 +67,7 @@ class _CmsTemplate extends React.Component {
     }
 }
 
-export default WithTracking(_CmsTemplate);
+export default ProvidesPrefContext(WithTracking(_CmsTemplate));
 export const pageQuery = graphql`
     query CmsPage($lang: String!, $slug: String!) {
         contentfulLayout(node_locale: {eq: $lang}, slug: {eq: $slug}) {

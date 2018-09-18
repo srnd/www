@@ -1,35 +1,20 @@
 import React from 'react'
-import jsonp from 'jsonp'
 import appContext from '../../Context'
+import prefContext from '../../Context/prefs'
+import axios from 'axios'
 
 class TrackingControl extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isTracked: null
-        };
-    }
-
-    componentDidMount() {
-        jsonp(`${process.env.GATSBY_MATOMO_URL}/index.php?module=API&method=AjaxOptOut.isTracked&format=JSON&jsonp=callback`, null, (err, data) => {
-            if (err) return;
-            this.setState({isTracked: data.value});
-        });
-    }
-
     render() {
-        return <div className="tracking-control">{this.state.isTracked === null ? null : (<div>
-            <input type="checkbox" id="tracking-control-toggle" checked={!this.state.isTracked} onChange={() => this.toggleTracking()} />
+        return <div className="tracking-control">{this.props.prefs.allowTracking === null ? null : (<div>
+            <input type="checkbox" id="tracking-control-toggle" checked={!this.props.prefs.allowTracking} onChange={() => this.toggleTracking()} />
             <label htmlFor="tracking-control-toggle">{this.props.context.translate('tracking-control.opt-out')}</label>
         </div>)}</div>
     }
 
     toggleTracking() {
-        const isTracked = !this.state.isTracked;
-        this.setState({isTracked});
-        jsonp(`${process.env.GATSBY_MATOMO_URL}/index.php?module=API&method=AjaxOptOut.${isTracked ? 'doTrack' : 'doIgnore'}&format=JSON&jsonp=callback`, null, (err, data) => {
-            if (err) this.setState({isTracked: !isTracked});
-        });
+        const newIsTracked = !this.props.prefs.allowTracking;
+        axios.get(`https://micro.srnd.org/dnt?t=${newIsTracked ? '0' : '1'}`, {withCredentials: true})
+            .then((response) => response.data.success && this.props.prefs.set({allowTracking: newIsTracked}));
     }
 }
-export default appContext(TrackingControl);
+export default appContext(prefContext(TrackingControl));

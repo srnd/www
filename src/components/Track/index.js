@@ -1,36 +1,79 @@
 import React from 'react'
 import { withPrefix } from 'gatsby'
+import prefContext from '../Context/prefs'
 
-export default Inner => class extends React.Component {
+export default Inner => prefContext(class extends React.Component {
     render() {
         const track = {
             userDetails: (o) => this.push('setUserId', o.email),
             pageview: (page) => {
-                this.push('setDocumentTitle', page.substr(-1) === '/' ? page.substr(0, page.length - 1) : page);
-                this.push('trackPageView');
+                this.pushMt('setDocumentTitle', page.substr(-1) === '/' ? page.substr(0, page.length - 1) : page);
+                this.pushMt('trackPageView');
+                this.pushHj('stateChange', page.substr(-1) === '/' ? page.substr(0, page.length - 1) : page);
             },
-            event: (category, event, value) => this.push('trackEvent', category, event, value),
+            event: (category, event, value) => this.pushMt('trackEvent', category, event, value),
         }
-        return <Inner {...this.props} push={(fn) => this.push(fn)} track={track} />;
+        return <Inner {...this.props} push={(fn) => this.pushMt(fn)} track={track} />;
     }
 
     componentDidMount() {
-        if (typeof(window) !== 'undefined' && !document.getElementById("matomo_script")) {
-            var matomoScript = document.createElement("script");
-            matomoScript.id = "matomo_script";
-            matomoScript.type = "text/javascript";
-            matomoScript.src = withPrefix('/ping.js');
-            matomoScript.async = true;
-            this.push('setTrackerUrl', `${process.env.GATSBY_MATOMO_URL}/ping.php`);
-            this.push('setSiteId', process.env.GATSBY_MATOMO_SITE);
-            this.push('enableHeartBeatTimer');
-            document.body.appendChild(matomoScript);
+        if (typeof(window) !== 'undefined') {
+            this.pushMt('setTrackerUrl', `${process.env.GATSBY_MATOMO_URL}/ping.php`);
+            this.pushMt('setSiteId', process.env.GATSBY_MATOMO_SITE);
+            this.pushMt('enableHeartBeatTimer');
         }
     }
 
-    push() {
-        if (typeof(window) === 'undefined') return null;
+    componentDidUpdate() {
+        if (typeof(window) !== 'undefined' && this.props.prefs.allowTracking) {
+            // Load Matomo
+            this.loadScript(withPrefix('/ping.js'));
+
+            // Load Hotjar
+            const hotjarVersion = 6;
+            const hotjarId = process.env.GATSBY_HOTJAR_ID;
+            window._hjSettings={hjid:hotjarId,hjsv:hotjarVersion};
+            this.loadScript(`https://static.hotjar.com/c/hotjar-${hotjarId}.js?sv=${hotjarVersion}`);
+         }
+    }
+
+    loadScript(src) {
+        const id = 'async-script-'+this.hashCode(src);
+        if (!document.getElementById(id)) {
+            const script = document.createElement('script');
+            script.id = id;
+            script.type = 'text/javascript';
+            script.src = src;
+            script.async = true;
+            document.getElementsByTagName('head')[0].appendChild(script);
+        }
+    }
+
+    hashCode(str) {
+        var hash = 0;
+        
+        if (str.length === 0) return hash;
+
+        for (var i = 0; i < str.length; i++) {
+            const char = str.charCodeAt(i);
+            hash = ((hash<<5)-hash)+char;
+            hash = hash & hash;
+        }
+
+        return hash;
+    }
+
+    pushMt() {
+        if (typeof(window) === 'undefined' || this.props.prefs.allowTracking === false) return null;
+
         window._paq = window._paq || [];
         window._paq.push(Array.prototype.slice.call(arguments));
     }
-}
+
+    pushHj() {
+        if (typeof(window) === 'undefined' || this.props.prefs.allowTracking === false) return null;
+
+        window.hj = window.hj || function(){(window.hj.q=window.hj.q||[]).push(arguments)};
+        window.hj(arguments);
+    }
+})
