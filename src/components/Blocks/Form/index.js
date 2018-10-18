@@ -51,10 +51,24 @@ class Form extends React.Component {
         cognito.setCss(`
             @import url('https://srnd-cdn.net/fonts/avenir-next/minimal.css');
             .c-forms-heading { display:none; }
+            .c-forms-form-main { padding-top: 1rem; }
+            .c-helptext { color: #bdbdbd !important; font-weight: 500; font-style: normal !important; }
             .cognito .c-forms-form, .cognito .c-span-1 { max-width: none; }
             .cognito .c-field:first-child { padding-top: 0; }
             .cognito .c-forms-form .c-field:first-child .c-label { margin-top: 0; }
             .cognito .c-forms-form-main { margin-top: 0; }
+            .c-section:not(:first-child) { margin-top: 1rem; padding-top: 1rem; border-top: 2px solid #f9f9f9; }
+            .c-section .c-title h3 { margin-bottom: 1rem; color: #484848; font-size: 20.45px; }
+            .cognito .c-forms-form .c-fileupload-dropzone .c-upload-button, .cognito .c-forms-form .c-fileupload-dropzone {
+                background-color: transparent !important;
+                border-color: transparent !important;
+                padding: 0 !important;
+                margin-left: 0 !important;
+            }
+            .cognito .c-forms-form button, .cognito .c-forms-form .c-add-item, .cognito .c-forms-form input[type="button"], .cognito .c-forms-form .c-fileupload-dropzone .c-upload-button button {
+                background-color: #484848;
+                border-color: #484848;
+            }
             *, .c-fileupload-dropzone-message, .c-upload-button  {
                 font-family: "Avenir Next", "Helvetica", "Arial", sans-serif !important;
                 -webkit-box-shadow: none !important;

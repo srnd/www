@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 rm -rf .cache public
-gatsby build
-node deploy.js
+gatsby build && node deploy.js
 
 # Purges
 # TODO: Figure out a way to use surrogate keys with GCP

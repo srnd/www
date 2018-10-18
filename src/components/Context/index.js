@@ -48,7 +48,7 @@ export class ProvidesAppContext extends React.Component {
 }
 
 export const query = graphql`
-    fragment AppContextItems on RootQueryType {
+    fragment AppContextItems on Query {
         majorSponsors: allContentfulGlobalSponsor(filter: {type: {eq: "major"}}, sort: {fields: [createdAt], order:ASC}) {
             edges { node { ...SponsorsFragmentItems } }
         }

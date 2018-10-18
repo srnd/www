@@ -140,10 +140,6 @@ class _DonationFormInner extends React.Component {
     onSubmit() {
         if (!this.validate) return;
         this.setState({loading: true});
-        this.props.track.userDetails({
-            name: `${this.state.firstName} ${this.state.lastName}`,
-            email: this.state.email,
-        });
 
         this.props.stripe.createToken({name: `${this.state.firstName} ${this.state.lastName}`}).then(({ token }) => {
             return axios.post(process.env.GATSBY_API_DONATE, {
@@ -205,7 +201,7 @@ class DonationForm extends React.Component {
                     onLoad={() => this.setState({stripe: window.Stripe(process.env.GATSBY_STRIPE_PUBLIC)})} />
                 {this.state.stripe ? (
                     <StripeProvider stripe={this.state.stripe}>
-                        <Elements fonts={[{cssSrc: 'https://srnd-cdn.net/fonts/avenir-next/minimal.css'}]} locale="en-US">
+                        <Elements fonts={[{cssSrc: 'https://f1.srnd.org/fonts/avenir-next/minimal.css'}]} locale="en-US">
                             <WrappedDonationForm {...this.props} />
                         </Elements>
                     </StripeProvider>) : ''}

@@ -99,11 +99,4 @@ export const pageQuery = graphql`
         }
         ...AppContextItems
     }
-    fragment GatsbyContentfulFluid_tracedSVG on ContentfulFluid {
-        tracedSVG
-        aspectRatio
-        src
-        srcSet
-        sizes
-    }
 `;

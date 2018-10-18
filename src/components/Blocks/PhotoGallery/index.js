@@ -65,11 +65,9 @@ export const query = graphql`
             }
             smc: fluid(maxWidth: 300, maxHeight: 200, quality: 90) {
                 ...GatsbyContentfulFluid_withWebp_noBase64
-                ...GatsbyContentfulFluid_tracedSVG
             }
             sml: fluid(maxWidth: 300, quality: 90) {
                 ...GatsbyContentfulFluid_withWebp_noBase64
-                ...GatsbyContentfulFluid_tracedSVG
             }
             med: fluid(maxWidth: 500, maxHeight: 281, quality: 90) {
                 ...GatsbyContentfulFluid_withWebp_noBase64

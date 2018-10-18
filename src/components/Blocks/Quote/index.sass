@@ -6,18 +6,18 @@ div.quote
     +grid-column(12)
   &.with-photo
     +desktop
-      .gatsby-image-outer-wrapper
+      .gatsby-image-wrapper
         +grid-column(5)
       .text
         +grid-column(7)
     +mobile
-      .gatsby-image-outer-wrapper, .quote
+      .gatsby-image-wrapper, .quote
         +grid-column(12)
         float: none
       .text
         margin-top: 20px
 
-  .gatsby-image-outer-wrapper
+  .gatsby-image-wrapper
     @extend %featured
     padding: 0
 
