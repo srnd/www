@@ -6,6 +6,7 @@ yarn-error.log
 .env.*
 .env
 .google.json
+cache-purge.sh
 
 # Build directory
 /public

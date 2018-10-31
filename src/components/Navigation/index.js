@@ -53,7 +53,7 @@ export class Header extends React.Component {
 export const Footer = (props) => (
     <footer className="navigation">
         <div className="info">
-            <span>&copy; 2007-{(new Date().getFullYear())} srnd.org, 501(c)(3). </span>
+            <span>&copy; 2007-{(new Date().getFullYear())} SRND, a non-profit. </span>
             <label htmlFor="ein">EIN: </label>
             <input readOnly={true} className="ein" id="ein" value="26-4742589" onClick={(e) => {e.target.setSelectionRange(0, e.target.value.length)}} />
         </div>

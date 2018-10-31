@@ -16,11 +16,11 @@ export default (props) => (
                 ) : null}
                 <h2>{props.title}</h2>
                 {props.subtext ? (
-                    <p>
-                        {props.subtext.subtext.split('\n').map((item, key) => {
-                            return <span key={key}>{item}<br/></span>
+                    <span>
+                        {(props.subtext.subtext || props.subtext).split('\n').map((item, key) => {
+                            return (<p key={key}>{item}</p>);
                         })}
-                    </p>
+                    </span>
                 ) : ''}
                 {props.ctaText && props.ctaLocation ? (
                     <div className="cta">

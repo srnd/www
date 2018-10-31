@@ -1,0 +1,52 @@
+@import "../styles/styles"
+@import "../styles/fonts/minimal"
+
+.page.release
+  header.header
+    h2
+      margin-top: 0
+    p
+      font-size: +modular-scale(1)
+
+  .content
+    width: 100%
+    max-width: $width - ($padding * 2)
+    margin: 0 auto
+    float: none
+
+    .inner
+      +desktop
+        +grid-collapse
+      +mobile
+        +grid-column(12)
+
+      .primary
+        +desktop
+          +grid-column(8)
+
+        .location
+          font-weight: 700
+
+        .alignright
+          +mobile
+            display: none
+          width: 50%
+          float: right
+          blockquote
+            border-left: 2px solid $color-accent
+            padding-left: 1rem
+            p
+              font-style: italic
+              font-size: +modular-scale(1)
+          
+
+      .details
+        +desktop
+          +grid-column(4)
+        @extend %featured
+        h3:first-child
+          margin-top: 0
+
+        .image p
+          font-style: italic
+          font-size: +modular-scale(-1)

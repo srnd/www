@@ -4,70 +4,25 @@ import Helmet from 'react-helmet'
 
 import Content from '../components/Content'
 import Metadata from '../components/Metadata'
-import ReactTooltip from 'react-tooltip'
-import {Header, Footer} from '../components/Navigation'
 import PageHeader from '../components/Header'
-import { ProvidesAppContext } from '../components/Context'
-import { ProvidesPrefContext } from '../components/Context/prefs'
-import WithTracking from '../components/Track'
-import Retarget from '../components/Track/retarget'
-import { getSupportedImages } from '../components/Ui/Compat'
-import FontFaceObserver from 'font-face-observer'
+import BaseTemplate from './base.js'
 
-import "./page.sass"
-
-require('es6-object-assign').polyfill();
-
-const translate = function(strings) {
-    let translations = {};
-    for (let translation of strings.edges) {
-        translations[translation.node.key] = translation.node.value.value;
-    }
-
-    return function (key) {
-        return translations[key] || key;
-    }
-};
-
-class _CmsTemplate extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            nextgenImageSupport: ['loading'],
-            fontsLoaded: false,
-        };
-        getSupportedImages((supports) => this.setState({nextgenImageSupport: supports}));
-
-        if (!this.state.fontsLoaded && typeof(window) !== 'undefined') {
-            var observer = new FontFaceObserver('Avenir Next', {weight: 400});
-            observer.check().then(() => this.setState({fontsLoaded: true}));
-        }
-    }
-
+export default class CmsTemplate extends React.Component {
     render() {
         const data = this.props.data;
         const layout = data.contentfulLayout;
-        const context = Object.assign(data, {translate: translate(data.translations), slug: layout.slug});
-        const imageFormats = this.state.nextgenImageSupport.length === 0 ? 'no-nextgen' : this.state.nextgenImageSupport.map((x) => `with-${x}`).join(' ');
-        this.props.track.pageview(layout.slug);
         return (
-            <ProvidesAppContext {...context}>
-                <div className={`page ${layout.pageClass} ${this.state.fontsLoaded ? '' : 'fonts-waiting'} ${imageFormats}`}>
-                    <Helmet title={layout.title} />
-                    <Metadata metadata={layout.metadata} noindex={layout.dontIndex} />
-                    <Header nav={ data.navPrimary } active={layout.slug} />
-                    <PageHeader {...layout.header} />
-                    <Content translate={ translate(data.translations) } {...layout} />
-                    <Footer nav={ data.navSecondary } legal={ data.navLegal } />
-                    <Retarget type={ layout.audience } />
-                    <ReactTooltip place="bottom" type="light" effect="float" className="tooltip" />
-                </div>
-            </ProvidesAppContext>
+            <BaseTemplate slug={layout.slug} audience={layout.audience} pageClass={layout.pageClass} data={data} locale={this.props.pageContext.lang}>
+                <Helmet title={layout.title} />
+                <Metadata metadata={layout.metadata} noindex={layout.dontIndex} />
+                <PageHeader {...layout.header} />
+                <Content {...layout} />
+            </BaseTemplate>
         );
     }
 }
 
-export default ProvidesPrefContext(WithTracking(_CmsTemplate));
+/*eslint graphql/template-strings:0*/
 export const pageQuery = graphql`
     query CmsPage($lang: String!, $slug: String!) {
         contentfulLayout(node_locale: {eq: $lang}, slug: {eq: $slug}) {
@@ -80,23 +35,6 @@ export const pageQuery = graphql`
             ...HeaderItems
             ...ContentItems
         }
-        navPrimary: contentfulNavigation (node_locale: {eq: $lang}, slot: {eq: "primary"}) {
-            ...NavigationItems
-        }
-        navLegal: contentfulNavigation (node_locale: {eq: $lang}, slot: {eq: "legal"}) {
-            ...NavigationItems
-        }
-        navSecondary: contentfulNavigation (node_locale: {eq: $lang}, slot: {eq: "secondary"}) {
-            ...NavigationItems
-        }
-        translations: allContentfulString (filter: {node_locale: {eq: $lang}}) {
-            edges {
-                node {
-                    key
-                    value { value }
-                }
-            }
-        }
-        ...AppContextItems
+        ...BaseTemplateItems
     }
 `;
