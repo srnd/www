@@ -35,7 +35,6 @@ class NewsTemplate extends React.Component {
                 <div class="content">
                     <div class="inner">
                         <section class="primary">
-                            <div class="location">Seattle, Wash. &mdash; {post.date}</div>
                             <div class="story" dangerouslySetInnerHTML={{__html: post.content}} />
                             <div class="about">
                                 <h3>About SRND</h3>

@@ -9,7 +9,6 @@ export default Inner => prefContext(class extends React.Component {
             pageview: (page) => {
                 this.pushMt('setDocumentTitle', page.substr(-1) === '/' ? page.substr(0, page.length - 1) : page);
                 this.pushMt('trackPageView');
-                this.pushHj('stateChange', page.substr(-1) === '/' ? page.substr(0, page.length - 1) : page);
             },
             event: (category, event, value) => this.pushMt('trackEvent', category, event, value),
         }
@@ -28,12 +27,6 @@ export default Inner => prefContext(class extends React.Component {
         if (typeof(window) !== 'undefined' && this.props.prefs.allowTracking) {
             // Load Matomo
             this.loadScript(withPrefix('/ping.js'));
-
-            // Load Hotjar
-            const hotjarVersion = 6;
-            const hotjarId = process.env.GATSBY_HOTJAR_ID;
-            window._hjSettings={hjid:hotjarId,hjsv:hotjarVersion};
-            this.loadScript(`https://static.hotjar.com/c/hotjar-${hotjarId}.js?sv=${hotjarVersion}`);
          }
     }
 
@@ -68,12 +61,5 @@ export default Inner => prefContext(class extends React.Component {
 
         window._paq = window._paq || [];
         window._paq.push(Array.prototype.slice.call(arguments));
-    }
-
-    pushHj() {
-        if (typeof(window) === 'undefined' || this.props.prefs.allowTracking === false) return null;
-
-        window.hj = window.hj || function(){(window.hj.q=window.hj.q||[]).push(arguments)};
-        window.hj(arguments);
     }
 })
