@@ -31,7 +31,6 @@ class _BaseTemplate extends React.Component {
         super(props);
         this.state = {
             nextgenImageSupport: ['loading'],
-            fontsLoaded: false,
         };
         this.translate = translateBuilder(this.props.data.translations);
 
@@ -40,11 +39,6 @@ class _BaseTemplate extends React.Component {
             this.props.track.pageview(this.props.slug);
 
         getSupportedImages((supports) => this.setState({nextgenImageSupport: supports}));
-
-        if (!this.state.fontsLoaded && typeof(window) !== 'undefined') {
-            var observer = new FontFaceObserver('Avenir Next', {weight: 400});
-            observer.check().then(() => this.setState({fontsLoaded: true}));
-        }
     }
 
     render() {
@@ -56,7 +50,7 @@ class _BaseTemplate extends React.Component {
 
         return (
             <ProvidesAppContext {...context}>
-                <div className={`page ${this.props.pageClass} ${this.state.fontsLoaded ? '' : 'fonts-waiting'} ${imageFormats}`}>
+                <div className={`page ${this.props.pageClass} ${imageFormats}`}>
                     <CookieNagbar />
                     <Header nav={ data.navPrimary } active="newsroom" />
                     {React.Children.map(this.props.children, child => React.cloneElement(child, passContext))}
