@@ -1,5 +1,10 @@
 @import "../../../styles/styles"
 
+div.privacy, div.privacy p, div.privacy a
+  font-weight: 400
+  color: $color-gray-dark
+  font-size: +modular-scale(-1)
+
 div.secure
   margin-top: +modular-scale(0)
   img
@@ -9,6 +14,53 @@ div.secure
     float: left
     width: calc( 100% - 30px )
     padding-left: 10px
-    color: $color-gray
-    margin-top: 4pt
+    margin-top: 2pt
     font-size: +modular-scale(-1)
+
+div.cookies
+  display: block
+  width: 100%
+  text-align: left
+  padding: +modular-scale(-1)
+  padding-bottom: +modular-scale(-5)
+  text-decoration: none
+  background-color: $color-gray-lightest
+  border-bottom: 2px solid $color-gray
+
+  .wrap
+    width: 100%
+    max-width: $width
+    margin: 0 auto -0.5rem
+
+  .info
+    float: left
+    width: 80%
+    
+    p
+      display: inline-block
+      padding-left: 10px
+      margin-top: 4pt
+      font-size: +modular-scale(-1)
+
+  .options
+    text-align: right
+    float: right
+    width: 18%
+    margin-top: 0.1rem
+    a
+      text-decoration: none
+      &:not(:first-child)
+        padding-left: 5px
+      +mobile
+        display: block
+        padding-bottom: 7pt
+    
+    img
+      height: 2rem
+      margin: -0.5rem 0 -0.5rem 1rem
+      cursor: pointer
+
+  &:after
+    content: ""
+    display: block
+    clear: both

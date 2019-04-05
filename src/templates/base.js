@@ -11,6 +11,7 @@ import { getSupportedImages } from '../components/Ui/Compat'
 import FontFaceObserver from 'font-face-observer'
 
 import "./base.sass"
+import { CookieNagbar } from '../components/Ui/Secure';
 
 require('es6-object-assign').polyfill();
 
@@ -56,6 +57,7 @@ class _BaseTemplate extends React.Component {
         return (
             <ProvidesAppContext {...context}>
                 <div className={`page ${this.props.pageClass} ${this.state.fontsLoaded ? '' : 'fonts-waiting'} ${imageFormats}`}>
+                    <CookieNagbar />
                     <Header nav={ data.navPrimary } active="newsroom" />
                     {React.Children.map(this.props.children, child => React.cloneElement(child, passContext))}
                     <Footer nav={ data.navSecondary } legal={ data.navLegal } />
