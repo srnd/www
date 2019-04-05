@@ -26,7 +26,7 @@ export const CookieNagbar = appContext(class _cookieNagbar extends React.Compone
     constructor() {
         super();
         this.state = {
-            acceptCookies: window.localStorage['acceptCookies'] === "1" || false
+            acceptCookies: typeof(window) !== 'undefined' && window.localStorage['acceptCookies'] === "1" || false
         }
     }
 
