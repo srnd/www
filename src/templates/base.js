@@ -9,6 +9,7 @@ import WithTracking from '../components/Track'
 import Retarget from '../components/Track/retarget'
 import { getSupportedImages } from '../components/Ui/Compat'
 import FontFaceObserver from 'font-face-observer'
+import Script from 'react-load-script'
 
 import "./base.sass"
 import { CookieNagbar } from '../components/Ui/Secure';
@@ -47,6 +48,7 @@ class _BaseTemplate extends React.Component {
         const passContext = {translate: this.translate}
 
         const imageFormats = this.state.nextgenImageSupport.length === 0 ? 'no-nextgen' : this.state.nextgenImageSupport.map((x) => `with-${x}`).join(' ');
+        if (typeof(window) !== 'undefined') window.ChatraID = '5wsfeENwi3WqHrn3n';
 
         return (
             <ProvidesAppContext {...context}>
@@ -57,6 +59,7 @@ class _BaseTemplate extends React.Component {
                     <Footer nav={ data.navSecondary } legal={ data.navLegal } />
                     {this.props.audience ? <Retarget type={this.props.audience} /> : null}
                     <ReactTooltip place="bottom" type="light" effect="float" className="tooltip" />
+                    <Script url="https://call.chatra.io/chatra.js" />
                 </div>
             </ProvidesAppContext>
         );

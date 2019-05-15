@@ -5,6 +5,10 @@ div.privacy, div.privacy p, div.privacy a
   color: $color-gray-dark
   font-size: +modular-scale(-1)
 
+div.privacy svg
+  float: left
+  fill: $color-gray-dark
+
 div.secure
   margin-top: +modular-scale(0)
   img
@@ -57,7 +61,7 @@ div.cookies
         display: block
         padding-bottom: 7pt
     
-    img
+    img, svg
       height: 2rem
       margin: -0.5rem 0 -0.5rem 1rem
       cursor: pointer

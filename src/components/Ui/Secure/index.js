@@ -1,9 +1,8 @@
 import React from 'react'
 import appContext from '../../Context'
 import SmartLink from '../SmartLink'
-import lock from './lock.svg'
-import pii from './pii.svg'
 import ok from './ok.svg'
+import Icon from '@srnd/topocons'
 import './index.sass'
 
 export const Customizable = ({ children, icon }) => (
@@ -16,11 +15,17 @@ export default Customizable;
 
 
 export const Pii = appContext(({ context, ...props }) => (
-    <Customizable icon={pii}>{context.translate('privacy.pii')} <SmartLink to="/privacy">({context.translate('privacy.more-info')})</SmartLink></Customizable>
+    <div className="secure privacy">
+        <Icon.Promise />
+        <p>{context.translate('privacy.pii')} <SmartLink to="/privacy">({context.translate('privacy.more-info')})</SmartLink></p>
+    </div>
 ));
 
 export const Card = appContext(({ context, ...props }) => (
-    <Customizable icon={lock}>{context.translate('privacy.card')} <SmartLink to="/privacy">({context.translate('privacy.more-info')})</SmartLink></Customizable>
+    <div className="secure privacy">
+        <Icon.ShieldOk />
+        <p>{context.translate('privacy.card')} <SmartLink to="/privacy">({context.translate('privacy.more-info')})</SmartLink></p>
+    </div>
 ));
 
 export const CookieNagbar = appContext(class _cookieNagbar extends React.Component {
