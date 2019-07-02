@@ -2,6 +2,7 @@ import React from 'react'
 import appContext from '../../Context'
 import SmartLink from '../SmartLink'
 import ok from './ok.svg'
+import no from './no.svg'
 import Icon from '@srnd/topocons'
 import './index.sass'
 
@@ -46,7 +47,7 @@ export const CookieNagbar = appContext(class _cookieNagbar extends React.Compone
                             <p>{context.translate('privacy.overview')} <SmartLink to="/privacy">({context.translate('privacy.more-info')})</SmartLink></p>
                         </div>
                         <div className="options">
-                            <SmartLink to="/privacy" className="opt-out">{context.translate('privacy.opt-out')}</SmartLink>
+                            <SmartLink to="/privacy" className="opt-out"><img src={no} alt="No" /></SmartLink>
                             <img onClick={() => this.acceptCookies()} src={ok} alt="Ok" />
                         </div>
                     </div>
