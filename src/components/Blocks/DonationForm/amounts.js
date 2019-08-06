@@ -55,6 +55,8 @@ class DonateAmount extends React.Component {
         const impactText = JSON.parse(translate('layout.blocks.donation-form.amounts'));
         const annually = translate('layout.blocks.donation-form.amounts.annual');
         const plural = translate('layout.blocks.donation-form.amounts.plural');
+        const a = translate('layout.blocks.donation-form.amounts.a');
+        const an = translate('layout.blocks.donation-form.amounts.an');
 
         if (amount === null) return translate('layout.block.donation-form.amounts.custom');
 
@@ -68,8 +70,10 @@ class DonateAmount extends React.Component {
         var num = Math.floor(amount/maxImpact);
 
         return impactText[maxImpact]
-            .replace(':num', num)
-            .replace(':plural', (num !== 1 ? plural : ''))
-            .replace(':annual', (frequency === 'monthly' ? ' '+annually : ''));
+            .replace(/:num/g, num)
+            .replace(/:plural/g, (num !== 1 ? plural : ''))
+            .replace(/:annual/g, (frequency === 'monthly' ? ' '+annually : ''))
+            .replace(/:a/g, (num === 1 ? ' '+a : ''))
+            .replace(/:an/g, (num === 1 ? ' '+an : ''));
     }
 }

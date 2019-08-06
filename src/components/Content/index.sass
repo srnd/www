@@ -152,7 +152,7 @@ div.right-content
       +mobile
         height: 30vw
 
-.page.promo:not(.with-webp) .special
+.without-webp.page.promo .special
   &:before
     background-image: url(./photos-top.jpg)
   &:after
@@ -163,7 +163,7 @@ div.right-content
     &:after
       background-image: url(./photos-bottom@2x.jpg)
 
-.with-webp.page.promo .special
+.page.promo:not(.without-webp) .special
   &:before
     background-image: url(./photos-top.webp)
   &:after

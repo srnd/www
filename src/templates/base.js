@@ -31,7 +31,7 @@ class _BaseTemplate extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            nextgenImageSupport: ['loading'],
+            nextgenImageSupport: typeof(window) === 'undefined' ? {webp: true, jp2: false, jpx: false} : {},
         };
         this.translate = translateBuilder(this.props.data.translations);
 
@@ -47,7 +47,8 @@ class _BaseTemplate extends React.Component {
         const context = Object.assign(data, {translate: this.translate, slug: this.props.slug, locale: this.props.locale});
         const passContext = {translate: this.translate}
 
-        const imageFormats = this.state.nextgenImageSupport.length === 0 ? 'no-nextgen' : this.state.nextgenImageSupport.map((x) => `with-${x}`).join(' ');
+        const fmts = this.state.nextgenImageSupport;
+        const imageFormats = Object.keys(fmts).map((x) => `with${fmts[x] ? '' : 'out'}-${x}`).join(' ');
         if (typeof(window) !== 'undefined') window.ChatraID = '5wsfeENwi3WqHrn3n';
 
         return (
@@ -59,7 +60,7 @@ class _BaseTemplate extends React.Component {
                     <Footer nav={ data.navSecondary } legal={ data.navLegal } />
                     {this.props.audience ? <Retarget type={this.props.audience} /> : null}
                     <ReactTooltip place="bottom" type="light" effect="float" className="tooltip" />
-                    <Script url="https://call.chatra.io/chatra.js" />
+                    <Script url={'/chatra.js'} />
                 </div>
             </ProvidesAppContext>
         );

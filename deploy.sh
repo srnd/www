@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 rm -rf .cache public
+wget https://call.chatra.io/chatra.js -O static/chatra.js
 gatsby build
 
 if [ $? -eq 0 ]; then
