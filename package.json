@@ -5,7 +5,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "@google-cloud/storage": "^1.7.0",
-    "@srnd/topocons": "^1.0.0",
+    "@srnd/topocons": "^1.1.2",
     "axios": "^0.18.0",
     "babel-core": "^6.26.3",
     "babel-standalone": "^6.26.0",

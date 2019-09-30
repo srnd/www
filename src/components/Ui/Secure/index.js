@@ -24,7 +24,7 @@ export const Pii = appContext(({ context, ...props }) => (
 
 export const Card = appContext(({ context, ...props }) => (
     <div className="secure privacy">
-        <Icon.ShieldOk />
+        <Icon.Secure />
         <p>{context.translate('privacy.card')} <SmartLink to="/privacy">({context.translate('privacy.more-info')})</SmartLink></p>
     </div>
 ));
@@ -47,8 +47,8 @@ export const CookieNagbar = appContext(class _cookieNagbar extends React.Compone
                             <p>{context.translate('privacy.overview')} <SmartLink to="/privacy">({context.translate('privacy.more-info')})</SmartLink></p>
                         </div>
                         <div className="options">
-                            <SmartLink to="/privacy" className="opt-out"><img src={no} alt="No" /></SmartLink>
-                            <img onClick={() => this.acceptCookies()} src={ok} alt="Ok" />
+                            <SmartLink to="/privacy" className="opt-out"><Icon.UiInfo /></SmartLink>
+                            <Icon.UiOk onClick={() => this.acceptCookies()} />
                         </div>
                     </div>
             </div>)}
