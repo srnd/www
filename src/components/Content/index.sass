@@ -19,12 +19,7 @@ div.content > div, div.right-content > div
       margin-bottom: +modular-scale(0)
 
 div.content, div.right-content
-  & > div:first-child
-    & > h1, & > h2, & > h3, & > h4, & > h5, & > h6
-      &:first-child
-        margin-top: 0
-
-    & > p:first-child, & > ul:first-child
+    & > ul:first-child
       margin-top: (-1 * modular-scale(3)) + modular-scale(1)
 
 *[data-grid-collapse]

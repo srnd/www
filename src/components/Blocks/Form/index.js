@@ -54,8 +54,8 @@ class Form extends React.Component {
             .c-forms-form-main { padding-top: 1rem; }
             .c-helptext { color: #bdbdbd !important; font-weight: 500; font-style: normal !important; }
             .cognito .c-forms-form, .cognito .c-span-1 { max-width: none; }
-            .cognito .c-field:first-child { padding-top: 0; }
-            .cognito .c-forms-form .c-field:first-child .c-label { margin-top: 0; }
+            .cognito .c-forms-form-main > .c-field:first-child { padding-top: 0; }
+            .cognito .c-forms-form-main > .c-field:first-child .c-label { margin-top: 0; }
             .cognito .c-forms-form-main { margin-top: 0; }
             .c-section:not(:first-child) { margin-top: 1rem; padding-top: 1rem; border-top: 2px solid #f9f9f9; }
             .c-section .c-title h3 { margin-bottom: 1rem; color: #484848; font-size: 20.45px; }
@@ -65,9 +65,15 @@ class Form extends React.Component {
                 padding: 0 !important;
                 margin-left: 0 !important;
             }
-            .cognito .c-forms-form button, .cognito .c-forms-form .c-add-item, .cognito .c-forms-form input[type="button"], .cognito .c-forms-form .c-fileupload-dropzone .c-upload-button button {
+
+            .cognito .c-forms-form button:not(.c-icon-button), .cognito .c-forms-form .c-add-item,
+            .cognito .c-forms-form input[type="button"],
+            .cognito .remove-icon circle,
+            .cognito .c-forms-form .c-fileupload-dropzone .c-upload-button button {
                 background-color: #484848;
                 border-color: #484848;
+                fill: #484848;
+                stroke: #484848;
             }
             *, .c-fileupload-dropzone-message, .c-upload-button  {
                 font-family: "Avenir Next", "Helvetica", "Arial", sans-serif !important;
@@ -140,13 +146,25 @@ class Form extends React.Component {
                 transition: all .2s ease-in-out;
                 border: 1px solid transparent;
             }
-            .cognito .c-forms-form .c-fileupload-dropzone .c-upload-button, .cognito .c-forms-form .c-fileupload-dropzone .c-upload-button:hover {
+            .cognito .c-forms-form .c-fileupload-dropzone .c-upload-button,
+            .cognito .c-forms-form .c-fileupload-dropzone .c-upload-button:hover,
+            .cognito .c-forms-form button:not(.c-icon-button):hover, .cognito .c-forms-form .c-add-item:hover {
                 background-color: #8a8a8a;
                 border-color: #8a8a8a;
                 color: #fff;
             }
+
+
+            .cognito .c-repeating-section-item-title {
+              margin-bottom: -3em;
+              margin-top: 0.5em;
+            }
+
+            .cognito .c-repeating-section-item-title h4 {
+              display: none;
+            }
         `);
-        cognito.prefill(this.props.prefills ? this.props.prefills.prefills : {}); 
+        cognito.prefill(this.props.prefills ? this.props.prefills.prefills : {});
     }
 }
 export default Form;

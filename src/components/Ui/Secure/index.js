@@ -47,8 +47,8 @@ export const CookieNagbar = appContext(class _cookieNagbar extends React.Compone
                             <p>{context.translate('privacy.overview')} <SmartLink to="/privacy">({context.translate('privacy.more-info')})</SmartLink></p>
                         </div>
                         <div className="options">
-                            <SmartLink to="/privacy" className="opt-out"><Icon.UiInfo /></SmartLink>
                             <Icon.UiOk onClick={() => this.acceptCookies()} />
+                            <SmartLink to="/privacy" className="opt-out"><Icon.UiInfo /></SmartLink>
                         </div>
                     </div>
             </div>)}
