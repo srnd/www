@@ -31,6 +31,8 @@
     "he": "^1.2.0",
     "hls.js": "git+https://github.com/srnd/hls.js.git",
     "jsonp": "^0.2.1",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.27",
     "node-sass": "^4.9.3",
     "react": "^16.5.2",
     "react-autocomplete": "^1.8.1",

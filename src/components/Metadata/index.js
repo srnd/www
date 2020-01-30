@@ -4,9 +4,9 @@ import Helmet from 'react-helmet'
 import favicon from "./favicon.png"
 
 const types = {
-    text: "twitter:summary",
-    image: "twitter:summary_large_image",
-    video: "twitter:player",
+    text: "summary",
+    image: "summary_large_image",
+    video: "player",
 };
 export default (props) => (
     <Helmet>
@@ -17,7 +17,7 @@ export default (props) => (
         <meta name="twitter:description" content={ props.metadata.description.description } />
         <meta property="og:image" content={ props.metadata.image.resize.src } />
         <meta name="twitter:image" content={ props.metadata.image.resize.src } />
-        <meta name="twitter:type" content={ types[props.metadata.type] } />
+        <meta name="twitter:card" content={ types[props.metadata.type] } />
         <meta name="twitter:site" content="@studentrnd" />
         <meta name="twitter:creator" content="@studentrnd" />
         <meta name="robots" content={props.noindex ? 'none' : 'index'} />

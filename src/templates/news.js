@@ -17,21 +17,21 @@ class NewsTemplate extends React.Component {
 
         return (
             <BaseTemplate slug={slug} audience='press' pageClass='release' data={data} locale={this.props.pageContext.lang}>
-                <Helmet title={post.title}>
-                    <meta property="og:title" content={ post.title } />
-                    <meta name="twitter:title" content={ post.title } />
-                    <meta name="description" content={ post.excerpt } />
+                <Helmet title={he.decode(post.title)}>
+                    <meta property="og:title" content={ he.decode(post.title) } />
+                    <meta name="twitter:title" content={ he.decode(post.title) } />
+                    <meta name="description" content={ he.decode(post.excerpt) } />
                     <meta property="og:description" content={ post.excerpt } />
                     <meta name="twitter:description" content={ post.excerpt } />
                     {post.featured_media ? [
                         <meta property="og:image" content={ post.featured_media.localFile.childImageSharp.fluid.src } />,
                         <meta name="twitter:image" content={ post.featured_media.localFile.childImageSharp.fluid.src } />
                     ]:null}
-                    <meta name="twitter:type" content="summary" />
+                    <meta name="twitter:card" content="summary" />
                     <meta name="twitter:site" content="@studentrnd" />
                     <meta name="twitter:creator" content="@studentrnd" />
                 </Helmet>
-                <PageHeader title={he.decode(post.title)} subtext={post.excerpt.replace(/<(?:.|\n)*?>/gm, '')} />
+                <PageHeader title={he.decode(post.title)} subtext={he.decode(post.excerpt.replace(/<(?:.|\n)*?>/gm, ''))} />
                 <div class="content">
                     <div class="inner">
                         <section class="primary">

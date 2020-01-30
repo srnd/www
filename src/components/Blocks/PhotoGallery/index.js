@@ -70,12 +70,10 @@ export const query = graphql`
                 ...GatsbyContentfulFluid_withWebp_noBase64
             }
             med: fluid(maxWidth: 500, maxHeight: 281, quality: 90) {
-                ...GatsbyContentfulFluid_withWebp_noBase64
-                ...GatsbyContentfulFluid_tracedSVG
+                ...GatsbyContentfulFluid_withWebp
             }
             full: fluid(maxWidth: 500, quality: 90) {
-                ...GatsbyContentfulFluid_withWebp_noBase64
-                ...GatsbyContentfulFluid_tracedSVG
+                ...GatsbyContentfulFluid_withWebp
             }
         }
     }

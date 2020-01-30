@@ -14,6 +14,7 @@ import DonationFormBlock from '../Blocks/DonationForm'
 import CtaBlock from '../Blocks/Cta'
 import SchemaForm from '../Blocks/SchemaForm'
 import SubNavigation from '../Blocks/SubNavigation'
+import WebinarBlock from '../Blocks/Webinar'
 
 export const ContentTagTypes = {
     ContentfulLayoutBlockHtml: HtmlBlock,
@@ -27,6 +28,7 @@ export const ContentTagTypes = {
     ContentfulLayoutBlockCta: CtaBlock,
     ContentfulLayoutBlockSchemaForm: SchemaForm,
     ContentfulLayoutBlockSubNavigation: SubNavigation,
+    ContentfulLayoutBlockWebinar: WebinarBlock,
 };
 
 export const mapItems = (items, props) => (
@@ -97,6 +99,10 @@ export const query = graphql`
             ... on ContentfulLayoutBlockSubNavigation {
                 key: id
                 ...SubNavigationBlockItems
+            }
+            ... on ContentfulLayoutBlockWebinar {
+              key: id
+              ...WebinarBlockItems
             }
         }
 

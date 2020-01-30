@@ -31,8 +31,11 @@ footer.navigation
         display: block
         width: 100%
         height: 23px
-  .links, .legal
+  .links
     +grid-column(2)
+  .legal
+    +grid-column(4)
+  .links, .legal
     text-align: right
     ul
       padding: 0
@@ -41,9 +44,6 @@ footer.navigation
         list-style-type: none
         a
           color: $color-gray-dark
-  +desktop
-    .legal
-      +grid-push(2)
   +mobile
     .info, .links, .legal
       +grid-column(4)

@@ -1,0 +1,33 @@
+@import "../../../styles/styles"
+
+div.webinar
+  @extend %featured
+  margin-bottom: 2rem
+  h3
+    margin: 0
+  h4
+    margin-top: 1rem
+
+  fieldset
+    border: none
+    padding: 0
+    input[type="email"]
+      @extend %input
+      float: left
+      border-top-right-radius: 0
+      border-bottom-right-radius: 0
+      width: 85%
+      +mobile
+        width: 75%
+
+    input[type="submit"], button[type="submit"]
+      @extend %button-cta
+      text-align: center
+      float: left
+      border-top-left-radius: 0
+      border-bottom-left-radius: 0
+      padding: 6px
+      padding-bottom: 7px
+      width: 15%
+      +mobile
+        width: 25%
