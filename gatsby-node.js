@@ -8,7 +8,9 @@ require('dotenv').config({
 });
 
 exports.createPages = ({ graphql, actions }) => {
-    const { createPage } = actions;
+    const { createPage, createRedirect } = actions;
+    createRedirect({ fromPath: '/', toPath: 'https://www.codeday.org/', redirectInBrowser: true });
+
 
     return new Promise((resolve, reject) => {
         resolve(graphql(`
@@ -40,6 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
             //////////
             const postTemplate = path.resolve(`src/templates/cms.js`);
             _.each(result.data.allContentfulLayout.edges, edge => {
+                if (edge.node.slug === '/') return;
                 createPage({
                     path: edge.node.slug,
                     component: postTemplate,

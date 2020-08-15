@@ -4,12 +4,9 @@ import appContext from '../../Context'
 import './index.sass'
 
 export const Featured = appContext(({ context, ...props }) => (
-    context.featuredAnnouncement ? (
-        // eslint-disable-next-line
-        <a className="featured-announcement" href={context.featuredAnnouncement.link} target="_blank" rel="noopener">
-            {context.featuredAnnouncement.title}
-        </a>
-    ): null
+    <a className="featured-announcement" href="https://www.codeday.org/" target="_blank" rel="noopener">
+        We're changing our name! Soon we'll be known as just "CodeDay". Visit the new site at CodeDay.org.
+    </a>
 ));
 
 export const query = graphql`
